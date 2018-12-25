@@ -75,14 +75,14 @@
 
 
 	
-	<scene name="scene_______3" title="天面3" onstart="" thumburl="panos/______3.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_tianmian3" title="tianmian3" onstart="" thumburl="panos/tianmian3.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/______3.tiles/preview.jpg" />
+		<preview url="panos/tianmian3.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/______3.tiles/pano_%s.jpg" />
+			<cube url="panos/tianmian3.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
