@@ -102,40 +102,37 @@
 
 	<scene name="scene_a5_tianmian" title="a5_tianmian" onstart="" thumburl="panos/a5_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view hlookat="102.906" vlookat="-8.627" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/a5_tianmian.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/a5_tianmian.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="115.866" atv="12.552" linkedscene="scene_a1_tianmian" />
 
 	</scene>
 	
 	<scene name="scene_a1_tianmian" title="a1_tianmian" onstart="" thumburl="panos/a1_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view hlookat="105.784" vlookat="1.430" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/a1_tianmian.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/a1_tianmian.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="114.304" atv="17.175" linkedscene="scene_a2_tianmian" />
 
 	</scene>
 
 	<scene name="scene_a2_tianmian" title="a2_tianmian" onstart="" thumburl="panos/a2_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view hlookat="45.419" vlookat="-5.009" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/a2_tianmian.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/a2_tianmian.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="38.980" atv="17.763" linkedscene="scene_a6_tianmian" />
 
 	</scene>
 
@@ -144,27 +141,25 @@
 
 	<scene name="scene_a6_tianmian" title="a6_tianmian" onstart="" thumburl="panos/a6_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view hlookat="5.757" vlookat="6.368" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/a6_tianmian.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/a6_tianmian.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="-20.643" atv="26.127" linkedscene="scene_a7_tianmian" />
 
 	</scene>
 
 	<scene name="scene_a7_tianmian" title="a7_tianmian" onstart="" thumburl="panos/a7_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
 
-		<view hlookat="-41.732" vlookat="10.170" fovtype="MFOV" fov="120.000" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/a7_tianmian.tiles/preview.jpg" />
 
 		<image>
 			<cube url="panos/a7_tianmian.tiles/pano_%s.jpg" />
 		</image>
-		<hotspot name="spot1" style="skin_hotspotstyle" ath="148.450" atv="18.248" linkedscene="scene_a3_tianmian" />
 
 	</scene>
 
