@@ -75,86 +75,14 @@
 
 
 	
-	<scene name="scene_a11_tianmian" title="a11_tianmian" onstart="" thumburl="panos/a11_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_tianmian2" title="tianmian2" onstart="" thumburl="panos/tianmian2.tiles/thumb.jpg" lat="" lng="" heading="">
 
 		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
-		<preview url="panos/a11_tianmian.tiles/preview.jpg" />
+		<preview url="panos/tianmian2.tiles/preview.jpg" />
 
 		<image>
-			<cube url="panos/a11_tianmian.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_a12_tianmian" title="a12_tianmian" onstart="" thumburl="panos/a12_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/a12_tianmian.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/a12_tianmian.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_a13_tianmian" title="a13_tianmian" onstart="" thumburl="panos/a13_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/a13_tianmian.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/a13_tianmian.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_a14_tianmian" title="a14_tianmian" onstart="" thumburl="panos/a14_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/a14_tianmian.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/a14_tianmian.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_a15_tianmian" title="a15_tianmian" onstart="" thumburl="panos/a15_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/a15_tianmian.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/a15_tianmian.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_a16_tianmian" title="a16_tianmian" onstart="" thumburl="panos/a16_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/a16_tianmian.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/a16_tianmian.tiles/pano_%s.jpg" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_a17_tianmian" title="a17_tianmian" onstart="" thumburl="panos/a17_tianmian.tiles/thumb.jpg" lat="" lng="" heading="">
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/a17_tianmian.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/a17_tianmian.tiles/pano_%s.jpg" />
+			<cube url="panos/tianmian2.tiles/pano_%s.jpg" />
 		</image>
 
 	</scene>
