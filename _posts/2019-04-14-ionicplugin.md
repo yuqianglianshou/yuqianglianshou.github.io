@@ -72,7 +72,7 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 
 > <br/>
 
-### 下面就是添加一个自定义插件了
+#### 下面就是添加一个自定义插件了
 
 > 1，创建一个插件，插件名字为 MyPlugin ，plugin_id = com.myapp.myplugin，它对应的是android中的目录结构，版本号设为0.0.1  
 > 
@@ -116,7 +116,7 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > <br/>
 > /MyPlugin 去掉就好了，插件名字为其他的，以此类推就行。
 
-### 下面，将这个插件和项目挂钩。  
+#### 下面，将这个插件和项目挂钩。  
 > 
 > 退回到项目根目录
 > 
@@ -134,7 +134,7 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > <br/>
 ![](/images/posts/ionicplugin/as_1.jpg)
 > <br/>  
-### 下面试着用下
+#### 下面试着用下
 > <br/> 
 > 现在ionic端添加下调用代码，先在home.html中加一个button 
 ```java
