@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>劉清揚</title>
+    <description>欢迎来到我的个人站~</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 24 May 2019 16:20:51 +0800</pubDate>
+    <lastBuildDate>Fri, 24 May 2019 16:20:51 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Android实现小视频的录制和预览，界面和功能靠拢微信。</title>
+        <description>&lt;h3 id=&quot;不过是看淡利益看穿时间推己及人&quot;&gt;不过是看淡利益，看穿时间，推己及人。&lt;/h3&gt;
+
+&lt;p&gt;先看一下效果图： 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;img src=&quot;/images/posts/record_video/recordvideo2.jpeg&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;img src=&quot;/images/posts/record_video/recordvideo1.jpeg&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;img src=&quot;/images/posts/record_video/recordvideo3.jpeg&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;1，实现的功能&lt;/p&gt;
+
+&lt;p&gt;a)全屏幕预览录制播放。&lt;br /&gt;
+b)录制时间可定制（本实例15秒），录制按钮动画效果。&lt;br /&gt;
+c)录制完成即刻播放，可保存删除文件。&lt;br /&gt;
+d)录制按钮可以随意拖动复位。&lt;/p&gt;
+
+&lt;p&gt;2，可拓展的功能&lt;/p&gt;
+
+&lt;p&gt;a)可添加点击拍照功能。&lt;br /&gt;
+b)可添加开关闪关灯功能。&lt;br /&gt;
+c)对焦功能。（缺陷）&lt;br /&gt;
+d)可添加播放暂停功能。&lt;br /&gt;
+e)可分段录制，拼接视屏。&lt;/p&gt;
+
+&lt;p&gt;3，未实现的微信效果&lt;/p&gt;
+
+&lt;p&gt;a)录制视频时，拖动录制按钮实现焦距调整。&lt;br /&gt;
+b)视频压缩。&lt;/p&gt;
+
+&lt;p&gt;4，注意事项&lt;/p&gt;
+
+&lt;p&gt;a)本例以goole官方Camera2视频录制demo为原型修改，链接如下&lt;br /&gt;
+ &lt;a href=&quot;https://github.com/googlesamples/android-Camera2Video&quot;&gt;googlesamples/android-Camera2Video&lt;/a&gt;&lt;br /&gt;
+ API Camera2,minSdkVersion 21，支持5.0以上。&lt;br /&gt;
+b)自定义view 录制button 摘自
+&lt;a href=&quot;https://github.com/Zhaoss/WeiXinRecordedDemo&quot;&gt;Zhaoss/WeiXinRecordedDemo&lt;/a&gt;&lt;br /&gt;
+此实例是基于ffmpeg的视频录制编辑，功能很强大，但是其中的 libutility.so 年代过于久远，android6.0以上启动调用时会给出 
+Detected problems with app native libraries (please consult log for detail):libutility.so:text relocations  这个错误提示，是由于 .so 包的问题，作者表示解决不了，我去官网查过，好多年没有更新维护的动态了。但是关闭错误的dialog是可以使用的，视频的拼接 涂鸦 压缩 等等都是支持的。&lt;br /&gt;
+c)SurfaceView尺寸、Previewsize 、Picturesize 的选择方式。原则是比例一致，选择屏幕尺寸大小，期间有一些问题，demo中有详细注释。&lt;/p&gt;
+
+&lt;p&gt;5，demo github 链接&lt;br /&gt;
+&lt;a href=&quot;https://github.com/yuqianglianshou/RecordVideoDemo&quot;&gt;yuqianglianshou/RecordVideoDemo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/05/record_view/&quot;&gt; Android实现小视频的录制和预览，界面和功能靠拢微信。 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 21 May 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/record_view/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/record_view/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Mac 系统上搭建ionic需要的环境变量配置</title>
+        <description>&lt;h3 id=&quot;很远远到海枯以后远到余生已逝&quot;&gt;很远，远到海枯以后，远到余生已逝。&lt;/h3&gt;
+
+&lt;p&gt;打开你的终端，输入如下命令，如果都存在，此文不必看了。&lt;br /&gt;
+echo $JAVA_HOME&lt;br /&gt;
+echo $ANDROID_HOME&lt;br /&gt;
+echo $GRADLE_HOME&lt;br /&gt;
+我的运行结果：&lt;br /&gt;
+qingyang:~ ling$ echo $JAVA_HOME&lt;br /&gt;
+/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home&lt;br /&gt;
+qingyang:~ ling$ echo $ANDROID_HOME &lt;br /&gt;
+/Volumes/D/androidSDK&lt;br /&gt;
+qingyang:~ ling$ echo $GRADLE_HOME&lt;br /&gt;
+/Volumes/D/gradleHome/gradle-3.3&lt;br /&gt;
+如果没有配置过，看到的都是空，那需要配置下了，不然ionic跑不通的。&lt;/p&gt;
+
+&lt;p&gt;1，JAVA_HOME&lt;/p&gt;
+
+&lt;p&gt;检测是否安装了java环境&lt;br /&gt;
+java -version&lt;br /&gt;
+我的版本：&lt;br /&gt;
+qingyang:~ ling$ java -version&lt;br /&gt;
+java version “1.8.0_211”&lt;br /&gt;
+Java(TM) SE Runtime Environment (build 1.8.0_211-b12)&lt;br /&gt;
+Java HotSpot(TM) 64-Bit Server VM (build 25.211-b12, mixed mode)&lt;br /&gt;
+没有则自行安装，下载地址 https://www.oracle.com/technetwork/java/javase/downloads/index.htm  &lt;br /&gt;
+界面上选择  Java SE 8u211 / Java SE 8u212 （此时是19年4月份的版本） 这个样子的，DOWNLOAD 上是JDK，不是Oracle JDK，请注意。&lt;/p&gt;
+
+&lt;p&gt;找到安装路径&lt;br /&gt;
+打开finder（访达），找到 资源库文件夹，资源库中寻找 Java文件夹，然后是 JavaVirtualMachines文件夹，打开出现你的jdk文件夹，我的是 jdk1.8.0_211.jdk；或者打开finder，快捷键command+shift+G,作用是快速打开文件路径，输入  /Library/Java/JavaVirtualMachines/ ，直接打开jdk的文件夹。记住你的文件夹，即你的jdk版本。&lt;br /&gt;
+然后终端输入&lt;br /&gt;
+open .bash_profile&lt;br /&gt;
+打开你的配置文件，如果之前不曾配置过环境变量，是一个空文本，如果没有创建过，执行&lt;br /&gt;
+touch .bash_profile&lt;br /&gt;
+创建一个。在打开的文件中添加如下文本&lt;/p&gt;
+
+&lt;p&gt;JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home&lt;br /&gt;
+PATH=$JAVA_HOME/bin:$PATH:.&lt;br /&gt;
+CLASSPATH=JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.&lt;br /&gt;
+export JAVA_HOME&lt;br /&gt;
+export PATH&lt;br /&gt;
+export CLASSPATH&lt;/p&gt;
+
+&lt;p&gt;其中的 路径 jdk1.8.0_211.jdk 替换你自己的，command+S 保存下，&lt;br /&gt;
+终端输入&lt;br /&gt;
+source .bash_profile&lt;br /&gt;
+即可生效，验证下&lt;br /&gt;
+echo $JAVA_HOME&lt;br /&gt;
+结果&lt;br /&gt;
+qingyang:~ ling$ echo $JAVA_HOME&lt;br /&gt;
+/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home&lt;/p&gt;
+
+&lt;p&gt;JAVA_HOME 配置完成。&lt;/p&gt;
+
+&lt;p&gt;2，ANDROID_HOME&lt;/p&gt;
+
+&lt;p&gt;自行找到自己的Android sdk保存路径，我的是 /Volumes/D/androidSDK。&lt;br /&gt;
+依然打开 .bash_profile 这个文件，没有关闭的继续编辑，在后面追加&lt;/p&gt;
+
+&lt;p&gt;ANDROID_HOME=/Volumes/D/androidSDK&lt;br /&gt;
+export ANDROID_HOME&lt;br /&gt;
+export PATH=${PATH}:${ANDROID_HOME}/tools&lt;br /&gt;
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools&lt;/p&gt;
+
+&lt;p&gt;保存.bash_profile文件，终端验证&lt;br /&gt;
+source .bash_profile&lt;br /&gt;
+echo $ANDROID_HOME&lt;/p&gt;
+
+&lt;p&gt;qingyang:~ ling$ echo $ANDROID_HOME&lt;br /&gt;
+/Volumes/D/androidSDK&lt;/p&gt;
+
+&lt;p&gt;ANDROID_HOME 配置完成。&lt;/p&gt;
+
+&lt;p&gt;3，GRADLE_HOME&lt;/p&gt;
+
+&lt;p&gt;下载地址 https://gradle.org/releases/  &lt;br /&gt;
+找到需要的版本，下载，解压，找一个目录，将解压后的文件粘贴过去，作为你的GRADLE_HOME，&lt;br /&gt;
+我放在了 /Volumes/D/gradleHome/gradle-3.3 这里。&lt;br /&gt;
+依然打开 .bash_profile 这个文件，没有关闭的继续编辑，在后面追加&lt;/p&gt;
+
+&lt;p&gt;GRADLE_HOME=/Volumes/D/gradleHome/gradle-3.3&lt;br /&gt;
+export GRADLE_HOME&lt;br /&gt;
+export PATH=$PATH:$GRADLE_HOME/bin&lt;/p&gt;
+
+&lt;p&gt;保存.bash_profile文件，终端验证&lt;br /&gt;
+source .bash_profile&lt;br /&gt;
+echo $GRADLE_HOME&lt;/p&gt;
+
+&lt;p&gt;qingyang:~ ling$ echo $GRADLE_HOME &lt;br /&gt;
+/Volumes/D/gradleHome/gradle-3.3&lt;/p&gt;
+
+&lt;p&gt;GRADLE_HOME 配置完成。&lt;/p&gt;
+
+&lt;p&gt;至此，运行 ionic cordova build android 命令的环境变量妥了。然而后面的路还很长。。&lt;/p&gt;
+
+&lt;h3 id=&quot;最终我的-bash_profile-文件中的内容是这样的&quot;&gt;最终我的 .bash_profile 文件中的内容是这样的&lt;/h3&gt;
+
+&lt;p&gt;JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home&lt;br /&gt;
+PATH=$JAVA_HOME/bin:$PATH:.&lt;br /&gt;
+CLASSPATH=JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.&lt;br /&gt;
+export JAVA_HOME&lt;br /&gt;
+export PATH&lt;br /&gt;
+export CLASSPATH&lt;/p&gt;
+
+&lt;p&gt;ANDROID_HOME=/Volumes/D/androidSDK&lt;br /&gt;
+export ANDROID_HOME&lt;br /&gt;
+export PATH=${PATH}:${ANDROID_HOME}/tools&lt;br /&gt;
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools&lt;/p&gt;
+
+&lt;p&gt;GRADLE_HOME=/Volumes/D/gradleHome/gradle-3.3&lt;br /&gt;
+export GRADLE_HOME&lt;br /&gt;
+export PATH=$PATH:$GRADLE_HOME/bin&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/04/ionic-environmental-configuration/&quot;&gt; Mac 系统上搭建ionic需要的环境变量配置 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 30 Apr 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/04/ionic-environmental-configuration/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/ionic-environmental-configuration/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Mac 上使用 Gem 安装sass报错</title>
+        <description>&lt;h3 id=&quot;never-settle&quot;&gt;Never settle.&lt;/h3&gt;
+
+&lt;p&gt;1，先看一下资源库的位置&lt;br /&gt;
+gem source&lt;br /&gt;
+如果当前位于 https://rubygems.org/，由于国内环境问题，需要换下，&lt;br /&gt;
+A，先删除原来的资源库&lt;br /&gt;
+gem sources -r https://rubygems.org/&lt;br /&gt;
+B，添加新的资源库&lt;br /&gt;
+gem sources -a https://gems.ruby-china.com/&lt;br /&gt;
+（顺带提一下，以前用的是 https://ruby.taobao.org/  ，目前已经停止维护，会报错的。）&lt;br /&gt;
+C，更新下&lt;br /&gt;
+gem sources -u&lt;/p&gt;
+
+&lt;p&gt;2，我试着安装sass：&lt;br /&gt;
+gem install sass&lt;br /&gt;
+报错：目录权限不够。&lt;br /&gt;
+ERROR:  While executing gem … (Gem::FilePermissionError)You don’t have write permissions for the 
+/Library/Ruby/Gems/2.3.0 directory.&lt;br /&gt;
+执行：&lt;br /&gt;
+sudo chmod 777 /Library/Ruby/Gems/2.3.0&lt;/p&gt;
+
+&lt;p&gt;3，我依然想安装sass：&lt;br /&gt;
+gem install sass&lt;br /&gt;
+依然报错：更新下吧。&lt;br /&gt;
+Fetching: ffi-1.10.0.gem (100%)&lt;br /&gt;
+ERROR:  While executing gem … (Errno::EACCES)&lt;br /&gt;
+    Permission denied @ rb_sysopen - /Library/Ruby/Gems/2.3.0/cache/ffi-1.10.0.gem&lt;br /&gt;
+执行：&lt;br /&gt;
+sudo gem update -system&lt;/p&gt;
+
+&lt;p&gt;到这里应该就可以了，检查下版本&lt;br /&gt;
+gem -v&lt;br /&gt;
+我的是&lt;br /&gt;
+2.5.2.3&lt;/p&gt;
+
+&lt;p&gt;顺带提一下，Ruby 是一种脚本语言。而Gem是基于Ruby的一些开发工具包。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/04/gem-err/&quot;&gt; Mac 上使用 Gem 安装sass报错 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 28 Apr 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/04/gem-err/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/gem-err/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>ionic建一个项目自定义一个插件</title>
+        <description>&lt;h3 id=&quot;难道我们的青春就这样结束了吗难道就这样了么&quot;&gt;难道我们的青春就这样结束了吗？难道就这样了么？&lt;/h3&gt;
+&lt;h2 id=&quot;本文目的创建一个带有android端自定义插件的ionic空项目&quot;&gt;本文目的：创建一个带有android端自定义插件的ionic空项目&lt;/h2&gt;
+&lt;h4 id=&quot;先来创建一个带有android端的ionic空项目&quot;&gt;先来创建一个带有android端的ionic空项目&lt;/h4&gt;
+
+&lt;p&gt;Demo地址： &lt;a href=&quot;https://github.com/yuqianglianshou/IonicPluginDemo&quot;&gt;https://github.com/yuqianglianshou/IonicPluginDemo&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1，E盘新建一个文件夹，起名为 IonicDemo ，作为工作空间，以后ionic项目demo都可以放到这里。&lt;br /&gt;
+2，打开Visual Studio Code(以下用简称 VSCode),左上角 文件——》打开文件夹，选择刚刚新建的 E:\IonicDemo。&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/ionic_1.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;3，控制台终端 执行&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;E:\IonicDemo&amp;gt;ionic start myApp blank&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;创建一个空白的项目，名称为myApp，期间提示 &lt;br /&gt;
+Try Ionic 4? n&lt;br /&gt;
+Integrate your new app with Cordova to target native iOS and Android? y&lt;br /&gt;
+Install the free Ionic Pro SDK and connect your app? n&lt;br /&gt;
+如果没有报错，几分钟之后我们就得到了一个ionic项目。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这还有几个其他命令，&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ionic start myApp blank（空项目）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ionic start myApp tabs（带导航条）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ionic start myApp sidemenu（带侧滑菜单）&lt;/p&gt;
+
+  &lt;p&gt;你最初的样子&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/xiangmuxinjianwancheng.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;4，添加android平台&lt;br /&gt;
+先来定义包名，默认的包名是在config.xml中的io.ionic.starter，如图（此图是已经添加了插件和android端后的截图）：&lt;/p&gt;
+
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/package.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在生成android平台前修改为自己未来项目的包名，例如  com.gosky，&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;然后进入项目目录&lt;/p&gt;
+
+  &lt;p&gt;E:\IonicDemo&amp;gt;cd myApp&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;添加android平台&lt;/p&gt;
+
+  &lt;p&gt;E:\IonicDemo\myApp&amp;gt;ionic cordova platform add android&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;成功之后myApp目录下多一个platforms 目录，里面有android相关项目代码。&lt;/p&gt;
+
+  &lt;p&gt;5，至此，我们已经新建了一个带有android端的ionic空项目，测试一下，浏览器运行执行&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;E:\IonicDemo\myApp&amp;gt;ionic serve&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/liulanqi.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;模拟器或手机运行执行&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;E:\IonicDemo\myApp&amp;gt;ionic cordova run android&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;下面就是添加一个自定义插件了&quot;&gt;下面就是添加一个自定义插件了&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;1，创建一个插件，插件名字为 MyPlugin ，plugin_id = com.myapp.myplugin，它对应的是android中的目录结构，版本号设为0.0.1&lt;/p&gt;
+
+  &lt;p&gt;E:\IonicDemo\myApp&amp;gt;plugman create –name MyPlugin –plugin_id com.myapp.myplugin –plugin_version 0.0.1&lt;/p&gt;
+
+  &lt;p&gt;在项目根目录下，即E:\IonicDemo\myApp\ ，多出一个MyPlugin文件。&lt;/p&gt;
+
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/plugin1.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;2,进入到自定义的plugin目录中添加android部分。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;E:\IonicDemo\myApp&amp;gt;cd MyPlugin&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;E:\IonicDemo\myApp\MyPlugin&amp;gt;plugman platform add –platform_name android&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;然后添加packagejson文件&lt;/p&gt;
+
+  &lt;p&gt;E:\IonicDemo\myApp\MyPlugin&amp;gt;plugman createpackagejson E:\IonicDemo\myApp\MyPlugin&lt;/p&gt;
+
+  &lt;p&gt;然后会提示填写插件信息，包括作者描述信息啥的，一路回车就ok。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/pluginfinish.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+至此，一个带有android端的自定义插件完成，此时这个插件和项目还没有任何关系，他只是放在了项目的根目录下，你可以剪切复制到任何地方，包括生成时，你可以进入到任何目录去生成（看好终端路径的对应关系）。&lt;br /&gt;
+但是，默认的plugin.xml配置的CordovaPlugin实现类是有问题的，这里有问题，如图：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/packageerr0.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;当然也可以运行 但有时Corodva会报找不到插件的错误,一旦安装了这个插件后，在AndroidStudio上也会有报错提示，如图：&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/packageerr.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+不过运行是没问题的。但是恶心啊，所以，还是改了吧，将这里的&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/packageerr0.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+/MyPlugin 去掉就好了，插件名字为其他的，以此类推就行。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;下面将这个插件和项目挂钩&quot;&gt;下面，将这个插件和项目挂钩。&lt;/h4&gt;
+&lt;blockquote&gt;
+
+  &lt;p&gt;退回到项目根目录&lt;/p&gt;
+
+  &lt;p&gt;E:\IonicDemo\myApp\MyPlugin&amp;gt;cd ..&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;添加插件&lt;/p&gt;
+
+  &lt;p&gt;E:\IonicDemo\myApp&amp;gt;cordova plugin add E:\IonicDemo\myApp\MyPlugin&lt;/p&gt;
+
+  &lt;p&gt;完成后根目录下的plugins文件夹下会有我们自定义的插件，如图：&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/pluginionicjiegou.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;
+在AS中打开&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/as_1.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;h4 id=&quot;下面试着用下&quot;&gt;下面试着用下&lt;/h4&gt;
+  &lt;p&gt;&lt;br /&gt; 
+现在ionic端添加下调用代码，先在home.html中加一个button&lt;/p&gt;
+  &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;onClickBtn()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;调用&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;原生&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/ioniccode1.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;home.ts中加上声明&lt;/p&gt;
+  &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;n&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;window:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+  &lt;p&gt;点击事件&lt;/p&gt;
+  &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;onClickBtn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cordova&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//一种写法  &lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// 调用的方法名和参数对应关系来自于 根目录下\plugins\你的插件\www\插件名字.js &lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// exports.coolMethod = function (arg0, success, error) {&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//   exec(success, error, 'MyPlugin', 'coolMethod', [arg0]);&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// };&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cordova&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;MyPlugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;coolMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;你帅气么？&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;success_msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;原生返回成功信息 == &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;success_msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error_msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;原生返回失败信息 == &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error_msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//又一种写法&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// window.cordova.plugins.MyPlugin.coolMethod(&quot;ionic 传递到原生的参数&quot;,&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//   (reply_success: any) =&amp;gt; {&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//     console.log(&quot;reply_success == &quot; + JSON.stringify(reply_success));&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//   },&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//   (reply_error: any) =&amp;gt; {&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//     console.log(&quot;reply_error == &quot; + JSON.stringify(reply_error));&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//   }&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// );&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;非移动设备&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/ioniccode2.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+当然要用AS回答一下问题了&lt;/p&gt;
+  &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;你帅气么？&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;callbackContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;当然啦&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;n&quot;&gt;callbackContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+  &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/as_2.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+此时，作为一名android开发的我，终于可以在AS中写代码了，那ionic的代码，着实让我头疼，甚是头疼。
+&lt;br /&gt; 
+手机运行截图：&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/ionicplugin/phone.png&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/04/ionicplugin/&quot;&gt; ionic建一个项目自定义一个插件 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 14 Apr 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/04/ionicplugin/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/ionicplugin/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>ionic初识</title>
+        <description>&lt;h3 id=&quot;背景音乐-童话镇&quot;&gt;背景音乐 童话镇。&lt;/h3&gt;
+&lt;h2 id=&quot;本文目的对ionic框架有那么点了解&quot;&gt;本文目的：对ionic框架有那么点了解&lt;/h2&gt;
+
+&lt;p&gt;1，以AngularJS和Apache Cordova 为基础，使用Node.js进行模块管理，使用HEML5、CSS(Sass)和JavaScript技术进行App开发。&lt;br /&gt;
+2，node.js 是基于chrome v8 javascrip engine 构建的一个javascript runtime，特点是事件驱动、非阻塞等。npm 是node.js中的JavaScript包管理。&lt;br /&gt;
+3，它们在混合开发中扮演的是不同的角色–Ionic/Angular负责页面的实现，而Cordova负责将实现的页面包装成原生应用（Android:apk；iOS:ipa）。&lt;br /&gt;
+Cordova插件的作用是提供一个桥梁供页面和原生通信，首先我们的页面没有直接调用设备能力，所以需要与能够调用设备能力的原生代码（Android:Java；iOS:OC）通信，此时就需要Cordova插件了。&lt;/p&gt;
+
+&lt;p&gt;Cordova插件能够在任何Cordova工程中使用，和使用什么前端框架（如Ionic）无关。&lt;/p&gt;
+
+&lt;p&gt;Ionic 2中封装了Ionic Native，方便了Cordova插件的使用，但在Ionic 2中仍然可以像Ionic 1中一样使用Cordova插件，Ionic Native不是必须的。&lt;br /&gt;
+4，ionic是什么：&lt;/p&gt;
+
+&lt;p&gt;Ionic(ionicframework)一款开源的Html5移动App开发框架,是AngularJS移动端解决方案,Ionic以流行的跨平台移动app开发框架phoengap为蓝本，让开发者可以通过命令行工具快速生成android  ios移动app应用。&lt;br /&gt;
+5，phoengap（cordova的核心技术）是什么？&lt;/p&gt;
+
+&lt;p&gt;phonegap是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用iPhone，Android，Palm，Symbian,WP7,WP8,Bada和Blackberry智能手机的核心功能——包括地理定位，加速器，联系人，声音和振动.&lt;/p&gt;
+
+&lt;p&gt;6，通俗的讲：ionic是一款基于angularjs的html5移动app开发框架，&lt;/p&gt;
+
+&lt;p&gt;phonegap就是一款可以打包并且可以让js调用原生的移动app框架。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/04/ionic/&quot;&gt; ionic初识 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 13 Apr 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/04/ionic/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/ionic/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Android 新建txt被WPS提示打开？</title>
+        <description>&lt;h3 id=&quot;我必然有我的本性&quot;&gt;我，必然有我的本性。&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;
+领到一需求，大概意思是进入到一个界面以后，以txt文本格式保存一些信息到sd卡上。&lt;br /&gt;
+三下五除二，保存到sd卡Download下了。&lt;br /&gt;
+很简单，却出了个棘手的问题：程序写完txt以后，手机上安装的 WPS 提示是否打开。这就尴尬了，并不想让用户感知这个txt的。
+&lt;br /&gt;&lt;/p&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_wps_open_txt/2.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt; 
+咋办呢，问问金山客服，走一波电话：400-677-5005，态度不错，不过没解决问题，给了个qq群，138747884，遂加，问曰：&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_wps_open_txt/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_wps_open_txt/3.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;WPS雷达功能对一些公共文件夹有监听，自己建个文件夹，将txt保存到自己建的文件夹就行了，机智如我。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/03/android-wps-open-txt/&quot;&gt; Android 新建txt被WPS提示打开？ &lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 27 Mar 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/03/android-wps-open-txt/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/03/android-wps-open-txt/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>krpano 生成全景漫游样例</title>
+        <description>&lt;h3 id=&quot;宁可枝头抱香死不曾吹落北风中&quot;&gt;宁可枝头抱香死，不曾吹落北风中。&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;
+下图是由小米全景相机拍摄生成的全景图，分辨率为 6912x3456&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/krpano/xiaomicamera6912px3456px.jpg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;http://xiongzhoudadi.com/krpano/vtour_wanhong_demo/tour.html&quot;&gt;点击查看krpano处理效果&lt;/a&gt; &lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+下图是百度的一张全景图，分辨率为 2500x1250&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/krpano/internet_room2500px1250px.jpg&quot; alt=&quot;1123&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;http://xiongzhoudadi.com/krpano/vtour_wanhong_demo/tour.html&quot;&gt;点击查看krpano处理效果，模式VTOUR(NORMAL)&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;http://xiongzhoudadi.com/krpano/pano_nomal_room_2500_1250/index.html&quot;&gt;点击查看krpano处理效果，模式PANO(NORMAL)&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2018/12/krpano/&quot;&gt;krpano 生成全景漫游样例&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 23 Dec 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/12/krpano/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/12/krpano/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Android 一个无法理解的 non-zero exit value 1</title>
+        <description>&lt;h3 id=&quot;醒来明月醉时清风---元好问&quot;&gt;醒来明月，醉时清风。  – 元好问&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt;
+看下令人恶心的报错信息  Process ‘command ‘D:\sdk\build-tools\25.0.0\aapt.exe’’ finished with non-zero exit value 1
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_non_zero_exit_value_1/error1.png&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src=&quot;/images/posts/android_non_zero_exit_value_1/error2.png&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+又是一个神奇的bug，我总是如此的幸运，以至于幸运女神已经对我爱答不理。&lt;br /&gt;
+又是搜罗了一堆此报错的原因，比如资源文件引用错误，资源命名格式错误，Build Tools Version 版本未选择，版本错误等等，全部一一检查试过，依然没解决问题。
+我触发这个问题的环境：&lt;br /&gt;
+1，AS版本 3.2.1. &lt;br /&gt;
+2，导入他人的项目。 &lt;br /&gt;
+3，是一个ionic混合开发项目，android部分。 &lt;br /&gt;
+原代码是这样的，这是没问题的： &lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;40dp&quot;&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#aa363B41&quot;&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paddingRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;12dp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/iv_b&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_alignParentRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerVertical&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/camera&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerInParent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_marginRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;16dp&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_toLeftOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/iv_b&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/flash_off&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;简单说下，一个 RelativeLayout 中放了两个图标，B 放在父布局的最右侧，A 放在B 的左侧，预览的视觉效果就是横向排列的    图标A 图标B，我是一个有点强迫症的选手，既然是 图标A 图标B 这样的，代码也要按这个顺序啊，于是顺手换了下位置，改成了这样的  &lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;40dp&quot;&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#aa363B41&quot;&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paddingRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;12dp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerInParent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_marginRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;16dp&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_toLeftOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/iv_b&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/flash_off&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/iv_b&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_alignParentRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerVertical&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/camera&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;这你妹的不可能有问题啊，继续加了其他功能布局，一运行，呵呵，出于对自己年龄的考虑，可能老了，犯了点低级错误吧，一点点看，没问题，一点点屏蔽写了的东西，调试，最后就剩这点改动了，还是报错，我勒个去，这点自信我还是有的，这不可能有问题啊，实在没招了，重新svn下载，另起文件夹运行，没问题！那就这点不一样了，于是我抱着试一试的完全不相信的态度换了回去，一运行，挖槽，成了！这这这。。。怎么可能，违背我多年的信仰啊！赶紧新建了个android项目，把相同的报错的代码导进去，运行，没问题！这就尴尬了，这个错只在这个项目里出现，我已有的知识体系已经无法说明这个问题了，问了一个哥们，哥们说可能是编译方式、过程啊啥的问题，并且说你把报错的那个android:layout_toLeftOf=”@id/iv_b”  中@id 改为@+id 试试，我试试吧，确实就不报错了，哎，可怜了我整个上午的时光。
+&lt;br /&gt;&lt;/p&gt;
+  &lt;h2 id=&quot;解决方案&quot;&gt;解决方案：&lt;/h2&gt;
+  &lt;p&gt;一，把位置改回去。&lt;br /&gt;
+二，把 android:layout_toLeftOf=”@id/iv_b”  改为 android:layout_toLeftOf=”@+id/iv_b” 。&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;如果你按这样的方式解决了的话，呵呵，你是幸运的。&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2018/12/android-non-zero-exit-value-1/&quot;&gt; Android 一个无法理解的 non-zero exit value 1 &lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Dec 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/12/android-non-zero-exit-value-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/12/android-non-zero-exit-value-1/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>不蒜子失效</title>
+        <description>&lt;h3 id=&quot;清扬-婉兮&quot;&gt;清扬 婉兮&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;
+突然发现静态网页计数器不蒜子失效了，进入官网找到原因：&lt;br /&gt;
+因七牛强制过期『dn-lbstatics.qbox.me』域名，与客服沟通无果，只能更换域名到『busuanzi.ibruce.info』！&lt;br /&gt;
+需要将页面中的&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;修改为&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;就好了。&lt;br /&gt;
+&lt;a href=&quot;http://busuanzi.ibruce.info/&quot;&gt;不蒜子链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2018/11/blog-busuanzi/&quot;&gt; 不蒜子失效 &lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 04 Nov 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/11/blog-busuanzi/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/11/blog-busuanzi/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>博客提交</title>
+        <description>&lt;h3 id=&quot;现在的你是否还顾及的上曾经的理想&quot;&gt;现在的你，是否还顾及的上曾经的理想？&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;
+1，jekyll搭建的博客目录下右键  Git Bash Here&lt;/p&gt;
+
+&lt;p&gt;2， 运行服务 jekyll serve&lt;/p&gt;
+
+&lt;p&gt;3，浏览器打开  http://127.0.0.1:4000/&lt;/p&gt;
+
+&lt;p&gt;1， git branch        —–查看当前分支&lt;/p&gt;
+
+&lt;p&gt;2， git pull          —–更新代码到本地&lt;/p&gt;
+
+&lt;p&gt;4， git add .         —–提交到暂存区&lt;/p&gt;
+
+&lt;p&gt;5，  git commit -m “更新日志”   —–提交到本地仓库&lt;/p&gt;
+
+&lt;p&gt;6，  git push origin master    —–提交到远程仓库&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2018/10/blog-commit/&quot;&gt; 博客提交 &lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 19 Oct 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/blog-commit/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/blog-commit/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
