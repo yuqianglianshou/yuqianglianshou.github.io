@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>dota回忆录</title>
-  <meta name="description" content="高处不胜寒古人云：网游穷三代，dota毁一生。寂寞女生穿丝袜，寂寞男生打dota。不玩的自然当做欢乐，喜欢玩的自然都懂，今天又看了一遍见血封喉的dota回忆录，那是个属于我们的时代， 那是个热血沸腾的年代。">
+  <title>初识 Kotlin 的不解</title>
+  <meta name="description" content="如果不曾早起，可以静观六点的晨光。1.Kotlin(维基百科)  Kotlin是一种在Java虚拟机上运行的静态类型编程语言，它也可以被编译成为JavaScript源代码。它主要是由俄罗斯圣彼得堡的JetBrains开发团队所发展出来的编程语言，其名称来自于圣彼得堡附近的科特林岛。[3]2012年1月，著名期刊《...">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="dota回忆录">
-  <meta name="twitter:description" content="高处不胜寒古人云：网游穷三代，dota毁一生。寂寞女生穿丝袜，寂寞男生打dota。不玩的自然当做欢乐，喜欢玩的自然都懂，今天又看了一遍见血封喉的dota回忆录，那是个属于我们的时代， 那是个热血沸腾的年代。">
+  <meta name="twitter:title" content="初识 Kotlin 的不解">
+  <meta name="twitter:description" content="如果不曾早起，可以静观六点的晨光。1.Kotlin(维基百科)  Kotlin是一种在Java虚拟机上运行的静态类型编程语言，它也可以被编译成为JavaScript源代码。它主要是由俄罗斯圣彼得堡的JetBrains开发团队所发展出来的编程语言，其名称来自于圣彼得堡附近的科特林岛。[3]2012年1月，著名期刊《...">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="dota回忆录">
-  <meta property="og:description" content="高处不胜寒古人云：网游穷三代，dota毁一生。寂寞女生穿丝袜，寂寞男生打dota。不玩的自然当做欢乐，喜欢玩的自然都懂，今天又看了一遍见血封喉的dota回忆录，那是个属于我们的时代， 那是个热血沸腾的年代。">
+  <meta property="og:title" content="初识 Kotlin 的不解">
+  <meta property="og:description" content="如果不曾早起，可以静观六点的晨光。1.Kotlin(维基百科)  Kotlin是一种在Java虚拟机上运行的静态类型编程语言，它也可以被编译成为JavaScript源代码。它主要是由俄罗斯圣彼得堡的JetBrains开发团队所发展出来的编程语言，其名称来自于圣彼得堡附近的科特林岛。[3]2012年1月，著名期刊《...">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2018/07/dota/">
+  <link rel="canonical" href="http://localhost:4000/2018/05/kotlin/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -166,10 +166,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">dota回忆录</h1>
+    <h1 class="post-title">初识 Kotlin 的不解</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2018-07-07 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-07-07</time>  
+      <time datetime="2018-05-31 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-05-31</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -177,22 +177,104 @@
   </header>
 
   <section class="post">
-    <h3 id="高处不胜寒">高处不胜寒</h3>
-<p>古人云：网游穷三代，dota毁一生。寂寞女生穿丝袜，寂寞男生打dota。不玩的自然当做欢乐，喜欢玩的自然都懂，今天又看了一遍见血封喉的dota回忆录，那是个属于我们的时代， 那是个热血沸腾的年代。</p>
+    <h3 id="如果不曾早起可以静观六点的晨光">如果不曾早起，可以静观六点的晨光。</h3>
 
-<p>史书记载:是役风暴之灵于百万军中三进三出，打掉重生盾一枚，奶酪两块，先后残影、涡流，击毙天灾上将四员，士兵无算，两度买活，疯狂杀戮，带领队友团灭天灾。而己方也有先后四人次阵亡。
- 此役战局之惨烈，战况之悲壮，直叫风云为之色变，大地为之颤抖，此战过后，天灾小儿夜闻蓝猫之名止啼，海加尔山上下更是盛传民谣：名师大将莫自牢，千军万马避蓝猫!<br />
-剑雪封喉回忆录第七期爹妈大战<br />
-<br />
-<img src="/images/posts/dota/dota2.jpg" alt="" /></p>
+<p>1.Kotlin(维基百科)  <br />
+Kotlin是一种在Java虚拟机上运行的静态类型编程语言，它也可以被编译成为JavaScript源代码。它主要是由俄罗斯圣彼得堡的JetBrains开发团队所发展出来的编程语言，其名称来自于圣彼得堡附近的科特林岛。[3]2012年1月，著名期刊《Dr. Dobb’s Journal》中Kotlin被认定为该月的最佳语言。[4]虽然与Java语法并不兼容，但Kotlin被设计成可以和Java代码相互运作，并可以重复使用如Java集合框架等的现有Java类库。Hathibelagal写道，“如果你正在为Android开发寻找一种替代编程语言，那么应该试下Kotlin。它很容易在Android项目中替代Java或者同Java一起使用。”</p>
 
-<p><br />
-游戏的意义是什么？不说其他只说dota，我不想说他是我的信仰之类的话了，我自认为自制力相当不错的了，回忆整个游戏人生，我沉迷过，我痛恨过，他确实改变了我，在我青春年少时我以他为借口逃避爱情，在本该夯实基础步入社会时，我用他来麻痹自己虚度人生，<br />
-十人七跳三闪烁，团战英雄满天飞。热血飘逸的6.48年代。
-<br />
-<br />
-<img src="/images/posts/dota/dota3.jpg" alt="" />
-<br />
+<p>2.历史(维基百科)<br />
+2011年7月，JetBrains推出Kotlin项目，这是一个面向JVM的新语言，它已被开发一年之久。[5]JetBrains负责人Dmitry Jemerov说，大多数语言没有他们正在寻找的特性，但是Scala除外。但是，他指出Scala的编译时间过慢这一明显缺陷。[5]Kotlin的既定目标之一是像Java一样快速编译。2012年2月，JetBrains以Apache 2许可证开源此项目。[6]<br />
+Jetbrains希望这个新语言能够推动IntelliJ IDEA的销售。[7]<br />
+Kotlin v1.0于2016年2月15日发布。[8]这被认为是第一个官方稳定版本，并且JetBrains已准备从该版本开始的长期向后兼容性。<br />
+在Google I/O 2017中，Google宣布在Android上为Kotlin提供最佳支持。[9]</p>
+
+<p>3.语法(维基百科)<br />
+Kotlin很明显受到Java、C#、JavaScript、Scala、Groovy等语言的影响。例如Kotlin可以直接通过println(“Hello, {name}”)或println(“Hello, $name”)来使用字符串模板，和古老的shell script类似。又如Kotlin中的分号是可选的，这类似JavaScript，而且Groovy、Scala也有同样的能力。Kotlin常量定义关键字是val（不同于变量定义关键字var），表示固定值，这功能来自Scala，Swift也有类似功能。<br />
+需要注意，Kotlin没有关键字new。</p>
+
+<p>4.</p>
+
+<p>Kotlin 官网<a href="https://kotlinlang.org/">https://kotlinlang.org/</a><br />
+Kotlin 文档中文版<a href="http://www.kotlincn.net/docs/reference/">http://www.kotlincn.net/docs/reference/</a><br />
+Kotlin on GitHub<a href="https://github.com/JetBrains/kotlin">https://github.com/JetBrains/kotlin</a><br />
+Kotlin 学习<a href="https://www.runoob.com/kotlin/kotlin-tutorial.html">https://www.runoob.com/kotlin/kotlin-tutorial.html</a><br />
+Kotlin 在线运行<a href="https://c.runoob.com/compile/2960">https://c.runoob.com/compile/2960</a></p>
+
+<p>5.Error:This type has a constructor,and thus must be initialized here<br />
+错误：此类型具有构造函数，因此必须在此处初始化。<br />
+我猜你这样写了一个类</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class FirstActivity : AppCompatActivity {}
+</code></pre></div></div>
+
+<p>需要构造函数，这样写</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class FirstActivity : AppCompatActivity() {}  
+</code></pre></div></div>
+
+<p>6.以前总喜欢这样用上下文环境<br />
+private Context mContext;或者 private Activity mActivity;
+然后 mContext = this;mActivity = this;<br />
+Kotlin 就这样写了</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val instance by lazy { this }//这里使用了委托，表示只有使用到instance才会执行该段代码   
+</code></pre></div></div>
+
+<p>instance 即代表了上下文。<br />
+java中  XXXActivity.class  Kotlin中 this@XXXActivity （标签语法）<br />
+&amp;&amp;、在类内部指代自身的this关键字，Java的完整写法是“类名.this”，而Kotlin的完整写法是“this@类名”，当然二者均可简写为“this”；<br />
+&amp;&amp;、获取某个类的class对象，Java的写法是“类名.class”，而Kotlin的写法是“类名::class.java”，一看便知带有浓浓的Java风味；</p>
+
+<p>7.Kotlin activity跳转-startActivity</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    startActivity(Intent(this@MainActivity, FirstActivity::class.java))
+</code></pre></div></div>
+
+<p>或者</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    startActivity(Intent(this, FirstActivity::class.java))  
+</code></pre></div></div>
+
+<p>传参MainAcvivity</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    var intent = Intent(this@MainActivity,FirstActivity::class.java)
+    var bundle = Bundle()
+    bundle.putString("name","清扬")
+    bundle.putInt("age",18)
+    intent.putExtras(bundle)
+    startActivity(intent)
+</code></pre></div></div>
+
+<p>接收端FirstActivity</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    var bundle = intent.extras
+    var name = bundle.get("name")
+    var age = bundle.get("age")
+    Log.i("FirstActivity","name == "+name.toString())
+    Log.i("FirstActivity","age == "+age.toString())  
+</code></pre></div></div>
+
+<p>8.控件findViewById<br />
+不使用依赖库，倾向于下面的写法</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private val btn : TextView by lazy{
+    findViewById(R.id.btn) as TextView
+}
+-----------------------------------------
+btn.text = "清扬"
+btn.textSize = 22f
+btn.setOnClickListener(){
+    Log.i("FirstActivity", "人不轻狂枉少年" )
+}
+</code></pre></div></div>
+
+<p>lazy是Kotlin的属性代理的一个实例，它提供了延迟加载的机制。换句话说，这里的lazy提供了初始化控件的方法，不过真正初始化这个动作发生的时机却是在控件第一次被使用时。lazy默认是线程安全的。
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+转载请注明：<a href="http://xiongzhoudadi.com">劉清揚的博客</a> » <a href="http://xiongzhoudadi.com/2018/05/kotlin/"> 初识 Kotlin 的不解 </a><br />
 <br /></p>
 
 
@@ -263,13 +345,13 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2018/05/kotlin/" data-toggle="tooltip" data-placement="top" title="初识 Kotlin 的不解">上一篇：  <span>初识 Kotlin 的不解</span>
+            <a href="/2017/06/soul/" data-toggle="tooltip" data-placement="top" title="灵魂深处的沉淀">上一篇：  <span>灵魂深处的沉淀</span>
             </a>
         </li>
         
         
         <li class="next">
-            <a href="/2018/07/windows_help/" data-toggle="tooltip" data-placement="top" title="玩转 windows">下一篇：  <span>玩转 windows</span>
+            <a href="/2018/07/dota/" data-toggle="tooltip" data-placement="top" title="dota回忆录">下一篇：  <span>dota回忆录</span>
             </a>
         </li>
         
