@@ -5,9 +5,41 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 05 Jun 2019 15:03:55 +0800</pubDate>
-    <lastBuildDate>Wed, 05 Jun 2019 15:03:55 +0800</lastBuildDate>
+    <pubDate>Thu, 13 Jun 2019 17:53:36 +0800</pubDate>
+    <lastBuildDate>Thu, 13 Jun 2019 17:53:36 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Kotlin 爬个数据</title>
+        <description>&lt;h3 id=&quot;可能知道的多了快乐就少了&quot;&gt;可能知道的多了，快乐就少了。&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;学习 Kotlin 时，被它的爬虫项目实战吸引了，&lt;a href=&quot;https://lixiaojun.xin/static/courses/kotlin/&quot;&gt;https://lixiaojun.xin/static/courses/kotlin/&lt;/a&gt;，然而并没有看到demo实例，遂写之，&lt;a href=&quot;https://github.com/yuqianglianshou/KotlinParser&quot;&gt;yuqianglianshou/KotlinParser&lt;/a&gt; 。&lt;/li&gt;
+  &lt;li&gt;IDE:IntelliJ IDEA.&lt;br /&gt;
+网页解析库：compile ‘org.jsoup:jsoup:1.12.1’&lt;br /&gt;
+IP地址代理服务：&lt;a href=&quot;http://www.qydaili.com/free/&quot;&gt;旗云代理&lt;/a&gt;&lt;br /&gt;
+爬取的目标网站：&lt;a href=&quot;http://quotes.toscrape.com/&quot;&gt;http://quotes.toscrape.com/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;主线：通过网页解析库jsoup获取旗云代理网页数据，提取前5页代理IP及端口号；随机取一个代理IP和端口号，获取目标网站前5页的数据，由于代理IP不稳定或响应时间长或网不好等等，会有失败情况甚至大量失败情况发生，重复此过程直至成功，然后提取我们想要的名人名言数据；输出到控制台。&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;/images/posts/kotlin_parser/1.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;img src=&quot;/images/posts/kotlin_parser/2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/06/kotlin_parser/&quot;&gt; Kotlin 爬个数据 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 11 Jun 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/06/kotlin_parser/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/kotlin_parser/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>蛙，跳一跳哈</title>
@@ -828,35 +860,6 @@ Cordova插件的作用是提供一个桥梁供页面和原生通信，首先我�
         <pubDate>Thu, 06 Dec 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2018/12/android-non-zero-exit-value-1/</link>
         <guid isPermaLink="true">http://localhost:4000/2018/12/android-non-zero-exit-value-1/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>不蒜子失效</title>
-        <description>&lt;h3 id=&quot;清扬-婉兮&quot;&gt;清扬 婉兮&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;
-突然发现静态网页计数器不蒜子失效了，进入官网找到原因：&lt;br /&gt;
-因七牛强制过期『dn-lbstatics.qbox.me』域名，与客服沟通无果，只能更换域名到『busuanzi.ibruce.info』！&lt;br /&gt;
-需要将页面中的&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;修改为&lt;/p&gt;
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;就好了。&lt;br /&gt;
-&lt;a href=&quot;http://busuanzi.ibruce.info/&quot;&gt;不蒜子链接&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2018/11/blog-busuanzi/&quot;&gt; 不蒜子失效 &lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 04 Nov 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/11/blog-busuanzi/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/11/blog-busuanzi/</guid>
         
         <category>技术</category>
         
