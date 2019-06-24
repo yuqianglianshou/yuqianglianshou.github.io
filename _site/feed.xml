@@ -5,9 +5,43 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Jun 2019 17:53:36 +0800</pubDate>
-    <lastBuildDate>Thu, 13 Jun 2019 17:53:36 +0800</lastBuildDate>
+    <pubDate>Mon, 24 Jun 2019 13:39:41 +0800</pubDate>
+    <lastBuildDate>Mon, 24 Jun 2019 13:39:41 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>mac 上安装破解 Matlab</title>
+        <description>&lt;h3 id=&quot;祝你能够再次遇到那个值得你奋斗一生的人&quot;&gt;祝你能够再次遇到，那个值得你奋斗一生的人。&lt;/h3&gt;
+
+&lt;p&gt;版本：   &lt;br /&gt;
+MATLAB 2014 b&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;下载安装文件 Matlab.zip 和 破解文件压缩包 MATLAB_R2014B_MAC_LINUX_crack.zip 。&lt;br /&gt;
+//Matlab.zip &lt;br /&gt;
+//MATLAB_R2014B_MAC_LINUX_crack.zip  &lt;br /&gt;
+文件太大，github上不让放，请加QQ：2465199797.注明获取Matlab安装文件。&lt;/li&gt;
+  &lt;li&gt;解压  MATLAB_R2014B_MAC_LINUX_crack.zip ，其中包含三个文件:KEY 2014b.txt 里面是文件安装密钥 29797-39064-48306-32452；libmwservices.dylib;license.lic;&lt;/li&gt;
+  &lt;li&gt;解压Matlab.zip， 双击 Matlab/intall 文件，弹出命令行和安装程序，选择使用文件安装密钥-&amp;gt;下一步-&amp;gt;接受许可协议-&amp;gt;下一步-&amp;gt;选择我已有文件安装密钥，将MATLAB_R2014B_MAC_LINUX_crack/KEY 2014b.txt 中的密钥即 29797-39064-48306-32452 复制粘贴上去 -&amp;gt;下一步-&amp;gt;选择安装文件夹，默认为/Applications ,不需要修改-&amp;gt;点击下一步-&amp;gt;选择安装的产品，默认即可，继续下一步，安装完成。&lt;/li&gt;
+  &lt;li&gt;替换本机中的 libmwservices.dylib：打开访达，点击 应用程序，找到刚刚安装的 MATLAB_R2014b 图标，右击选择显示包内容，依次打开 bin–&amp;gt;maci64，用破解文件中的MATLAB_R2014B_MAC_LINUX_crack/libmwservices.dylib 替换此目录下的同名文件即可。&lt;/li&gt;
+  &lt;li&gt;双击启动图标。提示激活，选择 破解文件中的MATLAB_R2014B_MAC_LINUX_crack/license.lic 文件进行激活，激活完毕，亲测软件可用。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/06/matlab-for-mac/&quot;&gt; mac 上安装破解 Matlab &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 23 Jun 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/06/matlab-for-mac/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/matlab-for-mac/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>Kotlin 爬个数据</title>
@@ -19,7 +53,7 @@
 网页解析库：compile ‘org.jsoup:jsoup:1.12.1’&lt;br /&gt;
 IP地址代理服务：&lt;a href=&quot;http://www.qydaili.com/free/&quot;&gt;旗云代理&lt;/a&gt;&lt;br /&gt;
 爬取的目标网站：&lt;a href=&quot;http://quotes.toscrape.com/&quot;&gt;http://quotes.toscrape.com/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;主线：通过网页解析库jsoup获取旗云代理网页数据，提取前5页代理IP及端口号；随机取一个代理IP和端口号，获取目标网站前5页的数据，由于代理IP不稳定或响应时间长或网不好等等，会有失败情况甚至大量失败情况发生，重复此过程直至成功，然后提取我们想要的名人名言数据；输出到控制台。&lt;/li&gt;
+  &lt;li&gt;主线：通过网页解析库jsoup获取旗云代理网页数据，提取前5页代理IP及端口号；随机取一个代理IP和端口号，获取目标网站前5页的数据，由于代理IP不稳定或响应时间长或网不好等等，会有失败情况甚至大量失败情况发生，程序重复此过程直至成功，然后提取我们想要的名人名言数据；输出到控制台；输出txt文件到项目根目录。&lt;/li&gt;
   &lt;li&gt;&lt;img src=&quot;/images/posts/kotlin_parser/1.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
 &lt;img src=&quot;/images/posts/kotlin_parser/2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -751,115 +785,6 @@ Cordova插件的作用是提供一个桥梁供页面和原生通信，首先我�
         <pubDate>Sun, 23 Dec 2018 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2018/12/krpano/</link>
         <guid isPermaLink="true">http://localhost:4000/2018/12/krpano/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Android 一个无法理解的 non-zero exit value 1</title>
-        <description>&lt;h3 id=&quot;醒来明月醉时清风---元好问&quot;&gt;醒来明月，醉时清风。  – 元好问&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;br /&gt;
-看下令人恶心的报错信息  Process ‘command ‘D:\sdk\build-tools\25.0.0\aapt.exe’’ finished with non-zero exit value 1
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_non_zero_exit_value_1/error1.png&quot; alt=&quot;&quot; /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;img src=&quot;/images/posts/android_non_zero_exit_value_1/error2.png&quot; alt=&quot;&quot; /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-又是一个神奇的bug，我总是如此的幸运，以至于幸运女神已经对我爱答不理。&lt;br /&gt;
-又是搜罗了一堆此报错的原因，比如资源文件引用错误，资源命名格式错误，Build Tools Version 版本未选择，版本错误等等，全部一一检查试过，依然没解决问题。
-我触发这个问题的环境：&lt;br /&gt;
-1，AS版本 3.2.1. &lt;br /&gt;
-2，导入他人的项目。 &lt;br /&gt;
-3，是一个ionic混合开发项目，android部分。 &lt;br /&gt;
-原代码是这样的，这是没问题的： &lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;40dp&quot;&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#aa363B41&quot;&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paddingRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;12dp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/iv_b&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_alignParentRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerVertical&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/camera&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerInParent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_marginRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;16dp&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_toLeftOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/iv_b&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/flash_off&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;简单说下，一个 RelativeLayout 中放了两个图标，B 放在父布局的最右侧，A 放在B 的左侧，预览的视觉效果就是横向排列的    图标A 图标B，我是一个有点强迫症的选手，既然是 图标A 图标B 这样的，代码也要按这个顺序啊，于是顺手换了下位置，改成了这样的  &lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;40dp&quot;&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#aa363B41&quot;&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paddingRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;12dp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerInParent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_marginRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;16dp&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_toLeftOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@id/iv_b&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/flash_off&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;图标&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageView&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/iv_b&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_height&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_alignParentRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout_centerVertical&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
-            &lt;span class=&quot;nl&quot;&gt;android:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/camera&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RelativeLayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;这你妹的不可能有问题啊，继续加了其他功能布局，一运行，呵呵，出于对自己年龄的考虑，可能老了，犯了点低级错误吧，一点点看，没问题，一点点屏蔽写了的东西，调试，最后就剩这点改动了，还是报错，我勒个去，这点自信我还是有的，这不可能有问题啊，实在没招了，重新svn下载，另起文件夹运行，没问题！那就这点不一样了，于是我抱着试一试的完全不相信的态度换了回去，一运行，挖槽，成了！这这这。。。怎么可能，违背我多年的信仰啊！赶紧新建了个android项目，把相同的报错的代码导进去，运行，没问题！这就尴尬了，这个错只在这个项目里出现，我已有的知识体系已经无法说明这个问题了，问了一个哥们，哥们说可能是编译方式、过程啊啥的问题，并且说你把报错的那个android:layout_toLeftOf=”@id/iv_b”  中@id 改为@+id 试试，我试试吧，确实就不报错了，哎，可怜了我整个上午的时光。
-&lt;br /&gt;&lt;/p&gt;
-  &lt;h2 id=&quot;解决方案&quot;&gt;解决方案：&lt;/h2&gt;
-  &lt;p&gt;一，把位置改回去。&lt;br /&gt;
-二，把 android:layout_toLeftOf=”@id/iv_b”  改为 android:layout_toLeftOf=”@+id/iv_b” 。&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;如果你按这样的方式解决了的话，呵呵，你是幸运的。&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2018/12/android-non-zero-exit-value-1/&quot;&gt; Android 一个无法理解的 non-zero exit value 1 &lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 06 Dec 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/12/android-non-zero-exit-value-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/12/android-non-zero-exit-value-1/</guid>
         
         <category>技术</category>
         
