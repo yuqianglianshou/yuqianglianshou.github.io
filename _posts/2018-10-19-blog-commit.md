@@ -18,7 +18,11 @@ tags:  技术
 #### 博客提交（mac）  
 1，vscode 打开控制台 command+shift+Y
 
-2，jekyll serve 运行服务
+2，jekyll build 编译
+   jekyll serve 运行服务
+  升级ruby版本和bundle版本后，运行服务改为 
+  bundle exec jekyll build 
+  bundle exec jekyll serve
 
 3，http://127.0.0.1:4000/ 浏览器打开
 
@@ -28,6 +32,8 @@ tags:  技术
 1，jekyll搭建的博客目录下右键  Git Bash Here  
 
 2， 运行服务 jekyll serve  
+  升级ruby版本和bundle版本后，运行服务改为 
+  bundle exec jekyll serve
 
 3，浏览器打开  http://127.0.0.1:4000/  
 
