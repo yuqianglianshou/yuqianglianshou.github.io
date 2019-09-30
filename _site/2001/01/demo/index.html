@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>android 新浪微博分享问题</title>
-  <meta name="description" content="那些年接手的坑最近新入一小公司，接手了一个2年多的项目，挖槽（已经穷尽了所有的词），坑真多！后期入职的还有ui，运营，大换血。后来运营提了个bug，分享到新浪微博这个功能崩溃。问测试，测试答曰不用微博，没测过。。。wtf，还能说什么呢？看一下出错log: java.lang.UnsatisfiedLinkErro...">
+  <title>博客写作知识点样例</title>
+  <meta name="description" content="你的身影已远离了我的梦境。  链接https://nodejs.org/download/release/  图片  代码     npm install -g ionic          npm install -g node-sass       ">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="android 新浪微博分享问题">
-  <meta name="twitter:description" content="那些年接手的坑最近新入一小公司，接手了一个2年多的项目，挖槽（已经穷尽了所有的词），坑真多！后期入职的还有ui，运营，大换血。后来运营提了个bug，分享到新浪微博这个功能崩溃。问测试，测试答曰不用微博，没测过。。。wtf，还能说什么呢？看一下出错log: java.lang.UnsatisfiedLinkErro...">
+  <meta name="twitter:title" content="博客写作知识点样例">
+  <meta name="twitter:description" content="你的身影已远离了我的梦境。  链接https://nodejs.org/download/release/  图片  代码     npm install -g ionic          npm install -g node-sass       ">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="android 新浪微博分享问题">
-  <meta property="og:description" content="那些年接手的坑最近新入一小公司，接手了一个2年多的项目，挖槽（已经穷尽了所有的词），坑真多！后期入职的还有ui，运营，大换血。后来运营提了个bug，分享到新浪微博这个功能崩溃。问测试，测试答曰不用微博，没测过。。。wtf，还能说什么呢？看一下出错log: java.lang.UnsatisfiedLinkErro...">
+  <meta property="og:title" content="博客写作知识点样例">
+  <meta property="og:description" content="你的身影已远离了我的梦境。  链接https://nodejs.org/download/release/  图片  代码     npm install -g ionic          npm install -g node-sass       ">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2018/07/weibobug/">
+  <link rel="canonical" href="http://localhost:4000/2001/01/demo/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -166,10 +166,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">android 新浪微博分享问题</h1>
+    <h1 class="post-title">博客写作知识点样例</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2018-07-18 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-07-18</time>  
+      <time datetime="2001-01-01 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2001-01-01</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -177,24 +177,30 @@
   </header>
 
   <section class="post">
-    <h3 id="那些年接手的坑">那些年接手的坑</h3>
-<p>最近新入一小公司，接手了一个2年多的项目，挖槽（已经穷尽了所有的词），坑真多！后期入职的还有ui，运营，大换血。后来运营提了个bug，分享到新浪微博这个功能崩溃。问测试，测试答曰不用微博，没测过。。。wtf，还能说什么呢？
-看一下出错log: java.lang.UnsatisfiedLinkError: dlopen failed: library “/system/lib/libweibosdkcore.so” needed or dlopened by “/system/lib/*.so” is not accessible for the namespace “classloader-namespace” 如下图：
-<br />
-<img src="/images/posts/weibobug/1.png" alt="" />
-<br />
-大概意思就是这个文件libweibosdkcore.so找不到了。 也许真的只是 libweibosdkcore.so 这个文件丢了呢？
-<br />
-<img src="/images/posts/weibobug/3.jpg" alt="" />
-<br />
-请找到这几个文件夹，没有的话创建了，将 libweibosdkcore.so 复制到这几个文件夹进去应该就没问题了。这个文件去新浪官方demo上下载，下载地址是 <a href="https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/so/mips/libweibosdkcore.so">https://github.com/sinaweibosdk/weibo_android_sdk/blob/master/so/mips/libweibosdkcore.so</a><br />
-<br />
-<img src="/images/posts/weibobug/2.png" alt="" />
-<br />
-<br />
-<img src="/images/posts/weibobug/4.jpg" alt="" />
-<br /></p>
+    <h3 id="你的身影已远离了我的梦境">你的身影已远离了我的梦境。</h3>
 
+<ol>
+  <li>链接<br />
+<a href="https://nodejs.org/download/release/">https://nodejs.org/download/release/</a></li>
+  <li>图片<br />
+<img src="/images/avatar.jpg" alt="" /></li>
+  <li>代码
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm install -g ionic  
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g node-sass 
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p><br /> 
+<br /> 
+<br /> 
+<br /></p>
+<blockquote>
+  <p><br /> 
+转载请注明：<a href="http://xiongzhoudadi.com">劉清揚的博客</a> » <a href="http://xiongzhoudadi.com/2019/07/ionic-serve/"> ionic 项目 运行 ionic serve（Windows） </a><br />
+<br /></p>
+</blockquote>
 
 
   </section>
@@ -263,14 +269,9 @@
 
        <ul class="pager">
         
-        <li class="previous">
-            <a href="/2018/07/windows_help/" data-toggle="tooltip" data-placement="top" title="玩转 windows">上一篇：  <span>玩转 windows</span>
-            </a>
-        </li>
-        
         
         <li class="next">
-            <a href="/2018/07/dota-memoirs/" data-toggle="tooltip" data-placement="top" title="见血封喉 dota回忆录 经典语录">下一篇：  <span>见血封喉 dota回忆录 经典语录</span>
+            <a href="/2009/10/zouguoshiyi/" data-toggle="tooltip" data-placement="top" title="走过诗意">下一篇：  <span>走过诗意</span>
             </a>
         </li>
         

@@ -5,9 +5,104 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 Jul 2019 18:26:44 +0800</pubDate>
-    <lastBuildDate>Thu, 04 Jul 2019 18:26:44 +0800</lastBuildDate>
+    <pubDate>Tue, 01 Oct 2019 03:29:02 +0800</pubDate>
+    <lastBuildDate>Tue, 01 Oct 2019 03:29:02 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>jkeyll 搭建博客</title>
+        <description>&lt;h3 id=&quot;just-remember-your-nameno-matter-where-you-are-in-the-worldi-must-and-will-go-to-see-you------miyamizu-mitsuha&quot;&gt;Just remember your name,no matter where you are in the world,I must and will go to see you.      –Miyamizu Mitsuha&lt;/h3&gt;
+
+&lt;p&gt;本文所要达到的效果：通过一个自己申请的域名，打开一个自己维护的博客。&lt;br /&gt;
+以下操作是在 mac 环境下，Windows 大同小异。  &lt;br /&gt;
+所需条件：&lt;br /&gt;
+1，一个自己的域名，本例为 xiongzhoudadi.com&lt;br /&gt;
+2，一个自己的 github 账号，本例我的账号是 yuqianglianshou&lt;br /&gt;
+3，vs code 工具会用  &lt;br /&gt;
+4,Git, Ruby环境安装完毕。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;购买域名&lt;br /&gt;
+在阿里云旗下万网平台注册一个账号  &lt;a href=&quot;https://wanwang.aliyun.com/&quot;&gt;https://wanwang.aliyun.com/&lt;/a&gt;  或者 西部数码平台 &lt;a href=&quot;https://www.west.cn&quot;&gt;https://www.west.cn&lt;/a&gt;，以万网为例，打开链接，&lt;img src=&quot;/images/posts/jekyll_blog/wanwang1.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt;
+搜索想要的域名，没有被注册就可以花钱注册了，一般几块到几十每年，下单购买就好了。买好后先放着。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Jekyll 新建博客项目&lt;br /&gt;
+打开终端，进入到一个想要创建项目的目录（可以是临时目录，一会用完会删除）
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd documnets
+cd github
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;新建项目(项目名字可以随意，myBlog)&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll new myBlog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;新建执行完后用 vs code 打开项目，打开 vs code 的命令行 command+shift+y,执行&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;当vs code 命令行中看到 Server address:http://127.0.0.1:4000  Server running 之后，打开浏览器，输入所给地址，即可看到刚刚建好的博客样例（一个简单的官方demo，需要改成我的 blog 这样的我会在写一篇文章）。
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/jekyll_blog/image1.png&quot; alt=&quot;&quot; /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;github 创建仓库&lt;br /&gt;
+登陆你的 github 账号，然后创建一个跟你账户名一样的仓库，如我的 github 账户名叫 yuqianglianshou，我的 github 仓库名就叫 yuqianglianshou.github.io。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;提交项目 myBlog 到github&lt;br /&gt;
+在GitHub创建的仓库上(yuqianglianshou.github.io) 点击 Clone or dowload 会出现一个地址(https://github.com/yuqianglianshou/yuqianglianshou.github.io.git )，copy这个地址备用。
+打开终端，进入到你想要创建项目的位置(将来博客项目存放的位置)，执行
+git clone https://github.com/yuqianglianshou/yuqianglianshou.github.io.git&lt;br /&gt;
+此时出现的文件夹（yuqianglianshou.github.io）就是你的GitHub上创建的项目了，然后把刚才建立的 myBlog 项目中的所有文件复制到你本地的 yuqianglianshou.github.io 仓库中（myBlog可以删了），然后提交到GitHub服务端，
+终端进入仓库目录
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd yuqianglianshou.github.io
+git add .
+git commit -m &quot;初始化&quot;
+git push -u origin master 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;提交成功后，在浏览器里输入 yuqianglianshou.github.io ，就可以访问你的博客了。此时的 yuqianglianshou.github.io 就相当于博客网站的域名。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;修改域名指向，域名解析&lt;br /&gt;
+登陆github账号，打开 yuqianglianshou.github.io 的项目，选择setting，找到
+Custom domain
+Custom domains allow you to serve your site from a domain other than yuqianglianshou.github.io. Learn more.
+下面输入你买的域名，xiongzhoudadi.com ,点击save。
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/jekyll_blog/github.png&quot; alt=&quot;&quot; /&gt; 
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;登入阿里云（你购买域名的平台），域名后面点击解析，
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/jekyll_blog/wanwang2.png&quot; alt=&quot;&quot; /&gt; 
+&lt;br /&gt;
+添加记录，记录类型选择CNAME,主机记录填入www,解析路线默认，记录值 填入 yuqianglianshou.github.com ，TTL 默认值10分钟。保存，10分钟后就会生效。此时www.xiongzhoudadi.com就可以使用了。
+再次添加一个记录，将主机记录写为 @ ，其他与上一个一样，这样 直接 访问 xiongzhoudadi.com 也可以了，（去掉了www）。
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/jekyll_blog/wanwang3.png&quot; alt=&quot;&quot; /&gt; 
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/jekyll_blog/wanwang4.png&quot; alt=&quot;&quot; /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;至此，可以通过自己注册的域名访问自己的博客了。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/07/jekyll-blog/&quot;&gt; jkeyll 搭建博客 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 07 Jul 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/07/jekyll-blog/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/07/jekyll-blog/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>ionic 项目 运行 ionic serve（Windows）</title>
@@ -768,50 +863,6 @@ Cordova插件的作用是提供一个桥梁供页面和原生通信，首先我�
         <pubDate>Sat, 13 Apr 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2019/04/ionic/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/04/ionic/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Android 新建txt被WPS提示打开？</title>
-        <description>&lt;h3 id=&quot;我必然有我的本性&quot;&gt;我，必然有我的本性。&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;br /&gt;
-领到一需求，大概意思是进入到一个界面以后，以txt文本格式保存一些信息到sd卡上。&lt;br /&gt;
-三下五除二，保存到sd卡Download下了。&lt;br /&gt;
-很简单，却出了个棘手的问题：程序写完txt以后，手机上安装的 WPS 提示是否打开。这就尴尬了，并不想让用户感知这个txt的。
-&lt;br /&gt;&lt;/p&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_wps_open_txt/2.jpg&quot; alt=&quot;&quot; /&gt;
-&lt;br /&gt;
-&lt;br /&gt; 
-咋办呢，问问金山客服，走一波电话：400-677-5005，态度不错，不过没解决问题，给了个qq群，138747884，遂加，问曰：&lt;/p&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_wps_open_txt/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_wps_open_txt/3.jpg&quot; alt=&quot;&quot; /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-  &lt;p&gt;WPS雷达功能对一些公共文件夹有监听，自己建个文件夹，将txt保存到自己建的文件夹就行了，机智如我。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/03/android-wps-open-txt/&quot;&gt; Android 新建txt被WPS提示打开？ &lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 27 Mar 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/03/android-wps-open-txt/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/03/android-wps-open-txt/</guid>
         
         <category>技术</category>
         
