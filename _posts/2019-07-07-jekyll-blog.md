@@ -23,16 +23,16 @@ tags:  技术
 2. Jekyll 新建博客项目  
 打开终端，进入到一个想要创建项目的目录（可以是临时目录，一会用完会删除）  
 ```
-cd documnets
+cd documents
 cd github
 ```
 新建项目(项目名字可以随意，myBlog)
 ```
-bundle exec jekyll new myBlog
+jekyll new myBlog
 ```
-新建执行完后用 vs code 打开项目，打开 vs code 的命令行 command+shift+y,执行  
+新建执行完后用 vs code 打开项目，使用 command+shift+y 快捷键打开 vs code 的命令行 ,执行  
 ```
-bundle exec jekyll serve
+jekyll serve
 ```
 当vs code 命令行中看到 Server address:http://127.0.0.1:4000  Server running 之后，打开浏览器，输入所给地址，即可看到刚刚建好的博客样例（一个简单的官方demo，需要改成我的 blog 这样的我会在写一篇文章）。
 <br/>
