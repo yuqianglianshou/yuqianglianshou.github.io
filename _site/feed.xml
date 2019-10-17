@@ -3,11 +3,188 @@
   <channel>
     <title>劉清揚</title>
     <description>欢迎来到我的个人站~</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Oct 2019 03:29:02 +0800</pubDate>
-    <lastBuildDate>Tue, 01 Oct 2019 03:29:02 +0800</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 17 Oct 2019 15:12:11 +0800</pubDate>
+    <lastBuildDate>Thu, 17 Oct 2019 15:12:11 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>JDK 知识点</title>
+        <description>&lt;h3 id=&quot;劝君立足眼前事荆棘丛中也开花&quot;&gt;劝君立足眼前事，荆棘丛中也开花。&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;查看 Mac 下已安装的JDK版本以及目录，终端输入
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/libexec/java_home -V
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;（注：-V ，V是大写字母。）
+返回：&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qingyang-c729:~ liuqiang$ /usr/libexec/java_home -V
+Matching Java Virtual Machines (1):
+1.8.0_211, x86_64:	&quot;Java SE 8&quot;	/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JDK(Java Development Kit) 目录介绍 &lt;br /&gt;
+ &lt;strong&gt;bin目录：&lt;/strong&gt;该目录用于存放一些可执行程序，如Java 编译器 javac.exe(加个Windows 下的 .exe 比较好看)，Java 运行工具 java.exe，打包工具 jar.exe，文档生成工具 javadoc.exe。&lt;br /&gt;
+ javac.exe 是Java编译器工具，它可以将编写好的Java文件编译成字节码文件（可执行的Java程序）。HelloWorld.java -&amp;gt; HelloWorld.class.&lt;br /&gt;
+ java.exe是Java运行工具，它会启动一个Java虚拟机（JVM）进程，Java虚拟机相当于一个虚拟的操作系统，它专门负责运行由Java编译器生成的字节码文件。  &lt;br /&gt;
+ &lt;strong&gt;db目录：&lt;/strong&gt;小型数据库。从jdk 6.0开始，Java中引入了一个新的成员 JavaDB，这是一个纯Java 实现、开源的数据库管理系统。这个数据库不仅很轻便，而且支持JDBC 4.0所有的规范，在学习JDBC时，不再需要额外的安装一个数据库软件，选择直接使用JavaDB即可。&lt;br /&gt;
+ &lt;strong&gt;jre目录：&lt;/strong&gt;Java Runtime Environment 的缩写，意为Java程序运行时环境。此目录是Java运行时环境根目录，它包含 Java 虚拟机，运行时的类包、Java 应用启动器以及一个bin目录，但不包含开发环境中的开发工具。&lt;br /&gt;
+ &lt;strong&gt;include目录：&lt;/strong&gt;由于jdk是通过C和C++实现的，因此在启动时需要引入一些C语言的头文件，该目录就是用于存放这些头文件的。
+ &lt;strong&gt;lib目录：&lt;/strong&gt;lib是library的缩写，意为Java类库或库文件，是开发工具使用的归档包文件。&lt;br /&gt;
+ src.zip文件：是src文件夹的压缩文件，src中防止的是jdk核心类的源代码，通过该文件可以查看 Java基础类的源代码。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;JDK版本变化 &lt;br /&gt;
+参考&lt;a href=&quot;http://openjdk.java.net/projects/jdk/&quot;&gt;《openjdk 文档》&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 1.0&lt;/strong&gt;&lt;br /&gt;
+开发代号为Oak（橡树），于1996年1月23发行。特点有：&lt;br /&gt;
+提供了一个解释执行的 Java 虚拟机；&lt;br /&gt;
+Applet 能在 Mozilla 浏览器中运行。&lt;br /&gt;
+Java 的 Applet 能在 Mozilla 浏览器中运行，被看作是未来的互联网语言。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 1.1&lt;/strong&gt;&lt;br /&gt;
+于 1997年2月19日发行，新特性有：&lt;br /&gt;
+引入JDBC（Java Database Connectivity）；&lt;br /&gt;
+支持内部类；&lt;br /&gt;
+引入Java Bean；&lt;br /&gt;
+引入RMI（Remote Method Invocation）；&lt;br /&gt;
+引入反射（仅用于内省）。&lt;br /&gt;
+Java 语言的基本形态基本确定了，比如反射 (reflection), JavaBean, 接口和类的关系等等，一直到今天都保持一致。然而，Java 最初的一些目标，如在浏览器中执行 Applet，以及跨平台的图形界面 Awt 很快遭遇到负面的评价。&lt;br /&gt;
+&lt;br /&gt; 
+&lt;strong&gt;JDK 1.2&lt;/strong&gt;&lt;br /&gt;
+开发代号为 Playground（操场），于1998年12月8日发行。新特性有：&lt;br /&gt;
+引入集合（Collection）框架；&lt;br /&gt;
+对字符串常量做内存映射；&lt;br /&gt;
+引入 JIT（Just In Time） 编译器；&lt;br /&gt;
+引入对打包的 Java 文件进行数字签名；&lt;br /&gt;
+引入控制授权访问系统资源的策略工具；&lt;br /&gt;
+引入 JFC（Java Foundation Classes），包括 Swing 1.0、拖放和 Java 2D 类库；&lt;br /&gt;
+引入 Java 插件；&lt;br /&gt;
+在 JDBC 中引入可滚动结果集、BLOB、CLOB、批量更新和用户自定义类型；&lt;br /&gt;
+在 Applet 中添加声音支持。&lt;br /&gt;
+Java 第一个里程碑式的版本。JIT（Just in time）编译器技术，使得语言的可迁移性和执行效率达到最优的平衡，同时 Collections 集合类设计优良，在企业应用开发中迅速得到了广泛使用。&lt;br /&gt;
+Sun 公司把 Java 技术体系分成三个方向，分别是 J2SE（面向桌面和通用应用开发），J2EE（面向企业级应用开发），J2ME（面向移动终端开发）。这个分类影响非常久远，体现出主流语言设计者的思想：针对于不同的应用领域，在形态，API 集合等进行划分。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 1.3&lt;/strong&gt;&lt;br /&gt;
+开发代号为 Kestrel（红隼），于2000年5月08日发行。新特性有：&lt;br /&gt;
+引入Java Sound API；&lt;br /&gt;
+jar 文件索引；&lt;br /&gt;
+对 Java 的各个方面都做了大量优化和增强。&lt;br /&gt;
+J2EE 中的 Servlet 规范获得了极大的成功，伴随着互联网的兴起，和浏览器直接通过 HTTP 协议交互的 Servlet，和众多的 MVC 框架，成为 Web1.0 的网红。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 1.4&lt;/strong&gt; &lt;br /&gt;
+开发代号为 Merlin（隼），于2004年2月06日发行（首次在JCP下发行）。新特性有:&lt;br /&gt;
+XML 处理；&lt;br /&gt;
+Java 打印服务；&lt;br /&gt;
+引入 Logging API；&lt;br /&gt;
+引入 Java Web Start；&lt;br /&gt;
+引入 JDBC 3.0 API；&lt;br /&gt;
+引入断言；&lt;br /&gt;
+引入 Preferences API；&lt;br /&gt;
+引入链式异常处理；&lt;br /&gt;
+支持 IPv6；&lt;br /&gt;
+支持正则表达式；&lt;br /&gt;
+引入 Image I/O slot machine API。&lt;br /&gt;
+Java 语言真正走向成熟，提供了非常完备的语言特性，如 NIO，正则表达式，XML 处理器等。&lt;br /&gt;
+同年微软的.NET 框架发布，两者开始了为期十几年的暗自竞争。从语言特性上来说，.NET 后发先至，一直处于优势。但 Java 依赖良好的开发者生态，绝大多数大型软件公司的使用者众多和不断贡献，以及对 Linux 操作系统良好的支持，渐渐的在服务器端获得优势地位。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 5&lt;/strong&gt;&lt;br /&gt;
+开发代号为Tiger（老虎），于2004年9月30日发行。新特性包有:&lt;br /&gt;
+引入泛型；&lt;br /&gt;
+增强循环，可以使用迭代方式；&lt;br /&gt;
+自动装箱与自动拆箱；&lt;br /&gt;
+类型安全的枚举；&lt;br /&gt;
+可变参数；&lt;br /&gt;
+静态引入；&lt;br /&gt;
+元数据（注解）；&lt;br /&gt;
+引入 Instrumentation。&lt;br /&gt;
+Sun 不再采用 J2SE, J2EE 这种命名方式，而使用 Java SE 5, Java EE 5 这样的名称。&lt;br /&gt;
+Java 5 是第二个里程碑式的版本。Java 语言语法发生很大的变化，如注解 (Annotation)，装箱 (Autoboxing)，泛型 (Generic)，枚举 (Enum)，foreach 等被加入，提供了 java.util.concurrent 并发包。&lt;br /&gt;
+Java 5 对于 Java 语言的推动是巨大的，特别是注解的加入，使得语言定义灵活了很多，程序员可以写出更加符合领域定义的描述性程序。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 6&lt;/strong&gt;&lt;br /&gt;
+开发代号为 Mustang（野马），于2006年12月11日发行。新特性有：&lt;br /&gt;
+支持脚本语言；&lt;br /&gt;
+引入 JDBC 4.0 API；&lt;br /&gt;
+引入 Java Compiler API；&lt;br /&gt;
+可插拔注解；&lt;br /&gt;
+增加对 Native PKI(Public Key Infrastructure)、Java GSS(Generic Security Service)、Kerberos 和 LDAP(Lightweight Directory Access Protocol) 的支持；&lt;br /&gt;
+继承 Web Services；&lt;br /&gt;
+做了很多优化。&lt;br /&gt;
+这个语言语法改进不多，但在虚拟机内部做了大量的改进，成为一个相当成熟稳定的版本，时至今日国内的很多公司依然以 Java6 作为主要 Java 开发版本来使用。&lt;br /&gt;
+同年 Sun 公司做出一个伟大的决定，将 Java 开源。OpenJDK 从 Sun JDK 1.7 版本分支出去，成为今天 OpenJDK 的基础。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 7&lt;/strong&gt;&lt;br /&gt;
+开发代号是 Dolphin（海豚），于2011年7月28日发行。新特性有：&lt;br /&gt;
+switch 语句块中允许以字符串作为分支条件；&lt;br /&gt;
+在创建泛型对象时应用类型推断；&lt;br /&gt;
+在一个语句块中捕获多种异常；&lt;br /&gt;
+支持动态语言；&lt;br /&gt;
+支持 try-with-resources；&lt;br /&gt;
+引入 Java NIO.2 开发包；&lt;br /&gt;
+数值类型可以用2进制字符串表示，并且可以在字符串表示中添加下划线；&lt;br /&gt;
+钻石型语法；&lt;br /&gt;
+null 值的自动处理。&lt;br /&gt;
+这个版本中的主要的特性是 NIO2 和 Fork/Join 并发包，Java 虚拟机的稳定性真正做到的工业级，成为一个计算平台而服务于全世界。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 8&lt;/strong&gt;&lt;br /&gt;
+JDK 8 于2014年3月14号发布。从 Java 8 开始开发代号已经弃用了。新特性有:&lt;br /&gt;
+Lambda 表达式&lt;br /&gt;
+Pipelines 和 Streams&lt;br /&gt;
+Date 和 Time API&lt;br /&gt;
+Default 方法&lt;br /&gt;
+Type 注解&lt;br /&gt;
+Nashhorn JavaScript 引擎&lt;br /&gt;
+并发计数器&lt;br /&gt;
+Parallel 操作&lt;br /&gt;
+移除 PermGen Error&lt;br /&gt;
+TLS SNI&lt;br /&gt;
+第三个有里程碑意义的 Java 版本。其中最引人注目的便是 Lambda 表达式了，从此 Java 语言原生提供了函数式编程能力。  Java 8 更加适应海量云计算的需要。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 9&lt;/strong&gt;&lt;br /&gt;
+JDK 9 于2017年9月21日发布。新特性有：&lt;br /&gt;
+模块化 —— Jigsaw&lt;br /&gt;
+交互式命令行 —— JShell&lt;br /&gt;
+默认的垃圾回收器 —— G1&lt;br /&gt;
+进程操作改进&lt;br /&gt;
+竞争锁的性能优化&lt;br /&gt;
+分段代码缓存&lt;br /&gt;
+优化字符串占用空间&lt;br /&gt;
+这个版本中最引人注目的时候模块化，通过这个工作，可以构建更小的运行时环境，只需要包括Java平台中任务依赖的部分。这可以更好地适应云端的开发。&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;JDK 10，11，12，13，14&lt;/strong&gt; &lt;br /&gt;
+JDK 10 于2018年3月20日发布。新特性有：&lt;br /&gt;
+var声明变量&lt;br /&gt;
+移除javah&lt;br /&gt;
+IO流大家族添加charset参数&lt;br /&gt;
+JVM优化&lt;br /&gt;
+HTTPClient转正&lt;br /&gt;
+密码学方面的改进&lt;br /&gt;
+java命令运行java文件&lt;br /&gt;
+废弃Nashorn JavaScript引擎&lt;br /&gt;
+JDK12放弃了对JDK6及其以前版本的支持。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/08/java-knowledge/&quot;&gt; JDK 知识点  &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 03 Aug 2019 00:00:00 +0800</pubDate>
+        <link>/2019/08/jdk-knowledge/</link>
+        <guid isPermaLink="true">/2019/08/jdk-knowledge/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>jkeyll 搭建博客</title>
@@ -96,8 +273,8 @@ Custom domains allow you to serve your site from a domain other than yuqianglian
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 07 Jul 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/07/jekyll-blog/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/07/jekyll-blog/</guid>
+        <link>/2019/07/jekyll-blog/</link>
+        <guid isPermaLink="true">/2019/07/jekyll-blog/</guid>
         
         <category>技术</category>
         
@@ -165,8 +342,8 @@ The Ionic CLI will exit. Please check any output above for error details.
 &lt;/blockquote&gt;
 </description>
         <pubDate>Thu, 04 Jul 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/07/ionic-serve/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/07/ionic-serve/</guid>
+        <link>/2019/07/ionic-serve/</link>
+        <guid isPermaLink="true">/2019/07/ionic-serve/</guid>
         
         <category>技术</category>
         
@@ -199,8 +376,8 @@ MATLAB 2014 b&lt;/p&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Jun 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/06/matlab-for-mac/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/06/matlab-for-mac/</guid>
+        <link>/2019/06/matlab-for-mac/</link>
+        <guid isPermaLink="true">/2019/06/matlab-for-mac/</guid>
         
         <category>技术</category>
         
@@ -231,8 +408,8 @@ IP地址代理服务：&lt;a href=&quot;http://www.qydaili.com/free/&quot;&gt;�
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 11 Jun 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/06/kotlin_parser/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/06/kotlin_parser/</guid>
+        <link>/2019/06/kotlin_parser/</link>
+        <guid isPermaLink="true">/2019/06/kotlin_parser/</guid>
         
         <category>技术</category>
         
@@ -306,8 +483,8 @@ Tor是实现匿名通信的自由软件。其名源于“The Onion Router”（�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 26 May 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/05/knowledge-point/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/05/knowledge-point/</guid>
+        <link>/2019/05/knowledge-point/</link>
+        <guid isPermaLink="true">/2019/05/knowledge-point/</guid>
         
         <category>技术</category>
         
@@ -374,8 +551,8 @@ c)SurfaceView尺寸、Previewsize 、Picturesize 的选择方式。原则是比�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Tue, 21 May 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/05/record_view/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/05/record_view/</guid>
+        <link>/2019/05/record_view/</link>
+        <guid isPermaLink="true">/2019/05/record_view/</guid>
         
         <category>技术</category>
         
@@ -507,8 +684,8 @@ export PATH=$PATH:$GRADLE_HOME/bin&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Tue, 30 Apr 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/04/ionic-environmental-configuration/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/ionic-environmental-configuration/</guid>
+        <link>/2019/04/ionic-environmental-configuration/</link>
+        <guid isPermaLink="true">/2019/04/ionic-environmental-configuration/</guid>
         
         <category>技术</category>
         
@@ -565,8 +742,8 @@ gem -v&lt;br /&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 28 Apr 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/04/gem-err/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/gem-err/</guid>
+        <link>/2019/04/gem-err/</link>
+        <guid isPermaLink="true">/2019/04/gem-err/</guid>
         
         <category>技术</category>
         
@@ -821,48 +998,8 @@ Install the free Ionic Pro SDK and connect your app? n&lt;br /&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 14 Apr 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/04/ionicplugin/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/ionicplugin/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>ionic初识</title>
-        <description>&lt;h3 id=&quot;背景音乐-童话镇&quot;&gt;背景音乐 童话镇。&lt;/h3&gt;
-&lt;h2 id=&quot;本文目的对ionic框架有那么点了解&quot;&gt;本文目的：对ionic框架有那么点了解&lt;/h2&gt;
-
-&lt;p&gt;1，以AngularJS和Apache Cordova 为基础，使用Node.js进行模块管理，使用HEML5、CSS(Sass)和JavaScript技术进行App开发。&lt;br /&gt;
-2，node.js 是基于chrome v8 javascrip engine 构建的一个javascript runtime，特点是事件驱动、非阻塞等。npm 是node.js中的JavaScript包管理。&lt;br /&gt;
-3，它们在混合开发中扮演的是不同的角色–Ionic/Angular负责页面的实现，而Cordova负责将实现的页面包装成原生应用（Android:apk；iOS:ipa）。&lt;br /&gt;
-Cordova插件的作用是提供一个桥梁供页面和原生通信，首先我们的页面没有直接调用设备能力，所以需要与能够调用设备能力的原生代码（Android:Java；iOS:OC）通信，此时就需要Cordova插件了。&lt;/p&gt;
-
-&lt;p&gt;Cordova插件能够在任何Cordova工程中使用，和使用什么前端框架（如Ionic）无关。&lt;/p&gt;
-
-&lt;p&gt;Ionic 2中封装了Ionic Native，方便了Cordova插件的使用，但在Ionic 2中仍然可以像Ionic 1中一样使用Cordova插件，Ionic Native不是必须的。&lt;br /&gt;
-4，ionic是什么：&lt;/p&gt;
-
-&lt;p&gt;Ionic(ionicframework)一款开源的Html5移动App开发框架,是AngularJS移动端解决方案,Ionic以流行的跨平台移动app开发框架phoengap为蓝本，让开发者可以通过命令行工具快速生成android  ios移动app应用。&lt;br /&gt;
-5，phoengap（cordova的核心技术）是什么？&lt;/p&gt;
-
-&lt;p&gt;phonegap是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用iPhone，Android，Palm，Symbian,WP7,WP8,Bada和Blackberry智能手机的核心功能——包括地理定位，加速器，联系人，声音和振动.&lt;/p&gt;
-
-&lt;p&gt;6，通俗的讲：ionic是一款基于angularjs的html5移动app开发框架，&lt;/p&gt;
-
-&lt;p&gt;phonegap就是一款可以打包并且可以让js调用原生的移动app框架。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/04/ionic/&quot;&gt; ionic初识 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Sat, 13 Apr 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/04/ionic/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/ionic/</guid>
+        <link>/2019/04/ionicplugin/</link>
+        <guid isPermaLink="true">/2019/04/ionicplugin/</guid>
         
         <category>技术</category>
         
