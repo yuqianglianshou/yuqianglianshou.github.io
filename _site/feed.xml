@@ -3,10 +3,10 @@
   <channel>
     <title>劉清揚</title>
     <description>欢迎来到我的个人站~</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 17 Oct 2019 15:12:11 +0800</pubDate>
-    <lastBuildDate>Thu, 17 Oct 2019 15:12:11 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 17 Oct 2019 20:29:51 +0800</pubDate>
+    <lastBuildDate>Thu, 17 Oct 2019 20:29:51 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -178,8 +178,8 @@ JDK12放弃了对JDK6及其以前版本的支持。&lt;/li&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sat, 03 Aug 2019 00:00:00 +0800</pubDate>
-        <link>/2019/08/jdk-knowledge/</link>
-        <guid isPermaLink="true">/2019/08/jdk-knowledge/</guid>
+        <link>http://localhost:4000/2019/08/jdk-knowledge/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/jdk-knowledge/</guid>
         
         <category>技术</category>
         
@@ -207,14 +207,14 @@ JDK12放弃了对JDK6及其以前版本的支持。&lt;/li&gt;
   &lt;/li&gt;
   &lt;li&gt;Jekyll 新建博客项目&lt;br /&gt;
 打开终端，进入到一个想要创建项目的目录（可以是临时目录，一会用完会删除）
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd documnets
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd documents
 cd github
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;新建项目(项目名字可以随意，myBlog)&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll new myBlog
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new myBlog
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;新建执行完后用 vs code 打开项目，打开 vs code 的命令行 command+shift+y,执行&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle exec jekyll serve
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;当vs code 命令行中看到 Server address:http://127.0.0.1:4000  Server running 之后，打开浏览器，输入所给地址，即可看到刚刚建好的博客样例（一个简单的官方demo，需要改成我的 blog 这样的我会在写一篇文章）。
 &lt;br /&gt;
@@ -273,8 +273,8 @@ Custom domains allow you to serve your site from a domain other than yuqianglian
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 07 Jul 2019 00:00:00 +0800</pubDate>
-        <link>/2019/07/jekyll-blog/</link>
-        <guid isPermaLink="true">/2019/07/jekyll-blog/</guid>
+        <link>http://localhost:4000/2019/07/jekyll-blog/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/07/jekyll-blog/</guid>
         
         <category>技术</category>
         
@@ -342,8 +342,8 @@ The Ionic CLI will exit. Please check any output above for error details.
 &lt;/blockquote&gt;
 </description>
         <pubDate>Thu, 04 Jul 2019 00:00:00 +0800</pubDate>
-        <link>/2019/07/ionic-serve/</link>
-        <guid isPermaLink="true">/2019/07/ionic-serve/</guid>
+        <link>http://localhost:4000/2019/07/ionic-serve/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/07/ionic-serve/</guid>
         
         <category>技术</category>
         
@@ -376,8 +376,8 @@ MATLAB 2014 b&lt;/p&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Jun 2019 00:00:00 +0800</pubDate>
-        <link>/2019/06/matlab-for-mac/</link>
-        <guid isPermaLink="true">/2019/06/matlab-for-mac/</guid>
+        <link>http://localhost:4000/2019/06/matlab-for-mac/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/matlab-for-mac/</guid>
         
         <category>技术</category>
         
@@ -408,8 +408,8 @@ IP地址代理服务：&lt;a href=&quot;http://www.qydaili.com/free/&quot;&gt;�
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 11 Jun 2019 00:00:00 +0800</pubDate>
-        <link>/2019/06/kotlin_parser/</link>
-        <guid isPermaLink="true">/2019/06/kotlin_parser/</guid>
+        <link>http://localhost:4000/2019/06/kotlin_parser/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/kotlin_parser/</guid>
         
         <category>技术</category>
         
@@ -483,8 +483,8 @@ Tor是实现匿名通信的自由软件。其名源于“The Onion Router”（�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 26 May 2019 00:00:00 +0800</pubDate>
-        <link>/2019/05/knowledge-point/</link>
-        <guid isPermaLink="true">/2019/05/knowledge-point/</guid>
+        <link>http://localhost:4000/2019/05/knowledge-point/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/knowledge-point/</guid>
         
         <category>技术</category>
         
@@ -551,8 +551,8 @@ c)SurfaceView尺寸、Previewsize 、Picturesize 的选择方式。原则是比�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Tue, 21 May 2019 00:00:00 +0800</pubDate>
-        <link>/2019/05/record_view/</link>
-        <guid isPermaLink="true">/2019/05/record_view/</guid>
+        <link>http://localhost:4000/2019/05/record_view/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/record_view/</guid>
         
         <category>技术</category>
         
@@ -684,8 +684,8 @@ export PATH=$PATH:$GRADLE_HOME/bin&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Tue, 30 Apr 2019 00:00:00 +0800</pubDate>
-        <link>/2019/04/ionic-environmental-configuration/</link>
-        <guid isPermaLink="true">/2019/04/ionic-environmental-configuration/</guid>
+        <link>http://localhost:4000/2019/04/ionic-environmental-configuration/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/ionic-environmental-configuration/</guid>
         
         <category>技术</category>
         
@@ -742,8 +742,8 @@ gem -v&lt;br /&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 28 Apr 2019 00:00:00 +0800</pubDate>
-        <link>/2019/04/gem-err/</link>
-        <guid isPermaLink="true">/2019/04/gem-err/</guid>
+        <link>http://localhost:4000/2019/04/gem-err/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/gem-err/</guid>
         
         <category>技术</category>
         
@@ -998,8 +998,8 @@ Install the free Ionic Pro SDK and connect your app? n&lt;br /&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 14 Apr 2019 00:00:00 +0800</pubDate>
-        <link>/2019/04/ionicplugin/</link>
-        <guid isPermaLink="true">/2019/04/ionicplugin/</guid>
+        <link>http://localhost:4000/2019/04/ionicplugin/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/ionicplugin/</guid>
         
         <category>技术</category>
         
