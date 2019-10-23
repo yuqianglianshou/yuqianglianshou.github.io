@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>jkeyll 搭建博客</title>
-  <meta name="description" content="Just remember your name,no matter where you are in the world,I must and will go to see you.      –Miyamizu Mitsuha">
+  <title>上海迪士尼有感</title>
+  <meta name="description" content="哎呀呀">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="jkeyll 搭建博客">
-  <meta name="twitter:description" content="Just remember your name,no matter where you are in the world,I must and will go to see you.      –Miyamizu Mitsuha">
+  <meta name="twitter:title" content="上海迪士尼有感">
+  <meta name="twitter:description" content="哎呀呀">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="jkeyll 搭建博客">
-  <meta property="og:description" content="Just remember your name,no matter where you are in the world,I must and will go to see you.      –Miyamizu Mitsuha">
+  <meta property="og:title" content="上海迪士尼有感">
+  <meta property="og:description" content="哎呀呀">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2019/07/jekyll-blog/">
+  <link rel="canonical" href="http://localhost:4000/2019/10/shanghai/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -166,10 +166,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">jkeyll 搭建博客</h1>
+    <h1 class="post-title">上海迪士尼有感</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2019-07-07 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-07-07</time>  
+      <time datetime="2019-10-21 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-10-21</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -177,86 +177,53 @@
   </header>
 
   <section class="post">
-    <h3 id="just-remember-your-nameno-matter-where-you-are-in-the-worldi-must-and-will-go-to-see-you------miyamizu-mitsuha">Just remember your name,no matter where you are in the world,I must and will go to see you.      –Miyamizu Mitsuha</h3>
+    <h3 id="哎呀呀">哎呀呀</h3>
 
-<p>本文所要达到的效果：通过一个自己申请的域名，打开一个自己维护的博客。<br />
-以下操作是在 mac 环境下，Windows 大同小异。  <br />
-所需条件：<br />
-1，一个自己的域名，本例为 xiongzhoudadi.com<br />
-2，一个自己的 github 账号，本例我的账号是 yuqianglianshou<br />
-3，vs code 工具会用  <br />
-4,Git, Ruby环境安装完毕。</p>
-
-<ol>
-  <li>
-    <p>购买域名<br />
-在阿里云旗下万网平台注册一个账号  <a href="https://wanwang.aliyun.com/">https://wanwang.aliyun.com/</a>  或者 西部数码平台 <a href="https://www.west.cn">https://www.west.cn</a>，以万网为例，打开链接，<img src="/images/posts/jekyll_blog/wanwang1.png" alt="" /> <br />
+<p>我走了，去了一个遥远很遥远的地方，那里的空气中弥漫着芳草的气息，所有的人回到了童年的自己，视线之及，尽是童话世界，没有硝烟，只有欢声，我沉沦了，我沦陷了，我回来了，心却离开了。
 <br />
-搜索想要的域名，没有被注册就可以花钱注册了，一般几块到几十每年，下单购买就好了。买好后先放着。</p>
-  </li>
-  <li>Jekyll 新建博客项目<br />
-打开终端，进入到一个想要创建项目的目录（可以是临时目录，一会用完会删除）
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd documents
-cd github
-</code></pre></div>    </div>
-    <p>新建项目(项目名字可以随意，myBlog)</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new myBlog
-</code></pre></div>    </div>
-    <p>新建执行完后用 vs code 打开项目，使用 command+shift+y 快捷键打开 vs code 的命令行 ,执行</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll serve
-</code></pre></div>    </div>
-    <p>当vs code 命令行中看到 Server address:http://127.0.0.1:4000  Server running 之后，打开浏览器，输入所给地址，即可看到刚刚建好的博客样例（一个简单的官方demo，需要改成我的 blog 这样的我会在写一篇文章）。
 <br />
-<img src="/images/posts/jekyll_blog/image1.png" alt="" /> 
-<br /></p>
-  </li>
-  <li>
-    <p>github 创建仓库<br />
-登陆你的 github 账号，然后创建一个跟你账户名一样的仓库，如我的 github 账户名叫 yuqianglianshou，我的 github 仓库名就叫 yuqianglianshou.github.io。</p>
-  </li>
-  <li>提交项目 myBlog 到github<br />
-在GitHub创建的仓库上(yuqianglianshou.github.io) 点击 Clone or dowload 会出现一个地址(https://github.com/yuqianglianshou/yuqianglianshou.github.io.git )，copy这个地址备用。
-打开终端，进入到你想要创建项目的位置(将来博客项目存放的位置)，执行
-git clone https://github.com/yuqianglianshou/yuqianglianshou.github.io.git<br />
-此时出现的文件夹（yuqianglianshou.github.io）就是你的GitHub上创建的项目了，然后把刚才建立的 myBlog 项目中的所有文件复制到你本地的 yuqianglianshou.github.io 仓库中（myBlog可以删了），然后提交到GitHub服务端，
-终端进入仓库目录
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd yuqianglianshou.github.io
-git add .
-git commit -m "初始化"
-git push -u origin master 
-</code></pre></div>    </div>
-    <p>提交成功后，在浏览器里输入 yuqianglianshou.github.io ，就可以访问你的博客了。此时的 yuqianglianshou.github.io 就相当于博客网站的域名。</p>
-  </li>
-  <li>修改域名指向，域名解析<br />
-登陆github账号，打开 yuqianglianshou.github.io 的项目，选择setting，找到
-Custom domain
-Custom domains allow you to serve your site from a domain other than yuqianglianshou.github.io. Learn more.
-下面输入你买的域名，xiongzhoudadi.com ,点击save。
+<img src="/images/posts/shanghai/1.jpeg" alt="" /><br />
 <br />
-<img src="/images/posts/jekyll_blog/github.png" alt="" /> 
-<br /></li>
-</ol>
-
-<p>登入阿里云（你购买域名的平台），域名后面点击解析，
 <br />
-<img src="/images/posts/jekyll_blog/wanwang2.png" alt="" /> 
+如果回到了19日早上，我会留出一段时间，重新整理情绪，去掉兴奋，扔掉计划，静静地走，游荡，飘离，欣赏，看匆匆人海，洋溢笑容，洒脱，自然，把手插在裤衣袋中，望，闻，听，去感受，闭上眼，任清风佛面，阳光拍打，就这样，一直走，走过诗意，走到尽头，走来月明，走出星稀，走向向往的自己，那个肆无忌惮的孩童。<br />
+奈何时空总不会完美。<br />
 <br />
-添加记录，记录类型选择CNAME,主机记录填入www,解析路线默认，记录值 填入 yuqianglianshou.github.com ，TTL 默认值10分钟。保存，10分钟后就会生效。此时www.xiongzhoudadi.com就可以使用了。
-再次添加一个记录，将主机记录写为 @ ，其他与上一个一样，这样 直接 访问 xiongzhoudadi.com 也可以了，（去掉了www）。
 <br />
-<img src="/images/posts/jekyll_blog/wanwang3.png" alt="" /> 
+<img src="/images/posts/shanghai/2.jpeg" alt="" /><br />
 <br />
-<img src="/images/posts/jekyll_blog/wanwang4.png" alt="" /> 
+<br />
+奈何时间并不够用。我们玩到忘记了劳累，饥饿，以至于一切。我们沉浸其中 不能自己，像大多数一样，一切有顺序的又有目的的进行着。只不过，这片世界中，少了一个空位，多了一个灵魂。<br />
+<br />
+<br />
+<img src="/images/posts/shanghai/3.jpeg" alt="" /><br />
+<br />
 <br /></p>
 
-<p>至此，可以通过自己注册的域名访问自己的博客了。</p>
+<p>世界上的童话都是写给大人看的。<br />
+也许，是时候走出童话了吧。<br />
+也许，是时候想想未来了吧。 <br />
+也许，。</p>
+
+<p>谨以此片留作纪念。</p>
+
+<p><br />
+<br />
+<img src="/images/posts/shanghai/4.jpeg" alt="" /><br />
+<br /></p>
+
+<p><br />
+<img src="/images/posts/shanghai/5.jpeg" alt="" /><br />
+<br />
+<br />
+<img src="/images/posts/shanghai/6.jpeg" alt="" /><br />
+<br /></p>
 
 <p><br /> 
 <br /> 
 <br /> 
 <br /> 
 <br /> 
-转载请注明：<a href="http://xiongzhoudadi.com">劉清揚的博客</a> » <a href="http://xiongzhoudadi.com/2019/07/jekyll-blog/"> jkeyll 搭建博客 </a><br />
+转载请注明：<a href="http://xiongzhoudadi.com">劉清揚的博客</a> » <a href="http://xiongzhoudadi.com/2019/10/shanghai/"> 上海迪士尼有感  </a><br />
 <br /></p>
 
 
@@ -327,13 +294,13 @@ Custom domains allow you to serve your site from a domain other than yuqianglian
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2019/07/ionic-serve/" data-toggle="tooltip" data-placement="top" title="ionic 项目 运行 ionic serve（Windows）">上一篇：  <span>ionic 项目 运行 ionic serve（Windows）</span>
+            <a href="/2019/10/git-commit-error/" data-toggle="tooltip" data-placement="top" title="git 提交代码到GitHub报错">上一篇：  <span>git 提交代码到GitHub报错</span>
             </a>
         </li>
         
         
         <li class="next">
-            <a href="/2019/08/jdk-knowledge/" data-toggle="tooltip" data-placement="top" title="JDK 知识点">下一篇：  <span>JDK 知识点</span>
+            <a href="/2019/10/read-book/" data-toggle="tooltip" data-placement="top" title="我是否跟你一样也喜欢读纸质的书">下一篇：  <span>我是否跟你一样也喜欢读纸质的书</span>
             </a>
         </li>
         
