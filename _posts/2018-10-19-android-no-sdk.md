@@ -11,7 +11,7 @@ tags:  技术
 > 接手的一个移动的项目，先看下令人恶心的报错界面。
 > <br/>
 > <br/>
-![](/images/posts/android_nosdk/1.jpg)
+![](/images/posts/android_nosdk/1.jpg){:height="70%" width="70%"}
 > <br/>
 > 
 > 事实上报这个错很明显的原因是SDK路径没配置对，看下项目的SDK路径和你本地的SDK路径是否一致就好了，网上说明甚多，不解释。而我要说的是，如果你把百度甚至Google还有各种IT交流站点都用过了还没有解决的话，可以用我的方法一试，成不成看你的运气了。
@@ -21,31 +21,31 @@ tags:  技术
 > 3，是一个ionic混合开发项目。   
 > 目录是这样的。  
 <br/>
-![](/images/posts/android_nosdk/path.jpg)
+![](/images/posts/android_nosdk/path.jpg){:height="40%" width="40%"}
 > <br/>
 > <br/>
-![](/images/posts/android_nosdk/path2.jpg)
+![](/images/posts/android_nosdk/path2.jpg){:height="40%" width="40%"}
 > <br/>
 > <br/>
-![](/images/posts/android_nosdk/path3.jpg)
+![](/images/posts/android_nosdk/path3.jpg){:height="40%" width="40%"}
 > <br/>
 > <br/>
 > ## 解决方案：  
 > 第一步：删掉两个build目录，也许右键delete删不掉，请去文件夹下删除。  
 > <br/>
-![](/images/posts/android_nosdk/delete.jpg)
+![](/images/posts/android_nosdk/delete.jpg){:height="40%" width="40%"}
 > <br/>
 > 第二步：close 项目。
 > <br/>
-![](/images/posts/android_nosdk/close.jpg)
+![](/images/posts/android_nosdk/close.jpg){:height="40%" width="40%"}
 > <br/>
 > 第三步：X掉这个项目，然后点击Open an existing Android Studio project 重新打开这个项目。  
 > <br/>
-![](/images/posts/android_nosdk/close2.jpg)
+![](/images/posts/android_nosdk/close2.jpg){:height="40%" width="40%"}
 > <br/>
 > 第四步：见证这无语的奇迹吧（如果幸运女神站在你那边的话）。  
 > <br/>
-![](/images/posts/android_nosdk/success.jpg)
+![](/images/posts/android_nosdk/success.jpg){:height="40%" width="40%"}
 > <br/>
 
 <br/>

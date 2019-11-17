@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="/2017/02/android_text_size/">
-  <link rel="alternate" type="application/rss+xml" title="劉清揚" href="/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/2017/02/android_text_size/">
+  <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
 
@@ -180,7 +180,7 @@
     <h3 id="若一去不回便一去不回">若一去不回。便一去不回。</h3>
 <p>Android手机可以通过系统设置来改变字体大小，如图(vivo x5 proD )<br />
 <br />
-<img src="/images/posts/android_text_size/1.jpg" alt="" /><br />
+<img src="/images/posts/android_text_size/1.jpg" alt="" height="40%" width="40%" /><br />
 当用户修改了系统的字体大小，而我们app没有处理时，UI就出问题了。特别是把字体设置最大时，会出现显示不全，换行等等。。。<br />
 我们要做的是让自己的app不跟随系统字体设置，可以在activity基类（app中所有的activity都应该有继承于我们自己定义的一个BaseActivity基类）中重写该方法：</p>
 

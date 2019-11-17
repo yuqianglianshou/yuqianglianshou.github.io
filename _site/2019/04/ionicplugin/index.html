@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="/2019/04/ionicplugin/">
-  <link rel="alternate" type="application/rss+xml" title="劉清揚" href="/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/2019/04/ionicplugin/">
+  <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
 
@@ -187,7 +187,7 @@
   <p>1，E盘新建一个文件夹，起名为 IonicDemo ，作为工作空间，以后ionic项目demo都可以放到这里。<br />
 2，打开Visual Studio Code(以下用简称 VSCode),左上角 文件——》打开文件夹，选择刚刚新建的 E:\IonicDemo。<br />
 <br />
-<img src="/images/posts/ionicplugin/ionic_1.jpg" alt="" />
+<img src="/images/posts/ionicplugin/ionic_1.jpg" alt="" height="70%" width="70%" />
 <br /></p>
 
   <p>3，控制台终端 执行</p>
@@ -222,14 +222,14 @@ Install the free Ionic Pro SDK and connect your app? n<br />
 
   <p>你最初的样子<br />
 <br />
-<img src="/images/posts/ionicplugin/xiangmuxinjianwancheng.jpg" alt="" />
+<img src="/images/posts/ionicplugin/xiangmuxinjianwancheng.jpg" alt="" height="70%" width="70%" />
 <br /></p>
 
   <p>4，添加android平台<br />
 先来定义包名，默认的包名是在config.xml中的io.ionic.starter，如图（此图是已经添加了插件和android端后的截图）：</p>
 
   <p><br />
-<img src="/images/posts/ionicplugin/package.jpg" alt="" />
+<img src="/images/posts/ionicplugin/package.jpg" alt="" height="70%" width="70%" />
 <br /></p>
 </blockquote>
 
@@ -261,7 +261,7 @@ Install the free Ionic Pro SDK and connect your app? n<br />
 
 <blockquote>
   <p><br />
-<img src="/images/posts/ionicplugin/liulanqi.jpg" alt="" />
+<img src="/images/posts/ionicplugin/liulanqi.jpg" alt="" height="70%" width="70%" />
 <br /></p>
 
   <p>模拟器或手机运行执行</p>
@@ -285,7 +285,7 @@ Install the free Ionic Pro SDK and connect your app? n<br />
   <p>在项目根目录下，即E:\IonicDemo\myApp\ ，多出一个MyPlugin文件。</p>
 
   <p><br />
-<img src="/images/posts/ionicplugin/plugin1.jpg" alt="" />
+<img src="/images/posts/ionicplugin/plugin1.jpg" alt="" height="70%" width="70%" />
 <br /></p>
 
   <p>2,进入到自定义的plugin目录中添加android部分。</p>
@@ -309,7 +309,7 @@ Install the free Ionic Pro SDK and connect your app? n<br />
 
 <blockquote>
   <p><br />
-<img src="/images/posts/ionicplugin/pluginfinish.jpg" alt="" />
+<img src="/images/posts/ionicplugin/pluginfinish.jpg" alt="" height="70%" width="70%" />
 <br />
 至此，一个带有android端的自定义插件完成，此时这个插件和项目还没有任何关系，他只是放在了项目的根目录下，你可以剪切复制到任何地方，包括生成时，你可以进入到任何目录去生成（看好终端路径的对应关系）。<br />
 但是，默认的plugin.xml配置的CordovaPlugin实现类是有问题的，这里有问题，如图：</p>
@@ -317,16 +317,16 @@ Install the free Ionic Pro SDK and connect your app? n<br />
 
 <blockquote>
   <p><br />
-<img src="/images/posts/ionicplugin/packageerr0.jpg" alt="" />
+<img src="/images/posts/ionicplugin/packageerr0.jpg" alt="" height="70%" width="70%" />
 <br /></p>
 
   <p>当然也可以运行 但有时Corodva会报找不到插件的错误,一旦安装了这个插件后，在AndroidStudio上也会有报错提示，如图：<br />
 <br />
-<img src="/images/posts/ionicplugin/packageerr.jpg" alt="" />
+<img src="/images/posts/ionicplugin/packageerr.jpg" alt="" height="70%" width="70%" />
 <br />
 不过运行是没问题的。但是恶心啊，所以，还是改了吧，将这里的<br />
 <br />
-<img src="/images/posts/ionicplugin/packageerr0.jpg" alt="" />
+<img src="/images/posts/ionicplugin/packageerr0.jpg" alt="" height="70%" width="70%" />
 <br />
 /MyPlugin 去掉就好了，插件名字为其他的，以此类推就行。</p>
 </blockquote>
@@ -346,11 +346,11 @@ Install the free Ionic Pro SDK and connect your app? n<br />
 
   <p>完成后根目录下的plugins文件夹下会有我们自定义的插件，如图：<br />
 <br />
-<img src="/images/posts/ionicplugin/pluginionicjiegou.jpg" alt="" />
+<img src="/images/posts/ionicplugin/pluginionicjiegou.jpg" alt="" height="70%" width="70%" />
 <br /><br />
 在AS中打开<br />
 <br />
-<img src="/images/posts/ionicplugin/as_1.jpg" alt="" />
+<img src="/images/posts/ionicplugin/as_1.jpg" alt="" height="70%" width="70%" />
 <br /></p>
   <h4 id="下面试着用下">下面试着用下</h4>
   <p><br /> 
@@ -360,7 +360,7 @@ Install the free Ionic Pro SDK and connect your app? n<br />
   <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
 </code></pre></div>  </div>
   <p><br />
-<img src="/images/posts/ionicplugin/ioniccode1.jpg" alt="" />
+<img src="/images/posts/ionicplugin/ioniccode1.jpg" alt="" height="70%" width="70%" />
 <br /></p>
 </blockquote>
 
@@ -396,7 +396,7 @@ Install the free Ionic Pro SDK and connect your app? n<br />
   <span class="o">}</span>
 </code></pre></div>  </div>
   <p><br />
-<img src="/images/posts/ionicplugin/ioniccode2.jpg" alt="" />
+<img src="/images/posts/ionicplugin/ioniccode2.jpg" alt="" height="70%" width="70%" />
 <br />
 当然要用AS回答一下问题了</p>
   <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="k">if</span><span class="o">(</span><span class="s">"你帅气么？"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">message</span><span class="o">)){</span>
@@ -406,13 +406,13 @@ Install the free Ionic Pro SDK and connect your app? n<br />
      <span class="o">}</span>
 </code></pre></div>  </div>
   <p><br />
-<img src="/images/posts/ionicplugin/as_2.jpg" alt="" />
+<img src="/images/posts/ionicplugin/as_2.jpg" alt="" height="70%" width="70%" />
 <br />
 此时，作为一名android开发的我，终于可以在AS中写代码了，那ionic的代码，着实让我头疼，甚是头疼。
 <br /> 
 手机运行截图：<br />
 <br />
-<img src="/images/posts/ionicplugin/phone.png" alt="" />
+<img src="/images/posts/ionicplugin/phone.png" alt="" height="40%" width="40%" />
 <br /> 
 <br /> 
 <br /> 

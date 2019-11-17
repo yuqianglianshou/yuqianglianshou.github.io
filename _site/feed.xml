@@ -3,10 +3,10 @@
   <channel>
     <title>劉清揚</title>
     <description>欢迎来到我的个人站~</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Oct 2019 22:49:59 +0800</pubDate>
-    <lastBuildDate>Wed, 23 Oct 2019 22:49:59 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 17 Nov 2019 22:14:50 +0800</pubDate>
+    <lastBuildDate>Sun, 17 Nov 2019 22:14:50 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -24,8 +24,8 @@
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 23 Oct 2019 00:00:00 +0800</pubDate>
-        <link>/2019/10/read-book/</link>
-        <guid isPermaLink="true">/2019/10/read-book/</guid>
+        <link>http://localhost:4000/2019/10/read-book/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/10/read-book/</guid>
         
         <category>人生</category>
         
@@ -39,20 +39,20 @@
 &lt;p&gt;我走了，去了一个遥远很遥远的地方，那里的空气中弥漫着芳草的气息，所有的人回到了童年的自己，视线之及，尽是童话世界，没有硝烟，只有欢声，我沉沦了，我沦陷了，我回来了，心却离开了。
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/1.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/shanghai/1.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
 如果回到了19日早上，我会留出一段时间，重新整理情绪，去掉兴奋，扔掉计划，静静地走，游荡，飘离，欣赏，看匆匆人海，洋溢笑容，洒脱，自然，把手插在裤衣袋中，望，闻，听，去感受，闭上眼，任清风佛面，阳光拍打，就这样，一直走，走过诗意，走到尽头，走来月明，走出星稀，走向向往的自己，那个肆无忌惮的孩童。&lt;br /&gt;
 奈何时空总不会完美。&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/2.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/shanghai/2.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
 奈何时间并不够用。我们玩到忘记了劳累，饥饿，以至于一切。我们沉浸其中 不能自己，像大多数一样，一切有顺序的又有目的的进行着。只不过，这片世界中，少了一个空位，多了一个灵魂。&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/3.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/shanghai/3.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 
@@ -65,14 +65,14 @@
 
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/4.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/shanghai/4.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/5.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/shanghai/5.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt;
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/6.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/shanghai/6.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt; 
@@ -84,8 +84,8 @@
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 21 Oct 2019 00:00:00 +0800</pubDate>
-        <link>/2019/10/shanghai/</link>
-        <guid isPermaLink="true">/2019/10/shanghai/</guid>
+        <link>http://localhost:4000/2019/10/shanghai/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/10/shanghai/</guid>
         
         <category>人生</category>
         
@@ -119,8 +119,8 @@ fatal: unable to access ‘https://github.com/####/###.github.io.git/’: The re
 &lt;/blockquote&gt;
 </description>
         <pubDate>Thu, 17 Oct 2019 00:00:00 +0800</pubDate>
-        <link>/2019/10/git-commit-error/</link>
-        <guid isPermaLink="true">/2019/10/git-commit-error/</guid>
+        <link>http://localhost:4000/2019/10/git-commit-error/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/10/git-commit-error/</guid>
         
         <category>技术</category>
         
@@ -296,8 +296,8 @@ JDK12放弃了对JDK6及其以前版本的支持。&lt;/li&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sat, 03 Aug 2019 00:00:00 +0800</pubDate>
-        <link>/2019/08/jdk-knowledge/</link>
-        <guid isPermaLink="true">/2019/08/jdk-knowledge/</guid>
+        <link>http://localhost:4000/2019/08/jdk-knowledge/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/jdk-knowledge/</guid>
         
         <category>技术</category>
         
@@ -319,7 +319,8 @@ JDK12放弃了对JDK6及其以前版本的支持。&lt;/li&gt;
 &lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;购买域名&lt;br /&gt;
-在阿里云旗下万网平台注册一个账号  &lt;a href=&quot;https://wanwang.aliyun.com/&quot;&gt;https://wanwang.aliyun.com/&lt;/a&gt;  或者 西部数码平台 &lt;a href=&quot;https://www.west.cn&quot;&gt;https://www.west.cn&lt;/a&gt;，以万网为例，打开链接，&lt;img src=&quot;/images/posts/jekyll_blog/wanwang1.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+在阿里云旗下万网平台注册一个账号  &lt;a href=&quot;https://wanwang.aliyun.com/&quot;&gt;https://wanwang.aliyun.com/&lt;/a&gt;  或者 西部数码平台 &lt;a href=&quot;https://www.west.cn&quot;&gt;https://www.west.cn&lt;/a&gt;，以万网为例，打开链接，
+&lt;img src=&quot;/images/posts/jekyll_blog/wanwang1.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; &lt;br /&gt;
 &lt;br /&gt;
 搜索想要的域名，没有被注册就可以花钱注册了，一般几块到几十每年，下单购买就好了。买好后先放着。&lt;/p&gt;
   &lt;/li&gt;
@@ -336,7 +337,7 @@ cd github
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;当vs code 命令行中看到 Server address:http://127.0.0.1:4000  Server running 之后，打开浏览器，输入所给地址，即可看到刚刚建好的博客样例（一个简单的官方demo，需要改成我的 blog 这样的我会在写一篇文章）。
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/image1.png&quot; alt=&quot;&quot; /&gt; 
+&lt;img src=&quot;/images/posts/jekyll_blog/image1.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;
 &lt;br /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -362,20 +363,20 @@ Custom domain
 Custom domains allow you to serve your site from a domain other than yuqianglianshou.github.io. Learn more.
 下面输入你买的域名，xiongzhoudadi.com ,点击save。
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/github.png&quot; alt=&quot;&quot; /&gt; 
+&lt;img src=&quot;/images/posts/jekyll_blog/github.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;登入阿里云（你购买域名的平台），域名后面点击解析，
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/wanwang2.png&quot; alt=&quot;&quot; /&gt; 
+&lt;img src=&quot;/images/posts/jekyll_blog/wanwang2.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
 &lt;br /&gt;
 添加记录，记录类型选择CNAME,主机记录填入www,解析路线默认，记录值 填入 yuqianglianshou.github.com ，TTL 默认值10分钟。保存，10分钟后就会生效。此时www.xiongzhoudadi.com就可以使用了。
 再次添加一个记录，将主机记录写为 @ ，其他与上一个一样，这样 直接 访问 xiongzhoudadi.com 也可以了，（去掉了www）。
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/wanwang3.png&quot; alt=&quot;&quot; /&gt; 
+&lt;img src=&quot;/images/posts/jekyll_blog/wanwang3.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
 &lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/wanwang4.png&quot; alt=&quot;&quot; /&gt; 
+&lt;img src=&quot;/images/posts/jekyll_blog/wanwang4.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
 &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;至此，可以通过自己注册的域名访问自己的博客了。&lt;/p&gt;
@@ -389,8 +390,8 @@ Custom domains allow you to serve your site from a domain other than yuqianglian
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 Jul 2019 00:00:00 +0800</pubDate>
-        <link>/2019/07/jekyll-blog/</link>
-        <guid isPermaLink="true">/2019/07/jekyll-blog/</guid>
+        <link>http://localhost:4000/2019/07/jekyll-blog/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/07/jekyll-blog/</guid>
         
         <category>技术</category>
         
@@ -439,13 +440,13 @@ The Ionic CLI will exit. Please check any output above for error details.
   &lt;li&gt;附图&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/ionicserve/downloadnodejs.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;p&gt;&lt;img src=&quot;/images/posts/ionicserve/downloadnodejs.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;50%&quot; /&gt; &lt;br /&gt;
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;img src=&quot;/images/posts/ionicserve/2.png&quot; alt=&quot;&quot; /&gt; 
+&lt;img src=&quot;/images/posts/ionicserve/2.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;img src=&quot;/images/posts/ionicserve/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/images/posts/ionicserve/3.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt; 
 &lt;br /&gt; 
@@ -458,8 +459,8 @@ The Ionic CLI will exit. Please check any output above for error details.
 &lt;/blockquote&gt;
 </description>
         <pubDate>Thu, 04 Jul 2019 00:00:00 +0800</pubDate>
-        <link>/2019/07/ionic-serve/</link>
-        <guid isPermaLink="true">/2019/07/ionic-serve/</guid>
+        <link>http://localhost:4000/2019/07/ionic-serve/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/07/ionic-serve/</guid>
         
         <category>技术</category>
         
@@ -492,8 +493,8 @@ MATLAB 2014 b&lt;/p&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 23 Jun 2019 00:00:00 +0800</pubDate>
-        <link>/2019/06/matlab-for-mac/</link>
-        <guid isPermaLink="true">/2019/06/matlab-for-mac/</guid>
+        <link>http://localhost:4000/2019/06/matlab-for-mac/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/matlab-for-mac/</guid>
         
         <category>技术</category>
         
@@ -511,8 +512,8 @@ MATLAB 2014 b&lt;/p&gt;
 IP地址代理服务：&lt;a href=&quot;http://www.qydaili.com/free/&quot;&gt;旗云代理&lt;/a&gt;&lt;br /&gt;
 爬取的目标网站：&lt;a href=&quot;http://quotes.toscrape.com/&quot;&gt;http://quotes.toscrape.com/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;主线：通过网页解析库jsoup获取旗云代理网页数据，提取前5页代理IP及端口号；随机取一个代理IP和端口号，获取目标网站前5页的数据，由于代理IP不稳定或响应时间长或网不好等等，会有失败情况甚至大量失败情况发生，程序重复此过程直至成功，然后提取我们想要的名人名言数据；输出到控制台；输出txt文件到项目根目录。&lt;/li&gt;
-  &lt;li&gt;&lt;img src=&quot;/images/posts/kotlin_parser/1.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
-&lt;img src=&quot;/images/posts/kotlin_parser/2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;/images/posts/kotlin_parser/1.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; &lt;br /&gt;
+&lt;img src=&quot;/images/posts/kotlin_parser/2.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt; 
@@ -524,8 +525,8 @@ IP地址代理服务：&lt;a href=&quot;http://www.qydaili.com/free/&quot;&gt;�
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 11 Jun 2019 00:00:00 +0800</pubDate>
-        <link>/2019/06/kotlin_parser/</link>
-        <guid isPermaLink="true">/2019/06/kotlin_parser/</guid>
+        <link>http://localhost:4000/2019/06/kotlin_parser/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/kotlin_parser/</guid>
         
         <category>技术</category>
         
@@ -599,8 +600,8 @@ Tor是实现匿名通信的自由软件。其名源于“The Onion Router”（�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 26 May 2019 00:00:00 +0800</pubDate>
-        <link>/2019/05/knowledge-point/</link>
-        <guid isPermaLink="true">/2019/05/knowledge-point/</guid>
+        <link>http://localhost:4000/2019/05/knowledge-point/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/knowledge-point/</guid>
         
         <category>技术</category>
         
@@ -614,11 +615,11 @@ Tor是实现匿名通信的自由软件。其名源于“The Onion Router”（�
 &lt;p&gt;先看一下效果图： 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;img src=&quot;/images/posts/record_video/recordvideo2.jpeg&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;img src=&quot;/images/posts/record_video/recordvideo2.jpeg&quot; alt=&quot;&quot; height=&quot;40%&quot; width=&quot;40%&quot; /&gt; &lt;br /&gt;
 &lt;br /&gt; 
-&lt;img src=&quot;/images/posts/record_video/recordvideo1.jpeg&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;img src=&quot;/images/posts/record_video/recordvideo1.jpeg&quot; alt=&quot;&quot; height=&quot;40%&quot; width=&quot;40%&quot; /&gt; &lt;br /&gt;
 &lt;br /&gt; 
-&lt;img src=&quot;/images/posts/record_video/recordvideo3.jpeg&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;
+&lt;img src=&quot;/images/posts/record_video/recordvideo3.jpeg&quot; alt=&quot;&quot; height=&quot;40%&quot; width=&quot;40%&quot; /&gt; &lt;br /&gt;
 &lt;br /&gt; 
 &lt;br /&gt;&lt;/p&gt;
 
@@ -667,8 +668,8 @@ c)SurfaceView尺寸、Previewsize 、Picturesize 的选择方式。原则是比�
 &lt;/blockquote&gt;
 </description>
         <pubDate>Tue, 21 May 2019 00:00:00 +0800</pubDate>
-        <link>/2019/05/record_view/</link>
-        <guid isPermaLink="true">/2019/05/record_view/</guid>
+        <link>http://localhost:4000/2019/05/record_view/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/record_view/</guid>
         
         <category>技术</category>
         
