@@ -10,10 +10,10 @@ tags:  技术
 > 看下令人恶心的报错信息  Process 'command 'D:\sdk\build-tools\25.0.0\aapt.exe'' finished with non-zero exit value 1
 > <br/>
 > <br/>
-![](/images/posts/android_non_zero_exit_value_1/error1.png)
+![](/images/posts/android_non_zero_exit_value_1/error1.png){:height="70%" width="70%"}
 > <br/>
 > 
-![](/images/posts/android_non_zero_exit_value_1/error2.png)
+![](/images/posts/android_non_zero_exit_value_1/error2.png){:height="70%" width="70%"}
 > <br/>
 > <br/>
 > 又是一个神奇的bug，我总是如此的幸运，以至于幸运女神已经对我爱答不理。  

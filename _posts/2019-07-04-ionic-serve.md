@@ -46,13 +46,13 @@ npm install @ionic/app-scripts@latest --save-dev
 浏览器成功打开项目。
 6. 附图  
 
-![](/images/posts/ionicserve/downloadnodejs.png)   
+![](/images/posts/ionicserve/downloadnodejs.png){:height="70%" width="50%"}   
 <br/> 
 <br/> 
-![](/images/posts/ionicserve/2.png) 
+![](/images/posts/ionicserve/2.png){:height="70%" width="70%"} 
 <br/> 
 <br/> 
-![](/images/posts/ionicserve/3.png) 
+![](/images/posts/ionicserve/3.png){:height="70%" width="70%"} 
 
 
 

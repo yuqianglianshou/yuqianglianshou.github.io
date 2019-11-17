@@ -16,7 +16,8 @@ tags:  技术
 4,Git, Ruby环境安装完毕。
 
 1. 购买域名  
-在阿里云旗下万网平台注册一个账号  [https://wanwang.aliyun.com/](https://wanwang.aliyun.com/)  或者 西部数码平台 [https://www.west.cn](https://www.west.cn)，以万网为例，打开链接，![](/images/posts/jekyll_blog/wanwang1.png)   
+在阿里云旗下万网平台注册一个账号  [https://wanwang.aliyun.com/](https://wanwang.aliyun.com/)  或者 西部数码平台 [https://www.west.cn](https://www.west.cn)，以万网为例，打开链接，
+![](/images/posts/jekyll_blog/wanwang1.png){:height="70%" width="70%"}   
 <br/>
 搜索想要的域名，没有被注册就可以花钱注册了，一般几块到几十每年，下单购买就好了。买好后先放着。
 
@@ -36,7 +37,7 @@ jekyll serve
 ```
 当vs code 命令行中看到 Server address:http://127.0.0.1:4000  Server running 之后，打开浏览器，输入所给地址，即可看到刚刚建好的博客样例（一个简单的官方demo，需要改成我的 blog 这样的我会在写一篇文章）。
 <br/>
-![](/images/posts/jekyll_blog/image1.png) 
+![](/images/posts/jekyll_blog/image1.png){:height="70%" width="70%"}
 <br/>
 
 3. github 创建仓库  
@@ -61,19 +62,19 @@ Custom domain
 Custom domains allow you to serve your site from a domain other than yuqianglianshou.github.io. Learn more.
 下面输入你买的域名，xiongzhoudadi.com ,点击save。
 <br/>
-![](/images/posts/jekyll_blog/github.png) 
+![](/images/posts/jekyll_blog/github.png){:height="70%" width="70%"} 
 <br/>
 
 登入阿里云（你购买域名的平台），域名后面点击解析，
 <br/>
-![](/images/posts/jekyll_blog/wanwang2.png) 
+![](/images/posts/jekyll_blog/wanwang2.png){:height="70%" width="70%"} 
 <br/>
 添加记录，记录类型选择CNAME,主机记录填入www,解析路线默认，记录值 填入 yuqianglianshou.github.com ，TTL 默认值10分钟。保存，10分钟后就会生效。此时www.xiongzhoudadi.com就可以使用了。
 再次添加一个记录，将主机记录写为 @ ，其他与上一个一样，这样 直接 访问 xiongzhoudadi.com 也可以了，（去掉了www）。
 <br/>
-![](/images/posts/jekyll_blog/wanwang3.png) 
+![](/images/posts/jekyll_blog/wanwang3.png){:height="70%" width="70%"} 
 <br/>
-![](/images/posts/jekyll_blog/wanwang4.png) 
+![](/images/posts/jekyll_blog/wanwang4.png){:height="70%" width="70%"} 
 <br/>
 
 至此，可以通过自己注册的域名访问自己的博客了。
