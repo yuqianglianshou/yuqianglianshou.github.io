@@ -10,6 +10,8 @@ tags:  技术
 * 截图 command+shift+4
 * 显示隐藏文件 command+shift+.
 * 终端命令查看环境变量 echo $变量名
+* 绝对路径直达 command+shift+G
+* 打开刚关闭的网页 command+shift+T
 
 #### Visual Studio Code 快捷键(mac)
 * 打开控制台 command+shift+Y
@@ -20,9 +22,6 @@ tags:  技术
 
 2，jekyll build 编译
    jekyll serve 运行服务
-  升级ruby版本和bundle版本后，运行服务改为 
-  bundle exec jekyll build 
-  bundle exec jekyll serve
 
 3，http://127.0.0.1:4000/ 浏览器打开
 
@@ -32,8 +31,6 @@ tags:  技术
 1，jekyll搭建的博客目录下右键  Git Bash Here  
 
 2， 运行服务 jekyll serve  
-  升级ruby版本和bundle版本后，运行服务改为 
-  bundle exec jekyll serve
 
 3，浏览器打开  http://127.0.0.1:4000/  
 
