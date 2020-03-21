@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>ionic初识</title>
-  <meta name="description" content="背景音乐 童话镇。本文目的：对ionic框架有那么点了解">
+  <title>Android Jetpack 组件开发 初识</title>
+  <meta name="description" content="敢于逆行，目光笃定。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ionic初识">
-  <meta name="twitter:description" content="背景音乐 童话镇。本文目的：对ionic框架有那么点了解">
+  <meta name="twitter:title" content="Android Jetpack 组件开发 初识">
+  <meta name="twitter:description" content="敢于逆行，目光笃定。">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="ionic初识">
-  <meta property="og:description" content="背景音乐 童话镇。本文目的：对ionic框架有那么点了解">
+  <meta property="og:title" content="Android Jetpack 组件开发 初识">
+  <meta property="og:description" content="敢于逆行，目光笃定。">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2019/04/ionic/">
+  <link rel="canonical" href="http://localhost:4000/2020/03/jetpack/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -166,10 +166,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">ionic初识</h1>
+    <h1 class="post-title">Android Jetpack 组件开发 初识</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2019-04-13 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2019-04-13</time>  
+      <time datetime="2020-03-21 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-03-21</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -177,34 +177,29 @@
   </header>
 
   <section class="post">
-    <h3 id="背景音乐-童话镇">背景音乐 童话镇。</h3>
-<h2 id="本文目的对ionic框架有那么点了解">本文目的：对ionic框架有那么点了解</h2>
+    <h3 id="敢于逆行目光笃定">敢于逆行，目光笃定。</h3>
 
-<p>1，以AngularJS和Apache Cordova 为基础，使用Node.js进行模块管理，使用HEML5、CSS(Sass)和JavaScript技术进行App开发。<br />
-2，node.js 是基于chrome v8 javascrip engine 构建的一个javascript runtime，特点是事件驱动、非阻塞等。npm 是node.js中的JavaScript包管理。<br />
-3，它们在混合开发中扮演的是不同的角色–Ionic/Angular负责页面的实现，而Cordova负责将实现的页面包装成原生应用（Android:apk；iOS:ipa）。<br />
-Cordova插件的作用是提供一个桥梁供页面和原生通信，首先我们的页面没有直接调用设备能力，所以需要与能够调用设备能力的原生代码（Android:Java；iOS:OC）通信，此时就需要Cordova插件了。</p>
+<p>Android Jetpack 组件开发： 
+ <a href="https://developer.android.google.cn/jetpack/">https://developer.android.google.cn/jetpack/</a> <br />
+ 视频学习自bilibili： <a href="https://www.bilibili.com/video/av50954019?p=1">https://www.bilibili.com/video/av50954019?p=1</a><br />
+ 第一部分已经完成： 初识mvvm+livedata+databinding,在compare包下，以功能相同的四个activity由mvc过度到mvvm模式，使用livedata，使用databinding。<br />
+ demo地址<a href="https://github.com/yuqianglianshou/JetpackDeom/">https://github.com/yuqianglianshou/JetpackDeom/</a><br />
+ 有详细注释
+ <br /> 
+ <br /> 
+ <img src="/images/posts/jetpack/1.png" alt="" width="80%" height="80%" /></p>
 
-<p>Cordova插件能够在任何Cordova工程中使用，和使用什么前端框架（如Ionic）无关。</p>
-
-<p>Ionic 2中封装了Ionic Native，方便了Cordova插件的使用，但在Ionic 2中仍然可以像Ionic 1中一样使用Cordova插件，Ionic Native不是必须的。<br />
-4，ionic是什么：</p>
-
-<p>Ionic(ionicframework)一款开源的Html5移动App开发框架,是AngularJS移动端解决方案,Ionic以流行的跨平台移动app开发框架phoengap为蓝本，让开发者可以通过命令行工具快速生成android  ios移动app应用。<br />
-5，phoengap（cordova的核心技术）是什么？</p>
-
-<p>phonegap是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用iPhone，Android，Palm，Symbian,WP7,WP8,Bada和Blackberry智能手机的核心功能——包括地理定位，加速器，联系人，声音和振动.</p>
-
-<p>6，通俗的讲：ionic是一款基于angularjs的html5移动app开发框架，</p>
-
-<p>phonegap就是一款可以打包并且可以让js调用原生的移动app框架。</p>
-
-<blockquote>
-  <p><br /> 
+<p><br /> 
 <br /> 
-转载请注明：<a href="http://xiongzhoudadi.com">劉清揚的博客</a> » <a href="http://xiongzhoudadi.com/2019/04/ionic/"> ionic初识 </a><br />
+未完待续。</p>
+
+<p><br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+转载请注明：<a href="http://xiongzhoudadi.com">劉清揚的博客</a> » <a href="http://xiongzhoudadi.com/2020/03/jetpack/"> Android Jetpack 组件开发 初识 </a><br />
 <br /></p>
-</blockquote>
 
 
   </section>
@@ -274,15 +269,10 @@ Cordova插件的作用是提供一个桥梁供页面和原生通信，首先我�
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2019/03/android-wps-open-txt/" data-toggle="tooltip" data-placement="top" title="Android 新建txt被WPS提示打开？">上一篇：  <span>Android 新建txt被WPS提示打开？</span>
+            <a href="/2019/12/psychology/" data-toggle="tooltip" data-placement="top" title="什么样的男生注定单身？">上一篇：  <span>什么样的男生注定单身？</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2019/04/ionicplugin/" data-toggle="tooltip" data-placement="top" title="ionic建一个项目自定义一个插件">下一篇：  <span>ionic建一个项目自定义一个插件</span>
-            </a>
-        </li>
         
     </ul>
 </section>

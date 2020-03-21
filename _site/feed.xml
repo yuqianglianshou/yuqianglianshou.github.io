@@ -3,11 +3,46 @@
   <channel>
     <title>劉清揚</title>
     <description>欢迎来到我的个人站~</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 20 Dec 2019 06:57:17 +0800</pubDate>
-    <lastBuildDate>Fri, 20 Dec 2019 06:57:17 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 21 Mar 2020 19:52:32 +0800</pubDate>
+    <lastBuildDate>Sat, 21 Mar 2020 19:52:32 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Android Jetpack 组件开发 初识</title>
+        <description>&lt;h3 id=&quot;敢于逆行目光笃定&quot;&gt;敢于逆行，目光笃定。&lt;/h3&gt;
+
+&lt;p&gt;Android Jetpack 组件开发： 
+ &lt;a href=&quot;https://developer.android.google.cn/jetpack/&quot;&gt;https://developer.android.google.cn/jetpack/&lt;/a&gt; &lt;br /&gt;
+ 视频学习自bilibili： &lt;a href=&quot;https://www.bilibili.com/video/av50954019?p=1&quot;&gt;https://www.bilibili.com/video/av50954019?p=1&lt;/a&gt;&lt;br /&gt;
+ 第一部分已经完成： 初识mvvm+livedata+databinding,在compare包下，以功能相同的四个activity由mvc过度到mvvm模式，使用livedata，使用databinding。&lt;br /&gt;
+ demo地址&lt;a href=&quot;https://github.com/yuqianglianshou/JetpackDeom/&quot;&gt;https://github.com/yuqianglianshou/JetpackDeom/&lt;/a&gt;&lt;br /&gt;
+ 有详细注释
+ &lt;br /&gt; 
+ &lt;br /&gt; 
+ &lt;img src=&quot;/images/posts/jetpack/1.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+未完待续。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2020/03/jetpack/&quot;&gt; Android Jetpack 组件开发 初识 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 21 Mar 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/03/jetpack/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/03/jetpack/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>什么样的男生注定单身？</title>
@@ -90,8 +125,8 @@
 &lt;p&gt;转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/12/psychology/&quot;&gt;  什么样的男生注定单身？  &lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 20 Dec 2019 00:00:00 +0800</pubDate>
-        <link>/2019/12/psychology/</link>
-        <guid isPermaLink="true">/2019/12/psychology/</guid>
+        <link>http://localhost:4000/2019/12/psychology/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/psychology/</guid>
         
         <category>个人</category>
         
@@ -168,8 +203,8 @@ ForkLift 是一款mac上专业的文件管理程序，我用它进行ftp链接�
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
-        <link>/2019/12/website-development_3/</link>
-        <guid isPermaLink="true">/2019/12/website-development_3/</guid>
+        <link>http://localhost:4000/2019/12/website-development_3/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_3/</guid>
         
         <category>技术</category>
         
@@ -245,8 +280,8 @@ pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&g
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
-        <link>/2019/12/website-development_2/</link>
-        <guid isPermaLink="true">/2019/12/website-development_2/</guid>
+        <link>http://localhost:4000/2019/12/website-development_2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_2/</guid>
         
         <category>技术</category>
         
@@ -300,8 +335,8 @@ pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&g
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
-        <link>/2019/12/website-development_1/</link>
-        <guid isPermaLink="true">/2019/12/website-development_1/</guid>
+        <link>http://localhost:4000/2019/12/website-development_1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_1/</guid>
         
         <category>技术</category>
         
@@ -336,8 +371,8 @@ pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&g
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
-        <link>/2019/12/website-development_0/</link>
-        <guid isPermaLink="true">/2019/12/website-development_0/</guid>
+        <link>http://localhost:4000/2019/12/website-development_0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_0/</guid>
         
         <category>技术</category>
         
@@ -360,8 +395,8 @@ pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&g
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 23 Oct 2019 00:00:00 +0800</pubDate>
-        <link>/2019/10/read-book/</link>
-        <guid isPermaLink="true">/2019/10/read-book/</guid>
+        <link>http://localhost:4000/2019/10/read-book/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/10/read-book/</guid>
         
         <category>人生</category>
         
@@ -420,8 +455,8 @@ pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&g
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 21 Oct 2019 00:00:00 +0800</pubDate>
-        <link>/2019/10/shanghai/</link>
-        <guid isPermaLink="true">/2019/10/shanghai/</guid>
+        <link>http://localhost:4000/2019/10/shanghai/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/10/shanghai/</guid>
         
         <category>人生</category>
         
@@ -455,8 +490,8 @@ fatal: unable to access ‘https://github.com/####/###.github.io.git/’: The re
 &lt;/blockquote&gt;
 </description>
         <pubDate>Thu, 17 Oct 2019 00:00:00 +0800</pubDate>
-        <link>/2019/10/git-commit-error/</link>
-        <guid isPermaLink="true">/2019/10/git-commit-error/</guid>
+        <link>http://localhost:4000/2019/10/git-commit-error/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/10/git-commit-error/</guid>
         
         <category>技术</category>
         
@@ -632,102 +667,8 @@ JDK12放弃了对JDK6及其以前版本的支持。&lt;/li&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sat, 03 Aug 2019 00:00:00 +0800</pubDate>
-        <link>/2019/08/jdk-knowledge/</link>
-        <guid isPermaLink="true">/2019/08/jdk-knowledge/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>jkeyll 搭建博客</title>
-        <description>&lt;h3 id=&quot;just-remember-your-nameno-matter-where-you-are-in-the-worldi-must-and-will-go-to-see-you------miyamizu-mitsuha&quot;&gt;Just remember your name,no matter where you are in the world,I must and will go to see you.      –Miyamizu Mitsuha&lt;/h3&gt;
-
-&lt;p&gt;本文所要达到的效果：通过一个自己申请的域名，打开一个自己维护的博客。&lt;br /&gt;
-以下操作是在 mac 环境下，Windows 大同小异。  &lt;br /&gt;
-所需条件：&lt;br /&gt;
-1，一个自己的域名，本例为 xiongzhoudadi.com&lt;br /&gt;
-2，一个自己的 github 账号，本例我的账号是 yuqianglianshou&lt;br /&gt;
-3，vs code 工具会用  &lt;br /&gt;
-4,Git, Ruby环境安装完毕。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;购买域名&lt;br /&gt;
-在阿里云旗下万网平台注册一个账号  &lt;a href=&quot;https://wanwang.aliyun.com/&quot;&gt;https://wanwang.aliyun.com/&lt;/a&gt;  或者 西部数码平台 &lt;a href=&quot;https://www.west.cn&quot;&gt;https://www.west.cn&lt;/a&gt;，以万网为例，打开链接，
-&lt;img src=&quot;/images/posts/jekyll_blog/wanwang1.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; &lt;br /&gt;
-&lt;br /&gt;
-搜索想要的域名，没有被注册就可以花钱注册了，一般几块到几十每年，下单购买就好了。买好后先放着。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Jekyll 新建博客项目&lt;br /&gt;
-打开终端，进入到一个想要创建项目的目录（可以是临时目录，一会用完会删除）
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd documents
-cd github
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;新建项目(项目名字可以随意，myBlog)&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new myBlog
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;新建执行完后用 vs code 打开项目，使用 command+shift+y 快捷键打开 vs code 的命令行 ,执行&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll serve
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;当vs code 命令行中看到 Server address:http://127.0.0.1:4000  Server running 之后，打开浏览器，输入所给地址，即可看到刚刚建好的博客样例（一个简单的官方demo，需要改成我的 blog 这样的我会在写一篇文章）。
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/image1.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;
-&lt;br /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;github 创建仓库&lt;br /&gt;
-登陆你的 github 账号，然后创建一个跟你账户名一样的仓库，如我的 github 账户名叫 yuqianglianshou，我的 github 仓库名就叫 yuqianglianshou.github.io。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;提交项目 myBlog 到github&lt;br /&gt;
-在GitHub创建的仓库上(yuqianglianshou.github.io) 点击 Clone or dowload 会出现一个地址(https://github.com/yuqianglianshou/yuqianglianshou.github.io.git )，copy这个地址备用。
-打开终端，进入到你想要创建项目的位置(将来博客项目存放的位置)，执行
-git clone https://github.com/yuqianglianshou/yuqianglianshou.github.io.git&lt;br /&gt;
-此时出现的文件夹（yuqianglianshou.github.io）就是你的GitHub上创建的项目了，然后把刚才建立的 myBlog 项目中的所有文件复制到你本地的 yuqianglianshou.github.io 仓库中（myBlog可以删了），然后提交到GitHub服务端，
-终端进入仓库目录
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd yuqianglianshou.github.io
-git add .
-git commit -m &quot;初始化&quot;
-git push -u origin master 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;提交成功后，在浏览器里输入 yuqianglianshou.github.io ，就可以访问你的博客了。此时的 yuqianglianshou.github.io 就相当于博客网站的域名。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;修改域名指向，域名解析&lt;br /&gt;
-登陆github账号，打开 yuqianglianshou.github.io 的项目，选择setting，找到
-Custom domain
-Custom domains allow you to serve your site from a domain other than yuqianglianshou.github.io. Learn more.
-下面输入你买的域名，xiongzhoudadi.com ,点击save。
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/github.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;登入阿里云（你购买域名的平台），域名后面点击解析，
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/wanwang2.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
-&lt;br /&gt;
-添加记录，记录类型选择CNAME,主机记录填入www,解析路线默认，记录值 填入 yuqianglianshou.github.com ，TTL 默认值10分钟。保存，10分钟后就会生效。此时www.xiongzhoudadi.com就可以使用了。
-再次添加一个记录，将主机记录写为 @ ，其他与上一个一样，这样 直接 访问 xiongzhoudadi.com 也可以了，（去掉了www）。
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/wanwang3.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/jekyll_blog/wanwang4.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;至此，可以通过自己注册的域名访问自己的博客了。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/07/jekyll-blog/&quot;&gt; jkeyll 搭建博客 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 07 Jul 2019 00:00:00 +0800</pubDate>
-        <link>/2019/07/jekyll-blog/</link>
-        <guid isPermaLink="true">/2019/07/jekyll-blog/</guid>
+        <link>http://localhost:4000/2019/08/jdk-knowledge/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/08/jdk-knowledge/</guid>
         
         <category>技术</category>
         
