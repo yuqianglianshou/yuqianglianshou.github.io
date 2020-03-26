@@ -241,6 +241,10 @@
 <lastmod>2020-03-21T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2020/03/wenzikong/</loc>
+<lastmod>2020-03-26T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/404/</loc>
 </url>
 <url>
@@ -260,6 +264,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/page/3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page/4/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/krpano/pano_nomal_room_2500_1250/</loc>
