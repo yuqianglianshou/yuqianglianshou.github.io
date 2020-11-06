@@ -5,9 +5,215 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 27 Mar 2020 00:29:04 +0800</pubDate>
-    <lastBuildDate>Fri, 27 Mar 2020 00:29:04 +0800</lastBuildDate>
+    <pubDate>Fri, 06 Nov 2020 17:27:46 +0800</pubDate>
+    <lastBuildDate>Fri, 06 Nov 2020 17:27:46 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>局域网内组网通讯的实现</title>
+        <description>&lt;h3 id=&quot;他是一个现实到不能再现实却又与现实格格不入的矛盾体&quot;&gt;他是一个现实到不能再现实却又与现实格格不入的矛盾体。&lt;/h3&gt;
+
+&lt;h1 id=&quot;websocket--局域网内组网通讯实现&quot;&gt;WebSocket  局域网内组网通讯实现&lt;/h1&gt;
+
+&lt;p&gt;收到需求：我们有一个教师用的app移动授课端，还有一个学生用来学习与上课的app学生端，现需要实现局域网下教师Pad控制学生Pad，教师端给学生端发送指令，学生端去响应，简单概括即局域网下的一对多通信。&lt;/p&gt;
+
+&lt;p&gt;本程序代码 &lt;a href=&quot;https://github.com/yuqianglianshou/WebSocket&quot;&gt;https://github.com/yuqianglianshou/WebSocket&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;注：本程序的核心代码来自 &lt;a href=&quot;https://github.com/szuwest/Recorder&quot;&gt;https://github.com/szuwest/Recorder&lt;/a&gt; 这位作者，请给他掌声。&lt;/p&gt;
+
+&lt;p&gt;我在他的基础上完善了些功能，增加了详细的注释，修改了一些bug。下面我给出这个项目完整的解释说明。&lt;/p&gt;
+
+&lt;p&gt;需解决的两个核心问题：&lt;br /&gt;
+1，局域网内的设备如何互相发现得到对方的ip地址？&lt;br /&gt;
+2，如何建立连接维护连接？&lt;/p&gt;
+
+&lt;p&gt;原作者项目说明：
+最近在做一个应用，需要多个手机一起组网，一个充当主机，其他多个手机充当从机。主机跟每个从机之间可以相互通信，发送消息和文件。这不就是个CS（client-server）模式吗，只不过server不是在云端，只是在同一个局域网的手机上罢了。&lt;/p&gt;
+
+&lt;p&gt;这里面有两个关键的地方，一个是如何发现同一个局域网内的手机客户端，包括自建的热点，一个是知道各个手机的Ip地址后，用什么方式来建立通信。这里说一下热点，手机开启热点之后，别的手机连上这个特点，其实也是一个小型局域网，只不过这个局域网稍微有点不一样（Ip地址），其他的都一样。&lt;/p&gt;
+
+&lt;p&gt;局域网发现 局域网发现主要难点在于如何得到对方Ip地址。我们的做法是发送UDP包。UDP协议是无面向连接的，也就是不需要像TCP协议那样提前建立连接。所以我们向局域网内某一个特定的端口广播UDP包，接收到这个包的人，发送回包，那么我们就知道彼此的存在和地址。&lt;/p&gt;
+
+&lt;p&gt;那么关键地方是&lt;/p&gt;
+
+&lt;p&gt;有人一直在监听一个端口X，接收UDP包 有人在一直往这个端口X发送UDP包 监听端的人收到了UDP包后，就知道了发送者的Ip地址。但这时发送者是不知道接收者的，因为这是UDP包，无连接的状态的。那怎么做才让发送者也知道了。其实只要发过来再做一次就行。发送者同时也是监听者，这就行了。不过发送者A监听的是另一个端口Y，接收者B接收到包后，发送一个Y端口的包给A就行了。&lt;/p&gt;
+
+&lt;p&gt;总结起来：&lt;/p&gt;
+
+&lt;p&gt;主机监听端口X，一直发送Y端口的广播UDP包 从机监听端口Y，接收到UDP包后，往X端口发送UDP包。 这样就能双方知道对方的Ip地址了。发送的数据包也可以很讲究，例如发送json数据，可以自己定义一些字段，当接收者收到之后，解析数据，如果不符合规则的数据包直接丢弃掉。这就可以支撑一些业务逻辑了。&lt;/p&gt;
+
+&lt;p&gt;广播地址&lt;/p&gt;
+
+&lt;p&gt;广播地址是什么呢，一般都是用255.255.255.255，也有不用广播用组播地址例如192.168.43.255.这个组播地址就是热点的时候采用的地址，因为开启热点之后，那个手机的IP地址是固定的，是192.168.43.1其他端的手机都是这个地址后面的192.168.43.X。如果广播发送不了或者被禁掉了？一般来说还有一种方法，就是子网掩码里面的所有Ip地址遍历发一遍，这也是办法之一。&lt;/p&gt;
+
+&lt;p&gt;一对多的通信 当知道对方的Ip地址后，一切都好办了。端对端的通信有挺多方法，一对多的通信也不少。如果要同时考虑在Android和iOS都好实现的话，其实可选的不是很多。&lt;/p&gt;
+
+&lt;p&gt;最保守的方法就是直接采用TCP协议建立sock来通信。在iOS端和Android端都有很好的socket库，不用担心能不能实现和兼容性问题。这个方案挺好但是缺点也明显，因为sock通信只定义了最基础的，消息格式要完全自己定制和实现，还多心跳之类的，这里的工作量还不少。也许还有少的框架实现了这些，但是要同时在iOS端和安卓端都有实现，我还真不知道有哪些。而且我的情景里最重要的是有一个主机在里面，所有的从机都跟主机通信，所以必须说要有一个server。&lt;/p&gt;
+
+&lt;p&gt;我后来采用的的WebSocket来实现。WebSocket在Android上有很多库，不过大多数都是client端的,包括了server端的有AndroidAsync,Java-Websocket。我采用的是AndroidAysnc。而iOS端可选择的就更少了。我在github上找了很多库，都是只支持client的，有支持server的都是很久很老的项目，找到一个采用swift写的叫Telegraph库，试用了起来，这个库实现得不是很好，有挺多问题，不尽如意。最终现在iOS端只有采用了Facebook的SocketRocket来作为client端，server端暂时没有好的实现。&lt;/p&gt;
+
+&lt;p&gt;采用WebSocket来实现双向通信有不少好处，例如它直接支持发送字符串消息，二进制数据（文件），还有连接上和断开都有相应的事件，还有ping-pong这种心跳机制，我觉得挺好的。iOS端的WebSocket server暂时没有找到可靠的第三方实现，比较遗憾。&lt;/p&gt;
+
+&lt;p&gt;上面是原作者的说明，表达明确，我再补充两句：&lt;br /&gt;
+1，关于手机热点的功能我未验证，项目中代码有保留。&lt;br /&gt;
+2，发送接收文件未验证，项目中代码有保留。&lt;br /&gt;
+3，原作者将客户端和服务端代码放在了一个app里，我拆分成了两个app，即项目中有两个moudle，client和server，两台设备一台安装一端即可。&lt;br /&gt;
+4，经测试，主机开启连接，客户端开启连接，不出意外5秒内两边连接，页面有连接信息显示，开启的顺序不分先后，都行，主机会一直搜索设备，其他从机都可连接，从机在连接后会关闭本机的搜索。&lt;br /&gt;
+5，主机每隔5秒发送一次广播信息，用以搜索设备，这个5秒的时间可在程序中修改。可连接从机数量上限可定，项目中写死80台，原则上无上限，当连接数达到数量上限时，主机将拒绝接收从机连接请求。&lt;br /&gt;
+6，经测试，多台从机同时连接主机没有问题。主机发消息会循环（保存了从机连接的）list，分别发送，从机都能收到消息，这里也可以只针对某一台从机发送消息，加判断即可。多台从机发消息主机都能收到。 &lt;br /&gt;
+7，本文以及程序中出现的主机，教师端，服务端是一个意思。从机，学生端，客户端是一个意思。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+关键步骤截图如下：
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;主机，从机运行程序：
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_websocket/socket1.jpeg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+主机，从机开启连接
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_websocket/socket2.jpeg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+主机，从机分别给对方发送了一条消息 &lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_websocket/socket3.jpeg&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+从机后台日志显示
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_websocket/socket4.png&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+以上亲测可用。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2020/11/android_websocket/&quot;&gt; 局域网内组网通讯的实现 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 06 Nov 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/11/android_websocket/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/11/android_websocket/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Android 图片放错位置无所谓？</title>
+        <description>&lt;h3 id=&quot;孤独是生命的本质不是你的本质&quot;&gt;孤独是生命的本质，不，是你的本质。&lt;/h3&gt;
+
+&lt;p&gt;我曾今写过这个问题：
+&lt;strong&gt;&lt;em&gt;图片放错目录会产生的问题吗？&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;
+并给出了（摘抄了）如下答案:&lt;br /&gt;
+这一点可能很多人都不会注意，觉得只要往一个drawable目录中放了需要的资源就好了。而我们可以自己做一个简单的测试，把同一个图片资源放在不同的dpi目录，会发现它们使用的内存是不一样的。简单说就是高密度（density）的系统去使用低密度目录下的图片资源时，会将图片长宽自动放大以去适应高密度的精度，当然图片占用的内存会更大。&lt;/p&gt;
+
+&lt;p&gt;所以如果能提各种dpi的对应资源那是最好，可以达到较好内存使用效果。如果提供的图片资源有限，那么图片资源应该尽量放在高密度文件夹下，这样可以节省图片的内存开支。&lt;br /&gt;
+其实多年来我也并未当回事，今天我来验证一下到底有多大影响？！&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;新建项目。&lt;/li&gt;
+  &lt;li&gt;准备一张图片,大小为 889*1080 311.83kB,分别放入如下5个drawable目录，取名与之对应，如下图所示&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/drawable_lacation/drawable1.png&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;在布局文件中以背景使用此图片，第一次使用drawable目录下的图，如下图 &lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/drawable_lacation/drawable2.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;运行程序，打开Profiler,看下内存使用情况，如下图： &lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/drawable_lacation/drawable3.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;更改布局背景使用的图片，这次使用drawable_hdpi,再次运行观看内存使用情况&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/drawable_lacation/drawableh.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;drawable_xhdpi&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/drawable_lacation/drawablexh.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;drawable_xxhdpi&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/drawable_lacation/drawablexxh.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;drawable_xxxhdpi&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/drawable_lacation/drawablexxxh.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;整理数据如下：&lt;/em&gt;&lt;/strong&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;目录&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Total(MB)&lt;/th&gt;
+      &lt;th&gt;Graphics(MB)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;drawable&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;99.6&lt;/td&gt;
+      &lt;td&gt;43.4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;drawable-hdpi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;93.8&lt;/td&gt;
+      &lt;td&gt;40.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;drawable-xhdpi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;72.4&lt;/td&gt;
+      &lt;td&gt;29.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;drawable-xxhdpi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;78.2&lt;/td&gt;
+      &lt;td&gt;29&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;drawable-xxxhdpi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;59.1&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;另外发现了一个问题，相同的程序每次运行，Profiler 中显示的内存使用情况是不同的，有时差别甚至很大，所以，以上数据仅供参考。&lt;/p&gt;
+
+&lt;p&gt;最终结果：这张不是很大的图片如果放错目录，多则影响到了近20M的内存，所以如果图片很大或者很多，内存影响还是不容小觑的，正确的开发习惯很重要。
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2020/05/android_drawable/&quot;&gt; Android 图片放错位置无所谓？ &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/05/android_drawable/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/05/android_drawable/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>Android 文字点阵图的水波纹动画</title>
@@ -437,101 +643,6 @@ pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&g
         <guid isPermaLink="true">http://localhost:4000/2019/10/read-book/</guid>
         
         <category>人生</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>上海迪士尼有感</title>
-        <description>&lt;h3 id=&quot;哎呀呀&quot;&gt;哎呀呀&lt;/h3&gt;
-
-&lt;p&gt;我走了，去了一个遥远很遥远的地方，那里的空气中弥漫着芳草的气息，所有的人回到了童年的自己，视线之及，尽是童话世界，没有硝烟，只有欢声，我沉沦了，我沦陷了，我回来了，心却离开了。
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/1.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-如果回到了19日早上，我会留出一段时间，重新整理情绪，去掉兴奋，扔掉计划，静静地走，游荡，飘离，欣赏，看匆匆人海，洋溢笑容，洒脱，自然，把手插在裤衣袋中，望，闻，听，去感受，闭上眼，任清风佛面，阳光拍打，就这样，一直走，走过诗意，走到尽头，走来月明，走出星稀，走向向往的自己，那个肆无忌惮的孩童。&lt;br /&gt;
-奈何时空总不会完美。&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/2.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-奈何时间并不够用。我们玩到忘记了劳累，饥饿，以至于一切。我们沉浸其中 不能自己，像大多数一样，一切有顺序的又有目的的进行着。只不过，这片世界中，少了一个空位，多了一个灵魂。&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/3.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;世界上的童话都是写给大人看的。&lt;br /&gt;
-也许，是时候走出童话了吧。&lt;br /&gt;
-也许，是时候想想未来了吧。 &lt;br /&gt;
-也许，。&lt;/p&gt;
-
-&lt;p&gt;谨以此片留作纪念。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/4.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/5.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/shanghai/6.jpeg&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/10/shanghai/&quot;&gt; 上海迪士尼有感  &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 21 Oct 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/10/shanghai/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/10/shanghai/</guid>
-        
-        <category>人生</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>git 提交代码到GitHub报错</title>
-        <description>&lt;h3 id=&quot;劝君立足眼前事荆棘丛中也开花&quot;&gt;劝君立足眼前事，荆棘丛中也开花。&lt;/h3&gt;
-
-&lt;p&gt;qingyang:###.github.io liuqiang$ git push -u origin master
-remote: Permission to ###/###.github.io.git denied to ###.
-fatal: unable to access ‘https://github.com/####/###.github.io.git/’: The requested URL returned error: 403&lt;/p&gt;
-
-&lt;p&gt;原因是我之前一直用GitHub的A账号登陆提交代码到A的，现在我又申请了一个B账号，打算提交到B账号，
-你修改了git仓库的用户名和密码，导致你内存和硬盘中缓存的账号密码不能使用&lt;/p&gt;
-
-&lt;p&gt;1、执行git config –list，查看git的配置信息
-图中红色部分内容[user] 为你的git账号配置信息，[credential]为你的这些信息存储位置&lt;/p&gt;
-
-&lt;p&gt;2、执行vim .git-credentials，查看credential中缓存的账户&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://xiongzhoudadi.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://xiongzhoudadi.com/2019/10/git-commit-error/&quot;&gt; git 提交代码到GitHub报错  &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Thu, 17 Oct 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/10/git-commit-error/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/10/git-commit-error/</guid>
-        
-        <category>技术</category>
         
         
       </item>
