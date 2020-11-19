@@ -42,4 +42,4 @@ data文件夹就是我们常说的内部存储，对于没有root的手机来说
 <br/>
 
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [  Android下的存储目录   ](http://xiongzhoudadi.com/2016/05/android-store/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  Android下的存储目录   ](http://yuqianglianshou.com/2016/05/android-store/)  

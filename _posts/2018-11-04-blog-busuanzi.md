@@ -23,4 +23,4 @@ tags:  技术
 <br/>  
 
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ 不蒜子失效 ](http://xiongzhoudadi.com/2018/11/blog-busuanzi/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 不蒜子失效 ](http://yuqianglianshou.com/2018/11/blog-busuanzi/)  

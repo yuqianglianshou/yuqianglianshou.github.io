@@ -59,4 +59,4 @@ tags:  技术
 <br/>
 <br/> 
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Android 一个无法理解的 Please select Android SDK ](http://xiongzhoudadi.com/2018/10/android-no-sdk/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 一个无法理解的 Please select Android SDK ](http://yuqianglianshou.com/2018/10/android-no-sdk/)  

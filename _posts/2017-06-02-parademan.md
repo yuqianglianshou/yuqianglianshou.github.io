@@ -28,4 +28,4 @@ tags: 个人
 
 **生命没息，更新不能止。缓慢更新中。。。**
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [  灵感记录  ](http://xiongzhoudadi.com/2017/06/parademan/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  灵感记录  ](http://yuqianglianshou.com/2017/06/parademan/)  

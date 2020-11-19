@@ -60,5 +60,5 @@ c)SurfaceView尺寸、Previewsize 、Picturesize 的选择方式。原则是比�
 <br/> 
 <br/> 
 > <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Android实现小视频的录制和预览，界面和功能靠拢微信。 ](http://xiongzhoudadi.com/2019/05/record_view/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android实现小视频的录制和预览，界面和功能靠拢微信。 ](http://yuqianglianshou.com/2019/05/record_view/)  
 > <br/>

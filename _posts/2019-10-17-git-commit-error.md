@@ -27,5 +27,5 @@ fatal: unable to access 'https://github.com/####/###.github.io.git/': The reques
 <br/> 
 <br/> 
 > <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ git 提交代码到GitHub报错  ](http://xiongzhoudadi.com/2019/10/git-commit-error/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ git 提交代码到GitHub报错  ](http://yuqianglianshou.com/2019/10/git-commit-error/)  
 > <br/>

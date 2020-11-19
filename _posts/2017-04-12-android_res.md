@@ -52,5 +52,5 @@ mipmap-xxxhdpi  |	192 * 192
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ res目录-图片 ](http://xiongzhoudadi.com/2017/04/android_res/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ res目录-图片 ](http://yuqianglianshou.com/2017/04/android_res/)  
 <br/>

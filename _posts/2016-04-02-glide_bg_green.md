@@ -52,4 +52,4 @@ tags:  技术
 <br/>
 
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [  Glide加载的图片有浅绿色背景？   ](http://xiongzhoudadi.com/2016/04/glide_bg_green/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  Glide加载的图片有浅绿色背景？   ](http://yuqianglianshou.com/2016/04/glide_bg_green/)  
