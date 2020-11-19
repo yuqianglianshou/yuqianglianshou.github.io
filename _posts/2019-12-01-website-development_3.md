@@ -55,5 +55,5 @@ ForkLift 是一款mac上专业的文件管理程序，我用它进行ftp链接�
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ 网站开发_tomcat运行  ](http://xiongzhoudadi.com/2019/12/website-development_3/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 网站开发_tomcat运行  ](http://yuqianglianshou.com/2019/12/website-development_3/)  
 <br/>

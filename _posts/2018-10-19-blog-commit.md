@@ -84,4 +84,4 @@ Viesws 页面文件（Ejs模板）
 
 
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ 记忆会丢掉的东西 ](http://xiongzhoudadi.com/2018/10/blog-commit/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 记忆会丢掉的东西 ](http://yuqianglianshou.com/2018/10/blog-commit/)  

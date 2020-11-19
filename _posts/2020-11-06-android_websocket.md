@@ -91,5 +91,5 @@ tags:  技术
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ 局域网内组网通讯的实现 ](http://xiongzhoudadi.com/2020/11/android_websocket/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 局域网内组网通讯的实现 ](http://yuqianglianshou.com/2020/11/android_websocket/)  
 <br/>

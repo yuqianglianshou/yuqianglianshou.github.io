@@ -47,4 +47,4 @@ tags:  技术
 <br/>
 本文由劉清揚总结于虫部落虫友分享。[你知道Windows上有哪些奇技淫巧吗？（Windows技巧大全）](http://bbs.chongbuluo.com/thread-366-1-1.html)
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [  玩转 windows   ](http://xiongzhoudadi.com/2018/07/windows_help/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  玩转 windows   ](http://yuqianglianshou.com/2018/07/windows_help/)  

@@ -10,7 +10,7 @@ tags:  技术
 本文所要达到的效果：通过一个自己申请的域名，打开一个自己维护的博客。  
 以下操作是在 mac 环境下，Windows 大同小异。    
 所需条件：  
-1，一个自己的域名，本例为 xiongzhoudadi.com  
+1，一个自己的域名，本例为 yuqianglianshou.com  
 2，一个自己的 github 账号，本例我的账号是 yuqianglianshou  
 3，vs code 工具会用    
 4,Git, Ruby环境安装完毕。
@@ -60,7 +60,7 @@ git push -u origin master
 登陆github账号，打开 yuqianglianshou.github.io 的项目，选择setting，找到
 Custom domain
 Custom domains allow you to serve your site from a domain other than yuqianglianshou.github.io. Learn more.
-下面输入你买的域名，xiongzhoudadi.com ,点击save。
+下面输入你买的域名，yuqianglianshou.com ,点击save。
 <br/>
 ![](/images/posts/jekyll_blog/github.png){:height="70%" width="70%"} 
 <br/>
@@ -69,8 +69,8 @@ Custom domains allow you to serve your site from a domain other than yuqianglian
 <br/>
 ![](/images/posts/jekyll_blog/wanwang2.png){:height="70%" width="70%"} 
 <br/>
-添加记录，记录类型选择CNAME,主机记录填入www,解析路线默认，记录值 填入 yuqianglianshou.github.com ，TTL 默认值10分钟。保存，10分钟后就会生效。此时www.xiongzhoudadi.com就可以使用了。
-再次添加一个记录，将主机记录写为 @ ，其他与上一个一样，这样 直接 访问 xiongzhoudadi.com 也可以了，（去掉了www）。
+添加记录，记录类型选择CNAME,主机记录填入www,解析路线默认，记录值 填入 yuqianglianshou.github.com ，TTL 默认值10分钟。保存，10分钟后就会生效。此时www.yuqianglianshou.com就可以使用了。
+再次添加一个记录，将主机记录写为 @ ，其他与上一个一样，这样 直接 访问 yuqianglianshou.com 也可以了，（去掉了www）。
 <br/>
 ![](/images/posts/jekyll_blog/wanwang3.png){:height="70%" width="70%"} 
 <br/>
@@ -92,5 +92,5 @@ Custom domains allow you to serve your site from a domain other than yuqianglian
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ jkeyll 搭建博客 ](http://xiongzhoudadi.com/2019/07/jekyll-blog/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ jkeyll 搭建博客 ](http://yuqianglianshou.com/2019/07/jekyll-blog/)  
 <br/>

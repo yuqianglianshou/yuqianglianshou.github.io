@@ -95,4 +95,4 @@ tags:  技术
 > 如果你按这样的方式解决了的话，呵呵，你是幸运的。  
 <br/> 
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Android 一个无法理解的 non-zero exit value 1 ](http://xiongzhoudadi.com/2018/12/android-non-zero-exit-value-1/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 一个无法理解的 non-zero exit value 1 ](http://yuqianglianshou.com/2018/12/android-non-zero-exit-value-1/)  

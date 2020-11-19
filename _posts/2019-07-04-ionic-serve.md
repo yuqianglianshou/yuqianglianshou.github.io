@@ -61,5 +61,5 @@ npm install @ionic/app-scripts@latest --save-dev
 <br/> 
 <br/> 
 > <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ ionic 项目 运行 ionic serve（Windows） ](http://xiongzhoudadi.com/2019/07/ionic-serve/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ ionic 项目 运行 ionic serve（Windows） ](http://yuqianglianshou.com/2019/07/ionic-serve/)  
 > <br/>

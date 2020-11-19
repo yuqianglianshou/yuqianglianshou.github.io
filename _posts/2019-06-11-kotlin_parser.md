@@ -25,5 +25,5 @@ IP地址代理服务：[旗云代理](http://www.qydaili.com/free/)
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Kotlin 爬个数据 ](http://xiongzhoudadi.com/2019/06/kotlin_parser/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Kotlin 爬个数据 ](http://yuqianglianshou.com/2019/06/kotlin_parser/)  
 <br/>

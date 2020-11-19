@@ -56,4 +56,4 @@ tags: 个人
 
 **生命没息，更新不能止。缓慢更新中。。。**
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [  什么样的男生注定单身？  ](http://xiongzhoudadi.com/2019/12/psychology/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  什么样的男生注定单身？  ](http://yuqianglianshou.com/2019/12/psychology/)  

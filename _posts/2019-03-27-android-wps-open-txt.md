@@ -28,4 +28,4 @@ tags:  技术
 
 <br/> 
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Android 新建txt被WPS提示打开？ ](http://xiongzhoudadi.com/2019/03/android-wps-open-txt/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 新建txt被WPS提示打开？ ](http://yuqianglianshou.com/2019/03/android-wps-open-txt/)  

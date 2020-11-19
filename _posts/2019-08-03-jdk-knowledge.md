@@ -170,5 +170,5 @@ JDK12放弃了对JDK6及其以前版本的支持。
 <br/> 
 <br/> 
 > <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ JDK 知识点  ](http://xiongzhoudadi.com/2019/08/java-knowledge/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ JDK 知识点  ](http://yuqianglianshou.com/2019/08/java-knowledge/)  
 > <br/>

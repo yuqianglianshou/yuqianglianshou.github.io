@@ -29,5 +29,5 @@ demo地址 ：
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Android 文字点阵图的水波纹动画 ](http://xiongzhoudadi.com/2020/03/wenzikong/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 文字点阵图的水波纹动画 ](http://yuqianglianshou.com/2020/03/wenzikong/)  
 <br/>

@@ -202,5 +202,5 @@ onClickBtn() {
 > <br/> 
 > <br/> 
 > <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ ionic建一个项目自定义一个插件 ](http://xiongzhoudadi.com/2019/04/ionicplugin/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ ionic建一个项目自定义一个插件 ](http://yuqianglianshou.com/2019/04/ionicplugin/)  
 > <br/>

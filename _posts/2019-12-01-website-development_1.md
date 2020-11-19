@@ -47,5 +47,5 @@ Group 和 Artifact 组合起来就是包名,即最下行Package，自行命名�
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ 网站开发_项目创建  ](http://xiongzhoudadi.com/2019/12/website-development_1/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 网站开发_项目创建  ](http://yuqianglianshou.com/2019/12/website-development_1/)  
 <br/>

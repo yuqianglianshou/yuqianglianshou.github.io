@@ -31,6 +31,6 @@ tag: 人生
 
 **生命没息，更新不能止。缓慢更新中。。。**
 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [  人生推荐  ](http://xiongzhoudadi.com/2017/01/life_suggestions/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  人生推荐  ](http://yuqianglianshou.com/2017/01/life_suggestions/)  
 
 

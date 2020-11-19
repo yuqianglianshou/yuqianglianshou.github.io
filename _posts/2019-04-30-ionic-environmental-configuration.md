@@ -123,5 +123,5 @@ export PATH=$PATH:$GRADLE_HOME/bin
 <br/> 
 <br/> 
 > <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Mac 系统上搭建ionic需要的环境变量配置 ](http://xiongzhoudadi.com/2019/04/ionic-environmental-configuration/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Mac 系统上搭建ionic需要的环境变量配置 ](http://yuqianglianshou.com/2019/04/ionic-environmental-configuration/)  
 > <br/>

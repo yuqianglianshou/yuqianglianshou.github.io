@@ -68,5 +68,5 @@ drawable-xxxhdpi   |	59.1  |  18
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ Android 图片放错位置无所谓？ ](http://xiongzhoudadi.com/2020/05/android_drawable/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 图片放错位置无所谓？ ](http://yuqianglianshou.com/2020/05/android_drawable/)  
 <br/>

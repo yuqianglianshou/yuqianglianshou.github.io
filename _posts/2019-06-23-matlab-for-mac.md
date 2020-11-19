@@ -30,5 +30,5 @@ MATLAB 2014 b
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ mac 上安装破解 Matlab ](http://xiongzhoudadi.com/2019/06/matlab-for-mac/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ mac 上安装破解 Matlab ](http://yuqianglianshou.com/2019/06/matlab-for-mac/)  
 <br/>

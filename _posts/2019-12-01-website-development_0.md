@@ -31,5 +31,5 @@ tags:  技术
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://xiongzhoudadi.com) » [ 网站开发  ](http://xiongzhoudadi.com/2019/12/website-development_0/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 网站开发  ](http://yuqianglianshou.com/2019/12/website-development_0/)  
 <br/>
