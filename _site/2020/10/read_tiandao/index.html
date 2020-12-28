@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Android 图片放错位置无所谓？</title>
-  <meta name="description" content="孤独是生命的本质，不，是你的本质。">
+  <title>读 《遥远的救世主》</title>
+  <meta name="description" content="他是一个现实到不能再现实却又与现实格格不入的矛盾体。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Android 图片放错位置无所谓？">
-  <meta name="twitter:description" content="孤独是生命的本质，不，是你的本质。">
+  <meta name="twitter:title" content="读 《遥远的救世主》">
+  <meta name="twitter:description" content="他是一个现实到不能再现实却又与现实格格不入的矛盾体。">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Android 图片放错位置无所谓？">
-  <meta property="og:description" content="孤独是生命的本质，不，是你的本质。">
+  <meta property="og:title" content="读 《遥远的救世主》">
+  <meta property="og:description" content="他是一个现实到不能再现实却又与现实格格不入的矛盾体。">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2020/05/android_drawable/">
+  <link rel="canonical" href="http://localhost:4000/2020/10/read_tiandao/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -166,10 +166,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Android 图片放错位置无所谓？</h1>
+    <h1 class="post-title">读 《遥远的救世主》</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2020-05-03 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-05-03</time>  
+      <time datetime="2020-10-02 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-10-02</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -177,100 +177,44 @@
   </header>
 
   <section class="post">
-    <h3 id="孤独是生命的本质不是你的本质">孤独是生命的本质，不，是你的本质。</h3>
+    <h3 id="他是一个现实到不能再现实却又与现实格格不入的矛盾体">他是一个现实到不能再现实却又与现实格格不入的矛盾体。</h3>
 
-<p>我曾今写过这个问题：
-<strong><em>图片放错目录会产生的问题吗？</em></strong><br />
-并给出了（摘抄了）如下答案:<br />
-这一点可能很多人都不会注意，觉得只要往一个drawable目录中放了需要的资源就好了。而我们可以自己做一个简单的测试，把同一个图片资源放在不同的dpi目录，会发现它们使用的内存是不一样的。简单说就是高密度（density）的系统去使用低密度目录下的图片资源时，会将图片长宽自动放大以去适应高密度的精度，当然图片占用的内存会更大。</p>
+<p>听《Daughter of heaven》(天国的女儿)听了好久好久，那种忧伤沁入我心，空荡荡的房子里，回荡着我的伤感，此时的我似乎在等待着什么，似乎有什么期冀。</p>
 
-<p>所以如果能提各种dpi的对应资源那是最好，可以达到较好内存使用效果。如果提供的图片资源有限，那么图片资源应该尽量放在高密度文件夹下，这样可以节省图片的内存开支。<br />
-其实多年来我也并未当回事，今天我来验证一下到底有多大影响？！</p>
-<ol>
-  <li>新建项目。</li>
-  <li>准备一张图片,大小为 889*1080 311.83kB,分别放入如下5个drawable目录，取名与之对应，如下图所示<br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawable1.png" alt="" />
-<br /></li>
-  <li>在布局文件中以背景使用此图片，第一次使用drawable目录下的图，如下图 <br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawable2.png" alt="" /><br />
-<br /></li>
-  <li>运行程序，打开Profiler,看下内存使用情况，如下图： <br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawable3.png" alt="" /><br />
-<br /></li>
-  <li>更改布局背景使用的图片，这次使用drawable_hdpi,再次运行观看内存使用情况<br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawableh.png" alt="" /><br />
-<br /></li>
-  <li>drawable_xhdpi<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawablexh.png" alt="" /><br />
-<br /></li>
-  <li>drawable_xxhdpi<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawablexxh.png" alt="" /><br />
-<br /></li>
-  <li>drawable_xxxhdpi<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawablexxxh.png" alt="" /><br />
-<br /></li>
-</ol>
+<p>这是一部不太 入流 的书，说他不入流是因为主人公丁元英对世俗传统的看法已经不能让大部分人理解，我且称为异类。</p>
 
-<p><strong><em>整理数据如下：</em></strong>
-<br /></p>
+<p>丁元英这个角色，过分的理性，独到的眼光，缜密的思维，与母亲谈论母爱无私与养儿防老的矛盾之处，与哥哥说要拔了父亲的管子，放弃治疗父亲的坦然，这里所表现出来的理性会被大多数人解读为无情，因此，这一开篇估计就吓退了不少人。</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">目录</th>
-      <th style="text-align: center">Total(MB)</th>
-      <th>Graphics(MB)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">drawable</td>
-      <td style="text-align: center">99.6</td>
-      <td>43.4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-hdpi</td>
-      <td style="text-align: center">93.8</td>
-      <td>40.1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-xhdpi</td>
-      <td style="text-align: center">72.4</td>
-      <td>29.8</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-xxhdpi</td>
-      <td style="text-align: center">78.2</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-xxxhdpi</td>
-      <td style="text-align: center">59.1</td>
-      <td>18</td>
-    </tr>
-  </tbody>
-</table>
+<p>书中对于他是如何成功的描述甚少，对于他宅在家里干什么也提及甚少。他是一个隐藏的很好的有钱人，他并不是在家里玩游戏看小说。如果这两点不具备的话，不要打着向他学习的幌子去做事。</p>
 
-<p>另外发现了一个问题，相同的程序每次运行，Profiler 中显示的内存使用情况是不同的，有时差别甚至很大，所以，以上数据仅供参考。</p>
+<p>没有经济基础是很难做到他那样的，不要让他误导了我们这些自以为超级理性的人，会被骂死的。</p>
 
-<p>最终结果：这张不是很大的图片如果放错目录，多则影响到了近20M的内存，所以如果图片很大或者很多，内存影响还是不容小觑的，正确的开发习惯很重要。
+<p>仔细分析的话书中每个人物都有着自己的算盘，人物之间互为棋子，不可深究，对不起空灵的 音乐。</p>
+
+<p>电视剧《天道》对原著修改很少，只是结尾对于女主的死因做了一些和谐处理，看电视剧视觉效果更好一些。</p>
+
+<p><br /></p>
+
+<p>自嘲</p>
+
+<p>本是后山人，偶作前堂客。</p>
+
+<p>醉舞经阁半卷书,坐井说天阔。</p>
+
+<p>大志戏功名,海斗量福祸。</p>
+
+<p>论到囊中羞涩时,怒指乾坤错。</p>
+
+<p><br /></p>
+
+<p>天黑了，我很忧愁。</p>
+
+<p><br /> 
 <br /> 
 <br /> 
 <br /> 
 <br /> 
-<br /> 
-转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2020/05/android_drawable/"> Android 图片放错位置无所谓？ </a><br />
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2020/10/read_tiandao/"> 读 《遥远的救世主》 </a><br />
 <br /></p>
 
 
@@ -341,13 +285,13 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2020/03/wenzikong/" data-toggle="tooltip" data-placement="top" title="Android 文字点阵图的水波纹动画">上一篇：  <span>Android 文字点阵图的水波纹动画</span>
+            <a href="/2020/05/android_drawable/" data-toggle="tooltip" data-placement="top" title="Android 图片放错位置无所谓？">上一篇：  <span>Android 图片放错位置无所谓？</span>
             </a>
         </li>
         
         
         <li class="next">
-            <a href="/2020/10/read_tiandao/" data-toggle="tooltip" data-placement="top" title="读 《遥远的救世主》">下一篇：  <span>读 《遥远的救世主》</span>
+            <a href="/2020/11/android_websocket/" data-toggle="tooltip" data-placement="top" title="局域网内组网通讯的实现">下一篇：  <span>局域网内组网通讯的实现</span>
             </a>
         </li>
         

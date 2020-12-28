@@ -5,9 +5,212 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Nov 2020 11:03:40 +0800</pubDate>
-    <lastBuildDate>Thu, 19 Nov 2020 11:03:40 +0800</lastBuildDate>
+    <pubDate>Mon, 28 Dec 2020 09:20:55 +0800</pubDate>
+    <lastBuildDate>Mon, 28 Dec 2020 09:20:55 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Android 关于使用 azhon/AppUpdate 的一点想法</title>
+        <description>&lt;h3 id=&quot;莲出淤泥而不染但你忘了藕是它身体的一部分&quot;&gt;莲出淤泥而不染，但你忘了，藕是它身体的一部分。&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/yuqianglianshou/AppUpdate&quot;&gt;本demo地址 https://github.com/yuqianglianshou/AppUpdate&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近使用了一个不错的版本更新库，&lt;a href=&quot;https://github.com/azhon/AppUpdate&quot;&gt;azhon/AppUpdate&lt;/a&gt; ，使用中关于强制更新遇到了两个偏激的需求，大概描述为&lt;br /&gt;
+1:检测到有新版本需要更新时弹出更新提示窗，正常情况用户看到弹窗点击更新就可以了，我要实现的效果是弹出更新自动开始下载，去掉用户点击更新的操作，实现方法是代码模拟点击事件代替。 &lt;br /&gt;
+2:有2个应用，我们称为A应用和B应用，A运行后检测手机中安装的B是否有新版，如果有，则强制更新B，这个可以实现，但是会有一个问题，更新完B以后A中的更新弹窗是不会消失的，而此时又是强制更新，所以A应用界面卡在这里了。原因是按照正常的逻辑A应该更新A，更新后A重新打开，所以并不需要也不应该在A没有更新之前关闭弹窗，而此时我们是用A更新的B，所以缺少了一步 B更新后关闭A中更新弹窗的步骤。实现思路是广播监听B的安装或更新，回调dialog的关闭方法。&lt;/p&gt;
+
+&lt;p&gt;运行如下图所示：&lt;br /&gt;
+检测到更新后
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_appupdate/1.jpeg&quot; alt=&quot;&quot; width=&quot;40%&quot; height=&quot;40%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+安装了B之后A的日志
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_appupdate/2.png&quot; alt=&quot;&quot; /&gt;
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;关键代码：
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class MainActivity : AppCompatActivity() {
+
+    //此url 是 ES文件浏览器 apk的下载地址，包名 为 com.estrongs.android.pop
+    private val url =
+        &quot;https://imtt.dd.qq.com/16891/apk/FA48766BA12A41A1D619CB4B152889C6.apk?fsname=com.estrongs.android.pop_4.2.3.3_10089.apk&amp;amp;csr=1bbd&quot;
+
+    lateinit var receiver: AppInstallReceiver
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+        //需动态注册广播接受者，Android8.0静态注册失效
+        receiver = AppInstallReceiver()
+        val filter = IntentFilter()
+        filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        filter.addAction(Intent.ACTION_PACKAGE_REPLACED);
+        filter.addAction(Intent.ACTION_PACKAGE_ADDED);
+        filter.addDataScheme(&quot;package&quot;);
+
+        registerReceiver(receiver, filter)
+
+
+        //当安装了之后 AppInstallReceiver 收到广播，在receiver中调用关闭 强制更新窗口
+        button.setOnClickListener {
+            AppUpdateUtils.startUpdate(
+                this,
+                url,
+                &quot;ES文件浏览器.apk&quot;,
+                &quot;2.0&quot;,
+                2,
+                &quot;有新版啦\n强制更新\n问世间情为何物\n直教人生死相许&quot;,
+                true
+            )
+        }
+    }
+
+    override fun onDestroy() {
+        unregisterReceiver(receiver)
+        super.onDestroy()
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;object AppUpdateUtils {
+
+
+    //记录 弹窗实例 对象，用于主动关闭
+    lateinit var updateDialog: UpdateDialog
+
+    /**
+     * 检查需要更新后调用
+     * 强制升级
+     */
+    fun startUpdate(
+        mContext: Context,
+        updateUrl: String,
+        apkName: String,
+        apkVersionName: String,
+        apkVersionCode: Int,
+        desMsg: String,
+        isForce: Boolean
+    ) {
+        /*
+         * 整个库允许配置的内容
+         * 非必选
+         */
+        val configuration = UpdateConfiguration()
+            //输出错误日志
+            .setEnableLog(true)
+            //下载完成自动跳动安装页:
+            .setJumpInstallPage(true)
+            //设置按钮的文字颜色
+            .setDialogButtonTextColor(Color.WHITE)
+            //设置是否显示通知栏进度
+            .setShowNotification(!isForce)
+            //设置是否提示后台下载toast
+            .setShowBgdToast(!isForce)
+            //设置强制更新
+            .setForcedUpgrade(isForce)
+
+        var manager = DownloadManager.getInstance(mContext)
+        manager.setApkName(apkName)
+            .setApkUrl(updateUrl)
+            .setShowNewerToast(true)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setConfiguration(configuration)
+            .setApkVersionCode(apkVersionCode)
+            .setApkVersionName(apkVersionName)
+            .setApkDescription(desMsg)
+            .download()
+
+        //记录 弹窗实例 对象，用于主动关闭
+        updateDialog = manager.defaultDialog
+
+        if (isForce) {
+            //拿到更新弹窗中的 button，模拟一次手动点击
+            manager.defaultDialog.findViewById&amp;lt;Button&amp;gt;(com.azhon.appupdate.R.id.btn_update)
+                .performClick()
+        }
+
+    }
+
+
+    /**
+     * 主动关闭 更新弹窗
+     */
+    fun dismissUpdateDialog() {
+        if (updateDialog != null &amp;amp;&amp;amp; updateDialog.isShowing) {
+            updateDialog.cancel()
+            Log.i(&quot;lq_&quot;, &quot;dismissDialog:  关闭 &quot;)
+        } else {
+            Log.i(&quot;lq_&quot;, &quot;dismissDialog:  null &quot;)
+        }
+    }
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public class AppInstallReceiver extends BroadcastReceiver {
+
+    public static final String TAG = &quot;lq_AppUnInstallReceiver&quot;;
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+
+        String packageName = intent.getData().getSchemeSpecificPart();
+
+        if (Intent.ACTION_PACKAGE_ADDED.equals(intent.getAction())) {
+
+            Toast.makeText(context, &quot;有应用被添加&quot;, Toast.LENGTH_LONG).show();
+
+            //com.estrongs.android.pop 为 ES文件浏览器的包名
+            if ((&quot;com.estrongs.android.pop&quot;).equals(packageName)) {
+                //监测到ES文件浏览器 安装了版本
+                Log.i(TAG, &quot;onReceive: 监测到ES文件浏览器 安装了版本  &quot;);
+                AppUpdateUtils.INSTANCE.dismissUpdateDialog();
+            }
+
+        } else if (Intent.ACTION_PACKAGE_REPLACED.equals(intent.getAction())) {
+
+//            Toast.makeText(context, &quot;有应用被替换&quot;, Toast.LENGTH_LONG).show();
+//
+//            if ((&quot;com.estrongs.android.pop&quot;).equals(packageName)) {
+//                //监测到ES文件浏览器 安装了新的版本
+//                Log.i(TAG, &quot;onReceive: 监测到ES文件浏览器 安装了新的版本  &quot;);
+//                AppUpdateUtils.INSTANCE.dismissUpdateDialog();
+//            }
+        }
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/12/android_appupdate/&quot;&gt; Android 关于使用 azhon/AppUpdate 的一点想法 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 Dec 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/12/android_appupdate/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/12/android_appupdate/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>局域网内组网通讯的实现</title>
@@ -104,6 +307,57 @@
         <guid isPermaLink="true">http://localhost:4000/2020/11/android_websocket/</guid>
         
         <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>读 《遥远的救世主》</title>
+        <description>&lt;h3 id=&quot;他是一个现实到不能再现实却又与现实格格不入的矛盾体&quot;&gt;他是一个现实到不能再现实却又与现实格格不入的矛盾体。&lt;/h3&gt;
+
+&lt;p&gt;听《Daughter of heaven》(天国的女儿)听了好久好久，那种忧伤沁入我心，空荡荡的房子里，回荡着我的伤感，此时的我似乎在等待着什么，似乎有什么期冀。&lt;/p&gt;
+
+&lt;p&gt;这是一部不太 入流 的书，说他不入流是因为主人公丁元英对世俗传统的看法已经不能让大部分人理解，我且称为异类。&lt;/p&gt;
+
+&lt;p&gt;丁元英这个角色，过分的理性，独到的眼光，缜密的思维，与母亲谈论母爱无私与养儿防老的矛盾之处，与哥哥说要拔了父亲的管子，放弃治疗父亲的坦然，这里所表现出来的理性会被大多数人解读为无情，因此，这一开篇估计就吓退了不少人。&lt;/p&gt;
+
+&lt;p&gt;书中对于他是如何成功的描述甚少，对于他宅在家里干什么也提及甚少。他是一个隐藏的很好的有钱人，他并不是在家里玩游戏看小说。如果这两点不具备的话，不要打着向他学习的幌子去做事。&lt;/p&gt;
+
+&lt;p&gt;没有经济基础是很难做到他那样的，不要让他误导了我们这些自以为超级理性的人，会被骂死的。&lt;/p&gt;
+
+&lt;p&gt;仔细分析的话书中每个人物都有着自己的算盘，人物之间互为棋子，不可深究，对不起空灵的 音乐。&lt;/p&gt;
+
+&lt;p&gt;电视剧《天道》对原著修改很少，只是结尾对于女主的死因做了一些和谐处理，看电视剧视觉效果更好一些。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;自嘲&lt;/p&gt;
+
+&lt;p&gt;本是后山人，偶作前堂客。&lt;/p&gt;
+
+&lt;p&gt;醉舞经阁半卷书,坐井说天阔。&lt;/p&gt;
+
+&lt;p&gt;大志戏功名,海斗量福祸。&lt;/p&gt;
+
+&lt;p&gt;论到囊中羞涩时,怒指乾坤错。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;天黑了，我很忧愁。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/10/read_tiandao/&quot;&gt; 读 《遥远的救世主》 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 02 Oct 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/10/read_tiandao/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/10/read_tiandao/</guid>
+        
+        <category>人生</category>
         
         
       </item>
@@ -583,66 +837,6 @@ pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&g
         <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_1/</guid>
         
         <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>网站开发</title>
-        <description>&lt;h3 id=&quot;也许此生都不可能懂却不影响他很好听歌曲清新小女孩&quot;&gt;也许此生都不可能懂，却不影响他很好听。歌曲：清新小女孩&lt;/h3&gt;
-
-&lt;h2 id=&quot;论一个android开发如何做得后台开发说的有点吹牛逼的意思了其实我只是想调一个自己写的接口而已然而这一路走来颇为艰难后续几篇文章我将为你介绍一个小白是如何搞定一个hello-world接口的&quot;&gt;论一个Android开发如何做得后台开发，说的有点吹牛逼的意思了，其实我只是想调一个自己写的接口而已，然而，这一路走来，颇为艰难，后续几篇文章，我将为你介绍一个小白是如何搞定一个hello World接口的。&lt;/h2&gt;
-
-&lt;h2 id=&quot;最终达到的效果&quot;&gt;最终达到的效果：&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://47.105.132.88:8080/demo/test/hello&quot;&gt;http://47.105.132.88:8080/demo/test/hello&lt;/a&gt;, &lt;br /&gt;
-47.105.132.88 是我购买的阿里云的服务器地址，hello是我写的一个接口的名字，这个接口的作用是返回一个”Hello World”字符串。&lt;/p&gt;
-&lt;h2 id=&quot;所用到的知识点&quot;&gt;所用到的知识点：&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;IntelliJ IDEA开发工具的破解与使用；&lt;/li&gt;
-  &lt;li&gt;SpringBoot项目的新建、打包和部署，Maven项目管理工具的使用；&lt;/li&gt;
-  &lt;li&gt;Tomcat的使用；&lt;/li&gt;
-  &lt;li&gt;阿里云服务器的购买与使用；&lt;/li&gt;
-  &lt;li&gt;Linux系统的了解，远程连接，jdk、tomcat安装环境配置，Linux简单命令等；&lt;/li&gt;
-  &lt;li&gt;ForkLift 工具使用；&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2019/12/website-development_0/&quot;&gt; 网站开发  &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/12/website-development_0/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_0/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>我是否跟你一样也喜欢读纸质的书</title>
-        <description>&lt;h3 id=&quot;思想行动&quot;&gt;思想，行动&lt;/h3&gt;
-
-&lt;p&gt;不读书的人，精神上永远缺少能量，但凡空闲，只能靠玩游戏，刷剧，睡觉来打发时间。而热爱读书的人，无论被置于何种孤单的境地，都不会丧失最后一个交谈伙伴，那就是自己。&lt;br /&gt;
-这句话有点绝对，当看到空闲的自己就像他说的那样时，我明白了，对某些人来说，这句话是对的，因为他们没有前进的目标，不知人生的意义，在漫长的黑夜里难以做点什么，他们快乐么，他们孤独么，他们迷茫么，他们享受么。读书 ，他泛指你认为对的事，坚持去做的事。那么，我先要去解读 我的前半生。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2019/10/read-book/&quot;&gt; 我是否跟你一样也喜欢读纸质的书  &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 23 Oct 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/10/read-book/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/10/read-book/</guid>
-        
-        <category>人生</category>
         
         
       </item>

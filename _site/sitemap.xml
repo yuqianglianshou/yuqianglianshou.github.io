@@ -249,8 +249,16 @@
 <lastmod>2020-05-03T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2020/10/read_tiandao/</loc>
+<lastmod>2020-10-02T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/2020/11/android_websocket/</loc>
 <lastmod>2020-11-06T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2020/12/android_appupdate/</loc>
+<lastmod>2020-12-22T00:00:00+08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/404/</loc>
