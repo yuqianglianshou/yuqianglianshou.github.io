@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Android 实现一个类似Excel表格似的效果 2</title>
+  <meta name="description" content="忽有故人心上过，回首山河便是秋。">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Android 实现一个类似Excel表格似的效果 2">
+  <meta name="twitter:description" content="忽有故人心上过，回首山河便是秋。">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Android 实现一个类似Excel表格似的效果 2">
+  <meta property="og:description" content="忽有故人心上过，回首山河便是秋。">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2020/12/android_excellist/">
+  <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+<!-- 不蒜子 静态网页计数器 -->
+  <script 
+  async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  
+
+<!-- 百度统计 -->
+  
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?996937070e5ddaaeb56a26ae2c575105";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
+
+<!-- google 统计 -->
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9005224472374751",
+    enable_page_level_ads: true
+  });
+</script>
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于他
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 劉清揚 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                喜欢你
+                            
+                        </h2>
+                        <p>
+                           
+                                那双眼动人
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for 劉清揚" class="blog-button">劉清揚</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">个人站</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">欢迎来到我的个人站~</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于他</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">Android 实现一个类似Excel表格似的效果 2</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/> 
+      <time datetime="2020-12-30 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-12-30</time>  
+         
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+    <h3 id="忽有故人心上过回首山河便是秋">忽有故人心上过，回首山河便是秋。</h3>
+
+<p><a href="https://github.com/yuqianglianshou/ExcelList">本demo地址 https://github.com/yuqianglianshou/ExcelList</a></p>
+
+<p>效果 由于放GIF图比较卡，这里放几张静态图，也是一目了然。</p>
+
+<p><img src="/images/posts/android_excellist/1.jpeg" alt="" width="30%" height="30%" /><br />
+<br />
+<img src="/images/posts/android_excellist/2.jpeg" alt="" width="30%" height="30%" /> 
+<br />
+<img src="/images/posts/android_excellist/3.jpeg" alt="" width="30%" height="30%" /></p>
+
+<p><br /></p>
+<h2 id="一个类excel表格似的数据展示如何实现">一个类Excel表格似的数据展示如何实现？</h2>
+<p>横向可滚可以用HorizontalScrollview实现，纵向可滚可用RecycelerView实现，可 横向 纵向 都能滚怎么弄？<br />
+下面我来一步步分析实现。</p>
+
+<ol>
+  <li>组合 HorizontalScrollview 和 RecycelerView，rv的item布局使用 HorizontalScrollview 实现横向滑动 。<br />
+item 布局如下：</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"40dp"</span>
+    <span class="na">android:background=</span><span class="s">"#b2d235"</span>
+    <span class="na">android:gravity=</span><span class="s">"center_vertical"</span>
+    <span class="na">android:orientation=</span><span class="s">"horizontal"</span>
+    <span class="na">android:padding=</span><span class="s">"5dp"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/tv_name"</span>
+        <span class="na">style=</span><span class="s">"@style/Cells"</span>
+        <span class="na">android:text=</span><span class="s">"姓名"</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;HorizontalScrollView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/headerHorizontalScrollView"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+        <span class="na">android:scrollbars=</span><span class="s">"none"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;LinearLayout</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+            <span class="na">android:orientation=</span><span class="s">"horizontal"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_a"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"性别"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_b"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"年龄"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_c"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"出生日期"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_d"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"家庭住址"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_e"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"电话号码"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_f"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"房？"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_g"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"车？"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/LinearLayout&gt;</span>
+    <span class="nt">&lt;/HorizontalScrollView&gt;</span>
+
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+
+</code></pre></div></div>
+<p>@style/Cells 如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &lt;style name="Cells"&gt;
+        &lt;item name="android:layout_width"&gt;@dimen/dimen_width_80&lt;/item&gt;
+        &lt;item name="android:layout_height"&gt;match_parent&lt;/item&gt;
+        &lt;item name="android:gravity"&gt;center_vertical&lt;/item&gt;
+        &lt;item name="android:padding"&gt;5dp&lt;/item&gt;
+        &lt;item name="android:textSize"&gt;14sp&lt;/item&gt;
+    &lt;/style&gt;
+
+</code></pre></div></div>
+
+<p>此布局的实现效果，第一个单元格固定，后面7个可以滑动。<br />
+完成rv设置，adapter设置，实现出来的效果是 纵向滑动没问题，横向滑动则为 每个item各自为营，单独的都可以滑动，缺少了Excel表格的 “联动” 效果。</p>
+
+<ol>
+  <li>实现 联动 效果。<br />
+思路是 固定一个 item 布局 作为 头布局，rv中每个 item 的 HorizontalScrollView 监听头布局中 HorizontalScrollView 的滚动，跟随一起滚动，且item中的 HorizontalScrollView 不可滚动，这样的话，rv失去左右滚动效果(避免各自为营的问题)，头布局滚动时rv中所有item会一起滚动。<br />
+首先拦截rv中 HorizontalScrollView 的滚动，方法是 在 HorizontalScrollView 外包裹一层拦截事件的 InterceptLinearLayout ，这样就不会响应到 HorizontalScrollView 的滚动;
+其次 HorizontalScrollView 可以添加观察者，实现随一而动的效果，关于如何添加观察者，一会请看 adapter 的实现。</li>
+</ol>
+
+<p>HorizontalScrollView 可添加观察者的实现 CanObserverHorizontalScrollView.kt</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import android.content.Context
+import android.util.AttributeSet
+import android.util.Log
+import android.widget.HorizontalScrollView
+
+/**
+ *
+ *@author : lq
+ *@date   : 2020/12/28
+ *@desc   : 可添加观察者的 HorizontalScrollView
+ *
+ */
+private const val TAG = "lq"
+class CanObserverHorizontalScrollView : HorizontalScrollView {
+
+    constructor(context: Context?) : super(context)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    )
+
+    //定义观察者 集合
+    var mScrollViewObserver = ScrollViewObserver()
+
+    override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
+        super.onScrollChanged(l, t, oldl, oldt)
+        /*
+		 * 当自己 滚动条移动后，引发 滚动事件。通知给所有观察者。
+		 */
+        if (mScrollViewObserver != null) {
+            mScrollViewObserver.notifyOnScrollChanged(l, t, oldl, oldt)
+        }
+
+    }
+
+    /*
+     * 订阅 本控件 的 滚动条变化事件
+     * */
+    fun addScrollChangedListener(listener: ScrollViewObserver.OnScrollChangedListener) {
+        mScrollViewObserver.addScrollChangedListener(listener)
+    }
+
+    /*
+     * 取消 订阅 本控件 的 滚动条变化事件
+     * */
+    fun removeScrollChangedListener(listener: ScrollViewObserver.OnScrollChangedListener) {
+        mScrollViewObserver.removeScrollChangedListener(listener)
+    }
+
+
+    /**
+     *
+     *@author : lq
+     *@date   : 2020/12/29
+     *@desc   : scrollview  的观察者
+     *
+     */
+    class ScrollViewObserver {
+        var mList: ArrayList&lt;OnScrollChangedListener&gt; = ArrayList()
+
+        //添加一个监听者
+        fun addScrollChangedListener(listener: OnScrollChangedListener) {
+//            Log.i(TAG, "addScrollChangedListener: "+listener.hashCode())
+            mList.add(listener)
+        }
+
+        //移除一个监听者
+        fun removeScrollChangedListener(listener: OnScrollChangedListener) {
+//            Log.i(TAG, "removeScrollChangedListener: "+listener.hashCode())
+            mList.remove(listener)
+        }
+
+        //滚动 传递给所有 监听者
+        fun notifyOnScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
+            if (mList == null || mList.size == 0) {
+                return
+            }
+            var iterator = mList.iterator()
+            while (iterator.hasNext()) {
+                var listener = iterator.next()
+                if (listener != null) {
+                    listener.onScrollChanged(l, t, oldl, oldt)
+                } else {
+                    iterator.remove()
+                }
+            }
+
+            Log.i("lq", "notifyOnScrollChanged: mList.size == " + mList.size)
+        }
+
+
+        /**
+         *
+         *@author : lq
+         *@date   : 2020/12/29
+         *@desc   : 当发生了滚动事件时
+         *
+         */
+        interface OnScrollChangedListener {
+            fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int)
+        }
+
+
+    }
+
+}
+
+</code></pre></div></div>
+
+<p>拦截事件的 LinearLayout 实现 InterceptLinearLayout.kt</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ *
+ *@author : lq
+ *@date   : 2020/12/28
+ *@desc   : 拦截处理事件，事件不向子控件传递
+ *  不响应内部的子控件事件
+ */
+class InterceptLinearLayout : LinearLayout {
+    constructor(context: Context?) : super(context)
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
+        // true 为拦截
+        return true
+    }
+}
+</code></pre></div></div>
+<p>新的 rv的item布局 item_rv.xml</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"40dp"</span>
+    <span class="na">android:gravity=</span><span class="s">"center_vertical"</span>
+    <span class="na">android:orientation=</span><span class="s">"horizontal"</span>
+    <span class="na">android:padding=</span><span class="s">"5dp"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/tv_name"</span>
+        <span class="na">style=</span><span class="s">"@style/Cells"</span>
+        <span class="na">android:background=</span><span class="s">"@drawable/list_item_color_bg"</span>
+        <span class="na">android:text=</span><span class="s">"Column1"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!--    拦截事件传递到子控件--&gt;</span>
+    <span class="nt">&lt;com.lq.excellist.InterceptLinearLayout</span>
+        <span class="na">android:id=</span><span class="s">"@+id/linearLayout"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+        <span class="na">android:background=</span><span class="s">"@drawable/list_item_color_bg"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;HorizontalScrollView</span>
+            <span class="na">android:id=</span><span class="s">"@+id/horizontalScrollView"</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+            <span class="na">android:scrollbars=</span><span class="s">"none"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;LinearLayout</span>
+                <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+                <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+                <span class="na">android:orientation=</span><span class="s">"horizontal"</span><span class="nt">&gt;</span>
+
+                <span class="nt">&lt;TextView</span>
+                    <span class="na">android:id=</span><span class="s">"@+id/tv_a"</span>
+                    <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                    <span class="na">android:text=</span><span class="s">"Column2"</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;TextView</span>
+                    <span class="na">android:id=</span><span class="s">"@+id/tv_b"</span>
+                    <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                    <span class="na">android:text=</span><span class="s">"Column3"</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;TextView</span>
+                    <span class="na">android:id=</span><span class="s">"@+id/tv_c"</span>
+                    <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                    <span class="na">android:text=</span><span class="s">"Column4"</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;TextView</span>
+                    <span class="na">android:id=</span><span class="s">"@+id/tv_d"</span>
+                    <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                    <span class="na">android:text=</span><span class="s">"Column5"</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;TextView</span>
+                    <span class="na">android:id=</span><span class="s">"@+id/tv_e"</span>
+                    <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                    <span class="na">android:text=</span><span class="s">"Column6"</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;TextView</span>
+                    <span class="na">android:id=</span><span class="s">"@+id/tv_f"</span>
+                    <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                    <span class="na">android:text=</span><span class="s">"Column7"</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;TextView</span>
+                    <span class="na">android:id=</span><span class="s">"@+id/tv_g"</span>
+                    <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                    <span class="na">android:text=</span><span class="s">"Column8"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/LinearLayout&gt;</span>
+        <span class="nt">&lt;/HorizontalScrollView&gt;</span>
+    <span class="nt">&lt;/com.lq.excellist.InterceptLinearLayout&gt;</span>
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+
+</code></pre></div></div>
+
+<p>头布局 item_rv_header.xml</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"40dp"</span>
+    <span class="na">android:background=</span><span class="s">"#b2d235"</span>
+    <span class="na">android:gravity=</span><span class="s">"center_vertical"</span>
+    <span class="na">android:orientation=</span><span class="s">"horizontal"</span>
+    <span class="na">android:padding=</span><span class="s">"5dp"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/tv_name"</span>
+        <span class="na">style=</span><span class="s">"@style/Cells"</span>
+        <span class="na">android:text=</span><span class="s">"姓名"</span> <span class="nt">/&gt;</span>
+
+
+<span class="c">&lt;!--    可添加观察者的HorizontalScrollView--&gt;</span>
+    <span class="nt">&lt;com.lq.excellist.CanObserverHorizontalScrollView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/headerHorizontalScrollView"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+        <span class="na">android:scrollbars=</span><span class="s">"none"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;LinearLayout</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+            <span class="na">android:orientation=</span><span class="s">"horizontal"</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_a"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"性别"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_b"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"年龄"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_c"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"出生日期"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_d"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"家庭住址"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_e"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"电话号码"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_f"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"房？"</span> <span class="nt">/&gt;</span>
+
+            <span class="nt">&lt;TextView</span>
+                <span class="na">android:id=</span><span class="s">"@+id/tv_g"</span>
+                <span class="na">style=</span><span class="s">"@style/Cells"</span>
+                <span class="na">android:text=</span><span class="s">"车？"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/LinearLayout&gt;</span>
+    <span class="nt">&lt;/com.lq.excellist.CanObserverHorizontalScrollView&gt;</span>
+
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div></div>
+
+<p>最终的布局文件 activity_main.xml</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+    <span class="na">android:orientation=</span><span class="s">"vertical"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!--  表头--&gt;</span>
+    <span class="nt">&lt;include</span> <span class="na">layout=</span><span class="s">"@layout/item_rv_header"</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;androidx.recyclerview.widget.RecyclerView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/rv"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"match_parent"</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div></div>
+<p>到目前为止，我们已经实现了部分效果，可纵向滑动，手指在 头布局 的 HorizontalScrollView 可滑动并可带动 rv 中所有 item 一起滑动，实现了 联动 效果，还有最后一个问题，手指在rv上没有实现左右滑动，这个通过重写rv的 OnTouchListener 事件，将 此 事件 分发给头布局的 HorizontalScrollView ，与 其一起处理事件，</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        rv.setOnTouchListener { v, event -&gt;
+            //当在rv 上touch时，将事件分发给 表头的 scrollview 处理
+            headerHorizontalScrollView.onTouchEvent(event)
+            //如果删掉下面这行代码，rv的上下滚动效果会失效
+            onTouchEvent(event)
+        }
+</code></pre></div></div>
+<p>所以最终的 MainActivity.kt是</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">lq</span><span class="p">.</span><span class="n">excellist</span>
+
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">annotation</span><span class="p">.</span><span class="n">SuppressLint</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">Bundle</span>
+<span class="n">import</span> <span class="n">androidx</span><span class="p">.</span><span class="n">appcompat</span><span class="p">.</span><span class="n">app</span><span class="p">.</span><span class="n">AppCompatActivity</span>
+<span class="n">import</span> <span class="n">androidx</span><span class="p">.</span><span class="n">recyclerview</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="n">LinearLayoutManager</span>
+<span class="n">import</span> <span class="n">kotlinx</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">synthetic</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">activity_main</span><span class="p">.*</span>
+<span class="n">import</span> <span class="n">kotlinx</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">synthetic</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">item_rv_header</span><span class="p">.*</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.*</span>
+
+
+<span class="p">/**</span>
+ <span class="p">*</span> <span class="err">原理：</span>
+ <span class="p">*</span> <span class="err">将</span><span class="n">rv</span><span class="err">的</span><span class="n">touch</span><span class="err">事件交给表头的</span><span class="n">scrollview</span><span class="err">处理并监听表头的</span><span class="n">scrollview</span><span class="err">，表头的</span><span class="n">scrollview</span><span class="err">滚动（滑动表头的</span><span class="n">scrollview</span> <span class="err">或</span> <span class="err">滑动</span><span class="n">rv</span><span class="err">），通知监听者（</span><span class="n">rv</span><span class="err">中所有的</span><span class="n">scrollview</span><span class="err">）一起滚动。</span>
+ <span class="p">*</span>
+ <span class="p">*</span> <span class="m">1</span><span class="err">，表头</span> <span class="err">和</span> <span class="err">内容</span> <span class="err">作为两个部分</span> <span class="err">单独处理。</span>
+ <span class="p">*</span> <span class="m">2</span><span class="err">，将整个</span> <span class="n">recyclerview</span> <span class="err">的</span><span class="n">touch</span><span class="err">事件交给表头的</span> <span class="n">scrollview</span> <span class="err">处理。</span>
+ <span class="p">*</span> <span class="m">3</span><span class="err">，将</span><span class="n">recyclerview</span><span class="err">的每个</span><span class="n">item</span><span class="err">中的</span><span class="n">scrollview</span><span class="err">添加为头部</span><span class="n">scrollview</span><span class="err">的观察者，使之跟随头部</span><span class="n">scrollview</span><span class="err">一起滚动。</span>
+ <span class="p">*</span>
+ <span class="p">*</span> <span class="err">表头布局</span> <span class="n">item_rv_header</span> <span class="err">和</span> <span class="n">rv</span> <span class="err">的</span> <span class="n">item</span> <span class="err">布局</span> <span class="n">item_rv</span> <span class="err">区别，</span><span class="n">item_rv</span> <span class="err">布局在</span> <span class="n">horizontalscrollview</span> <span class="err">外</span> <span class="err">包裹了一层拦截事件的</span><span class="n">LinearLayout</span><span class="p">,</span>
+ <span class="p">*</span> <span class="err">即</span><span class="n">InterceptLinearLayout</span><span class="err">，用于拦截每个</span><span class="n">item</span><span class="err">中</span><span class="n">scrollview</span><span class="err">的滚动事件。否则会看到</span><span class="n">item</span><span class="err">中每个</span><span class="n">scrollview</span><span class="err">都可以单独滚动。</span><span class="n">item_rv_header</span> <span class="err">中的</span> <span class="n">horizontalscrollview</span> <span class="err">使用的是自定义的可以添加观察者的</span>
+ <span class="p">*</span> <span class="n">horizontalscrollview</span><span class="err">，用于通知所有观察者一起滑动。</span>
+ <span class="p">*</span>
+ <span class="p">*</span>
+ <span class="p">*/</span>
+<span class="n">class</span> <span class="n">MainActivity</span> <span class="p">:</span> <span class="n">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
+
+
+    <span class="p">@</span><span class="n">SuppressLint</span><span class="p">(</span><span class="s2">"ClickableViewAccessibility"</span><span class="p">)</span>
+    <span class="n">override</span> <span class="n">fun</span> <span class="n">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="n">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="n">super</span><span class="p">.</span><span class="n">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+        <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">)</span>
+
+
+        <span class="n">rv</span><span class="p">.</span><span class="n">setOnTouchListener</span> <span class="p">{</span> <span class="n">v</span><span class="p">,</span> <span class="n">event</span> <span class="p">-&gt;</span>
+            <span class="p">//</span><span class="err">当在</span><span class="n">rv</span> <span class="err">上</span><span class="n">touch</span><span class="err">时，将事件分发给</span> <span class="err">表头的</span> <span class="n">scrollview</span> <span class="err">处理</span>
+            <span class="n">headerHorizontalScrollView</span><span class="p">.</span><span class="n">onTouchEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="p">//</span><span class="err">如果删掉下面这行代码，</span><span class="n">rv</span><span class="err">的上下滚动效果会失效</span>
+            <span class="n">onTouchEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="p">//</span>        <span class="err">设置布局管理器</span>
+        <span class="n">rv</span><span class="p">.</span><span class="n">layoutManager</span> <span class="p">=</span> <span class="n">LinearLayoutManager</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+
+        <span class="n">val</span> <span class="n">myAdapter</span> <span class="p">=</span> <span class="n">MyAdapter</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">item_rv</span><span class="p">,</span> <span class="n">headerHorizontalScrollView</span><span class="p">)</span>
+
+        <span class="n">rv</span><span class="p">.</span><span class="n">adapter</span> <span class="p">=</span> <span class="n">myAdapter</span>
+
+<span class="p">//</span>        <span class="err">设置数据</span>
+        <span class="n">myAdapter</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="n">getData</span><span class="p">())</span>
+
+
+    <span class="p">}</span>
+
+    <span class="p">/**</span>
+     <span class="p">*</span> <span class="err">模拟数据</span>
+     <span class="p">*/</span>
+    <span class="n">private</span> <span class="n">fun</span> <span class="n">getData</span><span class="p">():</span> <span class="k">List</span><span class="p">&lt;</span><span class="n">DataBean</span><span class="p">&gt;</span> <span class="p">{</span>
+        <span class="n">val</span> <span class="k">list</span> <span class="p">=</span> <span class="n">ArrayList</span><span class="p">&lt;</span><span class="n">DataBean</span><span class="p">&gt;()</span>
+        <span class="n">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">0..119</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">list</span><span class="p">.</span><span class="n">add</span><span class="p">(</span>
+                <span class="n">DataBean</span><span class="p">(</span>
+                    <span class="s2">"name $i"</span><span class="p">,</span>
+                    <span class="s2">"A_ $i"</span><span class="p">,</span> <span class="s2">"B_ $i"</span><span class="p">,</span> <span class="s2">"C_ $i"</span><span class="p">,</span> <span class="s2">"D_ $i"</span><span class="p">,</span> <span class="s2">"E_ $i"</span><span class="p">,</span> <span class="s2">"F_ $i"</span><span class="p">,</span> <span class="s2">"G_ $i"</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">return</span> <span class="k">list</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>MyAdapter.kt 是</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">lq</span><span class="p">.</span><span class="n">excellist</span>
+
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">Context</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">LayoutInflater</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">View</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">ViewGroup</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="n">HorizontalScrollView</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="n">Toast</span>
+<span class="n">import</span> <span class="n">androidx</span><span class="p">.</span><span class="n">recyclerview</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="n">RecyclerView</span>
+<span class="n">import</span> <span class="n">kotlinx</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">synthetic</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">item_rv</span><span class="p">.</span><span class="n">view</span><span class="p">.*</span>
+
+<span class="p">/**</span>
+ <span class="p">*</span>
+ <span class="p">*@</span><span class="n">author</span> <span class="p">:</span> <span class="n">lq</span>
+ <span class="p">*@</span><span class="n">date</span>   <span class="p">:</span> <span class="m">2020</span><span class="p">/</span><span class="m">12</span><span class="p">/</span><span class="m">29</span>
+ <span class="p">*@</span><span class="n">desc</span>   <span class="p">:</span>
+ <span class="p">*</span>
+ <span class="p">*/</span>
+<span class="n">class</span> <span class="n">MyAdapter</span><span class="p">(</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">,</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">resource</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">headScrollView</span><span class="p">:</span> <span class="n">CanObserverHorizontalScrollView</span>
+<span class="p">)</span> <span class="p">:</span> <span class="n">RecyclerView</span><span class="p">.</span><span class="n">Adapter</span><span class="p">&lt;</span><span class="n">MyAdapter</span><span class="p">.</span><span class="n">MyViewHoder</span><span class="p">&gt;()</span> <span class="p">{</span>
+    <span class="p">//</span><span class="err">数据集合</span>
+    <span class="n">private</span> <span class="n">var</span> <span class="n">mList</span> <span class="p">=</span> <span class="n">ArrayList</span><span class="p">&lt;</span><span class="n">DataBean</span><span class="p">&gt;()</span>
+
+    <span class="n">override</span> <span class="n">fun</span> <span class="n">onCreateViewHolder</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">ViewGroup</span><span class="p">,</span> <span class="n">viewType</span><span class="p">:</span> <span class="n">Int</span><span class="p">):</span> <span class="n">MyViewHoder</span> <span class="p">{</span>
+        <span class="n">return</span> <span class="n">MyViewHoder</span><span class="p">(</span><span class="n">LayoutInflater</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="n">context</span><span class="p">).</span><span class="n">inflate</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="nb">false</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="n">override</span> <span class="n">fun</span> <span class="n">onBindViewHolder</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span> <span class="n">MyViewHoder</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">val</span> <span class="n">itemView</span> <span class="p">=</span> <span class="n">holder</span><span class="p">.</span><span class="n">itemView</span>
+        <span class="n">val</span> <span class="n">bean</span> <span class="p">=</span> <span class="n">mList</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+
+        <span class="p">//</span><span class="err">赋值</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_name</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_a</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">data1</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_b</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">data2</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_c</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">data3</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_d</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">data4</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_e</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">data5</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_f</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">data6</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_g</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">bean</span><span class="p">.</span><span class="n">data7</span>
+
+        <span class="p">//</span><span class="n">item</span> <span class="err">第一个单元格可点击</span>
+        <span class="n">itemView</span><span class="p">.</span><span class="n">tv_name</span><span class="p">.</span><span class="n">setOnClickListener</span> <span class="p">{</span>
+            <span class="n">Toast</span><span class="p">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="s2">"守得云开见月明 "</span> <span class="p">+</span> <span class="n">bean</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">Toast</span><span class="p">.</span><span class="n">LENGTH_SHORT</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="p">//</span><span class="err">注意：放开点击事件</span> <span class="err">会有</span> <span class="err">左右滑动难以响应的问题</span>
+<span class="p">//</span>        <span class="n">itemView</span><span class="p">.</span><span class="n">linearLayout</span><span class="p">.</span><span class="n">setOnClickListener</span> <span class="p">{</span>
+<span class="p">//</span>            <span class="n">Toast</span><span class="p">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="s2">"守得云开见月明 linearLayout"</span><span class="p">,</span><span class="n">Toast</span><span class="p">.</span><span class="n">LENGTH_SHORT</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>
+<span class="p">//</span>        <span class="p">}</span>
+
+        <span class="p">//</span><span class="err">解决</span> <span class="err">监听</span> <span class="err">无限增多问题</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">itemView</span><span class="p">.</span><span class="n">tag</span> <span class="p">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="p">//</span><span class="err">将</span><span class="n">rv</span> <span class="n">item</span> <span class="err">中的</span><span class="n">scrollview</span> <span class="err">添加为</span> <span class="err">头布局</span> <span class="err">中</span> <span class="n">scrollview</span> <span class="err">的观察者，使每一个</span><span class="n">item</span><span class="err">的滚动跟随</span> <span class="err">头部</span> <span class="err">的滚动</span>
+            <span class="n">val</span> <span class="n">listener</span> <span class="p">=</span> <span class="n">OnScrollChangedListenerImp</span><span class="p">(</span><span class="n">itemView</span><span class="p">.</span><span class="n">horizontalScrollView</span><span class="p">)</span>
+            <span class="n">headScrollView</span><span class="p">.</span><span class="n">addScrollChangedListener</span><span class="p">(</span><span class="n">listener</span><span class="p">)</span>
+
+            <span class="n">itemView</span><span class="p">.</span><span class="n">tag</span> <span class="p">=</span> <span class="n">listener</span>
+        <span class="p">}</span>
+
+
+    <span class="p">}</span>
+
+    <span class="n">override</span> <span class="n">fun</span> <span class="n">getItemCount</span><span class="p">():</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="n">return</span> <span class="n">mList</span><span class="p">.</span><span class="n">size</span>
+    <span class="p">}</span>
+
+
+    <span class="n">fun</span> <span class="n">setData</span><span class="p">(</span><span class="k">list</span><span class="p">:</span> <span class="k">List</span><span class="p">&lt;</span><span class="n">DataBean</span><span class="p">&gt;)</span> <span class="p">{</span>
+        <span class="n">mList</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">mList</span> <span class="p">=</span> <span class="k">list</span> <span class="k">as</span> <span class="n">ArrayList</span><span class="p">&lt;</span><span class="n">DataBean</span><span class="p">&gt;</span>
+        <span class="n">notifyDataSetChanged</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="n">class</span> <span class="n">MyViewHoder</span><span class="p">(</span><span class="n">itemView</span><span class="p">:</span> <span class="n">View</span><span class="p">)</span> <span class="p">:</span> <span class="n">RecyclerView</span><span class="p">.</span><span class="n">ViewHolder</span><span class="p">(</span><span class="n">itemView</span><span class="p">)</span>
+
+    <span class="p">/**</span>
+     <span class="p">*</span> <span class="err">滚动监听</span>  <span class="err">的</span> <span class="err">实现</span>
+     <span class="p">*/</span>
+    <span class="n">internal</span> <span class="n">class</span> <span class="n">OnScrollChangedListenerImp</span><span class="p">(</span><span class="n">var</span> <span class="n">mScrollViewArg</span><span class="p">:</span> <span class="n">HorizontalScrollView</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">CanObserverHorizontalScrollView</span><span class="p">.</span><span class="n">ScrollViewObserver</span><span class="p">.</span><span class="n">OnScrollChangedListener</span> <span class="p">{</span>
+
+        <span class="n">override</span> <span class="n">fun</span> <span class="n">onScrollChanged</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">oldl</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="n">oldt</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">mScrollViewArg</span><span class="p">.</span><span class="n">smoothScrollTo</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>DataBean.kt 为</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">lq</span><span class="p">.</span><span class="n">excellist</span>
+
+<span class="p">/**</span>
+ <span class="p">*</span>
+ <span class="p">*@</span><span class="n">author</span> <span class="p">:</span> <span class="n">lq</span>
+ <span class="p">*@</span><span class="n">date</span>   <span class="p">:</span> <span class="m">2020</span><span class="p">/</span><span class="m">12</span><span class="p">/</span><span class="m">29</span>
+ <span class="p">*@</span><span class="n">desc</span>   <span class="p">:</span>
+ <span class="p">*</span>
+ <span class="p">*/</span>
+<span class="n">data</span> <span class="n">class</span> <span class="n">DataBean</span><span class="p">(</span>
+    <span class="n">val</span> <span class="n">name</span><span class="p">:</span><span class="k">String</span><span class="p">,</span>
+    <span class="n">val</span> <span class="n">data1</span><span class="p">:</span><span class="k">String</span><span class="p">,</span>
+    <span class="n">val</span> <span class="n">data2</span><span class="p">:</span><span class="k">String</span><span class="p">,</span>
+    <span class="n">val</span> <span class="n">data3</span><span class="p">:</span><span class="k">String</span><span class="p">,</span>
+    <span class="n">val</span> <span class="n">data4</span><span class="p">:</span><span class="k">String</span><span class="p">,</span>
+    <span class="n">val</span> <span class="n">data5</span><span class="p">:</span><span class="k">String</span><span class="p">,</span>
+    <span class="n">val</span> <span class="n">data6</span><span class="p">:</span><span class="k">String</span><span class="p">,</span>
+    <span class="n">val</span> <span class="n">data7</span><span class="p">:</span><span class="k">String</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>到此，思路与代码全部在上面了，现在还遗留有一个问题，就是rv的item点击事件无法实现，目前能做到的是item的第一个单元格可响应点击，其他的控件如果设置点击监听会与滚动监听冲突。所以这个作为浏览数据用可以，流畅度很好，但是要添加item点击事件是有问题的，注意使用场景。以前写过一个 ListView + HorizontalScrollView 的实现是没这个问题的，不过代码老旧很多地方需要重写优化。</p>
+
+<p><br />
+<br /></p>
+
+<p><br /> 
+<br /></p>
+
+<p><br /> 
+<br /> 
+<br /> 
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2020/12/android_excellist/"> Android 实现一个类似Excel表格似的效果 2 </a><br />
+<br /></p>
+
+
+  </section>
+</article>
+
+<section>
+
+            <div class="content-play">
+              <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="此中有真意">不能点</a></p>
+              <div class="hide_box-play"></div>
+              <div class="shang_box-play">
+                <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/images/payimg/close.jpg" alt="取消" /></a>
+                <div class="shang_tit-play">
+                  <p>白茶清风无别事，我在等风也等你</p>
+                </div>
+                <div class="shang_payimg">
+                    <img src="/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+              <div class="shang_payimg">    
+                    <img src="/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">三十六计，走为上计</div>
+                <div class="shang_payselect">
+                  <div class="pay_item checked" data-id="alipay">
+                    <span class="pay_logo"><img src="/images/payimg/alipay.jpg" alt="支付宝" /></span>
+                  </div>
+                  <div class="pay_item" data-id="weipay">
+                    <span class="pay_logo"><img src="/images/payimg/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info-play">
+                  <p><span id="shang_pay_txt">欲辨已忘言</span></p>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            function dashangToggle(){
+              $(".hide_box-play").fadeToggle();
+              $(".shang_box-play").fadeToggle();
+            }
+            </script>
+
+            <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+            <style type="text/css">
+              .content-play{width:80%;margin-top: 20px;margin-bottom: 10px;height:40px;}
+              .hide_box-play{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+              .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+              .shang_box-play img{border:none;border-width:0;}
+              .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .shang_close-play{float:right;display:inline-block;
+                margin-right: 10px;margin-top: 20px;
+              }
+              .shang_logo{display:block;text-align:center;margin:20px auto;}
+              .shang_tit-play{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/images/payimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+              .shang_tit-play p{color:#a3a3a3;text-align:center;font-size:16px;}
+              .shang_payimg{width:140px;padding:10px;padding-left: 80px; /*border:6px solid #EA5F00;**/margin:0 auto;border-radius:3px;height:140px;display:inline-block;}
+              .shang_payimg img{display:inline-block;margin-right:10px;float:left;text-align:center;width:140px;height:140px; }
+              .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+              .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:500px;margin-left:110px;}
+              .shang_payselect .pay_item{display:inline-block;margin-right:140px;float:left;}
+              .shang_info-play{clear:both;}
+              .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+            </style>
+
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2020/12/android_appupdate/" data-toggle="tooltip" data-placement="top" title="Android 关于使用 azhon/AppUpdate 的一点想法">上一篇：  <span>Android 关于使用 azhon/AppUpdate 的一点想法</span>
+            </a>
+        </li>
+        
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+
+  
+
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">  
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+          
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/yuqianglianshou" title="@yuqianglianshou 的 Github" target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          
+
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='social fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:2465199797@qq.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+
+          </ul>
+        </nav>
+
+        </div>
+
+        <div class = "footer_div">  
+           <p class="copyright text-muted">
+            Copyright &copy; 劉清揚 2020 Theme by 
+			<a href="http://yuqianglianshou.com/">yuqianglianshou</a> 
+ 
+            </p>
+        	<div align="right">
+    			<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+          <!-- 访问统计 -->
+          <span id="busuanzi_container_site_pv">
+            本站总访问量
+            <span id="busuanzi_value_site_pv"></span>次
+          </span>
+
+        </div>
+        <div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+  </body>
+
+</html>
