@@ -5,9 +5,53 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Dec 2020 11:08:30 +0800</pubDate>
-    <lastBuildDate>Wed, 30 Dec 2020 11:08:30 +0800</lastBuildDate>
+    <pubDate>Fri, 01 Jan 2021 19:09:41 +0800</pubDate>
+    <lastBuildDate>Fri, 01 Jan 2021 19:09:41 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>永不休止的循环</title>
+        <description>&lt;h3 id=&quot;故事的开头极具温柔我们却给了一个及其不配的结尾&quot;&gt;故事的开头极具温柔，我们却给了一个及其不配的结尾。&lt;/h3&gt;
+
+&lt;p&gt;迷迷糊糊之间，我见到了上帝。&lt;br /&gt;
+光芒耀眼，看不清他的样子。&lt;br /&gt;
+不曾考虑他是怎么来的为何出现在这里等如此问题，&lt;br /&gt;
+直接抛出了灵魂一问：能实现我一个愿望么？&lt;br /&gt;
+God：你说吧。&lt;br /&gt;
+如此轻而易举，我来不及欣喜：Can I reset 2020?&lt;br /&gt;
+God: ？？？&lt;br /&gt;
+我小心翼翼：怎么，英语不是你的母语么？难道 难道说 这个愿望你实现不了？哎，我就知道，回到一年前，太难了。 &lt;br /&gt;
+God：不是。&lt;br /&gt;
+看样子有戏。&lt;br /&gt;
+God：兄弟 我不得不提醒你，这是你最后一个愿望了，你前两个愿望都是如此，我再给你一次机会，你重新说。  &lt;br /&gt;
+What？我有三个愿望？我隐隐约约看到了上帝飘着一条绿色的尾巴，我似乎明白了什么。&lt;br /&gt;
+哎，不对啊，我面临3个愿望时，金钱 美女 与 权利 不正好么？&lt;br /&gt;
+。。。难道是惨到极致了？难道是拯救世界了？还是比现在还清高？&lt;br /&gt;
+God：留给你的时间不多了。&lt;br /&gt;
+我想到了那些小聪明：我的最后一个愿望是 再实现我3个愿望。&lt;br /&gt;
+God：愿望禁止套娃。&lt;br /&gt;
+上帝生气了，是我惹的。&lt;br /&gt;
+我思索着我现在的境地，我回忆着这一年发生的大大小小的事迹，为什么会这样？&lt;br /&gt;
+我太过于追求公平与正义，太过于严格对自己以及相关的人，太过于相信自己的判断，太过于不相信对于自己不能把控的事。&lt;br /&gt;
+我明白了，即使再来一次，疫情还是会严重，特朗普还是会下台，天上月依然是那个天上月。&lt;br /&gt;
+我顿了顿，说到，我的最后一个愿望是&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/12/read_tiandao/&quot;&gt; 永不休止的循环 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 31 Dec 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/12/deardream/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/12/deardream/</guid>
+        
+        <category>人生</category>
+        
+        
+      </item>
     
       <item>
         <title>Android 实现一个类似Excel表格似的效果 2</title>
@@ -1337,83 +1381,6 @@ ForkLift 是一款mac上专业的文件管理程序，我用它进行ftp链接�
         <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2019/12/website-development_3/</link>
         <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_3/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>网站开发_打war包</title>
-        <description>&lt;h3 id=&quot;没有谁会为你踏雪而来喜欢的风景要自己去看&quot;&gt;没有谁会为你踏雪而来，喜欢的风景要自己去看。&lt;/h3&gt;
-
-&lt;h2 id=&quot;demo样例&quot;&gt;demo样例:&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/yuqianglianshou/WebsiteDemo&quot;&gt;https://github.com/yuqianglianshou/WebsiteDemo&lt;/a&gt;&lt;br /&gt;
-初建的SpringBoot项目部署到外部Tomcat中的需要做的修改：&lt;br /&gt;
-&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-traditional-deployment&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;启动类修改:&lt;br /&gt;
-继承 org.springframework.boot.web.servlet.support 包下的 SpringBootServletInitializer并覆盖configure方法，config 方法中return值修改为 builder.sources(启动类.class)，在这里，我的项目名字是 sf ，新建项目后会自动生成 SfApplication 启动类。
-&lt;img src=&quot;/images/posts/websitedev/9.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;修改打包方式：&lt;br /&gt;
-pom.xml 文件中，packaging标签下的 jar 修改为 war，如3图。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;dependencies 标签下添加tomcat依赖，排除嵌入式tomcat
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;!--        添加依赖 tomcat--&amp;gt;
-    &amp;lt;dependency&amp;gt;
-        &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-        &amp;lt;artifactId&amp;gt;spring-boot-starter-tomcat&amp;lt;/artifactId&amp;gt;
-        &amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt;
-    &amp;lt;/dependency&amp;gt;
-&amp;lt;!--        排除嵌入式tomcat--&amp;gt;
-    &amp;lt;dependency&amp;gt;
-        &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-        &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt;
-        &amp;lt;exclusions&amp;gt;
-            &amp;lt;exclusion&amp;gt;
-                &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;spring-boot-starter-tomcat&amp;lt;/artifactId&amp;gt;
-            &amp;lt;/exclusion&amp;gt;
-        &amp;lt;/exclusions&amp;gt;
-    &amp;lt;/dependency&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;&lt;img src=&quot;/images/posts/websitedev/10.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;注释spring-boot-maven-plugin，使用maven-war-plugin
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &amp;lt;plugin&amp;gt;
-            &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;maven-war-plugin&amp;lt;/artifactId&amp;gt;
-            &amp;lt;configuration&amp;gt;
-                &amp;lt;failOnMissingWebXml&amp;gt;false&amp;lt;/failOnMissingWebXml&amp;gt;
-            &amp;lt;/configuration&amp;gt;
-        &amp;lt;/plugin&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;&lt;img src=&quot;/images/posts/websitedev/11.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;修改完成，打开右侧 Maven ，双击package 打包，运行成功后，项目中target包下生成war包。如图：&lt;br /&gt;
-&lt;img src=&quot;/images/posts/websitedev/12.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Maven 不熟悉的可以通过下面地址了解一下&lt;br /&gt;
-&lt;a href=&quot;https://www.yuque.com/wells/engineering/vcki6k&quot;&gt;https://www.yuque.com/wells/engineering/vcki6k&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/websitedev/13.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2019/12/website-development_2/&quot;&gt; 网站开发_打war包  &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/12/website-development_2/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_2/</guid>
         
         <category>技术</category>
         
