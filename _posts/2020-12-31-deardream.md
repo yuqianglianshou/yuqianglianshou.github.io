@@ -38,5 +38,5 @@ God：愿望禁止套娃。
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 永不休止的循环 ](http://yuqianglianshou.com/2020/12/read_tiandao/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 永不休止的循环 ](http://yuqianglianshou.com/2020/12/deardream/)  
 <br/>
