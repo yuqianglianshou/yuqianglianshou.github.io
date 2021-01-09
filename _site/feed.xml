@@ -5,9 +5,40 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 06 Jan 2021 09:05:07 +0800</pubDate>
-    <lastBuildDate>Wed, 06 Jan 2021 09:05:07 +0800</lastBuildDate>
+    <pubDate>Sun, 10 Jan 2021 02:14:09 +0800</pubDate>
+    <lastBuildDate>Sun, 10 Jan 2021 02:14:09 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>观 韩剧《请回答1988》 有感</title>
+        <description>&lt;h3 id=&quot;我不会像你一样的绝对不会了&quot;&gt;我不会像你一样的，绝对不会了。&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/1988/1988.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;当有人将观后感当作毕业论文写时，我知道他已经赢了。&lt;a href=&quot;https://www.zhihu.com/question/37297976/answer/239283117&quot;&gt;如何评价电视剧《请回答1988》？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;当阿泽在众人面前说喜欢德善的时候，正八就已经输了。&lt;/p&gt;
+
+&lt;p&gt;之所以感动的不要不要的，是因为他最能感同身受吧，最能接近现实吧，有自己的影子吧。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/01/1988/&quot;&gt; 观 韩剧《请回答1988》 有感 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Jan 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/01/1988/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/01/1988/</guid>
+        
+        <category>人生</category>
+        
+        
+      </item>
     
       <item>
         <title>永不休止的循环</title>
@@ -1305,84 +1336,6 @@ public class AppInstallReceiver extends BroadcastReceiver {
         <guid isPermaLink="true">http://localhost:4000/2019/12/psychology/</guid>
         
         <category>个人</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>网站开发_tomcat运行</title>
-        <description>&lt;h3 id=&quot;每个优秀的人都有一段沉默的时光-那段时光是付出了很多努力却得不到结果的日子我们把它叫作扎根&quot;&gt;每个优秀的人，都有一段沉默的时光。 那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫作扎根。&lt;/h3&gt;
-
-&lt;h2 id=&quot;一本地tomcat安装mac为例&quot;&gt;一，本地tomcat安装（mac为例）&lt;/h2&gt;
-&lt;p&gt;请参考&lt;a href=&quot;https://www.jianshu.com/p/db08d23049ce&quot;&gt;Mac 下安装Tomcat&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;二本地tomcat运行war包&quot;&gt;二，本地tomcat运行war包&lt;/h2&gt;
-&lt;p&gt;将上篇文章中打好的sf-1.0.war复制到tomcat安装目录webapps下，然后重新启动tomcat，
-&lt;img src=&quot;/images/posts/websitedev/15.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;br /&gt;
-输入访问地址 http://localhost:8080/sf-1.0/test/hello ,成功后的样子&lt;br /&gt;
-&lt;img src=&quot;/images/posts/websitedev/16.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;三服务器部署&quot;&gt;三，服务器部署&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;服务器购买&lt;br /&gt;
-&lt;a href=&quot;https://yq.aliyun.com/articles/280838&quot;&gt;阿里云服务器的购买操作流程&lt;/a&gt;&lt;br /&gt;
-如果仅仅只是写几个接口玩的话，买最低配1核1G的就行，至于按流量付费还是包月包年自行选择，不得不说，真心贵啊，注意一些优惠信息，可以便宜很多很多。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;创建ECS实例&lt;br /&gt;
-&lt;a href=&quot;https://help.aliyun.com/document_detail/25424.html&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ForkLift 链接服务器 &lt;br /&gt;
-ForkLift 是一款mac上专业的文件管理程序，我用它进行ftp链接，用了十几年的Windows，还是看到图形界面比较安心，详细介绍看知乎文章&lt;a href=&quot;https://zhuanlan.zhihu.com/p/89461946&quot;&gt;Mac用户必备的FTP客户端&lt;/a&gt;，通过ECS实例地址和密码登陆到远程服务器，
-&lt;img src=&quot;/images/posts/websitedev/17.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;服务器安装jdk和tomcat&lt;br /&gt;
-在下面的操作之前，你需要有些Linux知识储备，请看&lt;a href=&quot;https://github.com/Snailclimb/JavaGuide/blob/master/docs/operating-system/%E5%90%8E%E7%AB%AF%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E5%A4%87%E7%9A%84Linux%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md&quot;&gt;后端程序员必备的Linux基础知识&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;打开终端，通过命令 ssh root@服务器地址 ，链接服务器，下图登陆成功
-&lt;img src=&quot;/images/posts/websitedev/18.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;根据上面储备的知识，分别将本地的jdk和tomcat安装包上传到服务器，然后解压，通过 ForkLift 看下成果。
-&lt;img src=&quot;/images/posts/websitedev/19.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;配置jdk环境变量&lt;br /&gt;
-&lt;a href=&quot;https://www.jianshu.com/p/32575e8919f0&quot;&gt;Linux服务器配置之JDK安装篇&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;服务器启动 tomcat，下图启动成功。
-&lt;img src=&quot;/images/posts/websitedev/20.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt; 
-浏览器验证： http://你的服务器地址:8080/&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;部署&lt;br /&gt;
-可以在ForkLift工具上直接将war包拖上去，图中我的war包改了名字，然后重新启动tomcat，
-&lt;img src=&quot;/images/posts/websitedev/21.png&quot; alt=&quot;&quot; width=&quot;60%&quot; height=&quot;60%&quot; /&gt; 
-浏览器验证： http://你的服务器地址:8080/demo/test/hello，看下我的成果 &lt;a href=&quot;http://47.105.132.88:8080/demo/test/hello&quot;&gt;http://47.105.132.88:8080/demo/test/hello&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;至此一个-hello-world-接口完成了不想总结了睡了&quot;&gt;至此，一个 hello World 接口完成了。不想总结了，睡了。&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2019/12/website-development_3/&quot;&gt; 网站开发_tomcat运行  &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 01 Dec 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/12/website-development_3/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/website-development_3/</guid>
-        
-        <category>技术</category>
         
         
       </item>
