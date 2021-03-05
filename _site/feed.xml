@@ -5,9 +5,42 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 15 Jan 2021 09:37:25 +0800</pubDate>
-    <lastBuildDate>Fri, 15 Jan 2021 09:37:25 +0800</lastBuildDate>
+    <pubDate>Wed, 03 Mar 2021 09:27:12 +0800</pubDate>
+    <lastBuildDate>Wed, 03 Mar 2021 09:27:12 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>问题解决：Failed to connect to github.com port 443：Operation timed out</title>
+        <description>&lt;h3 id=&quot;大雨一下子就淋湿了我的全身我在雨中已经没有任何体面可言&quot;&gt;大雨一下子就淋湿了我的全身，我在雨中已经没有任何体面可言。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;北京三月的天气忽冷忽热，实在琢磨不透，像极了我的心情。&lt;br /&gt;
+想往 GitHub 上提交点文件，结果无论 push 还是 pull 都报错了。&lt;br /&gt;
+push报  Failed to connect to github.com port 443: Timed out 错误，&lt;br /&gt;
+pull报  Error in the HTTP2 framing layer 错误， &lt;br /&gt;
+一天故事的开端变成了事故的开端。&lt;br /&gt;
+查了百度，基本都是在说代理问题，解决方案都是git命令，要不就是修改系统文件。&lt;br /&gt;
+对于一个懒人来说，这些操作明显是多了，既然是代理问题，那就好办了，我这开代理的就一个地方，翻墙小飞机，再次打开小飞机，再关闭，哈哈，问题解决。&lt;br /&gt;
+其实出现这个问题的原因很简单，开了小飞机，没有正常关闭，比如直接系统结束进程或直接关机，造成小飞机开代理写入的文件没有归位。再让他正常启动关闭一次就好。&lt;br /&gt;
+如此而已。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/github_error/&quot;&gt; 问题解决：Failed to connect to github.com port 443: Operation timed out &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Mar 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/03/github_error/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/03/github_error/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>观 韩剧《请回答1988》 有感</title>
@@ -1256,95 +1289,6 @@ public class AppInstallReceiver extends BroadcastReceiver {
         <guid isPermaLink="true">http://localhost:4000/2020/03/jetpack/</guid>
         
         <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>什么样的男生注定单身？</title>
-        <description>&lt;h3 id=&quot;背过了下列语句成为文艺青年感情咨询师的路不远了&quot;&gt;背过了下列语句，成为文艺青年感情咨询师的路不远了&lt;/h3&gt;
-
-&lt;h2 id=&quot;下面文章总结于知乎问题-什么样的男生注定单身-的部分回答大部分人或多或少都能找到自己的影子不必惊慌70以后还有希望&quot;&gt;下面文章总结于知乎问题 什么样的男生注定单身 的部分回答，大部分人或多或少都能找到自己的影子，不必惊慌，70以后还有希望。&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;目测条件一般，有自己的想法和见地，看过一些书，情商也不低，不会显得急不可待，语出惊人。看上去介于单调和闷之间，但内心怀有强烈的情感。一般不会显得浮躁，在熟人面前幽默感爆棚，在陌生人面前不会特意表现自己，但跟女生一说话，就有种难以掩饰的微尬和不自然。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;不会帅得在人群中引起骚动，也不会丑得让人扭头就走，看上去就不太像个有故事的人。可能穿得比较干净，但一定不潮，内心深处，想摆脱肤浅，容易自省，跟大家吐槽的俗low男不沾边，动不动容易觉得特别。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;不擅长KTV，篮球，可能会喜欢跑步，看书，思想逻辑类的事物，但优点都不具备那种直观可展示性，常常沦为大型聚会的配角，但也不会夸张的卖弄自己。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;内心戏很丰富，对所追求的爱情，脑海中有一幅自己的想象蓝图。没事不会主动找女生，对有感觉的女生，在微信聊天中对用到的表情包，标点，波浪线都有思考，并且使之尽量看起来装作随性自然，不敢喋喋不休地打扰，很怕被嫌弃，越界，导致很少产生亲密关系。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在精神和道德上容易自我感觉良好，常常要用尊严掩饰自卑，学不会不要脸，无法像舔狗一样存活，但生活也没给他一个机会来检验自己是不是舔狗。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;对感情上有洁癖，对爱情本身的向往超过爱一个具体的人，内心多年保持一种在精神层面对美好事物的追求，不想随便找一个女朋友破坏了自己内心多年来对爱情的想象。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;看着青春气数已尽，在岁月狂奔的途中，有情人结成眷侣的背景下，会回过头来观察自己，发现自己一直是孤家寡人，而别人一不小心已经有了前前任了。会冷静或者极度失望地对自己挑刺，容易感到气馁无望，进一步增长对情感和未来的焦虑和渴求。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;工作和生活以及爱好，稳定得像一潭死水，生活中连公车时刻表都难得出错，更不会有意外的人事出现打破你的生活轨迹，难有一个可撬动的点来系统的改变些什么，感情空白或者一直处于空白状态是大几率事件。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;明明没什么情感经历，生活也平淡如水，但随着年龄渐长，不知不觉熬出了身心的沧桑感。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;颜值家境不突出，但也过得去，却总有些自卑，与异性相处中不够自信。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;不主动，即使遇到心动的人，却总会自己找理由退缩，不敢表白。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;心思细腻，过分在意周围人的感受，常常忽略自己迁就别人。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;成长在不够开放的环境中，常常被老师长辈的告诫不要早恋，以至于心理戴了“枷锁”。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;心里对周围人“过分苛责”，周围人身上互相无视的小缺点、小瑕疵却总是被自己在意到，而又闷在心中不说。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;过于正直，不愿轻易踏入恋情，无法强迫自己浪费他人情感、时间、精力。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;内心过于丰富，常常把异性对自己的态度过分解读，患得患失。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;过于友善，和所有人都有着距离感，有礼貌，客客气气，但仿佛与他人之间有一条线，越过后略微不适。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;对世界有自己的见解，看透许多却不说透，时常与世俗看法格格不入，心态在出世入世间徘徊。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;常年容易装作不屑，也容易孤单，在生活中一点一点被动妥协后，容易失去存在感，容易漫不经心，在皆随他去和求而不得中，平静如日，不出意外的话可以一举单身到70岁。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;欢迎投稿，写上感悟，注明昵称。&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;生命没息，更新不能止。缓慢更新中。。。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2019/12/psychology/&quot;&gt;  什么样的男生注定单身？  &lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 20 Dec 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/12/psychology/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/12/psychology/</guid>
-        
-        <category>个人</category>
         
         
       </item>
