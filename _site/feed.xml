@@ -5,9 +5,138 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 Mar 2021 09:27:12 +0800</pubDate>
-    <lastBuildDate>Wed, 03 Mar 2021 09:27:12 +0800</lastBuildDate>
+    <pubDate>Wed, 31 Mar 2021 19:00:42 +0800</pubDate>
+    <lastBuildDate>Wed, 31 Mar 2021 19:00:42 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>关于Kotlin 调用 Java中范型T 的错误</title>
+        <description>&lt;h3 id=&quot;明月本无情安能慰良人&quot;&gt;明月本无情，安能慰良人。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt; 
+Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  Cast expression adapter to Nothing &lt;br /&gt;
+如下图所示：&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_T/1.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;使用java代码写的调用使用范型T的adapter，如下，这是正常的&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    AutoFlowLayout flowLayout1 = (AutoFlowLayout) findViewById(R.id.autoflowlayout1);
+
+    ArrayList list = new ArrayList&amp;lt;String&amp;gt;();
+    FlowAdapter adapter = new FlowAdapter(list) {
+        @Override
+        public View getView(int position) {
+            View item = LayoutInflater.from(Test2Activity.this).inflate(R.layout.item_flowlayout, null);
+
+            return item;
+        }
+    };
+    flowLayout1.setAdapter(adapter);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;复制到Kotlin代码中，androidstudio 自动将java代码转为kotlin代码，转完后的提示错误的代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    val list: java.util.ArrayList&amp;lt;*&amp;gt; = java.util.ArrayList&amp;lt;String&amp;gt;()
+    val adapter: FlowAdapter&amp;lt;*&amp;gt; = object : FlowAdapter&amp;lt;Any?&amp;gt;(list) {
+        override fun getView(position: Int): View {
+            return LayoutInflater.from(mActivity)
+                .inflate(R.layout.item_flowlayout, null)
+        }
+    }
+    autoflowlayout1.setAdapter(adapter)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;按它的提示 to Nothing，改为这样&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;autoflowlayout1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adapter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Nothing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;运行时会报错.&lt;/p&gt;
+
+&lt;p&gt;问了一个微信名 为 伯言 的 大佬，给出了解决方案，但是我还是没太明白原因，只知道和范型T有关，java和kotlin的处理是不一样的。&lt;/p&gt;
+
+&lt;p&gt;解决后的代码&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;list:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;adapter:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FlowAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FlowAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;position:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mActivity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;item_flowlayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;autoflowlayout1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AutoFlowLayout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;把 * 号 和 Any? 改为你的数据对象类型，我这里直接用的String，使用 autoflowlayout1 时强转一下就可以了。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_T/2.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/androd-T/&quot;&gt; 关于Kotlin 调用 Java中范型T 的错误 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 18 Mar 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/03/androd-T/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/03/androd-T/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Android UDP通信</title>
+        <description>&lt;h3 id=&quot;清风不识字何故翻书页&quot;&gt;清风不识字，何故翻书页。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;本程序代码 &lt;a href=&quot;https://github.com/yuqianglianshou/Socket&quot;&gt;https://github.com/yuqianglianshou/Socket&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;以VSCode方式打开代码 &lt;a href=&quot;https://github1s.com/yuqianglianshou/Socket&quot;&gt;https://github1s.com/yuqianglianshou/Socket&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;目的效果：
+局域网下客户端向服务端发送消息，实现局域网内发现服务器，向服务器发消息的功能。&lt;/p&gt;
+
+&lt;p&gt;原理：&lt;/p&gt;
+
+&lt;p&gt;服务端：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;向指定端口循环发送广播信息，信息具有标识自己是服务端的作用即可。&lt;/li&gt;
+  &lt;li&gt;监听指定端口号的socket连接。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;客户端：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;监听广播消息，收到服务端发来的消息，解析出服务端IP地址。&lt;/li&gt;
+  &lt;li&gt;拿到服务端地址和服务端指定的端口号，建立udp连接通信，实现客户端给服务端发消息。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;具体原理可以看这篇 &lt;a href=&quot;http://yuqianglianshou.com/2020/11/android_websocket/&quot;&gt; 局域网内组网通讯的实现 &lt;/a&gt;&lt;br /&gt;
+它是 websocket 实现的，而这篇是UDP实现，本质是一样的。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/android-UDP通信/&quot;&gt; Android UDP通信 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 Mar 2021 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</guid>
+        
+        <category>技术</category>
+        
+        
+      </item>
     
       <item>
         <title>问题解决：Failed to connect to github.com port 443：Operation timed out</title>
@@ -1214,79 +1343,6 @@ public class AppInstallReceiver extends BroadcastReceiver {
         <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2020/05/android_drawable/</link>
         <guid isPermaLink="true">http://localhost:4000/2020/05/android_drawable/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Android 文字点阵图的水波纹动画</title>
-        <description>&lt;h3 id=&quot;我总想在宇宙中寻求意义他却不予以理睬&quot;&gt;我总想在宇宙中寻求意义，他却不予以理睬。&lt;/h3&gt;
-
-&lt;p&gt;demo地址 ：
- &lt;a href=&quot;https://github.com/yuqianglianshou/WenziKong&quot;&gt;https://github.com/yuqianglianshou/WenziKong&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;文字水波纹效果&lt;/li&gt;
-  &lt;li&gt;原理：文字生成点阵图，计算文字位置（点阵）集合，draw圆环，每个圆环半径以0开始递增，透明度以255开始递减，颜色随机，每一次刷新半径扩大一点，&lt;/li&gt;
-  &lt;li&gt;透明度降低一些，当透明度为0时，集合中删除点，集合为空时停止刷新，动画停止。&lt;/li&gt;
-  &lt;li&gt;所涉及的知识点：自定义view；文字点阵数据；lifecycles使用；handler处理；动画计算，位置计算等。&lt;/li&gt;
-  &lt;li&gt;效果：运行程序文字依次随机位置以水波纹动画显示，触摸或滑动屏幕，有水波纹动画，程序退到后台，动画暂停，返回到前台继续执行，效果如下：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;img src=&quot;/images/posts/wenzikong/wenzikong.gif&quot; alt=&quot;&quot; /&gt;
- &lt;br /&gt; 
-&lt;img src=&quot;/images/posts/wenzikong/wenzikong2.gif&quot; alt=&quot;&quot; /&gt;
- &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/03/wenzikong/&quot;&gt; Android 文字点阵图的水波纹动画 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 26 Mar 2020 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2020/03/wenzikong/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/03/wenzikong/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Android Jetpack 组件开发 初识</title>
-        <description>&lt;h3 id=&quot;敢于逆行目光笃定&quot;&gt;敢于逆行，目光笃定。&lt;/h3&gt;
-
-&lt;p&gt;Android Jetpack 组件开发： 
- &lt;a href=&quot;https://developer.android.google.cn/jetpack/&quot;&gt;https://developer.android.google.cn/jetpack/&lt;/a&gt; &lt;br /&gt;
- 视频学习自bilibili： &lt;a href=&quot;https://www.bilibili.com/video/av50954019?p=1&quot;&gt;https://www.bilibili.com/video/av50954019?p=1&lt;/a&gt;&lt;br /&gt;
- 第一部分已经完成： 初识mvvm+livedata+databinding,在compare包下，以功能相同的四个activity由mvc过度到mvvm模式，使用livedata，使用databinding。  第二部分已经完成： lifecycles 定时器，在lifecycles包下。 
- demo地址&lt;a href=&quot;https://github.com/yuqianglianshou/JetpackDeom/&quot;&gt;https://github.com/yuqianglianshou/JetpackDeom/&lt;/a&gt;&lt;br /&gt;
- 有详细注释
- &lt;br /&gt; 
- &lt;br /&gt; 
- &lt;img src=&quot;/images/posts/jetpack/1.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-未完待续。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/03/jetpack/&quot;&gt; Android Jetpack 组件开发 初识 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 21 Mar 2020 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2020/03/jetpack/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/03/jetpack/</guid>
         
         <category>技术</category>
         
