@@ -78,5 +78,5 @@ val adapter: FlowAdapter<String> = object : FlowAdapter<String>(list) {
 <br/> 
 <br/> 
 <br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 关于Kotlin 调用 Java中范型T 的错误 ](http://yuqianglianshou.com/2021/03/androd-T/)  
+转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 关于Kotlin 调用 Java中范型T 的错误 ](http://yuqianglianshou.com/2021/03/androd-关于Kotlin 调用 Java中范型T 的错误/)  
 <br/>

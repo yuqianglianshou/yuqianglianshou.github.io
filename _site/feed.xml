@@ -5,8 +5,8 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 31 Mar 2021 19:00:42 +0800</pubDate>
-    <lastBuildDate>Wed, 31 Mar 2021 19:00:42 +0800</lastBuildDate>
+    <pubDate>Wed, 31 Mar 2021 19:12:18 +0800</pubDate>
+    <lastBuildDate>Wed, 31 Mar 2021 19:12:18 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -79,12 +79,12 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 &lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/androd-T/&quot;&gt; 关于Kotlin 调用 Java中范型T 的错误 &lt;/a&gt;&lt;br /&gt;
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/androd-关于Kotlin 调用 Java中范型T 的错误/&quot;&gt; 关于Kotlin 调用 Java中范型T 的错误 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 Mar 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/03/androd-T/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/03/androd-T/</guid>
+        <link>http://localhost:4000/2021/03/androd-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021/03/androd-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/</guid>
         
         <category>技术</category>
         
