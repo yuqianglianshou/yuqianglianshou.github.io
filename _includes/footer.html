@@ -24,6 +24,7 @@
             </a>
           </li>
           {% endif %}
+          
 
           {% if site.social.twitter %}
           <!-- Twitter -->
@@ -61,6 +62,19 @@
               <span class="label">Email</span>
             </a>
           </li>
+
+          {% endif %}
+
+          {% if site.social.sky %}
+          <!-- 冥想空间 -->
+          <li class="navigation__item_social">
+            <a href="/night_sky/" title="@{{site.social.sky}}">
+            <!-- twitter图标 -->
+              <i class='social fa fa-twitter fa-2x'></i>
+              <span class="label">Sky</span>
+            </a>
+          </li>
+
           {% endif %}
 
         </ul>
