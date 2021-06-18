@@ -445,8 +445,223 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
 wps 打开 Excel ：<br />
 <br />
 <img src="/images/posts/export_excel_file/4.jpeg" alt="" width="40%" height="40%" /><br />
-<br />
-<br /> 
+<br /></p>
+
+<h2 id="0618-新增点击导出直接调用程序打开生成的-excel-表格功能不再需要去文件管理器自己寻找">0618 新增点击导出直接调用程序打开生成的 excel 表格功能，不再需要去文件管理器自己寻找。</h2>
+
+<p>AndroidManifest.xml 中 添加代码</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        &lt;provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"&gt;
+            &lt;meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" /&gt;
+        &lt;/provider&gt;
+</code></pre></div></div>
+
+<p>资源文件夹（res）下创建 xml 目录，创建 provider_paths.xml 文件，内容如下</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;paths&gt;</span>
+    <span class="nt">&lt;external-path</span>
+        <span class="na">name=</span><span class="s">"external_files"</span>
+        <span class="na">path=</span><span class="s">"."</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/paths&gt;</span>
+</code></pre></div></div>
+
+<p>新增 FileUtils.kt 工具类，代码如下</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">moon</span><span class="p">.</span><span class="n">exportexcelfile</span>
+
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">Context</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">Intent</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">Uri</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">Build</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">Log</span>
+<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="n">Toast</span>
+<span class="n">import</span> <span class="n">androidx</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">FileProvider</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">File</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.*</span>
+
+<span class="p">/**</span>
+ <span class="p">*</span>
+ <span class="p">*@</span><span class="n">author</span> <span class="p">:</span> <span class="n">lq</span>
+ <span class="p">*@</span><span class="n">date</span>   <span class="p">:</span> <span class="m">5</span><span class="p">/</span><span class="m">10</span><span class="p">/</span><span class="m">21</span>
+ <span class="p">*@</span><span class="n">desc</span>   <span class="p">:</span> <span class="err">文件打开工具类</span>
+ <span class="p">*</span>
+ <span class="p">*/</span>
+<span class="n">class</span> <span class="n">FileUtils</span> <span class="p">{</span>
+
+    <span class="n">private</span> <span class="n">var</span> <span class="n">mContext</span><span class="p">:</span> <span class="n">Context</span>
+
+    <span class="n">constructor</span><span class="p">(</span><span class="n">mContext</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">mContext</span> <span class="p">=</span> <span class="n">mContext</span>
+    <span class="p">}</span>
+
+    <span class="p">/**</span><span class="err">声明各种类型文件的</span><span class="n">dataType</span> <span class="p">*/</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_ALL</span> <span class="p">=</span> <span class="s2">"*/*"</span> <span class="p">//</span><span class="err">未指定明确的文件类型，不能使用精确类型的工具打开，需要用户选择</span>
+
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_APK</span> <span class="p">=</span> <span class="s2">"application/vnd.android.package-archive"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_VIDEO</span> <span class="p">=</span> <span class="s2">"video/*"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_AUDIO</span> <span class="p">=</span> <span class="s2">"audio/*"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_HTML</span> <span class="p">=</span> <span class="s2">"text/html"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_IMAGE</span> <span class="p">=</span> <span class="s2">"image/*"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_PPT</span> <span class="p">=</span> <span class="s2">"application/vnd.ms-powerpoint"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_EXCEL</span> <span class="p">=</span> <span class="s2">"application/vnd.ms-excel"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_WORD</span> <span class="p">=</span> <span class="s2">"application/msword"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_CHM</span> <span class="p">=</span> <span class="s2">"application/x-chm"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_TXT</span> <span class="p">=</span> <span class="s2">"text/plain"</span>
+    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_PDF</span> <span class="p">=</span> <span class="s2">"application/pdf"</span>
+
+    <span class="p">/**</span>
+     <span class="p">*</span> <span class="err">产生除了视频、音频、网页文件外，打开其他类型文件的</span><span class="n">Intent</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件路径</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">dataType</span> <span class="err">文件类型</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
+     <span class="p">*/</span>
+    <span class="n">private</span> <span class="n">fun</span> <span class="n">generateCommonIntent</span><span class="p">(</span>
+        <span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">,</span>
+        <span class="n">dataType</span><span class="p">:</span> <span class="k">String</span>
+    <span class="p">):</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">{</span>
+        <span class="n">val</span> <span class="n">intent</span> <span class="p">=</span> <span class="n">Intent</span><span class="p">()</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">addFlags</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">FLAG_ACTIVITY_NEW_TASK</span><span class="p">)</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">setAction</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">ACTION_VIEW</span><span class="p">)</span>
+        <span class="n">val</span> <span class="n">file</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+        <span class="n">val</span> <span class="n">uri</span> <span class="p">=</span> <span class="n">getUri</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">setDataAndType</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">dataType</span><span class="p">)</span>
+        <span class="n">return</span> <span class="n">intent</span>
+    <span class="p">}</span>
+
+
+    <span class="p">/**</span>
+     <span class="p">*</span> <span class="err">产生打开视频或音频的</span><span class="n">Intent</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件路径</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">dataType</span> <span class="err">文件类型</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
+     <span class="p">*/</span>
+    <span class="n">private</span> <span class="n">fun</span> <span class="n">generateVideoAudioIntent</span><span class="p">(</span>
+        <span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">,</span>
+        <span class="n">dataType</span><span class="p">:</span> <span class="k">String</span>
+    <span class="p">):</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">{</span>
+        <span class="n">val</span> <span class="n">intent</span> <span class="p">=</span>
+            <span class="n">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">ACTION_VIEW</span><span class="p">)</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">addFlags</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">FLAG_ACTIVITY_CLEAR_TOP</span><span class="p">)</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">putExtra</span><span class="p">(</span><span class="s2">"oneshot"</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">putExtra</span><span class="p">(</span><span class="s2">"configchange"</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+        <span class="n">val</span> <span class="n">file</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">setDataAndType</span><span class="p">(</span><span class="n">getUri</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span> <span class="n">dataType</span><span class="p">)</span>
+        <span class="n">return</span> <span class="n">intent</span>
+    <span class="p">}</span>
+
+    <span class="p">/**</span>
+     <span class="p">*</span> <span class="err">产生打开网页文件的</span><span class="n">Intent</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件路径</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
+     <span class="p">*/</span>
+    <span class="n">private</span> <span class="n">fun</span> <span class="n">generateHtmlFileIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">):</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">{</span>
+        <span class="n">val</span> <span class="n">uri</span> <span class="p">=</span> <span class="n">Uri</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">buildUpon</span><span class="p">()</span>
+            <span class="p">.</span><span class="n">encodedAuthority</span><span class="p">(</span><span class="s2">"com.android.htmlfileprovider"</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">scheme</span><span class="p">(</span><span class="s2">"content"</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">encodedPath</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+            <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">val</span> <span class="n">intent</span> <span class="p">=</span>
+            <span class="n">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">ACTION_VIEW</span><span class="p">)</span>
+        <span class="n">intent</span><span class="p">.</span><span class="n">setDataAndType</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">DATA_TYPE_HTML</span><span class="p">)</span>
+        <span class="n">return</span> <span class="n">intent</span>
+    <span class="p">}</span>
+
+    <span class="p">/**</span>
+     <span class="p">*</span> <span class="err">获取对应文件的</span><span class="n">Uri</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">intent</span> <span class="err">相应的</span><span class="n">Intent</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">file</span> <span class="err">文件对象</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
+     <span class="p">*/</span>
+    <span class="n">private</span> <span class="n">fun</span> <span class="n">getUri</span><span class="p">(</span><span class="n">intent</span><span class="p">:</span> <span class="n">Intent</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">File</span><span class="p">):</span> <span class="n">Uri</span><span class="p">?</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">uri</span><span class="p">:</span> <span class="n">Uri</span><span class="p">?</span> <span class="p">=</span> <span class="n">null</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Build</span><span class="p">.</span><span class="k">VERSION</span><span class="p">.</span><span class="n">SDK_INT</span> <span class="p">&gt;=</span> <span class="n">Build</span><span class="p">.</span><span class="n">VERSION_CODES</span><span class="p">.</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+            <span class="p">//</span><span class="err">判断版本是否在</span><span class="m">7.0</span><span class="err">以上</span>
+            <span class="n">uri</span> <span class="p">=</span> <span class="n">FileProvider</span><span class="p">.</span><span class="n">getUriForFile</span><span class="p">(</span>
+                <span class="n">mContext</span><span class="p">,</span> <span class="n">mContext</span><span class="p">.</span><span class="n">getPackageName</span><span class="p">().</span><span class="n">toString</span><span class="p">()</span> <span class="p">+</span> <span class="s2">".fileprovider"</span><span class="p">,</span>
+                <span class="n">file</span>
+            <span class="p">)</span>
+            <span class="p">//</span><span class="err">添加这一句表示对目标应用临时授权该</span><span class="n">Uri</span><span class="err">所代表的文件</span>
+            <span class="n">intent</span><span class="p">.</span><span class="n">addFlags</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">FLAG_GRANT_READ_URI_PERMISSION</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">uri</span> <span class="p">=</span> <span class="n">Uri</span><span class="p">.</span><span class="n">fromFile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">return</span> <span class="n">uri</span>
+    <span class="p">}</span>
+
+    <span class="p">/**</span>
+     <span class="p">*</span> <span class="err">打开文件</span>
+     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件的全路径，包括到文件名</span>
+     <span class="p">*/</span>
+    <span class="n">fun</span> <span class="n">openFile</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Log</span><span class="p">.</span><span class="n">i</span><span class="p">(</span><span class="s2">"lq"</span><span class="p">,</span> <span class="s2">"打开文件 == $filePath"</span><span class="p">)</span>
+        <span class="n">val</span> <span class="n">file</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="c1">!file.exists()) {
+</span>            <span class="p">//</span><span class="err">如果文件不存在</span>
+            <span class="n">Toast</span><span class="p">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">mContext</span><span class="p">,</span> <span class="s2">"文件打开失败，文件已经被移动或者删除"</span><span class="p">,</span> <span class="n">Toast</span><span class="p">.</span><span class="n">LENGTH_SHORT</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>
+            <span class="n">return</span>
+        <span class="p">}</span>
+        <span class="p">/*</span> <span class="err">取得扩展名</span> <span class="p">*/</span>
+        <span class="n">val</span> <span class="k">end</span> <span class="p">=</span>
+            <span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">lastIndexOf</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
+                <span class="p">.</span><span class="n">toLowerCase</span><span class="p">(</span><span class="n">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">())</span>
+        <span class="p">/*</span> <span class="err">依扩展名的类型决定</span><span class="n">MimeType</span> <span class="p">*/</span>
+        <span class="n">var</span> <span class="n">intent</span><span class="p">:</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">=</span> <span class="n">null</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"m4a"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"mp3"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"mid"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"xmf"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"ogg"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"wav"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateVideoAudioIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_AUDIO</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"3gp"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"mp4"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateVideoAudioIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_VIDEO</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"jpg"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"gif"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"png"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"jpeg"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"bmp"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_IMAGE</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"apk"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_APK</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"html"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"htm"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateHtmlFileIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"ppt"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_PPT</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"xls"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"xlsx"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_EXCEL</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"doc"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"docx"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_WORD</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"pdf"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_PDF</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"chm"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_CHM</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"txt"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_TXT</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_ALL</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">try</span> <span class="p">{</span>
+            <span class="n">mContext</span><span class="p">.</span><span class="n">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
+        <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">Exception</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">()</span>
+            <span class="n">Toast</span><span class="p">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">mContext</span><span class="p">,</span> <span class="s2">"未找到可以打开文件的软件"</span><span class="p">,</span> <span class="n">Toast</span><span class="p">.</span><span class="n">LENGTH_SHORT</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>在导出后调用即可</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     FileUtils(this).openFile(file.absolutePath)
+</code></pre></div></div>
+
+<p>新的代码结构图：</p>
+
+<p><br />
+<img src="/images/posts/export_excel_file/10.png" alt="" width="80%" height="80%" /><br />
+<br /></p>
+
+<p><br /> 
 <br /> 
 <br /> 
 <br /> 
