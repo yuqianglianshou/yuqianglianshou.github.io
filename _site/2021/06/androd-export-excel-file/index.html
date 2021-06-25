@@ -661,6 +661,14 @@ wps 打开 Excel ：<br />
 <img src="/images/posts/export_excel_file/10.png" alt="" width="80%" height="80%" /><br />
 <br /></p>
 
+<p>问题：<br />
+混淆打包需要在 proguard-rules.pro 混淆文件中添加</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#表格导出相关
+-keep class jxl.** {*;}
+-keep class common.** {*;}
+
+</code></pre></div></div>
+
 <p><br /> 
 <br /> 
 <br /> 
