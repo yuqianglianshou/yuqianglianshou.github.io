@@ -498,6 +498,15 @@ class FileUtils {
 ![](/images/posts/export_excel_file/10.png){:width="80%" height="80%"}  
 <br/>
 
+问题：  
+混淆打包需要在 proguard-rules.pro 混淆文件中添加   
+```
+#表格导出相关
+-keep class jxl.** {*;}
+-keep class common.** {*;}
+
+```
+
 <br/> 
 <br/> 
 <br/> 
