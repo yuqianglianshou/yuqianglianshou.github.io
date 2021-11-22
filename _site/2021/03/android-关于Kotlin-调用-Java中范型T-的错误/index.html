@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Android UDP通信</title>
+  <title>关于Kotlin 调用 Java中范型T 的错误</title>
   <meta name="description"
-    content="清风不识字，何故翻书页。">
+    content="明月本无情，安能慰良人。 Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  Cast expression adapter to Nothing 如下图所示：">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
-    content="Android UDP通信">
+    content="关于Kotlin 调用 Java中范型T 的错误">
   <meta name="twitter:description"
-    content="清风不识字，何故翻书页。">
+    content="明月本无情，安能慰良人。 Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  Cast expression adapter to Nothing 如下图所示：">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
-    content="Android UDP通信">
+    content="关于Kotlin 调用 Java中范型T 的错误">
   <meta property="og:description"
-    content="清风不识字，何故翻书页。">
+    content="明月本无情，安能慰良人。 Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  Cast expression adapter to Nothing 如下图所示：">
 
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href=" /css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/">
+  <link rel="canonical" href="http://localhost:4000/2021/03/android-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
 
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -171,10 +171,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Android UDP通信</h1>
+    <h1 class="post-title">关于Kotlin 调用 Java中范型T 的错误</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2021-03-10 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2021-03-10</time>  
+      <time datetime="2021-03-18 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2021-03-18</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -182,32 +182,67 @@
   </header>
 
   <section class="post">
-    <h3 id="清风不识字何故翻书页">清风不识字，何故翻书页。</h3>
-<p><br /></p>
+    <h3 id="明月本无情安能慰良人">明月本无情，安能慰良人。</h3>
+<p><br /> 
+Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  Cast expression adapter to Nothing <br />
+如下图所示：</p>
 
-<p>本程序代码 <a href="https://github.com/yuqianglianshou/Socket">https://github.com/yuqianglianshou/Socket</a></p>
+<p><br />
+<img src="/images/posts/android_T/1.png" alt="" width="80%" height="80%" /><br />
+<br /></p>
 
-<p>以VSCode方式打开代码 <a href="https://github1s.com/yuqianglianshou/Socket">https://github1s.com/yuqianglianshou/Socket</a></p>
+<p>使用java代码写的调用使用范型T的adapter，如下，这是正常的</p>
 
-<p>目的效果：
-局域网下客户端向服务端发送消息，实现局域网内发现服务器，向服务器发消息的功能。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    AutoFlowLayout flowLayout1 = (AutoFlowLayout) findViewById(R.id.autoflowlayout1);
 
-<p>原理：</p>
+    ArrayList list = new ArrayList&lt;String&gt;();
+    FlowAdapter adapter = new FlowAdapter(list) {
+        @Override
+        public View getView(int position) {
+            View item = LayoutInflater.from(Test2Activity.this).inflate(R.layout.item_flowlayout, null);
 
-<p>服务端：</p>
-<ol>
-  <li>向指定端口循环发送广播信息，信息具有标识自己是服务端的作用即可。</li>
-  <li>监听指定端口号的socket连接。</li>
-</ol>
+            return item;
+        }
+    };
+    flowLayout1.setAdapter(adapter);
+</code></pre></div></div>
 
-<p>客户端：</p>
-<ol>
-  <li>监听广播消息，收到服务端发来的消息，解析出服务端IP地址。</li>
-  <li>拿到服务端地址和服务端指定的端口号，建立udp连接通信，实现客户端给服务端发消息。</li>
-</ol>
+<p>复制到Kotlin代码中，androidstudio 自动将java代码转为kotlin代码，转完后的提示错误的代码</p>
 
-<p>具体原理可以看这篇 <a href="http://yuqianglianshou.com/2020/11/android_websocket/"> 局域网内组网通讯的实现 </a><br />
-它是 websocket 实现的，而这篇是UDP实现，本质是一样的。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    val list: java.util.ArrayList&lt;*&gt; = java.util.ArrayList&lt;String&gt;()
+    val adapter: FlowAdapter&lt;*&gt; = object : FlowAdapter&lt;Any?&gt;(list) {
+        override fun getView(position: Int): View {
+            return LayoutInflater.from(mActivity)
+                .inflate(R.layout.item_flowlayout, null)
+        }
+    }
+    autoflowlayout1.setAdapter(adapter)
+</code></pre></div></div>
+
+<p>按它的提示 to Nothing，改为这样</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">autoflowlayout1</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">adapter</span> <span class="n">as</span> <span class="n">Nothing</span><span class="o">)</span>  
+</code></pre></div></div>
+<p>运行时会报错.</p>
+
+<p>问了一个微信名 为 伯言 的 大佬，给出了解决方案，但是我还是没太明白原因，只知道和范型T有关，java和kotlin的处理是不一样的。</p>
+
+<p>解决后的代码</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">val</span> <span class="nl">list:</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span>
+<span class="n">val</span> <span class="nl">adapter:</span> <span class="n">FlowAdapter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">object</span> <span class="o">:</span> <span class="n">FlowAdapter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">override</span> <span class="n">fun</span> <span class="nf">getView</span><span class="o">(</span><span class="nl">position:</span> <span class="n">Int</span><span class="o">):</span> <span class="n">View</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">mActivity</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_flowlayout</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">(</span><span class="n">autoflowlayout1</span> <span class="n">as</span> <span class="n">AutoFlowLayout</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;).</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">adapter</span><span class="o">)</span>
+</code></pre></div></div>
+<p>把 * 号 和 Any? 改为你的数据对象类型，我这里直接用的String，使用 autoflowlayout1 时强转一下就可以了。</p>
+
+<p><br />
+<img src="/images/posts/android_T/2.png" alt="" width="80%" height="80%" /><br />
+<br /></p>
 
 <p><br /> 
 <br /> 
@@ -215,7 +250,7 @@
 <br /> 
 <br /> 
 <br /> 
-转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2021/03/android-UDP通信/"> Android UDP通信 </a><br />
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2021/03/android-关于Kotlin 调用 Java中范型T 的错误/"> 关于Kotlin 调用 Java中范型T 的错误 </a><br />
 <br /></p>
 
 
@@ -420,15 +455,15 @@
   <ul class="pager">
     
     <li class="previous">
-      <a href="/2021/03/github_error/" data-toggle="tooltip"
-        data-placement="top" title="问题解决：Failed to connect to github.com port 443：Operation timed out">上一篇： <span>问题解决：Failed to connect to github.com port 443：Operation timed out</span>
+      <a href="/2021/03/android-UDP%E9%80%9A%E4%BF%A1/" data-toggle="tooltip"
+        data-placement="top" title="Android UDP通信">上一篇： <span>Android UDP通信</span>
       </a>
     </li>
     
     
     <li class="next">
-      <a href="/2021/03/android-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/" data-toggle="tooltip"
-        data-placement="top" title="关于Kotlin 调用 Java中范型T 的错误">下一篇： <span>关于Kotlin 调用 Java中范型T 的错误</span>
+      <a href="/2021/06/android-export-excel-file/" data-toggle="tooltip"
+        data-placement="top" title="实现 android 程序导出数据到 Excel 表格">下一篇： <span>实现 android 程序导出数据到 Excel 表格</span>
       </a>
     </li>
     
