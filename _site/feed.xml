@@ -1,17 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>劉清揚</title>
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Nov 2021 10:40:56 +0800</pubDate>
-    <lastBuildDate>Mon, 22 Nov 2021 10:40:56 +0800</lastBuildDate>
+    <pubDate>Fri, 26 Nov 2021 19:28:22 +0800</pubDate>
+    <lastBuildDate>Fri, 26 Nov 2021 19:28:22 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
-      <item>
-        <title>Android studio 搜索无法识别中文</title>
-        <description>&lt;h3 id=&quot;阅读你喜欢的书直到你喜欢阅读做你喜欢的事直到你喜欢去做&quot;&gt;阅读你喜欢的书，直到你喜欢阅读。做你喜欢的事，直到你喜欢去做。&lt;/h3&gt;
+    <item>
+      <title>Android 实现多行多列功能的RadioGroup</title>
+      <description>&lt;h3 id=&quot;通过我的试验我起码明白了这点倘若一个人信心满怀地朝他梦想的方向前进努力过上他想象的那种生活那他会在平常的时光里获得意外的成功-梭罗&quot;&gt;通过我的试验，我起码明白了这点：倘若一个人信心满怀地朝他梦想的方向前进，努力过上他想象的那种生活，那他会在平常的时光里获得意外的成功。 –梭罗&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt; 
+需求：多行多列的Button实现单选功能。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/11/android-实现行列功能的RadioGroup/&quot;&gt; Android 实现多行多列功能的RadioGroup &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Sun, 21 Nov 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/11/android-%E5%AE%9E%E7%8E%B0%E8%A1%8C%E5%88%97%E5%8A%9F%E8%83%BD%E7%9A%84RadioGroup/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/11/android-%E5%AE%9E%E7%8E%B0%E8%A1%8C%E5%88%97%E5%8A%9F%E8%83%BD%E7%9A%84RadioGroup/</guid>
+        
+      <category>技术</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>Android EditText修改hint文字大小</title>
+      <description>&lt;h3 id=&quot;可是孟婆她断了我的桥&quot;&gt;可是孟婆她断了我的桥。&lt;/h3&gt;
+
+&lt;p&gt;需求：EditText的字体大小18sp，hint文本字体大小为10sp。&lt;/p&gt;
+
+&lt;p&gt;EditText设置hint文本的size。由于没有相关属性，我们需要使用 SpannableString 去实现。&lt;/p&gt;
+
+&lt;p&gt;Google官方是否考虑出一组hint字体相关的属性呢？比如 hintSize,hintColor 这些。&lt;/p&gt;
+
+&lt;p&gt;先看效果图，如下，android:textSize=”18sp”，为凸显效果，只把 hint 文本前半部分修改为了 10sp。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+图1:输入文本，字体大小18sp。
+&lt;img src=&quot;/images/posts/android_hint_size/2.jpeg&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;
+图2:hint文本，设置前半部分字体大小为10sp。
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/android_hint_size/1.jpeg&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;
+Kotlin 代码如下：&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;androidx.constraintlayout.widget.ConstraintLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:app=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res-auto&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:tools=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/tools&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;tools:context=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.MainActivity&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;EditText&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/et&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;android:textSize=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;18sp&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;app:layout_constraintBottom_toBottomOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;app:layout_constraintLeft_toLeftOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;app:layout_constraintRight_toRightOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;app:layout_constraintTop_toTopOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/androidx.constraintlayout.widget.ConstraintLayout&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.os.Bundle&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.SpannableString&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.Spanned&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.SpannedString&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.style.AbsoluteSizeSpan&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.widget.EditText&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;androidx.appcompat.app.AppCompatActivity&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;savedInstanceState:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;editText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findViewById&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EditText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;et&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;customHint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;editText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;我是hint文本，10sp。秋风知我意，微凉又深情。&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * 设置EditText中Hint字体大小
+     * @param editText
+     * @param hintString
+     */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;customHint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;et:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EditText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;hintString:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//设置字体大小&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AbsoluteSizeSpan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spannableString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SpannableString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hintString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;spannableString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setSpan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;textSize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;hintString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//注意这里，为了效果显示，只设置了文本的一半&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Spanned&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SPAN_EXCLUSIVE_EXCLUSIVE&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;et&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SpannedString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spannableString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/11/android-EditText修改hint文字大小/&quot;&gt; Android EditText修改hint文字大小 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Sun, 21 Nov 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</guid>
+        
+      <category>技术</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>Android studio 搜索无法识别中文</title>
+      <description>&lt;h3 id=&quot;阅读你喜欢的书直到你喜欢阅读做你喜欢的事直到你喜欢去做&quot;&gt;阅读你喜欢的书，直到你喜欢阅读。做你喜欢的事，直到你喜欢去做。&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt; 
 Android studio 中文无法识别&lt;br /&gt;
 Android studio 无法搜索中文&lt;br /&gt;
@@ -47,18 +172,18 @@ Google了很多这个问题，试了N多种网上的解决方案，没成，最�
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/08/android-studio-搜索无法识别中文/&quot;&gt; Android studio 搜索无法识别中文 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 23 Aug 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/08/android-studio-%E6%90%9C%E7%B4%A2%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E4%B8%AD%E6%96%87/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/08/android-studio-%E6%90%9C%E7%B4%A2%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E4%B8%AD%E6%96%87/</guid>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/08/android-studio-%E6%90%9C%E7%B4%A2%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E4%B8%AD%E6%96%87/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/08/android-studio-%E6%90%9C%E7%B4%A2%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E4%B8%AD%E6%96%87/</guid>
         
-        <category>技术</category>
+      <category>技术</category>
         
         
-      </item>
+    </item>
     
-      <item>
-        <title>Android 使用 recycleview 实现复杂的分组需求</title>
-        <description>&lt;h3 id=&quot;晚上我做了一个梦乱七八糟的有星星有月亮有二月花有七月雪有剥我壳的螃蟹有写我笔记本的你&quot;&gt;晚上我做了一个梦，乱七八糟的，有星星，有月亮，有二月花，有七月雪，有剥我壳的螃蟹，有写我笔记本的你。&lt;/h3&gt;
+    <item>
+      <title>Android 使用 recycleview 实现复杂的分组需求</title>
+      <description>&lt;h3 id=&quot;晚上我做了一个梦乱七八糟的有星星有月亮有二月花有七月雪有剥我壳的螃蟹有写我笔记本的你&quot;&gt;晚上我做了一个梦，乱七八糟的，有星星，有月亮，有二月花，有七月雪，有剥我壳的螃蟹，有写我笔记本的你。&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
@@ -77,18 +202,18 @@ Google了很多这个问题，试了N多种网上的解决方案，没成，最�
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/07/android-recycleview-complex/&quot;&gt; Android 使用 recycleview 实现复杂的分组需求 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sat, 31 Jul 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/07/android-recycleview-complex/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/07/android-recycleview-complex/</guid>
+      <pubDate>Sat, 31 Jul 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/07/android-recycleview-complex/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/07/android-recycleview-complex/</guid>
         
-        <category>技术</category>
+      <category>技术</category>
         
         
-      </item>
+    </item>
     
-      <item>
-        <title>实现 android 程序导出数据到 Excel 表格</title>
-        <description>&lt;h3 id=&quot;我学会了很多东西勤俭-隐忍-坚持-淡然-息事宁人却没学会享受生活&quot;&gt;我学会了很多东西，勤俭 隐忍 坚持 淡然 息事宁人，却没学会享受生活。&lt;/h3&gt;
+    <item>
+      <title>实现 android 程序导出数据到 Excel 表格</title>
+      <description>&lt;h3 id=&quot;我学会了很多东西勤俭-隐忍-坚持-淡然-息事宁人却没学会享受生活&quot;&gt;我学会了很多东西，勤俭 隐忍 坚持 淡然 息事宁人，却没学会享受生活。&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;数据如何输出到-excel-表格中如下&quot;&gt;数据如何输出到 Excel 表格中？如下。&lt;/h2&gt;
@@ -584,18 +709,18 @@ wps 打开 Excel ：&lt;br /&gt;
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/06/android-export-excel-file/&quot;&gt; 实现 android 程序导出数据到 Excel 表格 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 17 Jun 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/06/android-export-excel-file/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/06/android-export-excel-file/</guid>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/06/android-export-excel-file/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/06/android-export-excel-file/</guid>
         
-        <category>技术</category>
+      <category>技术</category>
         
         
-      </item>
+    </item>
     
-      <item>
-        <title>关于Kotlin 调用 Java中范型T 的错误</title>
-        <description>&lt;h3 id=&quot;明月本无情安能慰良人&quot;&gt;明月本无情，安能慰良人。&lt;/h3&gt;
+    <item>
+      <title>关于Kotlin 调用 Java中范型T 的错误</title>
+      <description>&lt;h3 id=&quot;明月本无情安能慰良人&quot;&gt;明月本无情，安能慰良人。&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt; 
 Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  Cast expression adapter to Nothing &lt;br /&gt;
 如下图所示：&lt;/p&gt;
@@ -666,18 +791,18 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/android-关于Kotlin 调用 Java中范型T 的错误/&quot;&gt; 关于Kotlin 调用 Java中范型T 的错误 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 18 Mar 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/03/android-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/03/android-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/</guid>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/03/android-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/03/android-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/</guid>
         
-        <category>技术</category>
+      <category>技术</category>
         
         
-      </item>
+    </item>
     
-      <item>
-        <title>Android UDP通信</title>
-        <description>&lt;h3 id=&quot;清风不识字何故翻书页&quot;&gt;清风不识字，何故翻书页。&lt;/h3&gt;
+    <item>
+      <title>Android UDP通信</title>
+      <description>&lt;h3 id=&quot;清风不识字何故翻书页&quot;&gt;清风不识字，何故翻书页。&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;本程序代码 &lt;a href=&quot;https://github.com/yuqianglianshou/Socket&quot;&gt;https://github.com/yuqianglianshou/Socket&lt;/a&gt;&lt;/p&gt;
@@ -713,18 +838,18 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/android-UDP通信/&quot;&gt; Android UDP通信 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 10 Mar 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</guid>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</guid>
         
-        <category>技术</category>
+      <category>技术</category>
         
         
-      </item>
+    </item>
     
-      <item>
-        <title>问题解决：Failed to connect to github.com port 443：Operation timed out</title>
-        <description>&lt;h3 id=&quot;大雨一下子就淋湿了我的全身我在雨中已经没有任何体面可言&quot;&gt;大雨一下子就淋湿了我的全身，我在雨中已经没有任何体面可言。&lt;/h3&gt;
+    <item>
+      <title>问题解决：Failed to connect to github.com port 443：Operation timed out</title>
+      <description>&lt;h3 id=&quot;大雨一下子就淋湿了我的全身我在雨中已经没有任何体面可言&quot;&gt;大雨一下子就淋湿了我的全身，我在雨中已经没有任何体面可言。&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;北京三月的天气忽冷忽热，实在琢磨不透，像极了我的心情。&lt;br /&gt;
@@ -746,18 +871,18 @@ pull报  Error in the HTTP2 framing layer 错误， &lt;br /&gt;
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/github_error/&quot;&gt; 问题解决：Failed to connect to github.com port 443: Operation timed out &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 03 Mar 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/03/github_error/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/03/github_error/</guid>
+      <pubDate>Wed, 03 Mar 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/03/github_error/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/03/github_error/</guid>
         
-        <category>技术</category>
+      <category>技术</category>
         
         
-      </item>
+    </item>
     
-      <item>
-        <title>观 韩剧《请回答1988》 有感</title>
-        <description>&lt;h3 id=&quot;我不会像你一样的绝对不会了&quot;&gt;我不会像你一样的。绝对不会了。&lt;/h3&gt;
+    <item>
+      <title>观 韩剧《请回答1988》 有感</title>
+      <description>&lt;h3 id=&quot;我不会像你一样的绝对不会了&quot;&gt;我不会像你一样的。绝对不会了。&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/posts/1988/1988.jpeg&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt; 
@@ -786,18 +911,18 @@ pull报  Error in the HTTP2 framing layer 错误， &lt;br /&gt;
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/01/1988/&quot;&gt; 观 韩剧《请回答1988》 有感 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sun, 10 Jan 2021 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2021/01/1988/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021/01/1988/</guid>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/01/1988/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/01/1988/</guid>
         
-        <category>人生</category>
+      <category>人生</category>
         
         
-      </item>
+    </item>
     
-      <item>
-        <title>永不休止的循环</title>
-        <description>&lt;h3 id=&quot;故事的开头极具温柔我们却给了一个及其不配的结尾&quot;&gt;故事的开头极具温柔，我们却给了一个及其不配的结尾。&lt;/h3&gt;
+    <item>
+      <title>永不休止的循环</title>
+      <description>&lt;h3 id=&quot;故事的开头极具温柔我们却给了一个及其不配的结尾&quot;&gt;故事的开头极具温柔，我们却给了一个及其不配的结尾。&lt;/h3&gt;
 
 &lt;p&gt;迷迷糊糊之间，我见到了上帝。&lt;br /&gt;
 光芒耀眼，看不清他的样子。&lt;br /&gt;
@@ -830,851 +955,14 @@ God：愿望禁止套娃。&lt;br /&gt;
 转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/12/deardream/&quot;&gt; 永不休止的循环 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 31 Dec 2020 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2020/12/deardream/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/12/deardream/</guid>
+      <pubDate>Thu, 31 Dec 2020 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2020/12/deardream/</link>
+      <guid isPermaLink="true">http://localhost:4000/2020/12/deardream/</guid>
         
-        <category>人生</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Android 实现一个类似Excel表格似的效果 2</title>
-        <description>&lt;h3 id=&quot;忽有故人心上过回首山河便是秋&quot;&gt;忽有故人心上过，回首山河便是秋。&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/yuqianglianshou/ExcelList&quot;&gt;本demo地址 https://github.com/yuqianglianshou/ExcelList&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;效果 由于放GIF图比较卡，这里放几张静态图，也是一目了然。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/android_excellist/1.jpeg&quot; alt=&quot;&quot; width=&quot;30%&quot; height=&quot;30%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_excellist/2.jpeg&quot; alt=&quot;&quot; width=&quot;30%&quot; height=&quot;30%&quot; /&gt; 
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_excellist/3.jpeg&quot; alt=&quot;&quot; width=&quot;30%&quot; height=&quot;30%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h2 id=&quot;一个类excel表格似的数据展示如何实现&quot;&gt;一个类Excel表格似的数据展示如何实现？&lt;/h2&gt;
-&lt;p&gt;横向可滚可以用HorizontalScrollview实现，纵向可滚可用RecycelerView实现，可 横向 纵向 都能滚怎么弄？&lt;br /&gt;
-下面我来一步步分析实现。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;组合 HorizontalScrollview 和 RecycelerView，rv的item布局使用 HorizontalScrollview 实现横向滑动 。&lt;br /&gt;
-item 布局如下：&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;40dp&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#b2d235&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:gravity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;center_vertical&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;horizontal&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:padding=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5dp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_name&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;姓名&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;HorizontalScrollView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/headerHorizontalScrollView&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:scrollbars=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;horizontal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_a&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;性别&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_b&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;年龄&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_c&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;出生日期&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_d&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;家庭住址&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_e&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;电话号码&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_f&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;房？&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_g&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;车？&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/HorizontalScrollView&amp;gt;&lt;/span&gt;
-
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;@style/Cells 如下：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &amp;lt;style name=&quot;Cells&quot;&amp;gt;
-        &amp;lt;item name=&quot;android:layout_width&quot;&amp;gt;@dimen/dimen_width_80&amp;lt;/item&amp;gt;
-        &amp;lt;item name=&quot;android:layout_height&quot;&amp;gt;match_parent&amp;lt;/item&amp;gt;
-        &amp;lt;item name=&quot;android:gravity&quot;&amp;gt;center_vertical&amp;lt;/item&amp;gt;
-        &amp;lt;item name=&quot;android:padding&quot;&amp;gt;5dp&amp;lt;/item&amp;gt;
-        &amp;lt;item name=&quot;android:textSize&quot;&amp;gt;14sp&amp;lt;/item&amp;gt;
-    &amp;lt;/style&amp;gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;此布局的实现效果，第一个单元格固定，后面7个可以滑动。&lt;br /&gt;
-完成rv设置，adapter设置，实现出来的效果是 纵向滑动没问题，横向滑动则为 每个item各自为营，单独的都可以滑动，缺少了Excel表格的 “联动” 效果。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;实现 联动 效果。&lt;br /&gt;
-思路是 固定一个 item 布局 作为 头布局，rv中每个 item 的 HorizontalScrollView 监听头布局中 HorizontalScrollView 的滚动，跟随一起滚动，且item中的 HorizontalScrollView 不可滚动，这样的话，rv失去左右滚动效果(避免各自为营的问题)，头布局滚动时rv中所有item会一起滚动。&lt;br /&gt;
-首先拦截rv中 HorizontalScrollView 的滚动，方法是 在 HorizontalScrollView 外包裹一层拦截事件的 InterceptLinearLayout ，这样就不会响应到 HorizontalScrollView 的滚动;
-其次 HorizontalScrollView 可以添加观察者，实现随一而动的效果，关于如何添加观察者，一会请看 adapter 的实现。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;HorizontalScrollView 可添加观察者的实现 CanObserverHorizontalScrollView.kt&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import android.content.Context
-import android.util.AttributeSet
-import android.util.Log
-import android.widget.HorizontalScrollView
-
-/**
- *
- *@author : lq
- *@date   : 2020/12/28
- *@desc   : 可添加观察者的 HorizontalScrollView
- *
- */
-private const val TAG = &quot;lq&quot;
-class CanObserverHorizontalScrollView : HorizontalScrollView {
-
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
-        context,
-        attrs,
-        defStyle
-    )
-
-    //定义观察者 集合
-    var mScrollViewObserver = ScrollViewObserver()
-
-    override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
-        super.onScrollChanged(l, t, oldl, oldt)
-        /*
-		 * 当自己 滚动条移动后，引发 滚动事件。通知给所有观察者。
-		 */
-        if (mScrollViewObserver != null) {
-            mScrollViewObserver.notifyOnScrollChanged(l, t, oldl, oldt)
-        }
-
-    }
-
-    /*
-     * 订阅 本控件 的 滚动条变化事件
-     * */
-    fun addScrollChangedListener(listener: ScrollViewObserver.OnScrollChangedListener) {
-        mScrollViewObserver.addScrollChangedListener(listener)
-    }
-
-    /*
-     * 取消 订阅 本控件 的 滚动条变化事件
-     * */
-    fun removeScrollChangedListener(listener: ScrollViewObserver.OnScrollChangedListener) {
-        mScrollViewObserver.removeScrollChangedListener(listener)
-    }
-
-
-    /**
-     *
-     *@author : lq
-     *@date   : 2020/12/29
-     *@desc   : scrollview  的观察者
-     *
-     */
-    class ScrollViewObserver {
-        var mList: ArrayList&amp;lt;OnScrollChangedListener&amp;gt; = ArrayList()
-
-        //添加一个监听者
-        fun addScrollChangedListener(listener: OnScrollChangedListener) {
-//            Log.i(TAG, &quot;addScrollChangedListener: &quot;+listener.hashCode())
-            mList.add(listener)
-        }
-
-        //移除一个监听者
-        fun removeScrollChangedListener(listener: OnScrollChangedListener) {
-//            Log.i(TAG, &quot;removeScrollChangedListener: &quot;+listener.hashCode())
-            mList.remove(listener)
-        }
-
-        //滚动 传递给所有 监听者
-        fun notifyOnScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
-            if (mList == null || mList.size == 0) {
-                return
-            }
-            var iterator = mList.iterator()
-            while (iterator.hasNext()) {
-                var listener = iterator.next()
-                if (listener != null) {
-                    listener.onScrollChanged(l, t, oldl, oldt)
-                } else {
-                    iterator.remove()
-                }
-            }
-
-            Log.i(&quot;lq&quot;, &quot;notifyOnScrollChanged: mList.size == &quot; + mList.size)
-        }
-
-
-        /**
-         *
-         *@author : lq
-         *@date   : 2020/12/29
-         *@desc   : 当发生了滚动事件时
-         *
-         */
-        interface OnScrollChangedListener {
-            fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int)
-        }
-
-
-    }
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;拦截事件的 LinearLayout 实现 InterceptLinearLayout.kt&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/**
- *
- *@author : lq
- *@date   : 2020/12/28
- *@desc   : 拦截处理事件，事件不向子控件传递
- *  不响应内部的子控件事件
- */
-class InterceptLinearLayout : LinearLayout {
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-
-    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
-        // true 为拦截
-        return true
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;新的 rv的item布局 item_rv.xml&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;40dp&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:gravity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;center_vertical&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;horizontal&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:padding=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5dp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_name&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@drawable/list_item_color_bg&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column1&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!--    拦截事件传递到子控件--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;com.lq.excellist.InterceptLinearLayout&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/linearLayout&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@drawable/list_item_color_bg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;HorizontalScrollView&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/horizontalScrollView&quot;&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:scrollbars=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;horizontal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_a&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column2&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_b&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column3&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_c&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column4&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_d&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column5&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_e&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column6&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_f&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column7&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_g&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                    &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Column8&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/HorizontalScrollView&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/com.lq.excellist.InterceptLinearLayout&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;头布局 item_rv_header.xml&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;40dp&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#b2d235&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:gravity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;center_vertical&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;horizontal&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:padding=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5dp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_name&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;姓名&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!--    可添加观察者的HorizontalScrollView--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;com.lq.excellist.CanObserverHorizontalScrollView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/headerHorizontalScrollView&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:scrollbars=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;horizontal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_a&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;性别&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_b&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;年龄&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_c&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;出生日期&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_d&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;家庭住址&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_e&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;电话号码&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_f&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;房？&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextView&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/tv_g&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/Cells&quot;&lt;/span&gt;
-                &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;车？&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/com.lq.excellist.CanObserverHorizontalScrollView&amp;gt;&lt;/span&gt;
-
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;最终的布局文件 activity_main.xml&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vertical&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--  表头--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;include&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;layout=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@layout/item_rv_header&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;androidx.recyclerview.widget.RecyclerView&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/rv&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;到目前为止，我们已经实现了部分效果，可纵向滑动，手指在 头布局 的 HorizontalScrollView 可滑动并可带动 rv 中所有 item 一起滑动，实现了 联动 效果，还有最后一个问题，手指在rv上没有实现左右滑动，这个通过重写rv的 OnTouchListener 事件，将 此 事件 分发给头布局的 HorizontalScrollView ，与 其一起处理事件，&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        rv.setOnTouchListener { v, event -&amp;gt;
-            //当在rv 上touch时，将事件分发给 表头的 scrollview 处理
-            headerHorizontalScrollView.onTouchEvent(event)
-            //如果删掉下面这行代码，rv的上下滚动效果会失效
-            onTouchEvent(event)
-        }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;所以最终的 MainActivity.kt是&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;excellist&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;annotation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SuppressLint&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;appcompat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AppCompatActivity&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recyclerview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LinearLayoutManager&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kotlinx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;synthetic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.*&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kotlinx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;synthetic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item_rv_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.*&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.*&lt;/span&gt;
-
-
-&lt;span class=&quot;p&quot;&gt;/**&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;原理：&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;将&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;事件交给表头的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;处理并监听表头的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，表头的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;滚动（滑动表头的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;或&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;滑动&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;），通知监听者（&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;中所有的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;）一起滚动。&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，表头&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;和&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;内容&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;作为两个部分&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;单独处理。&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，将整个&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recyclerview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;事件交给表头的&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;处理。&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，将&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recyclerview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的每个&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;中的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;添加为头部&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的观察者，使之跟随头部&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;一起滚动。&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;表头布局&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item_rv_header&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;和&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;的&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;布局&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item_rv&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;区别，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item_rv&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;布局在&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;horizontalscrollview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;外&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;包裹了一层拦截事件的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LinearLayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;即&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InterceptLinearLayout&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，用于拦截每个&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;中&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的滚动事件。否则会看到&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;中每个&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;都可以单独滚动。&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item_rv_header&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;中的&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;horizontalscrollview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;使用的是自定义的可以添加观察者的&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;horizontalscrollview&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;，用于通知所有观察者一起滑动。&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*/&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-
-    &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SuppressLint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ClickableViewAccessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-
-        &lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setOnTouchListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;当在&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;上&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;时，将事件分发给&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;表头的&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;处理&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;headerHorizontalScrollView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onTouchEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;如果删掉下面这行代码，&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的上下滚动效果会失效&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;onTouchEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;设置布局管理器&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layoutManager&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LinearLayoutManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myAdapter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item_rv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headerHorizontalScrollView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adapter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myAdapter&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;        &lt;span class=&quot;err&quot;&gt;设置数据&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;myAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-
-
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;p&quot;&gt;/**&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;模拟数据&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;*/&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0..119&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;DataBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-                    &lt;span class=&quot;s2&quot;&gt;&quot;name $i&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                    &lt;span class=&quot;s2&quot;&gt;&quot;A_ $i&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;B_ $i&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;C_ $i&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;D_ $i&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;E_ $i&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;F_ $i&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;G_ $i&quot;&lt;/span&gt;
-                &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;list&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;MyAdapter.kt 是&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;excellist&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LayoutInflater&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ViewGroup&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HorizontalScrollView&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;androidx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recyclerview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kotlinx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;synthetic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item_rv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.*&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;/**&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lq&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2020&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;29&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*/&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headScrollView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CanObserverHorizontalScrollView&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Adapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MyAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MyViewHoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;数据集合&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;()&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onCreateViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ViewGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyViewHoder&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyViewHoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onBindViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyViewHoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;赋值&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data1&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data2&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data3&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data4&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data5&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data6&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data7&lt;/span&gt;
-
-        &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;第一个单元格可点击&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tv_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;守得云开见月明 &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LENGTH_SHORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;注意：放开点击事件&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;会有&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;左右滑动难以响应的问题&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linearLayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setOnClickListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;守得云开见月明 linearLayout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Toast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LENGTH_SHORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;解决&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;监听&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;无限增多问题&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;将&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rv&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;中的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;添加为&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;头布局&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;中&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scrollview&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;的观察者，使每一个&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;的滚动跟随&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;头部&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;的滚动&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OnScrollChangedListenerImp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;horizontalScrollView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;headScrollView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addScrollChangedListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-            &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listener&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getItemCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-    &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;mList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;mList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;notifyDataSetChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyViewHoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ViewHolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;p&quot;&gt;/**&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;滚动监听&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;的&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;实现&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;*/&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;internal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OnScrollChangedListenerImp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mScrollViewArg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HorizontalScrollView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;CanObserverHorizontalScrollView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ScrollViewObserver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;OnScrollChangedListener&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onScrollChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oldl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oldt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;mScrollViewArg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smoothScrollTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;DataBean.kt 为&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;excellist&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;/**&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;author&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lq&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2020&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;29&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*&lt;/span&gt;
- &lt;span class=&quot;p&quot;&gt;*/&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DataBean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;String&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;到此，思路与代码全部在上面了，现在还遗留有一个问题，就是rv的item点击事件无法实现，目前能做到的是item的第一个单元格可响应点击，其他的控件如果设置点击监听会与滚动监听冲突。所以这个作为浏览数据用可以，流畅度很好，但是要添加item点击事件是有问题的，注意使用场景。以前写过一个 ListView + HorizontalScrollView 的实现是没这个问题的，不过代码老旧很多地方需要重写优化。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/12/android_excellist/&quot;&gt; Android 实现一个类似Excel表格似的效果 2 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 30 Dec 2020 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2020/12/android_excellist/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/12/android_excellist/</guid>
-        
-        <category>技术</category>
+      <category>人生</category>
         
         
-      </item>
-    
-      <item>
-        <title>Android 关于使用 azhon/AppUpdate 的一点想法</title>
-        <description>&lt;h3 id=&quot;莲出淤泥而不染但你忘了藕是它身体的一部分&quot;&gt;莲出淤泥而不染，但你忘了，藕是它身体的一部分。&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/yuqianglianshou/AppUpdate&quot;&gt;本demo地址 https://github.com/yuqianglianshou/AppUpdate&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;最近使用了一个不错的版本更新库，&lt;a href=&quot;https://github.com/azhon/AppUpdate&quot;&gt;azhon/AppUpdate&lt;/a&gt; ，使用中关于强制更新遇到了两个偏激的需求，大概描述为&lt;br /&gt;
-1:检测到有新版本需要更新时弹出更新提示窗，正常情况用户看到弹窗点击更新就可以了，我要实现的效果是弹出更新自动开始下载，去掉用户点击更新的操作，实现方法是代码模拟点击事件代替。 &lt;br /&gt;
-2:有2个应用，我们称为A应用和B应用，A运行后检测手机中安装的B是否有新版，如果有，则强制更新B，这个可以实现，但是会有一个问题，更新完B以后A中的更新弹窗是不会消失的，而此时又是强制更新，所以A应用界面卡在这里了。原因是按照正常的逻辑A应该更新A，更新后A重新打开，所以并不需要也不应该在A没有更新之前关闭弹窗，而此时我们是用A更新的B，所以缺少了一步 B更新后关闭A中更新弹窗的步骤。实现思路是广播监听B的安装或更新，回调dialog的关闭方法。&lt;/p&gt;
-
-&lt;p&gt;运行如下图所示：&lt;br /&gt;
-检测到更新后
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_appupdate/1.jpeg&quot; alt=&quot;&quot; width=&quot;40%&quot; height=&quot;40%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-安装了B之后A的日志
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_appupdate/2.png&quot; alt=&quot;&quot; /&gt;
-&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;关键代码：
-&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class MainActivity : AppCompatActivity() {
-
-    //此url 是 ES文件浏览器 apk的下载地址，包名 为 com.estrongs.android.pop
-    private val url =
-        &quot;https://imtt.dd.qq.com/16891/apk/FA48766BA12A41A1D619CB4B152889C6.apk?fsname=com.estrongs.android.pop_4.2.3.3_10089.apk&amp;amp;csr=1bbd&quot;
-
-    lateinit var receiver: AppInstallReceiver
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
-        //需动态注册广播接受者，Android8.0静态注册失效
-        receiver = AppInstallReceiver()
-        val filter = IntentFilter()
-        filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
-        filter.addAction(Intent.ACTION_PACKAGE_REPLACED);
-        filter.addAction(Intent.ACTION_PACKAGE_ADDED);
-        filter.addDataScheme(&quot;package&quot;);
-
-        registerReceiver(receiver, filter)
-
-
-        //当安装了之后 AppInstallReceiver 收到广播，在receiver中调用关闭 强制更新窗口
-        button.setOnClickListener {
-            AppUpdateUtils.startUpdate(
-                this,
-                url,
-                &quot;ES文件浏览器.apk&quot;,
-                &quot;2.0&quot;,
-                2,
-                &quot;有新版啦\n强制更新\n问世间情为何物\n直教人生死相许&quot;,
-                true
-            )
-        }
-    }
-
-    override fun onDestroy() {
-        unregisterReceiver(receiver)
-        super.onDestroy()
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;object AppUpdateUtils {
-
-
-    //记录 弹窗实例 对象，用于主动关闭
-    lateinit var updateDialog: UpdateDialog
-
-    /**
-     * 检查需要更新后调用
-     * 强制升级
-     */
-    fun startUpdate(
-        mContext: Context,
-        updateUrl: String,
-        apkName: String,
-        apkVersionName: String,
-        apkVersionCode: Int,
-        desMsg: String,
-        isForce: Boolean
-    ) {
-        /*
-         * 整个库允许配置的内容
-         * 非必选
-         */
-        val configuration = UpdateConfiguration()
-            //输出错误日志
-            .setEnableLog(true)
-            //下载完成自动跳动安装页:
-            .setJumpInstallPage(true)
-            //设置按钮的文字颜色
-            .setDialogButtonTextColor(Color.WHITE)
-            //设置是否显示通知栏进度
-            .setShowNotification(!isForce)
-            //设置是否提示后台下载toast
-            .setShowBgdToast(!isForce)
-            //设置强制更新
-            .setForcedUpgrade(isForce)
-
-        var manager = DownloadManager.getInstance(mContext)
-        manager.setApkName(apkName)
-            .setApkUrl(updateUrl)
-            .setShowNewerToast(true)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setConfiguration(configuration)
-            .setApkVersionCode(apkVersionCode)
-            .setApkVersionName(apkVersionName)
-            .setApkDescription(desMsg)
-            .download()
-
-        //记录 弹窗实例 对象，用于主动关闭
-        updateDialog = manager.defaultDialog
-
-        if (isForce) {
-            //拿到更新弹窗中的 button，模拟一次手动点击
-            manager.defaultDialog.findViewById&amp;lt;Button&amp;gt;(com.azhon.appupdate.R.id.btn_update)
-                .performClick()
-        }
-
-    }
-
-
-    /**
-     * 主动关闭 更新弹窗
-     */
-    fun dismissUpdateDialog() {
-        if (updateDialog != null &amp;amp;&amp;amp; updateDialog.isShowing) {
-            updateDialog.cancel()
-            Log.i(&quot;lq_&quot;, &quot;dismissDialog:  关闭 &quot;)
-        } else {
-            Log.i(&quot;lq_&quot;, &quot;dismissDialog:  null &quot;)
-        }
-    }
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-public class AppInstallReceiver extends BroadcastReceiver {
-
-    public static final String TAG = &quot;lq_AppUnInstallReceiver&quot;;
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-
-        String packageName = intent.getData().getSchemeSpecificPart();
-
-        if (Intent.ACTION_PACKAGE_ADDED.equals(intent.getAction())) {
-
-            Toast.makeText(context, &quot;有应用被添加&quot;, Toast.LENGTH_LONG).show();
-
-            //com.estrongs.android.pop 为 ES文件浏览器的包名
-            if ((&quot;com.estrongs.android.pop&quot;).equals(packageName)) {
-                //监测到ES文件浏览器 安装了版本
-                Log.i(TAG, &quot;onReceive: 监测到ES文件浏览器 安装了版本  &quot;);
-                AppUpdateUtils.INSTANCE.dismissUpdateDialog();
-            }
-
-        } else if (Intent.ACTION_PACKAGE_REPLACED.equals(intent.getAction())) {
-
-//            Toast.makeText(context, &quot;有应用被替换&quot;, Toast.LENGTH_LONG).show();
-//
-//            if ((&quot;com.estrongs.android.pop&quot;).equals(packageName)) {
-//                //监测到ES文件浏览器 安装了新的版本
-//                Log.i(TAG, &quot;onReceive: 监测到ES文件浏览器 安装了新的版本  &quot;);
-//                AppUpdateUtils.INSTANCE.dismissUpdateDialog();
-//            }
-        }
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/12/android_appupdate/&quot;&gt; Android 关于使用 azhon/AppUpdate 的一点想法 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Tue, 22 Dec 2020 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2020/12/android_appupdate/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/12/android_appupdate/</guid>
-        
-        <category>技术</category>
-        
-        
-      </item>
+    </item>
     
   </channel>
 </rss>
