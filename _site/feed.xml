@@ -6,31 +6,30 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 26 Nov 2021 19:28:22 +0800</pubDate>
-    <lastBuildDate>Fri, 26 Nov 2021 19:28:22 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Jan 2022 16:12:45 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Jan 2022 16:12:45 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
     <item>
-      <title>Android 实现多行多列功能的RadioGroup</title>
-      <description>&lt;h3 id=&quot;通过我的试验我起码明白了这点倘若一个人信心满怀地朝他梦想的方向前进努力过上他想象的那种生活那他会在平常的时光里获得意外的成功-梭罗&quot;&gt;通过我的试验，我起码明白了这点：倘若一个人信心满怀地朝他梦想的方向前进，努力过上他想象的那种生活，那他会在平常的时光里获得意外的成功。 –梭罗&lt;/h3&gt;
+      <title>我的2021年终总结</title>
+      <description>&lt;h3 id=&quot;我好像失去了什么又似乎什么也没游有过&quot;&gt;我好像失去了什么，又似乎什么也没游有过。&lt;/h3&gt;
 &lt;p&gt;&lt;br /&gt; 
-需求：多行多列的Button实现单选功能。&lt;/p&gt;
+&lt;br /&gt; 
+今天是2021年的最后一天，又到了写年终总结的时候了，我似乎没写过哎，哪里来的又？依稀记得去年看到他人写的年终总结，也想总结一下，可是提笔了很长时间，却没有什么可写的&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;
+&lt;p&gt;&lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/11/android-实现行列功能的RadioGroup/&quot;&gt; Android 实现多行多列功能的RadioGroup &lt;/a&gt;&lt;br /&gt;
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/01/我的2021年终总结/&quot;&gt; 我的2021年终总结 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
-      <pubDate>Sun, 21 Nov 2021 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2021/11/android-%E5%AE%9E%E7%8E%B0%E8%A1%8C%E5%88%97%E5%8A%9F%E8%83%BD%E7%9A%84RadioGroup/</link>
-      <guid isPermaLink="true">http://localhost:4000/2021/11/android-%E5%AE%9E%E7%8E%B0%E8%A1%8C%E5%88%97%E5%8A%9F%E8%83%BD%E7%9A%84RadioGroup/</guid>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2022/01/%E6%88%91%E7%9A%842021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/01/%E6%88%91%E7%9A%842021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
         
-      <category>技术</category>
+      <category>人生</category>
         
         
     </item>
@@ -128,6 +127,54 @@ Kotlin 代码如下：&lt;br /&gt;
       <pubDate>Sun, 21 Nov 2021 00:00:00 +0800</pubDate>
       <link>http://localhost:4000/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</link>
       <guid isPermaLink="true">http://localhost:4000/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</guid>
+        
+      <category>技术</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>Adobe 软件知识点</title>
+      <description>&lt;h3 id=&quot;通过我的试验我起码明白了这点倘若一个人信心满怀地朝他梦想的方向前进努力过上他想象的那种生活那他会在平常的时光里获得意外的成功-梭罗&quot;&gt;通过我的试验，我起码明白了这点：倘若一个人信心满怀地朝他梦想的方向前进，努力过上他想象的那种生活，那他会在平常的时光里获得意外的成功。 –梭罗&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adobe公司&lt;/strong&gt;（英语：Adobe Inc.，发音：宽式IPA：/əˈdoʊbiː/，旧称Adobe系统公司），是美国一家跨国电脑软件公司，总部位于加州的圣何塞。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adobe 特色产品：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adobe Photoshop：&lt;/strong&gt;图像元老，最受欢迎的强大图像处理软件之一。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adobe Premiere：&lt;/strong&gt;一种基于非线性编辑设备的视音频编辑软件，可以在各种平台下和硬件配合使用，被广泛的应用于电视台、广告制作、电影剪辑等领域，成为PC和MAC平台上应用最为广泛的视频编辑软件。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adobe Dreamweaver：&lt;/strong&gt;网页设计软件。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adobe After Effects：&lt;/strong&gt;特效大师，AE全称After Effects，是由世界著名的图形设计、出版和成像软件设计公司Adobe Systems Inc.开发的专业非线性特效合成软件。是一个灵活的基于层的2D和3D后期合成软件，包含了上百种特效及预置动画效果，与同为Adobe公司出品的Premiere，Photoshop，Illustrator等软件可以无缝结合，创建无与伦比的效果。在影像合成、动画、视觉效果、非线性编辑、设计动画样稿、多媒体和网页动画方面都有其发挥余地。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;等等&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Adobe 软件 有个很大的问题，就是定价太高。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;于是，破解软件应运而生。Adobe 破解版有两个来源：&lt;/p&gt;
+
+&lt;p&gt;第一个来源是 TNT 团队破解版，此版本安装后需要通过 Adobe Zii 进行破解：Adobe Zii 是一款激活 Adobe 系列软件的最佳 Mac 应用程序，由俄罗斯🇷🇺TNT团队发布。Adobe Zii 大版本发布为年度版本，如 Adobe Zii 2019，Adobe Zii 2020，Adobe Zii 2021，对应的激活 Adobe 2019 CC、Adobe 2020 以及 Adobe 2021 系列软件。大版本之间一般情况下是不通用的，比如使用 Adobe Zii 2021 无法激活 Adobe 2020 系列软件，但有时候也会例外，具体以下载页面更新日志中所标版本为准。小版本跟随 Adobe 软件更新而更新，一般 Adobe 系列软件在官方更新后五天内会发布对应版本的 Zii 激活工具。（简单说，比如要安装ps，首先去Adobe官网安装正版ps，然后下载对应的破解软件Adobe Zii，通过破解软件的操作，即可让安装的ps达到免费使用的效果。）&lt;/p&gt;
+
+&lt;p&gt;第二个来源是国内大神 Vposy 提供的免激活版，此版本精简了一些无用和不太常使用的模块，大大减小了安装包的体积，最重要的是它安装完成后就是激活的！如果图省事建议下载免激活版的。（简单说，比如要安装ps，直接下载Vposy发布的ps破解版本，直接安装即可。）&lt;/p&gt;
+
+&lt;p&gt;如果需要下载链接，邮件联系我即可。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/11/Adobe 软件知识点/&quot;&gt; Adobe 软件知识点 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Sun, 21 Nov 2021 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2021/11/Adobe-%E8%BD%AF%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
+      <guid isPermaLink="true">http://localhost:4000/2021/11/Adobe-%E8%BD%AF%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
         
       <category>技术</category>
         
@@ -914,50 +961,6 @@ pull报  Error in the HTTP2 framing layer 错误， &lt;br /&gt;
       <pubDate>Sun, 10 Jan 2021 00:00:00 +0800</pubDate>
       <link>http://localhost:4000/2021/01/1988/</link>
       <guid isPermaLink="true">http://localhost:4000/2021/01/1988/</guid>
-        
-      <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>永不休止的循环</title>
-      <description>&lt;h3 id=&quot;故事的开头极具温柔我们却给了一个及其不配的结尾&quot;&gt;故事的开头极具温柔，我们却给了一个及其不配的结尾。&lt;/h3&gt;
-
-&lt;p&gt;迷迷糊糊之间，我见到了上帝。&lt;br /&gt;
-光芒耀眼，看不清他的样子。&lt;br /&gt;
-不曾考虑他是怎么来的为何出现在这里等如此问题，&lt;br /&gt;
-直接抛出了灵魂一问：能实现我一个愿望么？&lt;br /&gt;
-God：你说吧。&lt;br /&gt;
-如此轻而易举，我来不及欣喜：Can I reset 2020?&lt;br /&gt;
-God: ？？？&lt;br /&gt;
-我小心翼翼：怎么，英语不是你的母语么？难道 难道说 这个愿望你实现不了？哎，我就知道，回到一年前，太难了。 &lt;br /&gt;
-God：不是。&lt;br /&gt;
-看样子有戏。&lt;br /&gt;
-God：兄弟 我不得不提醒你，这是你最后一个愿望了，你前两个愿望都是如此，我再给你一次机会，你重新说。  &lt;br /&gt;
-What？我有三个愿望？我隐隐约约看到了上帝飘着一条绿色的尾巴，我似乎明白了什么。&lt;br /&gt;
-哎，不对啊，我面临3个愿望时，金钱 美女 与 权利 不正好么？&lt;br /&gt;
-。。。难道是惨到极致了？难道是拯救世界了？还是比现在还清高？&lt;br /&gt;
-God：留给你的时间不多了。&lt;br /&gt;
-我想到了那些小聪明：我的最后一个愿望是 再实现我3个愿望。&lt;br /&gt;
-God：愿望禁止套娃。&lt;br /&gt;
-上帝生气了，是我惹的。&lt;br /&gt;
-我思索着我现在的境地，我回忆着这一年发生的大大小小的事迹，为什么会这样？&lt;br /&gt;
-我太过于追求公平与正义，太过于严格对自己以及相关的人，太过于相信自己的判断，太过于不相信对于自己不能把控的事。&lt;br /&gt;
-我明白了，即使再来一次，疫情还是会严重，特朗普还是会下台，天上月依然是那个天上月。&lt;br /&gt;
-我顿了顿，说到，我的最后一个愿望是&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2020/12/deardream/&quot;&gt; 永不休止的循环 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Thu, 31 Dec 2020 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2020/12/deardream/</link>
-      <guid isPermaLink="true">http://localhost:4000/2020/12/deardream/</guid>
         
       <category>人生</category>
         

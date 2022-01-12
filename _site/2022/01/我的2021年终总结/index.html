@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Glide加载的图片有浅绿色背景？</title>
+  <title>我的2021年终总结</title>
   <meta name="description"
-    content="原因：">
+    content="我好像失去了什么，又似乎什么也没游有过。  今天是2021年的最后一天，又到了写年终总结的时候了，我似乎没写过哎，哪里来的又？依稀记得去年看到他人写的年终总结，也想总结一下，可是提笔了很长时间，却没有什么可写的">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
-    content="Glide加载的图片有浅绿色背景？">
+    content="我的2021年终总结">
   <meta name="twitter:description"
-    content="原因：">
+    content="我好像失去了什么，又似乎什么也没游有过。  今天是2021年的最后一天，又到了写年终总结的时候了，我似乎没写过哎，哪里来的又？依稀记得去年看到他人写的年终总结，也想总结一下，可是提笔了很长时间，却没有什么可写的">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
-    content="Glide加载的图片有浅绿色背景？">
+    content="我的2021年终总结">
   <meta property="og:description"
-    content="原因：">
+    content="我好像失去了什么，又似乎什么也没游有过。  今天是2021年的最后一天，又到了写年终总结的时候了，我似乎没写过哎，哪里来的又？依稀记得去年看到他人写的年终总结，也想总结一下，可是提笔了很长时间，却没有什么可写的">
 
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href=" /css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2016/04/glide_bg_green/">
+  <link rel="canonical" href="http://localhost:4000/2022/01/%E6%88%91%E7%9A%842021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
 
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -171,10 +171,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Glide加载的图片有浅绿色背景？</h1>
+    <h1 class="post-title">我的2021年终总结</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2016-04-02 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2016-04-02</time>  
+      <time datetime="2022-01-01 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-01-01</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -182,56 +182,18 @@
   </header>
 
   <section class="post">
-    <h3 id="原因">原因：</h3>
+    <h3 id="我好像失去了什么又似乎什么也没游有过">我好像失去了什么，又似乎什么也没游有过。</h3>
+<p><br /> 
+<br /> 
+今天是2021年的最后一天，又到了写年终总结的时候了，我似乎没写过哎，哪里来的又？依稀记得去年看到他人写的年终总结，也想总结一下，可是提笔了很长时间，却没有什么可写的</p>
 
-<p>简单来说Glide使用bitmap的编码是RGB565，所以有的时候由于过度压缩导致了图片变绿。</p>
-
-<h3 id="解决方案">解决方案：</h3>
-
-<p>改变一下Glide的bitmap编码，新建类 GlideConfiguration.java ,实现 GlideModule 接口，Ctrl + i 实现两个需实现的方法，在方法 applyOptions 中加上 builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888); ，如下:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import android.content.Context;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.GlideBuilder;
-import com.bumptech.glide.load.DecodeFormat;
-import com.bumptech.glide.module.GlideModule;
-
-/**
- * 增加图片清晰度
- */
-public class GlideConfiguration implements GlideModule{
-
-	@Override
-	public void applyOptions(Context context, GlideBuilder builder) {
-
-    		builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);
-	}
-
-	@Override
-	public void registerComponents(Context context, Glide glide) {
-
-	}
-}
-</code></pre></div></div>
-
-<p>然后在 AndroidManifext 中 增加：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- 解决glide加载图片背景变绿的问题 --&gt;  
-&lt;meta-data
-android:name="*包名路径*.GlideConfiguration"
-android:value="GlideModule"/&gt;
-</code></pre></div></div>
-
-<p>重新运行试试，如果还解决不了的话，哥们，你百度是没用了。不过目前来看，小伙伴们都解决了。<br />
-此文章总结自百度的N篇博客。</p>
-
-<p><br />
-<br />
-<br />
+<p><br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2022/01/我的2021年终总结/"> 我的2021年终总结 </a><br />
 <br /></p>
-
-<p>转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2016/04/glide_bg_green/">  Glide加载的图片有浅绿色背景？   </a></p>
 
 
   </section>
@@ -435,17 +397,11 @@ android:value="GlideModule"/&gt;
   <ul class="pager">
     
     <li class="previous">
-      <a href="/2015/02/xugou/" data-toggle="tooltip"
-        data-placement="top" title="虚构">上一篇： <span>虚构</span>
+      <a href="/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/" data-toggle="tooltip"
+        data-placement="top" title="Android EditText修改hint文字大小">上一篇： <span>Android EditText修改hint文字大小</span>
       </a>
     </li>
     
-    
-    <li class="next">
-      <a href="/2016/05/android-store/" data-toggle="tooltip"
-        data-placement="top" title="Android下的存储目录">下一篇： <span>Android下的存储目录</span>
-      </a>
-    </li>
     
   </ul>
 </section>
