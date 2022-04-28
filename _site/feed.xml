@@ -6,9 +6,58 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 14 Jan 2022 01:32:58 +0800</pubDate>
-    <lastBuildDate>Fri, 14 Jan 2022 01:32:58 +0800</lastBuildDate>
+    <pubDate>Thu, 28 Apr 2022 14:35:32 +0800</pubDate>
+    <lastBuildDate>Thu, 28 Apr 2022 14:35:32 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+    <item>
+      <title>行动与思想，曾经与现在</title>
+      <description>&lt;h3 id=&quot;所站之处既是太阳落下的地方&quot;&gt;所站之处，既是太阳落下的地方。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;我曾经有一个朋友，我称他为巨人。&lt;/p&gt;
+
+&lt;p&gt;他每天早出晚归，在图书馆，在自习室。&lt;/p&gt;
+
+&lt;p&gt;现在我开始自嘲为矮子。&lt;/p&gt;
+
+&lt;p&gt;每天的主要活动就是在床上躺着，一躺就是一整天，如果躺累了……那就换一个姿势。&lt;/p&gt;
+
+&lt;p&gt;朋友巨人喜欢读书、写作、敲代码。我喜欢玩游戏、刷抖音，这种短暂的快感能很好的满足我日渐衰弱的脑子。&lt;/p&gt;
+
+&lt;p&gt;朋友巨人好为人师，每天看到我还在床上就恨铁不成钢，总是要“阴阳怪气”一番。&lt;/p&gt;
+
+&lt;p&gt;我不想搭理他，人生短短几十年，怎么过不是过呢，我就喜欢躺在床上，无拘无束。&lt;/p&gt;
+
+&lt;p&gt;朋友巨人努力好学，与我格格不入，书读的多的离谱，我偶尔也会感到妒忌，毕竟读书是一件很伟大的事。&lt;/p&gt;
+
+&lt;p&gt;我也不是没想过奋发图强，朝着自己的目标前进，这么大的人了，谁还没有个目标呢？但是为啥要苦了自己呢？是游戏快感不足，还是小姐姐不漂亮呢？所以，没有人比我更懂梦想，所谓梦想，就是梦里想想。&lt;/p&gt;
+
+&lt;p&gt;说到梦想，巨人朋友的梦想是建立一家伟大的科技公司，有一个改变世界的产品。每当巨人提及这个梦想的时候，我总是要冷嘲热讽一下，彰显一下自己为数不多的存在感。&lt;/p&gt;
+
+&lt;p&gt;我早就明白巨人与我不是一路人，但他总是劝解我，努力才是正途。我只笑笑不说话。&lt;/p&gt;
+
+&lt;p&gt;今天，又是没有工作快乐躺尸的一天，睁眼已经是十一点。我想叫个外卖，想想算了，饿一会吧。&lt;/p&gt;
+
+&lt;p&gt;环顾四周，只有朋友床头的铭牌“思想”被风吹的叮叮当当。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/01/行动与思想，曾经与现在/&quot;&gt; 行动与思想，曾经与现在 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2022/01/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E6%80%9D%E6%83%B3-%E6%9B%BE%E7%BB%8F%E4%B8%8E%E7%8E%B0%E5%9C%A8/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/01/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E6%80%9D%E6%83%B3-%E6%9B%BE%E7%BB%8F%E4%B8%8E%E7%8E%B0%E5%9C%A8/</guid>
+        
+      <category>人生</category>
+        
+        
+    </item>
     
     <item>
       <title>所谓书生气的弱点</title>
@@ -984,39 +1033,6 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
       <pubDate>Wed, 10 Mar 2021 00:00:00 +0800</pubDate>
       <link>http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</link>
       <guid isPermaLink="true">http://localhost:4000/2021/03/android-UDP%E9%80%9A%E4%BF%A1/</guid>
-        
-      <category>技术</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>问题解决：Failed to connect to github.com port 443：Operation timed out</title>
-      <description>&lt;h3 id=&quot;大雨一下子就淋湿了我的全身我在雨中已经没有任何体面可言&quot;&gt;大雨一下子就淋湿了我的全身，我在雨中已经没有任何体面可言。&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;北京三月的天气忽冷忽热，实在琢磨不透，像极了我的心情。&lt;br /&gt;
-想往 GitHub 上提交点文件，结果无论 push 还是 pull 都报错了。&lt;br /&gt;
-push报  Failed to connect to github.com port 443: Timed out 错误，&lt;br /&gt;
-pull报  Error in the HTTP2 framing layer 错误， &lt;br /&gt;
-一天故事的开端变成了事故的开端。&lt;br /&gt;
-查了百度，基本都是在说代理问题，解决方案都是git命令，要不就是修改系统文件。&lt;br /&gt;
-对于一个懒人来说，这些操作明显是多了，既然是代理问题，那就好办了，我这开代理的就一个地方，翻墙小飞机，再次打开小飞机，再关闭，哈哈，问题解决。&lt;br /&gt;
-其实出现这个问题的原因很简单，开了小飞机，没有正常关闭，比如直接系统结束进程或直接关机，造成小飞机开代理写入的文件没有归位。再让他正常启动关闭一次就好。&lt;br /&gt;
-如此而已。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/03/github_error/&quot;&gt; 问题解决：Failed to connect to github.com port 443: Operation timed out &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Wed, 03 Mar 2021 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2021/03/github_error/</link>
-      <guid isPermaLink="true">http://localhost:4000/2021/03/github_error/</guid>
         
       <category>技术</category>
         
