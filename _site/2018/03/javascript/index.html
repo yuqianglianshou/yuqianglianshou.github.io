@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>初识 JavaScript 的不解</title>
+  <meta name="description"
+    content="待整理格式化">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title"
+    content="初识 JavaScript 的不解">
+  <meta name="twitter:description"
+    content="待整理格式化">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title"
+    content="初识 JavaScript 的不解">
+  <meta property="og:description"
+    content="待整理格式化">
+
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href=" /css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/03/javascript/">
+  <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
+
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+  <!-- 不蒜子 静态网页计数器 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+
+  <!-- 百度统计 -->
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?448a543d198250efd139ee3057313375";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+
+  <!-- google 统计 -->
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9005224472374751",
+      enable_page_level_ads: true
+    });
+  </script>
+
+</head>
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于他
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed"
+  style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+      <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+          <a href="/#blog" title="前往 劉清揚 的主页" class="blog-button">
+            <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+            <div class="info">
+              <div class="info-back">
+                <h2>
+                  
+                  喜欢你
+                  
+                </h2>
+                <p>
+                  
+                  那双眼动人
+                  
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for 劉清揚"
+            class="blog-button">劉清揚</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">个人站</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">欢迎来到我的个人站~</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title=""
+                    class="blog-button">博客主页</a></li>
+                
+                <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                <li class="navigation__item"><a href="/about" title="about">关于他</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="panel-cover--overlay cover-clear"></div>
+  
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">初识 JavaScript 的不解</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/> 
+      <time datetime="2018-03-17 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-17</time>  
+         
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+    <h3 id="待整理格式化">待整理格式化</h3>
+
+<p>什么是javascript？</p>
+
+<p>javascript是一种运行于javascript解释器/引擎中的解释型脚本语言；
+javascript解释器作为js脚本的运行环境，有如下两种呈现方式：-独立安装的js解释器，如node.js平台。-嵌入在浏览器中的js解释器，如chrome浏览器。</p>
+
+<p>javascript特点：
+代码可使用任何文本编辑器编写，语法类似于c和java
+脚本文件无需编译，由javascript引擎解释执行
+弱类型语言
+基于对象
+跨平台性</p>
+
+<p>js⽤途
+ 1、嵌⼊⽂本到我们的HTML页⾯上
+ 2、对浏览器事件作出响应
+ 3、读写HTML
+ 4、在数据提交到服务器之前先做数据验证
+ 5、检测访客的浏览信息
+ 6、控制cookie
+ 7、基于nodeJs技术进⾏服务端的编程
+js组成部分
+ 1、ECMAScript规定核⼼的语法
+ 2、DOM（document object model）:⽂档对象模型
+ 3、BOM（browser object model）：浏览器对象模型</p>
+
+<p>基本语法形式:
+内部式：在script标签中定义JavaScript程序代码
+script标签理论上可以写在任意位置，但是由于计算机程序代码执行顺序问题，所以一般放在body标签内部的最下方。
+（补充：所有计算机程序代码  默认都是按照文档流/标准流执行：从上至下，从左至右） 
+外部式：在外部js文件中定义JavaScript程序代码，再通过<script src=""></script>引入
+导入的script标签一般写在body标签内的最下方。
+script只要定义了src属性，不管后面是否跟着路径，内部式就会失效；
+导入外部js文件同时，就会立即执行外部js文件内容（同级导入 ./文件名）</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    //内部式  
+    //&lt;script&gt;
+    //   document.write("今天是8月28日");
+    //&lt;/script&gt;
+ 
+ 
+    //外部式
+    //&lt;script src="js路径"&gt;
+    //&lt;/script&gt;
+</code></pre></div></div>
+
+<p>如何运行：</p>
+
+<p>一：
+1，创建 01.html 文件，内容为<br />
+<script src="01.js"></script>
+2,同目录下创建 01.js 文件，内容为 
+console.log(‘Hello World’);
+3,将01.html 拖拽到浏览器中，在浏览器的控制台即可看到输出日志 Hello World</p>
+
+<p>二：
+1，安装node.js. 命令行窗口 输入 node -v 查看版本号。
+2，命令行窗口 输入 node 《刚刚创建的01.js的全路径》  即可在控制台输出内容。</p>
+
+<p>交互模式： 
+命令行输入 node 回车
+输入1+2 回车
+3
+ctrl + c 两次退出交互模式。或 .exit  退出。</p>
+
+<p>语法规范：
+区分大小写；每行结尾分号可不加；单行注释 // ，多行注释 /*  */ ；</p>
+
+<p>-变量相关：</p>
+
+<p>var 关键字定义变量 ：
+var eid = 7，ename = ‘tom’；
+输出：
+console.log(eid,ename);</p>
+
+<p>变量名命名规范：
+可以包含字母、数字、下划线、美元符号$，不能以数字开头，
+中文可以用作变量名。</p>
+
+<p>声明变量未赋值，输出 undefined。</p>
+
+<p>弱语言，可以多次赋不同类型的值。</p>
+
+<p>-常量相关：</p>
+
+<p>const 关键字定义常量：
+const pi = 3.14;
+必须赋初始值。不能重复赋值。</p>
+
+<p>-数据类型相关：
+ECMAScript:JavaScript的基本语法，由欧洲计算机制造商协会制定.
+ECMAScript数据类型包括：原始类型和引用类型。
+原始类型包括
+number：数字
+string：字符串
+boolean：布尔
+null：空
+undefined：未定义
+引用类型包括
+Object:对象
+Function：函数
+Number：数字
+String：字符串
+Boolean：布尔
+Date：日期
+Error：错误
+Array：数组
+等等</p>
+
+<p>typeof 关键字用法（判断类型）
+var str = ‘2’;
+console.log(str, typeof str);
+输出 ： 2 string</p>
+
+<p>NaN = Not a Number 不是一个数字
+NaN 和任何值运算，都反回NaN，不包括和字符串的相加。</p>
+
+<p>console.log( Number(true) );//1
+console.log( Number(null) );//0
+console.log( Number(undefined) );//NaN</p>
+
+<p>全等：===
+-类型相同
+-值相同</p>
+
+<p>不全等：！==</p>
+
+<p>创建函数：
+函数声明： function fun(){}
+函数表达式： var fun = function(){}</p>
+
+<p><br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2018/03/javascript/"> 初识 JavaScript 的不解  </a><br />
+<br /></p>
+
+
+  </section>
+</article>
+
+<section>
+
+  <div class="content-play">
+    <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="此中有真意">不能点</a></p>
+    <div class="hide_box-play"></div>
+    <div class="shang_box-play">
+      <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img
+          src="/images/payimg/close.jpg" alt="取消" /></a>
+      <div class="shang_tit-play">
+        <p>白茶清风无别事，我在等风也等你</p>
+      </div>
+      <div class="shang_payimg">
+        <img src="/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+      </div>
+      <div class="shang_payimg">
+        <img src="/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+      </div>
+      <div class="pay_explain">三十六计，走为上计</div>
+      <div class="shang_payselect">
+        <div class="pay_item checked" data-id="alipay">
+          <span class="pay_logo"><img src="/images/payimg/alipay.jpg" alt="支付宝" /></span>
+        </div>
+        <div class="pay_item" data-id="weipay">
+          <span class="pay_logo"><img src="/images/payimg/wechat.jpg" alt="微信" /></span>
+        </div>
+      </div>
+      <div class="shang_info-play">
+        <p><span id="shang_pay_txt">欲辨已忘言</span></p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function dashangToggle() {
+      $(".hide_box-play").fadeToggle();
+      $(".shang_box-play").fadeToggle();
+    }
+  </script>
+
+  <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+  <style type="text/css">
+    .content-play {
+      width: 80%;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      height: 40px;
+    }
+
+    .hide_box-play {
+      z-index: 999;
+      filter: alpha(opacity=50);
+      background: #666;
+      opacity: 0.5;
+      -moz-opacity: 0.5;
+      left: 0;
+      top: 0;
+      height: 99%;
+      width: 100%;
+      position: fixed;
+      display: none;
+    }
+
+    .shang_box-play {
+      width: 540px;
+      height: 540px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      position: fixed;
+      z-index: 1000;
+      left: 50%;
+      top: 50%;
+      margin-left: -280px;
+      margin-top: -280px;
+      border: 1px dotted #dedede;
+      display: none;
+    }
+
+    .shang_box-play img {
+      border: none;
+      border-width: 0;
+    }
+
+    .dashang {
+      display: block;
+      width: 100px;
+      margin: 5px auto;
+      height: 25px;
+      line-height: 25px;
+      padding: 10px;
+      background-color: #E74851;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .dashang:hover {
+      opacity: 0.8;
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    .shang_close-play {
+      float: right;
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 20px;
+    }
+
+    .shang_logo {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .shang_tit-play {
+      width: 100%;
+      height: 75px;
+      text-align: center;
+      line-height: 66px;
+      color: #a3a3a3;
+      font-size: 16px;
+      background: url('/images/payimg/cy-reward-title-bg.jpg');
+      font-family: 'Microsoft YaHei';
+      margin-top: 7px;
+      margin-right: 2px;
+    }
+
+    .shang_tit-play p {
+      color: #a3a3a3;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .shang_payimg {
+      width: 140px;
+      padding: 10px;
+      padding-left: 80px;
+      /*border:6px solid #EA5F00;**/
+      margin: 0 auto;
+      border-radius: 3px;
+      height: 140px;
+      display: inline-block;
+    }
+
+    .shang_payimg img {
+      display: inline-block;
+      margin-right: 10px;
+      float: left;
+      text-align: center;
+      width: 140px;
+      height: 140px;
+    }
+
+    .pay_explain {
+      text-align: center;
+      margin: 10px auto;
+      font-size: 12px;
+      color: #545454;
+    }
+
+    .shang_payselect {
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 40px;
+      cursor: pointer;
+      height: 60px;
+      width: 500px;
+      margin-left: 110px;
+    }
+
+    .shang_payselect .pay_item {
+      display: inline-block;
+      margin-right: 140px;
+      float: left;
+    }
+
+    .shang_info-play {
+      clear: both;
+    }
+
+    .shang_info-play p,
+    .shang_info-play a {
+      color: #C3C3C3;
+      text-align: center;
+      font-size: 12px;
+      text-decoration: none;
+      line-height: 2em;
+    }
+  </style>
+
+  <ul class="pager">
+    
+    <li class="previous">
+      <a href="/2017/06/soul/" data-toggle="tooltip"
+        data-placement="top" title="灵魂深处的沉淀">上一篇： <span>灵魂深处的沉淀</span>
+      </a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/05/kotlin/" data-toggle="tooltip"
+        data-placement="top" title="初识 Kotlin 的不解">下一篇： <span>初识 Kotlin 的不解</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+<section class="post-comments">
+
+  
+
+</section>
+
+            <section class="footer">
+  <footer>
+    <div class="footer_div">
+      <nav class="cover-navigation navigation--social">
+        <ul class="navigation">
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/yuqianglianshou" title="yuqianglianshou 的 Github"
+              target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='social fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:2465199797@qq.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+
+          
+
+          
+          <!-- 冥想空间 -->
+          <li class="navigation__item_social">
+            <a href="/night_sky/" target="_blank" title="relax">
+              <!-- https://www.thinkcmf.com/font/font_awesome/icons.html -->
+              <!-- 视频播放图标 -->
+              <i class='fa fa-play-circle fa-2x'></i>
+              <span class="label">Sky</span>
+            </a>
+          </li>
+
+          
+
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer_div">
+      <p class="copyright text-muted">
+        Copyright &copy; 劉清揚 2022 Theme by
+        <a href="http://yuqianglianshou.com/">yuqianglianshou</a>
+
+      </p>
+      <div align="right">
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- 访问统计 -->
+        <span id="busuanzi_container_site_pv">
+          本站总访问量
+          <span id="busuanzi_value_site_pv"></span>次
+        </span>
+
+      </div>
+      <div>
+  </footer>
+</section>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+    
+  </body>
+
+</html>
