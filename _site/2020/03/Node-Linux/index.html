@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Android 文字点阵图的水波纹动画</title>
+  <title>Linux 基本命令</title>
   <meta name="description"
-    content="我总想在宇宙中寻求意义，他却不予以理睬。">
+    content="一箪食，一瓢饮，居陋巷，人不堪其忧，回也不改其乐也。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
-    content="Android 文字点阵图的水波纹动画">
+    content="Linux 基本命令">
   <meta name="twitter:description"
-    content="我总想在宇宙中寻求意义，他却不予以理睬。">
+    content="一箪食，一瓢饮，居陋巷，人不堪其忧，回也不改其乐也。">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
-    content="Android 文字点阵图的水波纹动画">
+    content="Linux 基本命令">
   <meta property="og:description"
-    content="我总想在宇宙中寻求意义，他却不予以理睬。">
+    content="一箪食，一瓢饮，居陋巷，人不堪其忧，回也不改其乐也。">
 
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href=" /css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2020/03/wenzikong/">
+  <link rel="canonical" href="http://localhost:4000/2020/03/Node-Linux/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
 
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -171,10 +171,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Android 文字点阵图的水波纹动画</h1>
+    <h1 class="post-title">Linux 基本命令</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2020-03-26 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-03-26</time>  
+      <time datetime="2020-03-23 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-03-23</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -182,31 +182,88 @@
   </header>
 
   <section class="post">
-    <h3 id="我总想在宇宙中寻求意义他却不予以理睬">我总想在宇宙中寻求意义，他却不予以理睬。</h3>
+    <h3 id="一箪食一瓢饮居陋巷人不堪其忧回也不改其乐也">一箪食，一瓢饮，居陋巷，人不堪其忧，回也不改其乐也。</h3>
 
-<p>demo地址 ：
- <a href="https://github.com/yuqianglianshou/WenziKong">https://github.com/yuqianglianshou/WenziKong</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su     切换到root用户  
 
-<ul>
-  <li>文字水波纹效果</li>
-  <li>原理：文字生成点阵图，计算文字位置（点阵）集合，draw圆环，每个圆环半径以0开始递增，透明度以255开始递减，颜色随机，每一次刷新半径扩大一点，</li>
-  <li>透明度降低一些，当透明度为0时，集合中删除点，集合为空时停止刷新，动画停止。</li>
-  <li>所涉及的知识点：自定义view；文字点阵数据；lifecycles使用；handler处理；动画计算，位置计算等。</li>
-  <li>效果：运行程序文字依次随机位置以水波纹动画显示，触摸或滑动屏幕，有水波纹动画，程序退到后台，动画暂停，返回到前台继续执行，效果如下：</li>
-</ul>
+ip addr   查看内网IP  
+ifconfig  查看内网IP  
 
-<p><br /> 
-<img src="/images/posts/wenzikong/wenzikong.gif" alt="" />
- <br /> 
-<img src="/images/posts/wenzikong/wenzikong2.gif" alt="" />
- <br /></p>
+curl cip.cc             查看公网IP信息  
+curl ifconfig.me/all    查看公网IP信息  
 
-<p><br /> 
+pwd     显示当前正在使用的目录  
+
+# ls命令：这是一个非常有用的查看文件与目录的命令，list之意。
+ls       列出当前目录下文件  
+ls -a    列出全部的文件，连同隐藏文件（开头为.的文件）一起列出来  
+ls -l    显示文件和目录的详细资料  
+
+# cd命令：这是一个非常基本，也是大家经常需要使用的命令，它用于切换当前目录，它的参数是要切换到的目录的路径，可以是绝对路径，也可以是相对路径。
+cd /home 　  进入根目录下面的home目录  
+cd home 　   进入当前目录下的home目录  
+cd ..　　　   返回上一层目录  
+cd ../.. 　　 返回上两级目录  
+cd /　　　　　 返回跟目录  
+cd - 　　　　  返回上次所在的目录  
+
+# mkdir命令：创建
+mkdir dir1          创建一个叫做 'dir1' 的目录'  
+mkdir dir1 dir2     同时创建两个目录   
+
+# rm命令：删除
+rm -f file1　　      删除一个叫做 'file1' 的文件'   
+rmdir dir1 　　      删除一个叫做 'dir1' 的目录' （空目录才能删除）  
+rm -rf dir1 　　     删除一个叫做 'dir1' 的目录并同时删除其内容   
+rm -rf dir1 dir2　　 同时删除两个目录及它们的内容   
+
+# mv命令：该命令用于移动文件、目录或更名，move之意，它的常用参数如下：-f 如果目标文件已经存在，不会询问而直接覆盖。
+mv file1 file2       把文件file1重命名为file2   
+mv file1 file2 dir   把文件file1、file2移动到目录dir中  
+
+# cp命令：该命令用于复制文件，copy之意，它还可以把多个文件一次性地复制到一个目录下， 它的常用参数如下：
+cp  -a file1 file2    连同文件的所有特性把文件file1复制成文件file2  
+cp dir/* .            复制一个目录下的所有文件到当前工作目录   
+cp -a /tmp/dir1 .     复制一个目录到当前工作目录   
+cp -a dir1 dir2       复制一个目录  
+
+# find命令：find是一个基于查找的功能非常强大的命令
+find / -name file1                  从 '/' 开始进入根文件系统搜索文件和目录   
+find / -user user1                  搜索属于用户 'user1' 的文件和目录   
+find /home/user1 -name \*.bin       在目录 '/ home/user1' 中搜索带有'.bin' 结尾的文件   
+find /usr/bin -type f -atime +100   搜索在过去100天内未被使用过的执行文件   
+find /usr/bin -type f -mtime -10    搜索在10天内被创建或者修改过的文件   
+
+压缩：tar -jcv -f filename.tar.bz2 要被处理的文件或目录名称  
+查询：tar -jtv -f filename.tar.bz2  
+解压：tar -jxv -f filename.tar.bz2 -C 欲解压缩的目录  
+
+arch                  显示机器的处理器架构(1) 
+uname -m              显示机器的处理器架构(2) 
+uname -r              显示正在使用的内核版本 
+dmidecode -q          显示硬件系统部件 - (SMBIOS / DMI) 
+hdparm -i /dev/hda    罗列一个磁盘的架构特性 
+hdparm -tT /dev/sda   在磁盘上执行测试性读取操作 
+cat /proc/cpuinfo     显示CPU info的信息 
+cat /proc/interrupts  显示中断 
+cat /proc/meminfo     校验内存使用 
+cat /proc/swaps       显示哪些swap被使用 
+cat /proc/version     显示内核的版本 
+cat /proc/net/dev     显示网络适配器及统计 
+cat /proc/mounts      显示已加载的文件系统 
+lspci -tv             罗列 PCI 设备 
+lsusb -tv             显示 USB 设备 
+date                  显示系统日期 
+</code></pre></div></div>
+
+<p><br />
 <br /> 
 <br /> 
 <br /> 
 <br /> 
-转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2020/03/wenzikong/"> Android 文字点阵图的水波纹动画 </a><br />
+<br /> 
+<br /> 
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2020/03/Node-Linux/"> Linux 基本命令 </a><br />
 <br /></p>
 
 
@@ -411,15 +468,15 @@
   <ul class="pager">
     
     <li class="previous">
-      <a href="/2020/03/Node-Linux/" data-toggle="tooltip"
-        data-placement="top" title="Linux 基本命令">上一篇： <span>Linux 基本命令</span>
+      <a href="/2020/03/jetpack/" data-toggle="tooltip"
+        data-placement="top" title="Android Jetpack 组件开发 初识">上一篇： <span>Android Jetpack 组件开发 初识</span>
       </a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/05/android_drawable/" data-toggle="tooltip"
-        data-placement="top" title="Android 图片放错位置无所谓？">下一篇： <span>Android 图片放错位置无所谓？</span>
+      <a href="/2020/03/wenzikong/" data-toggle="tooltip"
+        data-placement="top" title="Android 文字点阵图的水波纹动画">下一篇： <span>Android 文字点阵图的水波纹动画</span>
       </a>
     </li>
     
