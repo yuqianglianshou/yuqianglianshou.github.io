@@ -2,7 +2,7 @@
 layout: post  
 title: 初识 JavaScript 的不解 
 date: 2018-03-17  
-tags:  技术
+tags:  笔记
 ---
 ### 待整理格式化  
  
