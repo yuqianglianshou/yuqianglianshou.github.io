@@ -404,6 +404,10 @@
 <loc>http://localhost:4000/page/5/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/game/night_sky/</loc>
+<lastmod>2023-07-07T02:36:51+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/krpano/pano_nomal_room_2500_1250/</loc>
 <lastmod>2019-04-30T16:27:13+08:00</lastmod>
 </url>
@@ -458,9 +462,5 @@
 <url>
 <loc>http://localhost:4000/krpano/vtour_yd_tianmian3_beifen/tour.html</loc>
 <lastmod>2019-04-30T16:27:14+08:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/night_sky/</loc>
-<lastmod>2021-11-26T18:59:29+08:00</lastmod>
 </url>
 </urlset>
