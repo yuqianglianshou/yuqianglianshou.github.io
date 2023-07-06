@@ -12,6 +12,7 @@ tags:  笔记
 * 终端命令查看环境变量 echo $变量名
 * 绝对路径直达 command+shift+G
 * 打开刚关闭的网页 command+shift+T
+* 刷新网页 command+R
 
 ## Visual Studio Code 快捷键(mac) ##
 * 打开控制台 command+shift+Y
