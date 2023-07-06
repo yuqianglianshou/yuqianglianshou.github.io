@@ -6,6 +6,9 @@ description: 欢迎来到我的个人站~
 avatarTitle: 喜欢你
 # 头像里面的描述
 avatarDesc: 那双眼动人
+
+# welcome_message: 总会有地上的生灵，敢于直面雷霆的威光。
+
 url: ""
 
 # Social
@@ -44,6 +47,7 @@ nav:
     - { title: 所有文章, description: archive, url: "/archive" }
     - { title: 标签, description: tags, url: "/tags" }
     - { title: 关于他, description: about, url: "/about" }
+    - { title: 小玩乐, target: _blank, description: 小玩乐, url: "/game/mikutap-master" }
 
 # Pagination
 gems: [jekyll-paginate, jekyll-sitemap]
