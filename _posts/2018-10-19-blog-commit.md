@@ -1,23 +1,23 @@
 ---
 layout: post  
-title: 记忆会丢掉的东西   
+title: 各种易忘   
 date: 2018-10-19  
-tags:  技术
+tags:  笔记
 ---
 ### 现在的你，是否还顾及的上曾经的理想？  
 
-#### Mac 常用键
+## Mac book 常用快捷键 ##
 * 截图 command+shift+4
 * 显示隐藏文件 command+shift+.
 * 终端命令查看环境变量 echo $变量名
 * 绝对路径直达 command+shift+G
 * 打开刚关闭的网页 command+shift+T
 
-#### Visual Studio Code 快捷键(mac)
+## Visual Studio Code 快捷键(mac) ##
 * 打开控制台 command+shift+Y
 * 格式化代码 option+shift+F
 
-#### 博客提交（mac）  
+## 博客运行相关（mac）  ##
 1，vscode 打开控制台 command+shift+Y
 
 2，jekyll build 编译
@@ -25,9 +25,9 @@ tags:  技术
 
 3，http://127.0.0.1:4000/ 浏览器打开
 
-4，Github 客户端提交
+4，在Github 客户端上提交代码
 
-#### 博客提交（windows）  
+## 博客运行相关（windows）  ##
 1，jekyll搭建的博客目录下右键  Git Bash Here  
 
 2， 运行服务 jekyll serve  
@@ -44,7 +44,7 @@ tags:  技术
 
 6，  git push origin master    -----提交到远程仓库
 
-#### ionic 相关
+## ionic 相关 ##
 * ionic serve
 * ionic cordova build android 
 * npm -v
