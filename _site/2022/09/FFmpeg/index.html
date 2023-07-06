@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>FFmpeg</title>
+  <meta name="description"
+    content="我的嘴角上扬，和月亮肩并肩。">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title"
+    content="FFmpeg">
+  <meta name="twitter:description"
+    content="我的嘴角上扬，和月亮肩并肩。">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title"
+    content="FFmpeg">
+  <meta property="og:description"
+    content="我的嘴角上扬，和月亮肩并肩。">
+
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link rel="stylesheet" href=" /css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2022/09/FFmpeg/">
+  <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
+
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+  <!-- 不蒜子 静态网页计数器 -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+
+  <!-- 百度统计 -->
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?448a543d198250efd139ee3057313375";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+
+  <!-- google 统计 -->
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9005224472374751",
+      enable_page_level_ads: true
+    });
+  </script>
+
+</head>
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于他
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed"
+  style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+      <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+          <a href="/#blog" title="前往 劉清揚 的主页" class="blog-button">
+            <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+            <div class="info">
+              <div class="info-back">
+                <h2>
+                  
+                  喜欢你
+                  
+                </h2>
+                <p>
+                  
+                  那双眼动人
+                  
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for 劉清揚"
+            class="blog-button">劉清揚</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">个人站</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">欢迎来到我的个人站~</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        
+
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title=""
+                    class="blog-button">博客主页</a></li>
+                
+                <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                <li class="navigation__item"><a href="/about" title="about">关于他</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="panel-cover--overlay cover-clear"></div>
+  
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">FFmpeg</h1>
+    <div class="post-meta">
+      <img src="/images/calendar.png" width="20px"/> 
+      <time datetime="2022-09-12 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-09-12</time>  
+         
+      <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+    <h3 id="我的嘴角上扬和月亮肩并肩">我的嘴角上扬，和月亮肩并肩。</h3>
+
+<h2 id="介绍">介绍</h2>
+
+<p>FFmpeg是一个开源的跨平台多媒体框架，它可以用于处理音频、视频和多媒体流。它提供了一组强大的工具和库，可以用于音视频的录制、转码、编辑、流媒体和播放等操作。</p>
+
+<p>以下是FFmpeg的一些主要特点和功能：</p>
+
+<p>格式支持：FFmpeg支持广泛的音视频格式，包括常见的MP4、AVI、MKV、MP3、AAC等，以及更多的专有格式和编解码器。它可以读取和写入不同格式之间的转换。</p>
+
+<p>编解码器：FFmpeg包含众多音视频编解码器，可以对音频和视频进行解码和编码。这使得它可以处理不同编码格式的媒体文件，并实现高效的压缩和解压缩。</p>
+
+<p>滤镜和特效：FFmpeg提供了丰富的滤镜和特效，可以对音频和视频进行处理和改善。例如，你可以应用图像调整、色彩校正、降噪、模糊、剪裁等效果，以及音频均衡器、混响、消除噪声等处理。</p>
+
+<p>转码和转换：FFmpeg可以将一个媒体文件转换为另一种格式或编码方式，实现音视频的转码和转换。你可以调整分辨率、帧率、比特率等参数，以满足不同的需求。</p>
+
+<p>流媒体：FFmpeg支持音视频的实时流媒体传输，可以将音视频内容通过网络进行直播或点播。它可以与流媒体服务器配合使用，如RTMP、HLS、UDP等，实现音视频的传输和分发。</p>
+
+<p>命令行工具：FFmpeg提供了命令行工具，可以通过命令行界面执行各种音视频处理任务。这使得它非常适合自动化和批处理操作。</p>
+
+<p>除了上述功能之外，FFmpeg还具有很好的跨平台性，可在多个操作系统上运行，包括Windows、Mac OS、Linux等。它还有一个活跃的开发社区，不断更新和改进功能。</p>
+
+<h2 id="安装查看">安装查看</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//安装
+brew install ffmpeg
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//版本信息
+ffmpeg -version  
+
+结果：
+ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
+built with Apple clang version 14.0.0 (clang-1400.0.29.202)
+configuration: --prefix=/usr/local/Cellar/ffmpeg/6.0 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox
+libavutil      58.  2.100 / 58.  2.100
+libavcodec     60.  3.100 / 60.  3.100
+libavformat    60.  3.100 / 60.  3.100
+libavdevice    60.  1.100 / 60.  1.100
+libavfilter     9.  3.100 /  9.  3.100
+libswscale      7.  1.100 /  7.  1.100
+libswresample   4. 10.100 /  4. 10.100
+libpostproc    57.  1.100 / 57.  1.100
+</code></pre></div></div>
+
+<h2 id="使用">使用</h2>
+
+<p><strong>查看文件信息</strong></p>
+
+<p>示例:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.mp3  
+
+结果：  
+ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
+  built with Apple clang version 14.0.0 (clang-1400.0.29.202)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/6.0 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox
+  libavutil      58.  2.100 / 58.  2.100
+  libavcodec     60.  3.100 / 60.  3.100
+  libavformat    60.  3.100 / 60.  3.100
+  libavdevice    60.  1.100 / 60.  1.100
+  libavfilter     9.  3.100 /  9.  3.100
+  libswscale      7.  1.100 /  7.  1.100
+  libswresample   4. 10.100 /  4. 10.100
+  libpostproc    57.  1.100 / 57.  1.100
+Input #0, mp3, from '/Users/liuqiang/Desktop/我的歌声里.mp3':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: M4A mp42isom
+    title           : 我的歌声里
+    album           : Everything In The World
+    artist          : 曲婉婷
+    iTunSMPB        :  00000000 00000A40 0000006C 000000000091C554 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+    encoder         : Lavf60.3.100
+  Duration: 00:03:36.66, start: 0.025057, bitrate: 128 kb/s
+  Chapters:
+    Chapter #0:0: start 0.000000, end 216.689000
+      Metadata:
+        title           : 我的歌声里
+  Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 128 kb/s
+    Metadata:
+      encoder         : Lavc60.3.
+At least one output file must be specified
+</code></pre></div></div>
+
+<p><strong>文件编码格式转换</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//将M4A格式的音频文件转换为MP3格式
+ffmpeg -i input.m4a -acodec mp3 -vn output.mp3  
+
+//其中，input.m4a是要转换的M4A文件的路径和文件名，output.mp3是转换后的MP3文件的路径和文件名。您可以根据需要自定义文件名和路径。  
+//示例:   
+ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.m4a  -acodec mp3 -vn /Users/liuqiang/Desktop/我的歌声里.mp3 
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//转成 H.264 编码
+ffmpeg -i out.mp4 -c:v libx264 output.mp4
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//转成 H.265 编码
+ffmpeg -i out.mp4 -c:v libx265 output.mp4
+</code></pre></div></div>
+
+<p><strong>音视频提取</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//提取音频
+ffmpeg -i origin.mp4 -acodec copy -vn voice.aac
+
+解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出音频文件
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 提取视频
+ffmpeg -i origin.mp4 -vcodec copy -an video0.mp4
+
+解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出视频文件
+</code></pre></div></div>
+
+<p><br />
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2022/09/FFmpeg/"> FFmpeg </a><br />
+<br /></p>
+
+
+  </section>
+</article>
+
+<section>
+
+  <div class="content-play">
+    <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="此中有真意">不能点</a></p>
+    <div class="hide_box-play"></div>
+    <div class="shang_box-play">
+      <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img
+          src="/images/payimg/close.jpg" alt="取消" /></a>
+      <div class="shang_tit-play">
+        <p>白茶清风无别事，我在等风也等你</p>
+      </div>
+      <div class="shang_payimg">
+        <img src="/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+      </div>
+      <div class="shang_payimg">
+        <img src="/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+      </div>
+      <div class="pay_explain">三十六计，走为上计</div>
+      <div class="shang_payselect">
+        <div class="pay_item checked" data-id="alipay">
+          <span class="pay_logo"><img src="/images/payimg/alipay.jpg" alt="支付宝" /></span>
+        </div>
+        <div class="pay_item" data-id="weipay">
+          <span class="pay_logo"><img src="/images/payimg/wechat.jpg" alt="微信" /></span>
+        </div>
+      </div>
+      <div class="shang_info-play">
+        <p><span id="shang_pay_txt">欲辨已忘言</span></p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function dashangToggle() {
+      $(".hide_box-play").fadeToggle();
+      $(".shang_box-play").fadeToggle();
+    }
+  </script>
+
+  <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+  <style type="text/css">
+    .content-play {
+      width: 80%;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      height: 40px;
+    }
+
+    .hide_box-play {
+      z-index: 999;
+      filter: alpha(opacity=50);
+      background: #666;
+      opacity: 0.5;
+      -moz-opacity: 0.5;
+      left: 0;
+      top: 0;
+      height: 99%;
+      width: 100%;
+      position: fixed;
+      display: none;
+    }
+
+    .shang_box-play {
+      width: 540px;
+      height: 540px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      position: fixed;
+      z-index: 1000;
+      left: 50%;
+      top: 50%;
+      margin-left: -280px;
+      margin-top: -280px;
+      border: 1px dotted #dedede;
+      display: none;
+    }
+
+    .shang_box-play img {
+      border: none;
+      border-width: 0;
+    }
+
+    .dashang {
+      display: block;
+      width: 100px;
+      margin: 5px auto;
+      height: 25px;
+      line-height: 25px;
+      padding: 10px;
+      background-color: #E74851;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .dashang:hover {
+      opacity: 0.8;
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    .shang_close-play {
+      float: right;
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 20px;
+    }
+
+    .shang_logo {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .shang_tit-play {
+      width: 100%;
+      height: 75px;
+      text-align: center;
+      line-height: 66px;
+      color: #a3a3a3;
+      font-size: 16px;
+      background: url('/images/payimg/cy-reward-title-bg.jpg');
+      font-family: 'Microsoft YaHei';
+      margin-top: 7px;
+      margin-right: 2px;
+    }
+
+    .shang_tit-play p {
+      color: #a3a3a3;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .shang_payimg {
+      width: 140px;
+      padding: 10px;
+      padding-left: 80px;
+      /*border:6px solid #EA5F00;**/
+      margin: 0 auto;
+      border-radius: 3px;
+      height: 140px;
+      display: inline-block;
+    }
+
+    .shang_payimg img {
+      display: inline-block;
+      margin-right: 10px;
+      float: left;
+      text-align: center;
+      width: 140px;
+      height: 140px;
+    }
+
+    .pay_explain {
+      text-align: center;
+      margin: 10px auto;
+      font-size: 12px;
+      color: #545454;
+    }
+
+    .shang_payselect {
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 40px;
+      cursor: pointer;
+      height: 60px;
+      width: 500px;
+      margin-left: 110px;
+    }
+
+    .shang_payselect .pay_item {
+      display: inline-block;
+      margin-right: 140px;
+      float: left;
+    }
+
+    .shang_info-play {
+      clear: both;
+    }
+
+    .shang_info-play p,
+    .shang_info-play a {
+      color: #C3C3C3;
+      text-align: center;
+      font-size: 12px;
+      text-decoration: none;
+      line-height: 2em;
+    }
+  </style>
+
+  <ul class="pager">
+    
+    <li class="previous">
+      <a href="/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/" data-toggle="tooltip"
+        data-placement="top" title="我,为什么要努力?">上一篇： <span>我,为什么要努力?</span>
+      </a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/" data-toggle="tooltip"
+        data-placement="top" title="Android 后门程序">下一篇： <span>Android 后门程序</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
+<section class="post-comments">
+
+  
+
+</section>
+
+            <section class="footer">
+  <footer>
+    <div class="footer_div">
+      <nav class="cover-navigation navigation--social">
+        <ul class="navigation">
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/yuqianglianshou" title="yuqianglianshou 的 Github"
+              target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='social fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:2465199797@qq.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+
+          
+
+          
+          <!-- 冥想空间 -->
+          <li class="navigation__item_social">
+            <a href="/night_sky/" target="_blank" title="relax">
+              <!-- https://www.thinkcmf.com/font/font_awesome/icons.html -->
+              <!-- 视频播放图标 -->
+              <i class='fa fa-play-circle fa-2x'></i>
+              <span class="label">Sky</span>
+            </a>
+          </li>
+
+          
+
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="footer_div">
+      <p class="copyright text-muted">
+        Copyright &copy; 劉清揚 2023 Theme by
+        <a href="http://yuqianglianshou.com/">yuqianglianshou</a>
+
+      </p>
+      <div align="right">
+        <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- 访问统计 -->
+        <span id="busuanzi_container_site_pv">
+          本站总访问量
+          <span id="busuanzi_value_site_pv"></span>次
+        </span>
+
+      </div>
+      <div>
+  </footer>
+</section>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+    
+  </body>
+
+</html>
