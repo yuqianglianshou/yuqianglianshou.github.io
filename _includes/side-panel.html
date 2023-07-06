@@ -4,6 +4,7 @@
 
     <div class="panel-main__inner panel-inverted">
       <div class="panel-main__content">
+        
         <!-- 头像效果-start -->
         <div class="ih-item circle effect right_to_left">
           <a href="/#blog" title="前往 {{ site.title }} 的主页" class="blog-button">
@@ -25,6 +26,8 @@
           </a>
         </div>
         <!-- 头像效果-end -->
+
+
         <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for {{ site.title }}"
             class="blog-button">{{ site.title }}</a></h1>
         {% if site.subtitle %}
@@ -39,6 +42,7 @@
         {% endif %}
 
 
+        <!-- 博客主页，所有文章，标签，关于他，小玩乐  调用 _config.yml 中的 nav -->
         <div class="navigation-wrapper">
           <div>
             <nav class="cover-navigation cover-navigation--primary">
@@ -46,8 +50,17 @@
                 <li class="navigation__item"><a href="/#blog" title="{{site.blog_button.description}}"
                     class="blog-button">{{site.blog_button.title}}</a></li>
                 {% for item in site.nav %}
+
+                {% if item.title == '小玩乐' %}
+                <!-- 小玩乐 以新的标签页打开 target="_blank"-->
+                <li class="navigation__item"><a href="{{item.url}}" target="_blank"
+                    title="{{item.description}}">{{item.title}}</a></li>
+                {% else %}
                 <li class="navigation__item"><a href="{{item.url}}" title="{{item.description}}">{{item.title}}</a></li>
+                {% endif %}
+
                 {% endfor %}
+
               </ul>
             </nav>
           </div>
