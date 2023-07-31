@@ -17,8 +17,8 @@ social:
 
     mail: 2465199797@qq.com
 
-    # 冥想空间
-    sky: relax
+    # 冥想空间 屏蔽20230726
+    # sky: 冥想空间
 
 # 百度统计
 # 使用博客模板请去掉或者更换 id
@@ -47,7 +47,7 @@ nav:
     - { title: 所有文章, description: archive, url: "/archive" }
     - { title: 标签, description: tags, url: "/tags" }
     - { title: 关于他, description: about, url: "/about" }
-    - { title: 小玩乐, target: _blank, description: 小玩乐, url: "/game/mikutap-master" }
+    - { title: 小玩乐, target: _blank, description: 小玩乐, url: "/module_xiaowanle/page/page_main" }
 
 # Pagination
 gems: [jekyll-paginate, jekyll-sitemap]
