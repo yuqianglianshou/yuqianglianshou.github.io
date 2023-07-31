@@ -1,0 +1,97 @@
+		/*实现背景图片透明，内容不透明*/
+		#music {
+			width: 500px;
+			height: 500px;
+			border-radius: 10px;
+			margin: 40px auto;
+			position: relative;
+			background: url('../image/神龙.jpg') no-repeat;
+			background-size: cover;
+			text-align: center;
+		}
+
+		#container {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			width: 500px;
+			height: 500px;
+			text-align: center;
+			background: rgba(255, 255, 255, 0.6);
+		}
+
+		/*实现背景图片透明，内容不透明*/
+		#musicImg {
+			width: 280px;
+			height: 280px;
+			border-radius: 50%;
+		}
+
+		audio {
+			display: block;
+			margin: 20px auto;
+		}
+
+		#musicName {
+			padding-top: 10px;
+			line-height: 30px;
+			color: #cc1b1b;
+		}
+
+		.btn>button {
+			width: 60px;
+			height: 30px;
+			border-radius: 10px;
+			background: skyblue;
+		}
+
+		/* 数组所有音乐 start*/
+		.allShow {
+			padding: 10px 0px;
+			position: absolute;
+			left: 54px;
+			top: 50px;
+			width: 480px;
+			height: 800px;
+			background-color: #f0f0f0;
+			border-radius: 5px;
+			box-shadow: 1px 2px #ccc;
+			font: 16px '楷体';
+			overflow: auto;
+		}
+
+		.allShow ul {
+			list-style-type: none;
+		}
+
+		.allShow ul li {
+			height: 40px;
+			line-height: 38px;
+			color: #22CF72;
+			border-radius: 6px;
+			cursor: pointer;
+			overflow: hidden;
+			border-bottom: 1px solid #bb22cf22;
+			transition: background 1s linear;
+		}
+
+		/* 歌名 */
+		.allShow ul li a {
+			display: inline-block;
+			width: 240px;
+			padding-left: 16px;
+		}
+
+		/* cover */
+		.allShow ul li i {
+			margin-left: 10px;
+		}
+
+		.allShow ul li:HOVER {
+			background-color: #B6C6D5;
+			color: rgb(190, 21, 21);
+		}
+
+		/* 数组所有音乐 end*/

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 适配移动端 https://www.cnblogs.com/gaogch/p/10628613.html-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="/images/icon.jpeg" />
+
+    <title>music</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+    <div id="music">
+        <div id="container">
+            <h3 id="musicName">歌名</h3>
+            <img id="musicImg" src="image/神龙.jpg" alt="">
+            <audio src="music/布拉格广场.mp3" controls id="myAudio"></audio>
+            <div class="btn">
+                <button id="musicPlay">play</button>
+                <button id="pause">pause</button>
+                <button id="prev">prev</button>
+                <button id="next">next</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            //三行五列的二维数组 歌曲列表
+            //名字 ， cover ， 存储目录 ， 使用图片路径 ， 备用字段
+            const musicArray = [
+                ["玫瑰花的葬礼.mp3", "蔡依林,周杰伦", "music/", "image/神龙.jpg", 0],
+                ["逆战.mp3", "薛之谦", "music/", "image/十月.jpg", 0],
+                ["偏爱.mp3", "胡歌", "music/", "image/神龙.jpg", 0]
+            ];
+
+            var myAudio = document.getElementById("myAudio");
+            //当前播放位置记录
+            var nowMusicNum = 0;
+
+            //设置第一手歌的信息
+            setPlay(nowMusicNum);
+
+            //设置播放清单
+            for (var i = 0; i < musicArray.length; i++) {
+                (function (k) {
+                    $(".allShow ul").append("<li><i>" + (i + 1) + ".</i><a>" + musicArray[i][0] + "</a><span>" + musicArray[i][1] + "</span>")
+                })(i)
+            }
+
+            // 播放
+            $("#musicPlay").click(function () {
+                if (myAudio.paused) {
+                    myAudio.play();
+                }
+            })
+
+            // 暂停
+            $("#pause").click(function () {
+                if (myAudio.played) {
+                    myAudio.pause();
+                }
+            })
+
+            // 上一首
+            $("#prev").click(function () {
+                nowMusicNum--;
+
+                if (nowMusicNum < 0) {
+                    nowMusicNum = musicArray.length - 1;
+                }
+                setPlay(nowMusicNum);
+            })
+
+            // 下一首
+            $("#next").click(function () {
+                nowMusicNum++;
+
+                if (nowMusicNum > (musicArray.length - 1)) {
+                    nowMusicNum = 0;
+                }
+                setPlay(nowMusicNum);
+
+            })
+
+            // 自动切换下一首
+            myAudio.addEventListener('ended', function () {
+                $("#next").trigger("click");
+            }, false);
+
+
+            /* 列表点击播放 */
+            $(document).on('click', ".allShow ul li", function () {
+                nowMusicNum = $(this).index();
+                setPlay(nowMusicNum);
+            });
+
+            function setPlay(position) {
+                console.log(position);
+                var musicNameTem = musicArray[position][0];// 七里香.mp3
+                var musicAuthTem = musicArray[position][1];// 周杰伦
+                var musicPath = musicArray[position][2];// music/
+                var musicImg = musicArray[position][3];// image/十月.jpg
+
+                $("#myAudio").attr("src", musicPath + musicNameTem + "");
+                $("#musicName").text(musicAuthTem + " --  " + musicNameTem)
+
+                $("#musicImg").attr("src", musicImg);
+                $("#music").css("background-image", "url(" + musicImg + ")");
+                myAudio.play()
+                    .then(() => {
+                        console.log("音频开始播放");
+                    })
+                    .catch(error => {
+                        console.error("无法播放音频: ", error);
+                    });
+
+            }
+
+        })
+
+
+    </script>
+
+    <!-- 列表 -->
+    <div class="allShow">
+        <ul>
+
+        </ul>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 适配移动端 https://www.cnblogs.com/gaogch/p/10628613.html-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="/images/icon.jpeg" />
+
+    <title>小玩乐</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- gallay 图片 -->
+    <link href="https://cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+</head>
+
+<body>
+    <div class="logo">
+        <img src="/images/icon.jpeg" alt="" width="200px">
+        <h4>小玩乐</h4>
+        <p>绝版的昨天</p>
+    </div>
+
+    <!-- game  button -->
+
+    <div class="game-box">
+        <a class="game-btn" href="/module_xiaowanle/game/mikutap-master/index.html" target="_blank">
+            <!-- <i class="fab fa-github"></i> -->
+            <p>奏乐</p>
+        </a>
+        <a class="game-btn" href="/module_xiaowanle/game/night_sky/index.html" target="_blank">
+            <p>冥想</p>
+        </a>
+        <a class="game-btn" href="../page_music2/index.html" target="_blank">
+            <p>听歌</p>
+        </a>
+
+    </div>
+
+    <!-- 图片 -->
+    <div class="gallery">
+        <a href="./imgs/1.jpg" class="image">
+            <img src="./imgs/1.jpg" alt="" />
+        </a>
+        <a href="./imgs/2.jpg" class="image">
+            <img src="./imgs/2.jpg" alt="" />
+        </a>
+        <a href="./imgs/3.jpg" class="image">
+            <img src="./imgs/3.jpg" alt="" />
+        </a>
+        <a href="./imgs/4.jpg" class="image">
+            <img src="./imgs/4.jpg" alt="" />
+        </a>
+
+        <a href="./imgs/5.png" class="image">
+            <img src="./imgs/5.png" alt="" />
+        </a>
+        <a href="./imgs/6.png" class="image">
+            <img src="./imgs/6.png" alt="" />
+        </a>
+        <a href="./imgs/7.png" class="image">
+            <img src="./imgs/7.png" alt="" />
+        </a>
+        <a href="./imgs/8.png" class="image">
+            <img src="./imgs/8.png" alt="" />
+        </a>
+    </div>
+
+    <!-- 视频 -->
+    <div class="video-box">
+
+        <div class="video-box-child">
+            <h3>我们都过了耳听爱情的年纪了</h3>
+            <div class="video">
+                <video width="400px" height="" controls="controls">
+                    <source src="./video/我们都过了耳听爱情的年纪了.mp4" type="video/mp4">
+                    </source>
+                </video>
+            </div>
+        </div>
+
+        <div class="video-box-child">
+            <h3>我希望有个如你一般的人</h3>
+            <div class="video">
+                <video width="400px" height="" controls="controls">
+                    <source src="./video/我希望有个如你一般的人.mp4" type="video/mp4">
+                    </source>
+                </video>
+            </div>
+        </div>
+
+        <div class="video-box-child">
+            <h3>你是谁啊</h3>
+            <div class="video">
+                <video width="400px" height="" controls="controls">
+                    <source src="./video/你是谁啊.mp4" type="video/mp4">
+                    </source>
+                </video>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- gallay 图片 -->
+    <script>
+        $('.gallery').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        })
+    </script>
+
+</body>
+
+</html>
