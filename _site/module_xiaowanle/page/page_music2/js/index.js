@@ -88,6 +88,9 @@ const goHomedelayTime = 2500
 const transitionIntervalTime = 20
 const transitionReduceNum = 50
 
+// renderCollectList() - 初始化收藏列表歌曲
+let collectListItem = $('[collect-list-item]')
+
 
 /**
   * Helper
@@ -140,8 +143,9 @@ const updatePlayInfo = function () {
     })
   }
 
-  audioSource.src = playLists[currentMusic].musicPath
-  console.log("当前 播放  === " + currentMusic + "    " + playLists[currentMusic].name + "  " + playLists[currentMusic].musicPath)
+  // audioSource.src = playLists[currentMusic].musicPath
+  audioSource.src = FILE_MUSIC_ROOT + playLists[currentMusic].type_en + playLists[currentMusic].name_all
+  console.log("当前 播放  === " + currentMusic + "    " + playLists[currentMusic].name + "  " )
 
   // 更新歌词
   renderLyrics()
@@ -183,23 +187,35 @@ addEventOnElements(closePanelBtn, 'click', togglePanel)
  * 
  */
 const getCurrentMusicLyrics = function () {
-  for (let [idx, data] of lyricsLists.entries()) {
-    if (data.musicId === playLists[currentMusic].id) {
-      return {
-        'text': data.text,
-        'timer': data.timer
-      }
-    } else {
-      return {
-        'text': ['暂无歌词'],
-        'timer': []
+
+  if(playLists[currentMusic].author === "纯音乐"){
+
+    console.log(currentMusic+"  加载歌词 纯音乐")
+    return {
+      'text': ['纯音乐'],
+      'timer': []
+    }
+  }else{
+    console.log(currentMusic+"  加载歌词 2 ")
+
+    for (let [idx, data] of lyricsLists.entries()) {
+      if (data.musicName === playLists[currentMusic].name) {
+        return {
+          'text': data.text,
+          'timer': data.timer
+        }
+      } else {
+        return {
+          'text': ['暂无歌词'],
+          'timer': []
+        }
       }
     }
   }
-  console.log(currentMusic)
+
 }
-let currentMusicLyrics = getCurrentMusicLyrics().text
-let currentLyricsTimer_init = getCurrentMusicLyrics().timer
+let currentMusicLyrics = ""
+let currentLyricsTimer_init = ""
 let currentLyricsTimer_change = [...currentLyricsTimer_init]
 
 
@@ -210,8 +226,10 @@ let currentLyricsTimer_change = [...currentLyricsTimer_init]
  * 
  */
 const renderLyrics = function () {
-  currentMusicLyrics = getCurrentMusicLyrics().text
-  currentLyricsTimer_init = getCurrentMusicLyrics().timer
+  var arr = getCurrentMusicLyrics()
+  currentMusicLyrics = arr.text
+  currentLyricsTimer_init = arr.timer
+  currentLyricsTimer_change = [...currentLyricsTimer_init]
   // console.log(currentMusicLyrics)
   playLyrics.innerHTML = ''
   for (let [idx, data] of currentMusicLyrics.entries()) {
@@ -503,7 +521,16 @@ const musicPlayEnd = function () {
     })
     // 列表循环
     if (playMode == 1) {
-      playSkipNext()
+      // playSkipNext()
+      // 获取具有 "next" id 属性的元素
+      const nextButton = document.getElementById("next");
+
+      // 创建一个新的点击事件
+      const clickEvent = new Event("click");
+
+      // 触发点击事件
+      nextButton.dispatchEvent(clickEvent);
+
     }
   }
 }
@@ -538,6 +565,14 @@ const playMusic = function (e) {
       btn.classList.add("playing")
       btn.classList.remove("pause")
     })
+
+    //列表(收藏歌单、) 选中样式
+    for (let i = 0; i < collectListItem.children.length; i++) {
+      collectListItem.children[i].classList.remove('active')
+      // playRecordList.children[i].classList.remove('active')
+    }
+    collectListItem.children[currentMusic].classList.add('active')
+    // playRecordList.children[currentMusic].classList.add('active')
 
     playImgBorad.classList.toggle('active')
 
@@ -686,6 +721,59 @@ const muteVolume = function (e) {
   }
 }
 playVolumeIcon.addEventListener("click", muteVolume);
+
+/**
+ * playSelectMusic()
+ * 播放选中的音乐
+ * 
+ */
+const playSelectMusic = function (e) {
+  currentMusic = this.dataset.id
+  let playArray = Array.from(this.parentNode.children)
+
+  playArray.forEach((element) => {
+    element.classList.remove('active')
+  })
+  this.classList.add('active')
+
+  playingTool()
+}
+
+/**
+ * renderCollectList()
+ * 初始化 收藏列表
+ */
+const renderCollectList = function () {
+  for (let [idx, music] of playLists.entries()) {
+    // console.log(idx)
+    collectListItem.innerHTML += `
+    <div class="contentList-item flex fs-14 fw-5"  data-id='${idx}'>
+      <div class="item-img">
+        <img src="${music.imgPath_70}" alt="">
+      </div>
+      <div class="item-title text-ol ">${music.name}</div>
+      <div class="item-author text-ol underline ">${music.author}</div>
+      <div class="item-album text-ol underline ">${music.type}</div>
+      <div class="item-totalTime text-ol flex">${music.time}</div>
+      <div class="item-moreIcon">
+        <span class="moreIcon flex">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"
+            class="icon " stroke-width="5" stroke-linecap="butt" stroke-linejoin="miter"
+            data-v-85cbcb09="">
+            <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z" fill="currentColor" stroke="none">
+            </path>
+            <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z"></path>
+          </svg>
+        </span>
+      </div>
+    </div>                 
+    `
+  }
+  addEventOnElementChildren(collectListItem, 'dblclick', playSelectMusic)
+}
+renderCollectList()
+
+
 
 /**
  * Start()

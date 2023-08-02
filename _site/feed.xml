@@ -4,10 +4,10 @@
   <channel>
     <title>劉清揚</title>
     <description>欢迎来到我的个人站~</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 31 Jul 2023 18:10:51 +0800</pubDate>
-    <lastBuildDate>Mon, 31 Jul 2023 18:10:51 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 02 Aug 2023 16:33:29 +0800</pubDate>
+    <lastBuildDate>Wed, 02 Aug 2023 16:33:29 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
     <item>
@@ -96,8 +96,8 @@
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Sun, 23 Jul 2023 00:00:00 +0800</pubDate>
-      <link>/2023/07/%E6%97%A5%E8%AE%B0/</link>
-      <guid isPermaLink="true">/2023/07/%E6%97%A5%E8%AE%B0/</guid>
+      <link>http://localhost:4000/2023/07/%E6%97%A5%E8%AE%B0/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/07/%E6%97%A5%E8%AE%B0/</guid>
         
       <category>人生</category>
         
@@ -168,8 +168,8 @@ chrome-extension, chrome, https, chrome-untrusted.
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Thu, 06 Jul 2023 00:00:00 +0800</pubDate>
-      <link>/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</link>
-      <guid isPermaLink="true">/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</guid>
+      <link>http://localhost:4000/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</guid>
         
       <category>技术</category>
         
@@ -238,8 +238,8 @@ chrome-extension, chrome, https, chrome-untrusted.
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Tue, 16 May 2023 00:00:00 +0800</pubDate>
-      <link>/2023/05/AI%E8%AF%AD%E9%9F%B3/</link>
-      <guid isPermaLink="true">/2023/05/AI%E8%AF%AD%E9%9F%B3/</guid>
+      <link>http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3/</guid>
         
       <category>技术</category>
         
@@ -391,8 +391,8 @@ LLM虽然是一个“听人类的话并用人类的话回应”的机器，但�
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0800</pubDate>
-      <link>/2023/03/ChatGPT/</link>
-      <guid isPermaLink="true">/2023/03/ChatGPT/</guid>
+      <link>http://localhost:4000/2023/03/ChatGPT/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/03/ChatGPT/</guid>
         
       <category>技术</category>
         
@@ -455,8 +455,8 @@ X炸弹和Y炸弹同时都在农民甲手中的组合数为 26！/9！，&lt;br 
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Tue, 03 Jan 2023 00:00:00 +0800</pubDate>
-      <link>/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E5%87%BA%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97_%E5%9C%B0%E4%B8%BB%E6%96%B9/</link>
-      <guid isPermaLink="true">/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E5%87%BA%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97_%E5%9C%B0%E4%B8%BB%E6%96%B9/</guid>
+      <link>http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E5%87%BA%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97_%E5%9C%B0%E4%B8%BB%E6%96%B9/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E5%87%BA%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97_%E5%9C%B0%E4%B8%BB%E6%96%B9/</guid>
         
       <category>斗地主中的排列组合分析</category>
         
@@ -732,8 +732,8 @@ X Y Z， X Y J, X Y K，X Y L，X Z J, X Z K，X Z L，X J K，X J L，X K L，Y
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Mon, 02 Jan 2023 00:00:00 +0800</pubDate>
-      <link>/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</link>
-      <guid isPermaLink="true">/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</guid>
+      <link>http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</guid>
         
       <category>斗地主中的排列组合分析</category>
         
@@ -800,8 +800,8 @@ X Y Z， X Y J, X Y K，X Y L，X Z J, X Z K，X Z L，X J K，X J L，X K L，Y
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0800</pubDate>
-      <link>/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
-      <guid isPermaLink="true">/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      <link>http://localhost:4000/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
         
       <category>人生</category>
         
@@ -976,8 +976,8 @@ msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Wed, 23 Nov 2022 00:00:00 +0800</pubDate>
-      <link>/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</link>
-      <guid isPermaLink="true">/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</guid>
+      <link>http://localhost:4000/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</guid>
         
       <category>技术</category>
         
@@ -1115,8 +1115,8 @@ ffmpeg -i origin.mp4 -vcodec copy -an video0.mp4
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Mon, 12 Sep 2022 00:00:00 +0800</pubDate>
-      <link>/2022/09/FFmpeg/</link>
-      <guid isPermaLink="true">/2022/09/FFmpeg/</guid>
+      <link>http://localhost:4000/2022/09/FFmpeg/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/09/FFmpeg/</guid>
         
       <category>技术</category>
         
@@ -1158,8 +1158,8 @@ ffmpeg -i origin.mp4 -vcodec copy -an video0.mp4
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Fri, 15 Jul 2022 00:00:00 +0800</pubDate>
-      <link>/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/</link>
-      <guid isPermaLink="true">/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/</guid>
+      <link>http://localhost:4000/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/</guid>
         
       <category>人生</category>
         

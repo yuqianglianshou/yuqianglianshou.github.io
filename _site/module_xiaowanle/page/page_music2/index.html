@@ -122,7 +122,7 @@
                             </div>
                             <!-- 下一首 -->
                             <!-- class play-btn -->
-                            <div class="btn-next flex" play-next-btn>
+                            <div class="btn-next flex" play-next-btn id="next">
                                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
                                     stroke="currentColor" class="icon " stroke-width="5" stroke-linecap="butt"
                                     stroke-linejoin="miter">
@@ -226,21 +226,14 @@
         <div class="app_main">
             <!-- *************** header ************** -->
             <header class="app_header flex" app_header>
-                <div class="header-left flex">
-                    <div class="arrow-icon " prev-page-icon>
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"
-                            class="icon " stroke-width="4" stroke-linecap="butt" stroke-linejoin="miter"
-                            data-v-27779356="">
-                            <path d="M32 8.4 16.444 23.956 32 39.513"></path>
-                        </svg>
-                    </div>
+               
                     <div class="left-tab flex fw-6 fc-2 fs-14" header-left-tabs>
                         <div class="tab-recommend active">
                             <span class="text-ol">所有歌曲</span>
                             <div class="tab-undeline"></div>
                         </div>
                         <div class="tab-newUpload">
-                            <span class="text-ol">纯音乐</span>
+                            <span class="text-ol">轻音乐</span>
                             <div class="tab-undeline"></div>
                         </div>
                         <div class="tab-newUpload">
@@ -254,10 +247,12 @@
 
 
                     </div>
-                </div>
-
+              
 
             </header>
+            <!-- 收藏歌单列表 -->
+            <div class="wrapper-contentList" collect-list-item>
+            </div>
 
             <main class="main-wrap">
 
