@@ -76,7 +76,7 @@
                                 </span>
                             </div>
                             <div class="items-author fs-12 fc-b">
-                                <span title="作者" class="text-ol underline" currentPlay-author>
+                                <span title="作者" class="text-ol" currentPlay-author>
                                     作者
                                 </span>
                             </div>
@@ -91,7 +91,7 @@
                         <div class="items-blank"></div>
                         <div class="items-btn flex">
                             <!-- 上一首 -->
-                            <div class="btn-prev flex" play-prev-btn>
+                            <div class="btn-prev flex" play-prev-btn id="btn-pre">
                                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
                                     stroke="currentColor" class="icon arco-icon-skip-previous-fill" stroke-width="5"
                                     stroke-linecap="butt" stroke-linejoin="miter" data-v-71b8316a="">
@@ -104,7 +104,7 @@
                                 </svg>
                             </div>
                             <!-- 暂停|播放 -->
-                            <div class="btn-play pause flex" play-btn>
+                            <div class="btn-play pause flex" play-btn id="btn-play">
                                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
                                     stroke="currentColor" class="icon pause" stroke-width="5" stroke-linecap="butt"
                                     stroke-linejoin="miter">
@@ -122,7 +122,7 @@
                             </div>
                             <!-- 下一首 -->
                             <!-- class play-btn -->
-                            <div class="btn-next flex" play-next-btn id="next">
+                            <div class="btn-next flex" play-next-btn id="btn-next">
                                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
                                     stroke="currentColor" class="icon " stroke-width="5" stroke-linecap="butt"
                                     stroke-linejoin="miter">
@@ -156,25 +156,11 @@
                 <div class="play-setting flex">
                     <div class="setting-blank"></div>
                     <div class="setting-options flex">
-                        <div class="options-speed flex">
-                            <li class="flex fs-16 fw-6">
-                                <span class="speed-num">1.0</span>
-                                <span>x</span>
-                            </li>
-                        </div>
-
-                        <div class="options-order flex" play-shuffle>
-                            <li class="flex">
-                                <svg class="icon">
-                                    <use xlink:href="#icon-suijibofang1" fill="currentColor"></use>
-                                </svg>
-                            </li>
-                        </div>
                         <div class="options-circulationMode flex">
-                            <li class="flex single" play-mode>
-                                <!-- 单曲 -->
-                                <svg class="icon single">
-                                    <use xlink:href="#icon-liebiaoxunhuan" fill="currentColor"></use>
+                            <li class="flex randomLoop" play-mode>
+                                <!-- 随机播放 -->
+                                <svg class="icon randomLoop"  style="color: var(--blue-color);">
+                                    <use xlink:href="#icon-suijibofang1" fill="currentColor"></use>
                                 </svg>
                                 <!-- 列表循环 -->
                                 <svg class="icon listLoop" style="color: var(--blue-color);">
@@ -209,15 +195,7 @@
                             <input type="range" play-volume-range min="0" max="1" value="0.8" step="0.01">
                             <div class="progress-colorFill" play-volume-colorFill></div>
                         </div>
-                        <div class="separator"></div>
-                        <!-- 播放记录-btn -->
-                        <div class="options-record flex">
-                            <li class="flex" play-record-btn>
-                                <svg style="width: 22px; height: 22px;">
-                                    <use xlink:href="#icon-playlist" fill="currentColor"></use>
-                                </svg>
-                            </li>
-                        </div>
+        
                     </div>
                 </div>
             </div>
@@ -308,50 +286,12 @@
                                             </span>
                                         </div>
                                         <div class="song-author">
-                                            <span title="" class="author text-ol underline fw-6 fs-16"
+                                            <span title="" class="author text-ol fw-6 fs-16"
                                                 currentPlay-author>
 
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="item-moreActions flex">
-                                        <span class="moreActions-icon flex">
-                                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                                stroke="currentColor" class="icon arco-icon-more" stroke-width="4"
-                                                stroke-linecap="butt" stroke-linejoin="miter" data-v-b99b404e="">
-                                                <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z"
-                                                    fill="currentColor" stroke="none">
-                                                </path>
-                                                <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mobile songInfo-item flex">
-                                <div class="item-song flex">
-                                    <div class="song-name">
-                                        <span title="" class="name text-ol fs-20 fw-6" currentPlay-name>
-
-                                        </span>
-                                    </div>
-                                    <div class="song-author">
-                                        <span title="" class="author text-ol underline fw-6 fs-16" currentPlay-author>
-
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="item-moreActions flex">
-                                    <span class="moreActions-icon flex">
-                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            stroke="currentColor" class="icon arco-icon-more" stroke-width="4"
-                                            stroke-linecap="butt" stroke-linejoin="miter" data-v-b99b404e="">
-                                            <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z"
-                                                fill="currentColor" stroke="none">
-                                            </path>
-                                            <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z"></path>
-                                        </svg>
-                                    </span>
                                 </div>
                             </div>
 
@@ -366,13 +306,6 @@
                                 </div>
 
                                 <div class="playControl-function flex">
-                                    <div class="function-playSetting flex">
-                                        <span class="playSetting-icon flex">
-                                            <svg class="icon single">
-                                                <use xlink:href="#icon-liebiaoxunhuan" fill="currentColor"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
                                     <div class="function-prevSong flex">
                                         <span class="prevSong-icon flex" play-prev-btn>
                                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -419,13 +352,6 @@
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                                     d="M33 36a1 1 0 0 1-1-1V13a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v22a1 1 0 0 1-1 1h-2Z"
                                                     fill="currentColor" stroke="none"></path>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div class="function-displayChange flex">
-                                        <span class="displayChange-icon flex">
-                                            <svg aria-hidden="true" style="width: 24px; height: 24px;">
-                                                <use xlink:href="#icon-playlist" fill="currentColor"></use>
                                             </svg>
                                         </span>
                                     </div>

@@ -47,15 +47,14 @@ const playNextBtns = $$("[play-next-btn]")
 // playSkipPrev() - 跳过 上一首
 const playPrevBtns = $$("[play-prev-btn]")
 
-// shuffle() - 当前列表 设置随机播放
-let isShuffle = false
-const playShuffleBtn = document.querySelector("[play-shuffle]")
-
 // isPlayMode() - 设置播放方式
 let playMode = 0
-// [单曲,列表循环,单曲循环]
+
+//【随机播放，列表循环，单曲循环】
 const AllplayMode = [0, 1, 2]
 const playModeBtn = $("[play-mode]")
+// shuffle() - 当前列表 设置随机播放
+let isShuffle = true
 
 // changeVolume() - 修改音量
 const playVolumeRange = $("[play-volume-range]")
@@ -145,7 +144,7 @@ const updatePlayInfo = function () {
 
   // audioSource.src = playLists[currentMusic].musicPath
   audioSource.src = FILE_MUSIC_ROOT + playLists[currentMusic].type_en + playLists[currentMusic].name_all
-  console.log("当前 播放  === " + currentMusic + "    " + playLists[currentMusic].name + "  " )
+  console.log("当前 播放  === " + currentMusic + "    " + playLists[currentMusic].name + "  ")
 
   // 更新歌词
   renderLyrics()
@@ -188,15 +187,15 @@ addEventOnElements(closePanelBtn, 'click', togglePanel)
  */
 const getCurrentMusicLyrics = function () {
 
-  if(playLists[currentMusic].author === "纯音乐"){
+  if (playLists[currentMusic].author === "纯音乐") {
 
-    console.log(currentMusic+"  加载歌词 纯音乐")
+    console.log(currentMusic + "  加载歌词 纯音乐")
     return {
-      'text': ['纯音乐'],
+      'text': ['纯音乐,请欣赏。'],
       'timer': []
     }
-  }else{
-    console.log(currentMusic+"  加载歌词 2 ")
+  } else {
+    console.log(currentMusic + "  加载歌词 2 ")
 
     for (let [idx, data] of lyricsLists.entries()) {
       if (data.musicName === playLists[currentMusic].name) {
@@ -519,17 +518,15 @@ const musicPlayEnd = function () {
       playBtn.classList.remove("playing")
       playBtn.classList.add("pause")
     })
-    // 列表循环
-    if (playMode == 1) {
+    // 随机播放 列表循环 
+    if (playMode == 0 || playMode == 1) {
       // playSkipNext()
       // 获取具有 "next" id 属性的元素
-      const nextButton = document.getElementById("next");
-
+      const btn = document.getElementById("btn-next");
       // 创建一个新的点击事件
       const clickEvent = new Event("click");
-
       // 触发点击事件
-      nextButton.dispatchEvent(clickEvent);
+      btn.dispatchEvent(clickEvent);
 
     }
   }
@@ -641,15 +638,6 @@ addEventOnElements(playPrevBtns, "click", playSkipPrev)
  */
 const getRandomMusic = () => Math.floor(Math.random() * playLists.length)
 const shuffleMusic = () => currentMusic = getRandomMusic()
-const shuffle = function (e) {
-  e.stopPropagation()
-  playShuffleBtn.classList.toggle("active")
-  isShuffle = isShuffle ? false : true
-}
-playShuffleBtn.addEventListener("click", shuffle)
-
-
-
 
 
 /**
@@ -661,14 +649,17 @@ const isPlayMode = function (e) {
   e.stopPropagation()
   playMode >= 2 ? playMode = 0 : playMode++
   if (playMode == AllplayMode[0]) {
+    isShuffle = true;
     audioSource.loop = false;
     this.classList.remove("singleLoop");
-    this.classList.add("single");
+    this.classList.add("randomLoop");
 
   } else if (playMode == AllplayMode[1]) {
-    this.classList.remove("single");
+    isShuffle = false;
+    this.classList.remove("randomLoop");
     this.classList.add("listLoop");
   } else if (playMode == AllplayMode[2]) {
+    isShuffle = false;
     audioSource.loop = true;
     this.classList.remove("listLoop");
     this.classList.add("singleLoop");
@@ -752,20 +743,10 @@ const renderCollectList = function () {
         <img src="${music.imgPath_70}" alt="">
       </div>
       <div class="item-title text-ol ">${music.name}</div>
-      <div class="item-author text-ol underline ">${music.author}</div>
-      <div class="item-album text-ol underline ">${music.type}</div>
+      <div class="item-author text-ol  ">${music.author}</div>
+      <div class="item-album text-ol  ">${music.type}</div>
       <div class="item-totalTime text-ol flex">${music.time}</div>
-      <div class="item-moreIcon">
-        <span class="moreIcon flex">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"
-            class="icon " stroke-width="5" stroke-linecap="butt" stroke-linejoin="miter"
-            data-v-85cbcb09="">
-            <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z" fill="currentColor" stroke="none">
-            </path>
-            <path d="M38 25v-2h2v2h-2ZM23 25v-2h2v2h-2ZM8 25v-2h2v2H8Z"></path>
-          </svg>
-        </span>
-      </div>
+
     </div>                 
     `
   }
@@ -773,6 +754,31 @@ const renderCollectList = function () {
 }
 renderCollectList()
 
+
+// 监听键盘按下事件
+document.addEventListener('keydown', function (event) {
+
+  if (event.key === "Enter" || event.key === " ") {
+    // 在这里执行你的命令
+    console.log('回车触发  执行命令');
+    const btn = document.getElementById("btn-play");
+    const clickEvent = new Event("click");
+    btn.dispatchEvent(clickEvent);
+  }  else if (event.key === "ArrowLeft") {
+    // 向左箭头按下
+    console.log('向左箭头按下');
+    const btn = document.getElementById("btn-pre");
+    const clickEvent = new Event("click");
+    btn.dispatchEvent(clickEvent);
+
+  } else if (event.key === "ArrowRight") {
+    // 向右箭头按下
+    console.log('向右箭头按下');
+    const btn = document.getElementById("btn-next");
+    const clickEvent = new Event("click");
+    btn.dispatchEvent(clickEvent);
+  }
+});
 
 
 /**
