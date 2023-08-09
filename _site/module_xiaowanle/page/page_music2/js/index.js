@@ -1,8 +1,24 @@
 'use strict';
 // "use strict"; 是一种JavaScript的编程指令，它是ECMAScript 5（ES5）引入的严格模式（strict mode）。
 
-//playList 列表
-const playLists = JSON.parse(localStorage.getItem(KEY_PLAY_LIST) || '[]');
+// 列表
+const allMusicList = [];
+const musicList11 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_1) || '[]')
+const musicList22 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_2) || '[]')
+const musicList33 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_3) || '[]')
+const musicList44 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_4) || '[]')
+const musicList99 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_9) || '[]')
+allMusicList.push(...musicList11);
+allMusicList.push(...musicList22);
+allMusicList.push(...musicList33);
+allMusicList.push(...musicList44);
+allMusicList.push(...musicList99);
+
+
+const currentMusicList = [];
+currentMusicList.push(...allMusicList);
+console.log("当前 currentMusicList  === " + JSON.stringify(currentMusicList, null, 2))
+
 //歌词
 const lyricsLists = JSON.parse(localStorage.getItem(KEY_LYRICS_LIST) || '[]');
 
@@ -12,17 +28,16 @@ const $$ = document.querySelectorAll.bind(document);
 // 当前音乐列表序号
 let currentMusic = 0
 // 音频 对象
-const audioSource = new Audio(playLists[currentMusic].musicPath);
+const audioSource = new Audio(FILE_MUSIC_ROOT + currentMusicList[currentMusic].type_path + currentMusicList[currentMusic].name_path);
 audioSource.volume = 0.8
 
 
 // updatePlayInfo() - 修改 播放信息
 const currentPlayImg70 = $$('[currentPlay-img70]')
-const currentPlayImg200 = $$('[currentPlay-img200]')
 const currentPlayImg400 = Array.from($$('[currentPlay-img400]'))
 const currentPlayName = $$('[currentPlay-name]')
 const currentPlayAuthor = $$('[currentPlay-author]')
-const PlayElements = [currentPlayImg70, currentPlayImg200, currentPlayImg400, currentPlayName, currentPlayAuthor]
+const PlayElements = [currentPlayImg70, currentPlayImg400, currentPlayName, currentPlayAuthor]
 
 // updateRange() - 更新 进度条max 和 音乐总时长
 const playTotalTime = $$("[play-totalTime]");
@@ -87,7 +102,7 @@ const goHomedelayTime = 2500
 const transitionIntervalTime = 20
 const transitionReduceNum = 50
 
-// renderCollectList() - 初始化收藏列表歌曲
+// initMusicList() - 初始化收藏列表歌曲
 let collectListItem = $('[collect-list-item]')
 
 
@@ -114,37 +129,28 @@ const addEventOnElementChildren = function (elements, eventType, callback) {
 /** 
  * updatePlayInfo()
  * 设置 修改 播放面板信息
- * const PlayElements = [currentPlayImg70, currentPlayImg200, currentPlayImg400, currentPlayName, currentPlayAuthor]
+ * const PlayElements = [currentPlayImg70,currentPlayImg400, currentPlayName, currentPlayAuthor]
  */
 
 const updatePlayInfo = function () {
   for (let index in PlayElements) {
     PlayElements[index].forEach((ele) => {
       if (index <= 1) {
-        ele.src = playLists[currentMusic].imgPath_70
+        ele.src = currentMusicList[currentMusic].imgPath
         ele.alt = '...'
       } else if (index == 2) {
-        let imgSrc = playLists[currentMusic].imgPath_400
-        if (Array.from(ele.classList).includes('imgBoard')) {
-          imgSrc = imgSrc ? imgSrc : './imgs/photo-1.jpg'
-        }
-
-        ele.src = imgSrc
-        ele.alt = '...'
-      }
-      else if (index == 3) {
-        ele.textContent = playLists[currentMusic].name
-        ele.title = playLists[currentMusic].name
+        ele.textContent = currentMusicList[currentMusic].title
+        ele.title = currentMusicList[currentMusic].title
       } else {
-        ele.textContent = playLists[currentMusic].author
-        ele.title = playLists[currentMusic].author
+        ele.textContent = currentMusicList[currentMusic].author
+        ele.title = currentMusicList[currentMusic].author
       }
     })
   }
 
-  // audioSource.src = playLists[currentMusic].musicPath
-  audioSource.src = FILE_MUSIC_ROOT + playLists[currentMusic].type_en + playLists[currentMusic].name_all
-  console.log("当前 播放  === " + currentMusic + "    " + playLists[currentMusic].name + "  ")
+  // audioSource.src = currentMusicList[currentMusic].musicPath
+  audioSource.src = FILE_MUSIC_ROOT + currentMusicList[currentMusic].type_path + currentMusicList[currentMusic].name_path
+  console.log("当前 播放  === " + currentMusic + "    " + currentMusicList[currentMusic].title + "  ")
 
   // 更新歌词
   renderLyrics()
@@ -187,30 +193,56 @@ addEventOnElements(closePanelBtn, 'click', togglePanel)
  */
 const getCurrentMusicLyrics = function () {
 
-  if (playLists[currentMusic].author === "纯音乐") {
+  const currentLyrics = lyricsList.find(item => item.name_path === currentMusicList[currentMusic].name_path);
 
-    console.log(currentMusic + "  加载歌词 纯音乐")
+  if (!currentLyrics) {
+    console.log(currentMusic + "  加载歌词 无歌词");
     return {
-      'text': ['纯音乐,请欣赏。'],
+      'text': ['暂无歌词。'],
       'timer': []
-    }
+    };
   } else {
-    console.log(currentMusic + "  加载歌词 2 ")
+    console.log(currentMusic + "  加载歌词 有歌词 ");
+    const lyricsText = currentLyrics.lyrics.map(line => line.substring(line.indexOf(']') + 1));
+    console.log("Lyrics Text:", lyricsText);
+    
+    const lyricsTimer = currentLyrics.lyrics.map(line => {
+      const timeStr = line.substring(1, 10); // 提取时间部分，包括毫秒
+      // console.log("Time String:", timeStr);
+      const [minutes, secondsAndMilliseconds] = timeStr.split(':');
+      const [seconds, milliseconds] = secondsAndMilliseconds.split('.').map(parseFloat);
+      // console.log("Parsed Time:", minutes, seconds, milliseconds);
+      return (parseFloat(minutes) * 60 + parseFloat(seconds) + milliseconds / 1000); // 转换为秒
+    });
 
-    for (let [idx, data] of lyricsLists.entries()) {
-      if (data.musicName === playLists[currentMusic].name) {
-        return {
-          'text': data.text,
-          'timer': data.timer
-        }
-      } else {
-        return {
-          'text': ['暂无歌词'],
-          'timer': []
-        }
-      }
-    }
+    console.log("Lyrics Timer:", lyricsTimer);
+    
+    return {
+      'text': lyricsText,
+      'timer': lyricsTimer
+    };
+    
   }
+
+
+  // if (currentMusicList[currentMusic].lyrics === false) {
+  //   console.log(currentMusic + "  加载歌词 无歌词")
+  //   return {
+  //     'text': ['暂无歌词。'],
+  //     'timer': []
+  //   }
+  // } else {
+  //   console.log(currentMusic + "  加载歌词 有歌词 ")
+
+  //   for (let [idx, data] of lyricsLists.entries()) {
+  //     if (data.musicName === currentMusicList[currentMusic].name_path) {
+  //       return {
+  //         'text': data.text,
+  //         'timer': data.timer
+  //       }
+  //     }
+  //   }
+  // }
 
 }
 let currentMusicLyrics = ""
@@ -229,7 +261,8 @@ const renderLyrics = function () {
   currentMusicLyrics = arr.text
   currentLyricsTimer_init = arr.timer
   currentLyricsTimer_change = [...currentLyricsTimer_init]
-  // console.log(currentMusicLyrics)
+  console.log(currentMusicLyrics)
+  console.log(currentLyricsTimer_init)
   playLyrics.innerHTML = ''
   for (let [idx, data] of currentMusicLyrics.entries()) {
     playLyrics.innerHTML += `
@@ -563,13 +596,11 @@ const playMusic = function (e) {
       btn.classList.remove("pause")
     })
 
-    //列表(收藏歌单、) 选中样式
+    //列表选中样式
     for (let i = 0; i < collectListItem.children.length; i++) {
       collectListItem.children[i].classList.remove('active')
-      // playRecordList.children[i].classList.remove('active')
     }
     collectListItem.children[currentMusic].classList.add('active')
-    // playRecordList.children[currentMusic].classList.add('active')
 
     playImgBorad.classList.toggle('active')
 
@@ -608,7 +639,7 @@ const playSkipNext = function (e) {
     shuffleMusic()
   } else {
     // 是否超出 播放列表数
-    currentMusic >= playLists.length - 1 ? currentMusic = 0 : currentMusic++
+    currentMusic >= currentMusicList.length - 1 ? currentMusic = 0 : currentMusic++
   }
   playingTool()
 }
@@ -625,7 +656,7 @@ const playSkipPrev = function (e) {
   if (isShuffle) {
     shuffleMusic()
   } else {
-    currentMusic <= 0 ? currentMusic = playLists.length - 1 : currentMusic--
+    currentMusic <= 0 ? currentMusic = currentMusicList.length - 1 : currentMusic--
   }
 
   playingTool()
@@ -636,7 +667,7 @@ addEventOnElements(playPrevBtns, "click", playSkipPrev)
  * shuffle()
  * 当前列表 随机播放
  */
-const getRandomMusic = () => Math.floor(Math.random() * playLists.length)
+const getRandomMusic = () => Math.floor(Math.random() * currentMusicList.length)
 const shuffleMusic = () => currentMusic = getRandomMusic()
 
 
@@ -731,18 +762,22 @@ const playSelectMusic = function (e) {
 }
 
 /**
- * renderCollectList()
- * 初始化 收藏列表
+ * initMusicList()
+ * 初始化 列表
  */
-const renderCollectList = function () {
-  for (let [idx, music] of playLists.entries()) {
+const initMusicList = function () {
+
+  // 清空现有内容
+  collectListItem.innerHTML = '';
+
+  for (let [idx, music] of currentMusicList.entries()) {
     // console.log(idx)
     collectListItem.innerHTML += `
     <div class="contentList-item flex fs-14 fw-5"  data-id='${idx}'>
       <div class="item-img">
-        <img src="${music.imgPath_70}" alt="">
+        <img src="${music.imgPath}" alt="">
       </div>
-      <div class="item-title text-ol ">${music.name}</div>
+      <div class="item-title text-ol ">${music.title}</div>
       <div class="item-author text-ol  ">${music.author}</div>
       <div class="item-album text-ol  ">${music.type}</div>
       <div class="item-totalTime text-ol flex">${music.time}</div>
@@ -751,8 +786,31 @@ const renderCollectList = function () {
     `
   }
   addEventOnElementChildren(collectListItem, 'dblclick', playSelectMusic)
+  addEventOnElementChildren(collectListItem, 'mouseover', showHoverWindow);
+  addEventOnElementChildren(collectListItem, 'mouseout', hideHoverWindow);
 }
-renderCollectList()
+initMusicList()
+
+
+function showHoverWindow(event) {
+  const item = event.currentTarget;
+  const dataIndex = item.getAttribute('data-id');
+  const musicDes = currentMusicList[dataIndex].des;
+
+  const hoverWindow = document.getElementById('hoverWindow');
+  const hoverContent = document.getElementById('hoverContent');
+
+  // 设置悬浮窗的内容并显示
+  hoverContent.innerHTML = `${musicDes.replace(/\n/g, '<br>')}`;
+  hoverWindow.style.left = `${event.clientX}px`;
+  hoverWindow.style.top = `${event.clientY}px`;
+  hoverWindow.style.display = 'block';
+}
+
+function hideHoverWindow() {
+  const hoverWindow = document.getElementById('hoverWindow');
+  hoverWindow.style.display = 'none';
+}
 
 
 // 监听键盘按下事件
@@ -764,7 +822,7 @@ document.addEventListener('keydown', function (event) {
     const btn = document.getElementById("btn-play");
     const clickEvent = new Event("click");
     btn.dispatchEvent(clickEvent);
-  }  else if (event.key === "ArrowLeft") {
+  } else if (event.key === "ArrowLeft") {
     // 向左箭头按下
     console.log('向左箭头按下');
     const btn = document.getElementById("btn-pre");
@@ -790,3 +848,44 @@ const Start = function () {
 }
 
 Start()
+
+// 将选项卡和对应的音乐列表映射到一个对象中
+const tabMusicMap = {
+  'tab-A': allMusicList,
+  'tab-B': musicList11,
+  'tab-C': musicList22,
+  'tab-D': musicList33,
+  'tab-E': musicList44,
+  'tab-I': musicList99
+};
+// 列表切换
+function switchTab(tabElement) {
+
+  // 如果点击的选项卡已经是活动状态，则不进行任何操作
+  if (tabElement.classList.contains('active')) {
+    return;
+  }
+
+  const tabs = document.querySelectorAll('.list-tab > div');
+
+  tabs.forEach(tab => {
+    tab.classList.remove('active');
+  });
+
+  tabElement.classList.add('active');
+
+  // 判断选项卡是否在映射对象中
+  if (tabElement.classList.contains('tab-A') || tabElement.classList.contains('tab-B') ||
+    tabElement.classList.contains('tab-C') || tabElement.classList.contains('tab-D') ||
+    tabElement.classList.contains('tab-E') || tabElement.classList.contains('tab-I')) {
+
+    const tabClassName = Array.from(tabElement.classList).find(className => className.startsWith('tab-'));
+    if (tabClassName) {
+      console.log(`点击了${tabClassName}选项卡`);
+      currentMusicList.length = 0;
+      currentMusicList.push(...tabMusicMap[tabClassName]);
+      initMusicList();
+    }
+  }
+
+}

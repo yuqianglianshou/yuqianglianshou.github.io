@@ -203,23 +203,31 @@
 
         <div class="app_main">
             <!-- *************** header ************** -->
-            <header class="app_header flex" app_header>
+            <header class="list_header flex" list_header>
                
-                    <div class="left-tab flex fw-6 fc-2 fs-14" header-left-tabs>
-                        <div class="tab-recommend active">
+                    <div class="list-tab flex fw-6 fc-2 fs-14" header-list-tabs>
+                        <div class="tab-A active" onclick="switchTab(this)">
                             <span class="text-ol">所有歌曲</span>
                             <div class="tab-undeline"></div>
                         </div>
-                        <div class="tab-newUpload">
-                            <span class="text-ol">轻音乐</span>
-                            <div class="tab-undeline"></div>
-                        </div>
-                        <div class="tab-newUpload">
+                        <div class="tab-B" onclick="switchTab(this)">
                             <span class="text-ol">天籁之音</span>
                             <div class="tab-undeline"></div>
                         </div>
-                        <div class="tab-newUpload">
+                        <div class="tab-C" onclick="switchTab(this)">
+                            <span class="text-ol">轻音乐</span>
+                            <div class="tab-undeline"></div>
+                        </div>
+                        <div class="tab-D" onclick="switchTab(this)">
                             <span class="text-ol">emo</span>
+                            <div class="tab-undeline"></div>
+                        </div>
+                        <div class="tab-E" onclick="switchTab(this)">
+                            <span class="text-ol">经典</span>
+                            <div class="tab-undeline"></div>
+                        </div>
+                        <div class="tab-I" onclick="switchTab(this)">
+                            <span class="text-ol">未分类</span>
                             <div class="tab-undeline"></div>
                         </div>
 
@@ -228,14 +236,15 @@
               
 
             </header>
-            <!-- 收藏歌单列表 -->
+            <!-- 歌单列表 -->
             <div class="wrapper-contentList" collect-list-item>
             </div>
+            <!-- 空的悬浮窗容器 -->
+            <div id="hoverWindow" class="hover-window">
+                <div id="hoverContent" class="hover-content"></div>
+              </div>
 
             <main class="main-wrap">
-
-                <!-- ********** 首页内容 **************** -->
-
 
                 <!-- *************** 歌曲播放面板 *************** -->
                 <!-- 背景图片 -->
@@ -382,9 +391,8 @@
 
 </body>
 
-<script src="./js/playList.js"></script>
-<script src="./js/collect.js"></script>
-<script src="./js/lyrics.js"></script>
+<script src="./js/musicList.js"></script>
+<script src="./js/musicLyrics.js"></script>
 <script src="./js/index.js"></script>
 
 </html>
