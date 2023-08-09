@@ -3,8 +3,8 @@ const FILE_MUSIC_ROOT = './music/';
 //作者未知
 const AUTHOR_DEFAULT = "未知";
 //默认图片路径
-const IMG_DEFAULT_PATH1 = "./imgs/music_1-400x400.jpg";
-const IMG_DEFAULT_PATH2 = "./imgs/music_2-400x400.jpg";
+const IMG_DEFAULT_PATH1 = "./imgs/music_3-400x400.jpg";
+const IMG_DEFAULT_PATH2 = "./imgs/music_3-400x400.jpg";
 const IMG_DEFAULT_PATH3 = "./imgs/music_3-400x400.jpg";
 
 // type 分类  （轻音乐，伤感，）
@@ -76,6 +76,61 @@ const musicList2 = [
     lyrics: false,
     des:"兰花草的香，兰花草的甜，我种兰花草，只待故人归，哪怕春去秋过冬又来。"
   },
+  {
+    title: "莫尔德颂歌 (Molde Canticle) - Sissel",
+    author: "Sissel",
+    name_path: "莫尔德颂歌.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/莫尔德颂歌.jpg",
+    time: '03:26',
+    lyrics: false,
+    des:"一首空灵清澈令人感动令人着迷的天籁吟唱 \n 唯美的旋律，迷人的天籁，如空谷的风轻柔不羁，空灵清澈地吟唱着美丽与哀愁，让人怀想起那些曾经青涩而纯真的画面。 \n西丝尔(Sissel Kyrkjebo)挪威著名的女歌手，正如电影《泰坦尼克》配乐中那幽幽天籁，其歌声总能抚慰感伤的心绪。"
+  },
+  {
+    title: "斯卡布罗集市 (Scarborough Fair) - 卡洛儿",
+    author: "卡洛儿",
+    name_path: "斯卡布罗集市.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/卡洛儿.jpg",
+    time: '04:24',
+    lyrics: false,
+    des:"完美的女声吟唱。选自卡洛儿《一尘不染》"
+  },
+  {
+    title: "斯卡布罗集市 (Scarborough Fair) - 莎拉·布莱曼",
+    author: "莎拉·布莱曼",
+    name_path: "斯卡布罗集市 (Scarborough Fair) - 莎拉·布莱曼.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/Simon & Garfunkel.jpeg",
+    time: '04:09',
+    lyrics: true,
+    des:"《斯卡布罗集市》仿佛在倾诉什么，细雨敲窗的秋夜，她的倾诉，能把你带进逝去的情感伤痛中，回味曾经拥有的凄美的爱恋；\n心情烦躁的时候，她的倾诉，能把你带进寂静山林的深处，静坐在纯洁净美的幽谷里冷却自我；\n春风得意的时候，她的倾诉，能把你带进空灵梦幻苍穹里，感受并憧憬充满希望未来人生。\n总之，无论何时何地，《斯卡布罗集市》的天籁之声能陪你的心灵一起悲欢、一同祈祷……"
+  },
+  {
+    title: "我的歌声里-钢琴曲",
+    author: AUTHOR_DEFAULT,
+    name_path: "我的歌声里-钢琴曲.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: IMG_DEFAULT_PATH2,
+    time: '03:29',
+    lyrics: false,
+    des:"她在我的梦里。"
+  },
+  {
+    title: "西风（排箫）芈月传 - 王备",
+    author: "王备",
+    name_path: "西风（排箫）.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/西风.png",
+    time: '05:04',
+    lyrics: false,
+    des:"一曲琴韵瑟瑟，悲欢尘世离合。\n醮一抹沧桑，盈满袖暗香，将尘俗情思泯于无痕。\n在指间舞落一世繁华，弹尽一曲浪漫忧伤。\n掮一轮皓月，携一缕清风，穿越千年尘烟。\n寂寞纤指滑过灵魂的忧伤，多少深情未了。\n多少笑泪飞扬，蓦然回首，惘然一梦，\n惘然回顾中，却早已遗失了你。"
+  },
 ]
 
 //emo
@@ -129,10 +184,21 @@ const musicList9 = [
     name_path: "纸短情长 (完整版)-烟把儿乐队.mp3",
     type: TYPE_9,
     type_path: FILE_MUSIC_OTHER,
-    imgPath: "./imgs/music_2-400x400.jpg",
+    imgPath: "./imgs/烟把儿乐队.jpg",
     time: '02:54',
     lyrics: true,
     des:"从遇见你的那一天起，我所走的每一步，都是为了更接近你。"
+  },
+  {
+    title: "亡灵序曲 (The Dawn) - Dreamtale",
+    author: "Dreamtale",
+    name_path: "The Dawn_亡灵序曲.mp3",
+    type: TYPE_9,
+    type_path: FILE_MUSIC_OTHER,
+    imgPath: "./imgs/亡灵序曲.jpg",
+    time: '04:06',
+    lyrics: false,
+    des:"《The Dawn》的原意为黎明、拂晓、破晓，但在国内网络上，广被讹传为“亡灵序曲”。"
   },
 
 ]

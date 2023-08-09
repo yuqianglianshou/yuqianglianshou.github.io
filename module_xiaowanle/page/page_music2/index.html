@@ -67,7 +67,7 @@
                 <div class="play-info">
                     <div class="info-content flex">
                         <div class="info-avatar">
-                            <img class="avatar-img" src="imgs/music_1-70x70.jpg" currentPlay-img70 alt="">
+                            <img class="avatar-img" src="imgs/music_3-400x400.jpg" currentPlay-img70 alt="">
                         </div>
                         <div class="info-items flex">
                             <div class="items-name fs-18 fw-7">
@@ -157,14 +157,14 @@
                     <div class="setting-blank"></div>
                     <div class="setting-options flex">
                         <div class="options-circulationMode flex">
-                            <li class="flex randomLoop" play-mode>
-                                <!-- 随机播放 -->
-                                <svg class="icon randomLoop"  style="color: var(--blue-color);">
-                                    <use xlink:href="#icon-suijibofang1" fill="currentColor"></use>
-                                </svg>
+                            <li class="flex listLoop" play-mode>
                                 <!-- 列表循环 -->
                                 <svg class="icon listLoop" style="color: var(--blue-color);">
                                     <use xlink:href="#icon-liebiaoxunhuan" fill="currentColor"></use>
+                                </svg>
+                                <!-- 随机播放 -->
+                                <svg class="icon randomLoop" style="color: var(--blue-color);">
+                                    <use xlink:href="#icon-suijibofang1" fill="currentColor"></use>
                                 </svg>
                                 <!-- 单曲循环 -->
                                 <svg class="icon singleLoop" style="color: var(--blue-color);">
@@ -195,7 +195,7 @@
                             <input type="range" play-volume-range min="0" max="1" value="0.8" step="0.01">
                             <div class="progress-colorFill" play-volume-colorFill></div>
                         </div>
-        
+
                     </div>
                 </div>
             </div>
@@ -204,45 +204,45 @@
         <div class="app_main">
             <!-- *************** header ************** -->
             <header class="list_header flex" list_header>
-               
-                    <div class="list-tab flex fw-6 fc-2 fs-14" header-list-tabs>
-                        <div class="tab-A active" onclick="switchTab(this)">
-                            <span class="text-ol">所有歌曲</span>
-                            <div class="tab-undeline"></div>
-                        </div>
-                        <div class="tab-B" onclick="switchTab(this)">
-                            <span class="text-ol">天籁之音</span>
-                            <div class="tab-undeline"></div>
-                        </div>
-                        <div class="tab-C" onclick="switchTab(this)">
-                            <span class="text-ol">轻音乐</span>
-                            <div class="tab-undeline"></div>
-                        </div>
-                        <div class="tab-D" onclick="switchTab(this)">
-                            <span class="text-ol">emo</span>
-                            <div class="tab-undeline"></div>
-                        </div>
-                        <div class="tab-E" onclick="switchTab(this)">
-                            <span class="text-ol">经典</span>
-                            <div class="tab-undeline"></div>
-                        </div>
-                        <div class="tab-I" onclick="switchTab(this)">
-                            <span class="text-ol">未分类</span>
-                            <div class="tab-undeline"></div>
-                        </div>
 
-
+                <div class="list-tab flex fw-6 fc-2 fs-14" header-list-tabs>
+                    <div class="tab-A active" onclick="switchTab(this)">
+                        <span class="text-ol">所有歌曲</span>
+                        <div class="tab-undeline"></div>
                     </div>
-              
+                    <div class="tab-B" onclick="switchTab(this)">
+                        <span class="text-ol">天籁之音</span>
+                        <div class="tab-undeline"></div>
+                    </div>
+                    <div class="tab-C" onclick="switchTab(this)">
+                        <span class="text-ol">轻音乐</span>
+                        <div class="tab-undeline"></div>
+                    </div>
+                    <div class="tab-D" onclick="switchTab(this)">
+                        <span class="text-ol">emo</span>
+                        <div class="tab-undeline"></div>
+                    </div>
+                    <div class="tab-E" onclick="switchTab(this)">
+                        <span class="text-ol">经典</span>
+                        <div class="tab-undeline"></div>
+                    </div>
+                    <div class="tab-I" onclick="switchTab(this)">
+                        <span class="text-ol">未分类</span>
+                        <div class="tab-undeline"></div>
+                    </div>
+
+
+                </div>
+
 
             </header>
             <!-- 歌单列表 -->
-            <div class="wrapper-contentList" collect-list-item>
+            <div class="wrapper-contentList" content-list>
             </div>
             <!-- 空的悬浮窗容器 -->
             <div id="hoverWindow" class="hover-window">
                 <div id="hoverContent" class="hover-content"></div>
-              </div>
+            </div>
 
             <main class="main-wrap">
 
@@ -295,8 +295,7 @@
                                             </span>
                                         </div>
                                         <div class="song-author">
-                                            <span title="" class="author text-ol fw-6 fs-16"
-                                                currentPlay-author>
+                                            <span title="" class="author text-ol fw-6 fs-16" currentPlay-author>
 
                                             </span>
                                         </div>

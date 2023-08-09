@@ -233,17 +233,30 @@
 }
 
 /* 循环方式 图标选中样式 */
-.options-circulationMode li.randomLoop .icon:not(.randomLoop) {
-	display: none;
+.options-circulationMode li[play-mode].listLoop .icon {
+	display: block; /* 显示列表循环图标 */
 }
 
-.options-circulationMode li.listLoop .icon:not(.listLoop) {
-	display: none;
+.options-circulationMode li[play-mode].listLoop .icon:not(.listLoop) {
+	display: none; /* 隐藏其他图标 */
 }
 
-.options-circulationMode li.singleLoop .icon:not(.singleLoop) {
-	display: none;
+.options-circulationMode li[play-mode].randomLoop .icon {
+	display: block; /* 显示随机播放图标 */
 }
+
+.options-circulationMode li[play-mode].randomLoop .icon:not(.randomLoop) {
+	display: none; /* 隐藏其他图标 */
+}
+
+.options-circulationMode li[play-mode].singleLoop .icon {
+	display: block; /* 显示单曲循环图标 */
+}
+
+.options-circulationMode li[play-mode].singleLoop .icon:not(.singleLoop) {
+	display: none; /* 隐藏其他图标 */
+}
+
 
 /* 声音 图标选中样式 */
 .options-sound li.sound .icon:not(.sound) {
@@ -810,7 +823,7 @@
 	justify-content: start;
 }
 
-/* 悬浮窗 */
+/* 歌曲列表悬浮窗 */
 .hover-window {
 	position: absolute;
 	display: none;

@@ -17,7 +17,7 @@ allMusicList.push(...musicList99);
 
 const currentMusicList = [];
 currentMusicList.push(...allMusicList);
-console.log("当前 currentMusicList  === " + JSON.stringify(currentMusicList, null, 2))
+// console.log("当前 currentMusicList  === " + JSON.stringify(currentMusicList, null, 2))
 
 //歌词
 const lyricsLists = JSON.parse(localStorage.getItem(KEY_LYRICS_LIST) || '[]');
@@ -65,11 +65,11 @@ const playPrevBtns = $$("[play-prev-btn]")
 // isPlayMode() - 设置播放方式
 let playMode = 0
 
-//【随机播放，列表循环，单曲循环】
+//【列表循环，随机播放，单曲循环】
 const AllplayMode = [0, 1, 2]
 const playModeBtn = $("[play-mode]")
 // shuffle() - 当前列表 设置随机播放
-let isShuffle = true
+let isShuffle = false
 
 // changeVolume() - 修改音量
 const playVolumeRange = $("[play-volume-range]")
@@ -102,8 +102,8 @@ const goHomedelayTime = 2500
 const transitionIntervalTime = 20
 const transitionReduceNum = 50
 
-// initMusicList() - 初始化收藏列表歌曲
-let collectListItem = $('[collect-list-item]')
+// initMusicList() - 初始化列表歌曲
+let contentList = $('[content-list]')
 
 
 /**
@@ -205,7 +205,7 @@ const getCurrentMusicLyrics = function () {
     console.log(currentMusic + "  加载歌词 有歌词 ");
     const lyricsText = currentLyrics.lyrics.map(line => line.substring(line.indexOf(']') + 1));
     console.log("Lyrics Text:", lyricsText);
-    
+
     const lyricsTimer = currentLyrics.lyrics.map(line => {
       const timeStr = line.substring(1, 10); // 提取时间部分，包括毫秒
       // console.log("Time String:", timeStr);
@@ -216,12 +216,12 @@ const getCurrentMusicLyrics = function () {
     });
 
     console.log("Lyrics Timer:", lyricsTimer);
-    
+
     return {
       'text': lyricsText,
       'timer': lyricsTimer
     };
-    
+
   }
 
 
@@ -597,10 +597,10 @@ const playMusic = function (e) {
     })
 
     //列表选中样式
-    for (let i = 0; i < collectListItem.children.length; i++) {
-      collectListItem.children[i].classList.remove('active')
+    for (let i = 0; i < contentList.children.length; i++) {
+      contentList.children[i].classList.remove('active')
     }
-    collectListItem.children[currentMusic].classList.add('active')
+    contentList.children[currentMusic].classList.add('active')
 
     playImgBorad.classList.toggle('active')
 
@@ -680,19 +680,19 @@ const isPlayMode = function (e) {
   e.stopPropagation()
   playMode >= 2 ? playMode = 0 : playMode++
   if (playMode == AllplayMode[0]) {
+    isShuffle = false;
+    this.classList.remove("singleLoop");
+    this.classList.add("listLoop");
+  } else if (playMode == AllplayMode[1]) {
     isShuffle = true;
     audioSource.loop = false;
-    this.classList.remove("singleLoop");
+    this.classList.remove("listLoop");
     this.classList.add("randomLoop");
 
-  } else if (playMode == AllplayMode[1]) {
-    isShuffle = false;
-    this.classList.remove("randomLoop");
-    this.classList.add("listLoop");
   } else if (playMode == AllplayMode[2]) {
     isShuffle = false;
     audioSource.loop = true;
-    this.classList.remove("listLoop");
+    this.classList.remove("randomLoop");
     this.classList.add("singleLoop");
   }
 }
@@ -768,11 +768,11 @@ const playSelectMusic = function (e) {
 const initMusicList = function () {
 
   // 清空现有内容
-  collectListItem.innerHTML = '';
+  contentList.innerHTML = '';
 
   for (let [idx, music] of currentMusicList.entries()) {
     // console.log(idx)
-    collectListItem.innerHTML += `
+    contentList.innerHTML += `
     <div class="contentList-item flex fs-14 fw-5"  data-id='${idx}'>
       <div class="item-img">
         <img src="${music.imgPath}" alt="">
@@ -785,9 +785,9 @@ const initMusicList = function () {
     </div>                 
     `
   }
-  addEventOnElementChildren(collectListItem, 'dblclick', playSelectMusic)
-  addEventOnElementChildren(collectListItem, 'mouseover', showHoverWindow);
-  addEventOnElementChildren(collectListItem, 'mouseout', hideHoverWindow);
+  addEventOnElementChildren(contentList, 'dblclick', playSelectMusic)
+  addEventOnElementChildren(contentList, 'mouseover', showHoverWindow);
+  addEventOnElementChildren(contentList, 'mouseout', hideHoverWindow);
 }
 initMusicList()
 
