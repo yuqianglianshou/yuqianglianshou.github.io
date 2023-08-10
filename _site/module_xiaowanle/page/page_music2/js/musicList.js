@@ -28,6 +28,14 @@ const FILE_MUSIC_EMO = 'emo/'
 const TYPE_4 = "经典"
 const FILE_MUSIC_JINGDIAN = 'jingdian/'
 
+// musicList5
+const TYPE_5 = "气势BGNM"
+const FILE_MUSIC_BGM = 'bgm/'
+
+// musicList6
+const TYPE_6 = "待定"
+const FILE_MUSIC_aaa = 'aaa/'
+
 
 const TYPE_9 = "未分类"
 const FILE_MUSIC_OTHER = 'other/'
@@ -66,12 +74,12 @@ const musicList2 = [
     des:"天人合一的自然美感。"
   },
   {
-    title: "兰花草",
-    author: AUTHOR_DEFAULT,
+    title: "兰花草 (天籁般的哼唱) - 卡洛儿",
+    author: "卡洛儿",
     name_path: "兰花草.mp3",
     type: TYPE_2,
     type_path: FILE_MUSIC_QINGYINYUE,
-    imgPath: IMG_DEFAULT_PATH2,
+    imgPath: "./imgs/卡洛儿.jpg",
     time: '04:19',
     lyrics: false,
     des:"兰花草的香，兰花草的甜，我种兰花草，只待故人归，哪怕春去秋过冬又来。"
@@ -111,14 +119,14 @@ const musicList2 = [
   },
   {
     title: "我的歌声里-钢琴曲",
-    author: AUTHOR_DEFAULT,
+    author: "赵海洋",
     name_path: "我的歌声里-钢琴曲.mp3",
     type: TYPE_2,
     type_path: FILE_MUSIC_QINGYINYUE,
-    imgPath: IMG_DEFAULT_PATH2,
+    imgPath: "./imgs/我的歌声里.jpg",
     time: '03:29',
     lyrics: false,
-    des:"她在我的梦里。"
+    des:"你没有办法在这个忘却的世间用声音来将谁记得\n回忆过了期\n你已不再年少\n病态\n焦躁\n彷徨还有不安\n尽管是这样不堪的我\n仍想牵着你的手\n拼尽整个青春\n与你一同到天涯\n她在我的梦里。"
   },
   {
     title: "西风（排箫）芈月传 - 王备",
@@ -145,6 +153,61 @@ const musicList3 = [
     time: '04:11',
     lyrics: true,
     des:"不经意间 你已经悄然离去 只留下一段回忆"
+  },
+  {
+    title: "十一种孤独",
+    author: "宿羽阳",
+    name_path: "十一种孤独 - 宿羽阳.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/十一种孤独.webp",
+    time: '04:41',
+    lyrics: true,
+    des:"如果一个人住，千万不要在下午睡午觉，一觉睡到六七点，等你一睁开眼，看着朦胧黑黑的天空和空荡的房间，会有一种被全世界遗弃的感觉，孤独在这一刻体现的淋漓尽致。"
+  },
+  {
+    title: "十一年（翻自 邱永传） - 阿宇",
+    author: "阿宇",
+    name_path: "十一年（翻自 邱永传） - 阿宇.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/十一年.webp",
+    time: '04:08',
+    lyrics: true,
+    des:"2011年，那年大一，这个调调成了永远的痛。"
+  },
+  {
+    title: "净化心灵的声音 (Moon Temple) - Karunesh",
+    author: "Karunesh",
+    name_path: "(Moon Temple) - Karunesh.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/Moon Temple.jpg",
+    time: '05:49',
+    lyrics: false,
+    des:"Moon Temple中文意为“庙堂”，Zen Breakfast意为“道禅”。我想，专辑名为《道禅》是希望每一个听者都能从这飘缈的音乐声中，对社会，对人生，对情感有所感悟吧！\n在纷乱的现实生活中，在复杂的情感世界里，每一个人都活的很累。于是，人们都在尝试着找寻一个不被人所窥视的空间，卸下沉重的包袱，让不堪负重的心灵得到稍许的休憩。就在这一刻，就在《Moon Temple》响起的时候，人性、道德、情感恢复到了本原。尤其是在在钢琴和萧声中，似乎又多了一个空灵的女声，她用温柔和声轻柔的抚摸着每一个听者的心灵创伤。"
+  },
+  {
+    title: "漠河舞厅·2022 - 柳爽",
+    author: "Karunesh",
+    name_path: "漠河舞厅·2022 - 柳爽.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/漠河舞厅·2022 - 柳爽.jpg",
+    time: '05:04',
+    lyrics: true,
+    des:"“人类用什么衡量爱?”\n “用分开后的痛苦.”"
+  },
+  {
+    title: "丁香花 (2007版) - 唐磊",
+    author: "唐磊",
+    name_path: "丁香花 (2007版) - 唐磊.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/丁香花 (2007版) - 唐磊.jpg",
+    time: '04:25',
+    lyrics: true,
+    des:"我再也没有见到过你，再也见不到了。"
   },
 
 ]
@@ -173,6 +236,59 @@ const musicList4 = [
     lyrics: true,
     des:"​其实我挺羡慕火车的。 \n  为什么? \n 他们连擦肩而过都那么久。"
   },
+  {
+    title: "美人吟 - 李玲玉",
+    author: "李玲玉",
+    name_path: "美人吟 - 李玲玉.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/美人吟 - 李玲玉.jpg",
+    time: '04:02',
+    lyrics: true,
+    des:"舒畅。"
+  },
+
+]
+//气势BGM
+const musicList5 = [
+  {
+    title: "亡灵序曲 (The Dawn) - Dreamtale",
+    author: "Dreamtale",
+    name_path: "The Dawn_亡灵序曲.mp3",
+    type: TYPE_5,
+    type_path: FILE_MUSIC_BGM,
+    imgPath: "./imgs/亡灵序曲.jpg",
+    time: '04:06',
+    lyrics: false,
+    des:"《The Dawn》的原意为黎明、拂晓、破晓，但在国内网络上，广被讹传为“亡灵序曲”。"
+  },
+  {
+    title: "伊卡洛斯 Icarus - Ivan Torrent",
+    author: "Ivan Torrent",
+    name_path: "icarus.mp3",
+    type: TYPE_5,
+    type_path: FILE_MUSIC_BGM,
+    imgPath: "./imgs/Ivan Torrent.jpg",
+    time: '04:35',
+    lyrics: false,
+    des:"Ivan Torrent 是西班牙一个独立作曲家和制作人。为流行音乐和舞蹈艺术家在西班牙工作多年，作为一个设计师，也为广播电台做广告宣传和广告歌曲。现在Ivan Torrent想更专注于电影音乐的场景，为预告片音乐公司工作，以及做演示样品库。"
+  },
+
+]
+
+//待定
+const musicList6 = [
+  // {
+  //   title: "亡灵序曲 (The Dawn) - Dreamtale",
+  //   author: "Dreamtale",
+  //   name_path: "The Dawn_亡灵序曲.mp3",
+  //   type: TYPE_9,
+  //   type_path: FILE_MUSIC_OTHER,
+  //   imgPath: "./imgs/亡灵序曲.jpg",
+  //   time: '04:06',
+  //   lyrics: false,
+  //   des:"《The Dawn》的原意为黎明、拂晓、破晓，但在国内网络上，广被讹传为“亡灵序曲”。"
+  // },
 
 ]
 
@@ -189,17 +305,7 @@ const musicList9 = [
     lyrics: true,
     des:"从遇见你的那一天起，我所走的每一步，都是为了更接近你。"
   },
-  {
-    title: "亡灵序曲 (The Dawn) - Dreamtale",
-    author: "Dreamtale",
-    name_path: "The Dawn_亡灵序曲.mp3",
-    type: TYPE_9,
-    type_path: FILE_MUSIC_OTHER,
-    imgPath: "./imgs/亡灵序曲.jpg",
-    time: '04:06',
-    lyrics: false,
-    des:"《The Dawn》的原意为黎明、拂晓、破晓，但在国内网络上，广被讹传为“亡灵序曲”。"
-  },
+
 
 ]
 
@@ -216,6 +322,12 @@ localStorage.setItem(KEY_MUSIC_LIST_3, JSON.stringify(musicList3));
 
 const KEY_MUSIC_LIST_4 = 'musicList4';
 localStorage.setItem(KEY_MUSIC_LIST_4, JSON.stringify(musicList4));
+
+const KEY_MUSIC_LIST_5 = 'musicList5';
+localStorage.setItem(KEY_MUSIC_LIST_5, JSON.stringify(musicList5));
+
+const KEY_MUSIC_LIST_6 = 'musicList6';
+localStorage.setItem(KEY_MUSIC_LIST_6, JSON.stringify(musicList6));
 
 const KEY_MUSIC_LIST_9 = 'musicList9';
 localStorage.setItem(KEY_MUSIC_LIST_9, JSON.stringify(musicList9));

@@ -376,7 +376,7 @@
 	height: 100%;
 }
 
-.list_header .list-tab :is(.tab-A, .tab-B, .tab-C, .tab-D, .tab-E, .tab-I) {
+.list_header .list-tab :is(.tab-A, .tab-B, .tab-C, .tab-D, .tab-E, .tab-F, .tab-G, .tab-I) {
 	display: inline-flex;
 	align-items: center;
 	font-size: 22px;
@@ -390,6 +390,8 @@
 .tab-C.active,
 .tab-D.active,
 .tab-E.active,
+.tab-F.active,
+.tab-G.active,
 .tab-I.active {
 	color: var(--blue-color);
 }
