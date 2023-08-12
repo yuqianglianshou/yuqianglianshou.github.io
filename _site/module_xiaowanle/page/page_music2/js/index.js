@@ -84,6 +84,7 @@ const playVolumeIcon = $("[play-volume-icon]")
 
 
 // togglePanel() - 显示隐藏歌词面板
+const fullscreenBtn = document.getElementById('fullscreen-btn');
 const appFooter = $$('[app_footer]')
 const imgBoard = $('.imgBoard')
 const songPanel = $('[song-panel]')
@@ -188,7 +189,40 @@ const togglePanel = function (e) {
 addEventOnElements(appFooter, 'click', togglePanel)
 addEventOnElements(closePanelBtn, 'click', togglePanel)
 
+//歌词面板全屏显示功能
+fullscreenBtn.addEventListener('click', toggleFullscreen);
 
+function toggleFullscreen() {
+  if (document.fullscreenElement) {
+    exitFullscreen();
+  } else {
+    enterFullscreen();
+  }
+}
+
+function enterFullscreen() {
+  if (songPanel.requestFullscreen) {
+    songPanel.requestFullscreen();
+  } else if (songPanel.mozRequestFullScreen) {
+    songPanel.mozRequestFullScreen();
+  } else if (songPanel.webkitRequestFullscreen) {
+    songPanel.webkitRequestFullscreen();
+  } else if (songPanel.msRequestFullscreen) {
+    songPanel.msRequestFullscreen();
+  }
+}
+
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
 
 /**
  * getCurrentMusicLyrics()
@@ -896,3 +930,5 @@ function switchTab(tabElement) {
   }
 
 }
+
+
