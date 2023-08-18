@@ -7,7 +7,7 @@ const IMG_DEFAULT_PATH1 = "./imgs/music_3-400x400.jpg";
 const IMG_DEFAULT_PATH2 = "./imgs/music_3-400x400.jpg";
 const IMG_DEFAULT_PATH3 = "./imgs/music_3-400x400.jpg";
 
-// 空白格  dance monkey 绿光 夜空中最亮的星 那些年 我怀念的  一生有你 无期
+// 空白格  dance monkey 绿光 夜空中最亮的星 那些年 我怀念的  一生有你 生生世世爱 偏爱  
 // type 分类  （轻音乐，伤感，）
 
 // musicPath: FILE_MUSIC_ROOT + type_path + name_path,  ./music/jingdian/我的歌声里.mp3
@@ -151,9 +151,42 @@ const musicList2 = [
     lyrics: false,
     des: "独孤轻吟"
   },
+  {
+    title: "秋日私语 - Richard Clayderman",
+    author: "Richard Clayderman",
+    name_path: "秋日私语 - Richard Clayderman.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/15.jpg",
+    time: '03:22',
+    lyrics: false,
+    des: "那日的午后"
+  },
+  {
+    title: "醉清风 - 弦子",
+    author: "弦子",
+    name_path: "醉清风 - 弦子.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/16.jpg",
+    time: '05:07',
+    lyrics: true,
+    des: "且听清风拂过。"
+  },
+  {
+    title: "寂静的天空 (来自草原的寂静天籁) - 代青塔娜",
+    author: "代青塔娜",
+    name_path: "寂静的天空 (来自草原的寂静天籁) - 代青塔娜.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/17.jpg",
+    time: '06:05',
+    lyrics: false,
+    des: "在那风吹的草原\n有我心上的人\n风啊 你轻轻吹\n听他忧伤的歌\n月亮啊 你照亮他\n火光啊 你温暖他\n在那遥远的天空 有我思念的云\n夜莺呀 你轻声和\n听我静静地唱\n云啊 飘向何方\n心啊 随好流浪"
+  },
 ]
 
-//emo
+//emo  不经意间 你已经悄然离去 只留下一段回忆  很遗憾，我没能成为你的偏爱和例外
 const musicList3 = [
   {
     title: "ありがとう（泪的告白）",
@@ -164,7 +197,7 @@ const musicList3 = [
     imgPath: "./imgs/泪的告白.jpg",
     time: '04:11',
     lyrics: true,
-    des: "不经意间 你已经悄然离去 只留下一段回忆"
+    des: "遇见的都是幸运，或许下次见面真的只能靠运气了。然而我几乎不出门啊"
   },
   {
     title: "十一种孤独",
@@ -287,6 +320,72 @@ const musicList3 = [
     lyrics: true,
     des: "也许永远都不可能懂，但不影响她很好听。"
   },
+  {
+    title: "思君黯然 - 陈国樑",
+    author: "陈国樑",
+    name_path: "思君黯然 - 陈国樑.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/16.jpg",
+    time: '01:36',
+    lyrics: false,
+    des: "阿朱 。"
+  },
+  {
+    title: "思君黯然 二胡版",
+    author: "浩然ERHU",
+    name_path: "思君黯然 二胡版.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/16.jpg",
+    time: '01:26',
+    lyrics: false,
+    des: "阿朱 。"
+  },
+  {
+    title: "雪见—仙凡之旅 - 麦振鸿",
+    author: "麦振鸿",
+    name_path: "雪见—仙凡之旅 - 麦振鸿.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/雪见—仙凡之旅 - 麦振鸿.jpg",
+    time: '04:50',
+    lyrics: false,
+    des: "记得那个为爱掏心的红毛怪，有着无尽相思的夕瑶，等待千年的龙葵，为老大割肉的茂茂，假装背叛死无全尸的必平，纠缠了三生三世放不下的紫萱和徐长卿，还有那个用自己的命换天下人复活的景天，以思念幻化成型的雪见。都说景天负了夕瑶，只有夕瑶知道，景天不是飞蓬。"
+  },
+  {
+    title: "共伴闯天涯 - 麦振鸿",
+    author: "麦振鸿",
+    name_path: "共伴闯天涯 - 麦振鸿.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/共伴闯天涯 - 麦振鸿.jpg",
+    time: '03:22',
+    lyrics: false,
+    des: "“你最心疼编剧给哪个角色写死了”——茂茂，我们到长安了！"
+  },
+  {
+    title: "The Sound Of Silence - Simon & Garfunkel",
+    author: "Simon & Garfunkel",
+    name_path: "The Sound Of Silence - Simon & Garfunkel.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/The Sound Of Silence - Simon & Garfunkel.jpg",
+    time: '03:05',
+    lyrics: true,
+    des: "当我独自走在路上，在街道的灯光笼罩下，我看见人头攒动，有的人在说着无聊的话，有的人在听着别人说着无聊的话。"
+  },
+  {
+    title: "无期-石白其",
+    author: "石白其",
+    name_path: "无期-石白其.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/无期.webp",
+    time: '02:41',
+    lyrics: true,
+    des: "我喜欢你"
+  },
 
 ]
 
@@ -357,6 +456,17 @@ const musicList4 = [
     time: '03:53',
     lyrics: true,
     des: "嘿呀嘿呀咿儿呀"
+  },
+  {
+    title: "仙剑问情(主题曲) - 萧人凤",
+    author: "萧人凤",
+    name_path: "仙剑问情(主题曲) - 萧人凤.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/仙剑问情(主题曲) - 萧人凤.jpg",
+    time: '04:16',
+    lyrics: true,
+    des: "我李逍遥可以对天发誓从今以后不会再让你一人孤苦伶仃。"
   },
 
 ]

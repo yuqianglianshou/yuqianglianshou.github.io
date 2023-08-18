@@ -183,13 +183,20 @@ const playingTool = function () {
  * 
  */
 const togglePanel = function (e) {
+  if (document.fullscreenElement) {
+    //全屏状态，先退出全屏，再隐藏歌词面板
+    exitFullscreen();
+  }
   imgBoard.classList.toggle('active')
   songPanel.classList.toggle('active')
 }
 addEventOnElements(appFooter, 'click', togglePanel)
 addEventOnElements(closePanelBtn, 'click', togglePanel)
 
-//歌词面板全屏显示功能
+/**
+ * 歌词面板全屏显示功能
+ * 
+ */
 fullscreenBtn.addEventListener('click', toggleFullscreen);
 
 function toggleFullscreen() {
@@ -231,6 +238,14 @@ function exitFullscreen() {
  */
 const getCurrentMusicLyrics = function () {
 
+  if (currentMusicList[currentMusic].lyrics === false) {
+    console.log(currentMusic + "  加载歌词 纯音乐")
+    return {
+      'text': ['纯音乐请欣赏。'],
+      'timer': []
+    }
+  }
+
   const currentLyrics = lyricsList.find(item => item.name_path === currentMusicList[currentMusic].name_path);
 
   if (!currentLyrics) {
@@ -261,26 +276,6 @@ const getCurrentMusicLyrics = function () {
     };
 
   }
-
-
-  // if (currentMusicList[currentMusic].lyrics === false) {
-  //   console.log(currentMusic + "  加载歌词 无歌词")
-  //   return {
-  //     'text': ['暂无歌词。'],
-  //     'timer': []
-  //   }
-  // } else {
-  //   console.log(currentMusic + "  加载歌词 有歌词 ")
-
-  //   for (let [idx, data] of lyricsLists.entries()) {
-  //     if (data.musicName === currentMusicList[currentMusic].name_path) {
-  //       return {
-  //         'text': data.text,
-  //         'timer': data.timer
-  //       }
-  //     }
-  //   }
-  // }
 
 }
 let currentMusicLyrics = ""
