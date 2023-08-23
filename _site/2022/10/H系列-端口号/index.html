@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Android 图片放错位置无所谓？</title>
+  <title>H系列 - 端口号</title>
   <meta name="description"
-    content="孤独是生命的本质，不，是你的本质。">
+    content="遇见的都是幸运，或许下次见面只能靠运气了。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
-    content="Android 图片放错位置无所谓？">
+    content="H系列 - 端口号">
   <meta name="twitter:description"
-    content="孤独是生命的本质，不，是你的本质。">
+    content="遇见的都是幸运，或许下次见面只能靠运气了。">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
-    content="Android 图片放错位置无所谓？">
+    content="H系列 - 端口号">
   <meta property="og:description"
-    content="孤独是生命的本质，不，是你的本质。">
+    content="遇见的都是幸运，或许下次见面只能靠运气了。">
 
   <link rel="icon" type="image/png" href="/images/avatar.jpg" />
   <link href="/images/avatar.jpg" rel="shortcut icon" type="image/png">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href=" /css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2020/05/android_drawable/">
+  <link rel="canonical" href="http://localhost:4000/2022/10/H%E7%B3%BB%E5%88%97-%E7%AB%AF%E5%8F%A3%E5%8F%B7/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
 
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -203,10 +203,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">Android 图片放错位置无所谓？</h1>
+    <h1 class="post-title">H系列 - 端口号</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2020-05-03 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2020-05-03</time>  
+      <time datetime="2022-10-10 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2022-10-10</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -214,100 +214,168 @@
   </header>
 
   <section class="post">
-    <h3 id="孤独是生命的本质不是你的本质">孤独是生命的本质，不，是你的本质。</h3>
+    <h3 id="遇见的都是幸运或许下次见面只能靠运气了">遇见的都是幸运，或许下次见面只能靠运气了。</h3>
 
-<p>我曾今写过这个问题：
-<strong><em>图片放错目录会产生的问题吗？</em></strong><br />
-并给出了（摘抄了）如下答案:<br />
-这一点可能很多人都不会注意，觉得只要往一个drawable目录中放了需要的资源就好了。而我们可以自己做一个简单的测试，把同一个图片资源放在不同的dpi目录，会发现它们使用的内存是不一样的。简单说就是高密度（density）的系统去使用低密度目录下的图片资源时，会将图片长宽自动放大以去适应高密度的精度，当然图片占用的内存会更大。</p>
+<p><strong>计算机端口号是在网络通信中用于标识特定应用程序或服务的数字标识。它们帮助将传入的数据包路由到正确的应用程序，从而实现不同应用程序之间的并发通信。端口号范围从0到65535，被分为不同的范围和用途。以下是一些常见的端口号及其用途的详细解释：</strong></p>
 
-<p>所以如果能提各种dpi的对应资源那是最好，可以达到较好内存使用效果。如果提供的图片资源有限，那么图片资源应该尽量放在高密度文件夹下，这样可以节省图片的内存开支。<br />
-其实多年来我也并未当回事，今天我来验证一下到底有多大影响？！</p>
-<ol>
-  <li>新建项目。</li>
-  <li>准备一张图片,大小为 889*1080 311.83kB,分别放入如下5个drawable目录，取名与之对应，如下图所示<br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawable1.png" alt="" />
-<br /></li>
-  <li>在布局文件中以背景使用此图片，第一次使用drawable目录下的图，如下图 <br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawable2.png" alt="" /><br />
-<br /></li>
-  <li>运行程序，打开Profiler,看下内存使用情况，如下图： <br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawable3.png" alt="" /><br />
-<br /></li>
-  <li>更改布局背景使用的图片，这次使用drawable_hdpi,再次运行观看内存使用情况<br />
-<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawableh.png" alt="" /><br />
-<br /></li>
-  <li>drawable_xhdpi<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawablexh.png" alt="" /><br />
-<br /></li>
-  <li>drawable_xxhdpi<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawablexxh.png" alt="" /><br />
-<br /></li>
-  <li>drawable_xxxhdpi<br />
-<br />
-<img src="/images/posts/drawable_lacation/drawablexxxh.png" alt="" /><br />
-<br /></li>
-</ol>
+<ul>
+  <li>
+    <h4 id="系统端口well-known-ports">系统端口（Well-Known Ports）：</h4>
+  </li>
+</ul>
 
-<p><strong><em>整理数据如下：</em></strong>
-<br /></p>
+<p>范围：0 - 1023<br />
+用途：这些端口号被分配给一些广泛使用的标准服务。<br />
+示例：<br />
+80：HTTP（用于Web服务器）<br />
+443：HTTPS（用于加密的Web服务器） <br />
+21：FTP（文件传输协议）<br />
+25：SMTP（简单邮件传输协议）</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">目录</th>
-      <th style="text-align: center">Total(MB)</th>
-      <th>Graphics(MB)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">drawable</td>
-      <td style="text-align: center">99.6</td>
-      <td>43.4</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-hdpi</td>
-      <td style="text-align: center">93.8</td>
-      <td>40.1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-xhdpi</td>
-      <td style="text-align: center">72.4</td>
-      <td>29.8</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-xxhdpi</td>
-      <td style="text-align: center">78.2</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">drawable-xxxhdpi</td>
-      <td style="text-align: center">59.1</td>
-      <td>18</td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li>
+    <h4 id="注册端口registered-ports">注册端口（Registered Ports）：</h4>
+  </li>
+</ul>
 
-<p>另外发现了一个问题，相同的程序每次运行，Profiler 中显示的内存使用情况是不同的，有时差别甚至很大，所以，以上数据仅供参考。</p>
+<p>范围：1024 - 49151<br />
+用途：这些端口号通常被用于用户应用程序或私有服务。<br />
+示例：<br />
+3306：MySQL数据库 <br />
+5432：PostgreSQL数据库<br />
+8080：代理服务器、缓存服务器等</p>
 
-<p>最终结果：这张不是很大的图片如果放错目录，多则影响到了近20M的内存，所以如果图片很大或者很多，内存影响还是不容小觑的，正确的开发习惯很重要。
+<ul>
+  <li>
+    <h4 id="动态私有端口dynamicprivate-ports">动态/私有端口（Dynamic/Private Ports）：</h4>
+  </li>
+</ul>
+
+<p>范围：49152 - 65535<br />
+用途：这些端口号通常用于临时分配，不与特定协议或服务相关联。<br />
+示例：通常被客户端应用程序在与服务器通信时动态分配使用。</p>
+
+<p>不同的应用程序使用不同的端口号来监听传入的数据流量。例如，Web服务器使用80或443端口监听HTTP或HTTPS请求，数据库服务器使用3306或5432端口等等。在进行网络通信时，源和目标端口号在数据包的头部被指定，以便路由器和交换机能够正确地将数据包传递给正确的应用程序。</p>
+
+<p><strong>常见的端口号及其用途</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP (HyperText Transfer Protocol)
+端口号：80
+用途：用于Web服务器，传输未加密的网页内容。
+
+HTTPS (HyperText Transfer Protocol Secure)
+端口号：443
+用途：用于加密的Web服务器，传输加密的网页内容。
+
+FTP (File Transfer Protocol)
+端口号：21
+用途：用于文件传输，允许文件在客户端和服务器之间进行传输。
+
+SSH (Secure Shell)
+端口号：22
+用途：用于安全远程登录和命令执行。
+
+Telnet
+端口号：23
+用途：用于远程登录。
+
+SMTP (Simple Mail Transfer Protocol)
+端口号：25
+用途：用于发送电子邮件。
+
+POP3 (Post Office Protocol 3)
+端口号：110
+用途：用于从邮件服务器接收电子邮件。
+
+IMAP (Internet Message Access Protocol)
+端口号：143
+用途：用于从邮件服务器接收电子邮件，支持更多高级功能。
+
+DNS (Domain Name System)
+端口号：53
+用途：用于将域名转换为IP地址，以便在互联网上定位计算机。
+
+HTTP代理 (Proxy)
+端口号：8080
+用途：用于代理服务器，中转和过滤网络请求。
+
+MySQL数据库
+端口号：3306
+用途：用于MySQL数据库管理系统。
+
+PostgreSQL数据库
+端口号：5432
+用途：用于PostgreSQL数据库管理系统。
+
+RDP (Remote Desktop Protocol)
+端口号：3389
+用途：用于远程桌面连接。
+
+SNMP (Simple Network Management Protocol)
+端口号：161/162
+用途：用于网络设备的监控和管理。
+
+NTP (Network Time Protocol)
+端口号：123
+用途：用于同步计算机的时间。
+
+LDAP (Lightweight Directory Access Protocol)
+端口号：389
+用途：用于访问和维护分布式目录信息服务。
+
+HTTPS代理 (Secure Proxy)
+端口号：8443
+用途：用于加密的代理服务器。
+
+
+
+Microsoft SQL Server数据库
+端口号：1433
+用途：用于Microsoft SQL Server数据库管理系统。
+
+Oracle数据库
+端口号：1521
+用途：用于Oracle数据库管理系统。
+
+LDAP over SSL/TLS (LDAPS)
+端口号：636
+用途：用于加密的LDAP通信。
+
+Microsoft Active Directory
+端口号：389/636
+用途：用于Windows环境中的目录服务和身份验证。
+
+SMB (Server Message Block)
+端口号：445
+用途：用于Windows共享文件和打印机等资源。
+
+MySQL备用端口
+端口号：3307
+用途：用于备用的MySQL数据库端口。
+
+WebDAV (Web Distributed Authoring and Versioning)
+端口号：80/443
+用途：用于进行基于HTTP协议的文件管理和编辑。
+
+BitTorrent
+端口号：6881-6889
+用途：用于BitTorrent文件共享协议。
+
+VNC (Virtual Network Computing)
+端口号：5900
+用途：用于远程桌面访问和控制。
+
+ICMP (Internet Control Message Protocol)
+端口号：N/A
+用途：用于网络设备之间的错误报告和消息传递，通常不使用端口号。
+</code></pre></div></div>
+<p><br />
 <br /> 
 <br /> 
 <br /> 
 <br /> 
 <br /> 
-转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2020/05/android_drawable/"> Android 图片放错位置无所谓？ </a><br />
+<br /> 
+转载请注明：<a href="http://yuqianglianshou.com">劉清揚的博客</a> » <a href="http://yuqianglianshou.com/2022/10/H系列-端口号/"> H系列 - 端口号 </a><br />
 <br /></p>
 
 
@@ -512,15 +580,15 @@
   <ul class="pager">
     
     <li class="previous">
-      <a href="/2020/03/wenzikong/" data-toggle="tooltip"
-        data-placement="top" title="Android 文字点阵图的水波纹动画">上一篇： <span>Android 文字点阵图的水波纹动画</span>
+      <a href="/2022/09/FFmpeg/" data-toggle="tooltip"
+        data-placement="top" title="FFmpeg">上一篇： <span>FFmpeg</span>
       </a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/07/%E5%92%95%E5%98%9F/" data-toggle="tooltip"
-        data-placement="top" title="咕嘟">下一篇： <span>咕嘟</span>
+      <a href="/2022/10/H%E7%B3%BB%E5%88%97-Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/" data-toggle="tooltip"
+        data-placement="top" title="H系列 - Windows系统的账号密码">下一篇： <span>H系列 - Windows系统的账号密码</span>
       </a>
     </li>
     
