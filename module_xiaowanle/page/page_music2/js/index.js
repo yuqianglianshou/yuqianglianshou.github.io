@@ -23,8 +23,6 @@ const currentMusicList = [];
 currentMusicList.push(...allMusicList);
 // console.log("当前 currentMusicList  === " + JSON.stringify(currentMusicList, null, 2))
 
-//歌词
-const lyricsLists = JSON.parse(localStorage.getItem(KEY_LYRICS_LIST) || '[]');
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -246,38 +244,87 @@ const getCurrentMusicLyrics = function () {
     }
   }
 
-  const currentLyrics = lyricsList.find(item => item.name_path === currentMusicList[currentMusic].name_path);
+  console.log(" 当前歌词类型 lyricstype == " + currentMusicList[currentMusic].lyricstype);
 
-  if (!currentLyrics) {
-    console.log(currentMusic + "  加载歌词 无歌词");
-    return {
-      'text': ['暂无歌词。'],
-      'timer': []
-    };
-  } else {
-    console.log(currentMusic + "  加载歌词 有歌词 ");
-    const lyricsText = currentLyrics.lyrics.map(line => line.substring(line.indexOf(']') + 1));
-    console.log("Lyrics Text:", lyricsText);
+  if(currentMusicList[currentMusic].lyricstype === true){
+    console.log(currentMusic + "  加载歌词 第二种 ");
+    //第二种歌词数据
+    const currentLyrics = lyricsList2.find(item => item.name_path === currentMusicList[currentMusic].name_path);
 
-    const lyricsTimer = currentLyrics.lyrics.map(line => {
-      const timeStr = line.substring(1, 10); // 提取时间部分，包括毫秒
-      // console.log("Time String:", timeStr);
-      const [minutes, secondsAndMilliseconds] = timeStr.split(':');
-      const [seconds, milliseconds] = secondsAndMilliseconds.split('.').map(parseFloat);
-      // console.log("Parsed Time:", minutes, seconds, milliseconds);
-      return (parseFloat(minutes) * 60 + parseFloat(seconds) + milliseconds / 1000); // 转换为秒
-    });
-
-    console.log("Lyrics Timer:", lyricsTimer);
-
-    return {
-      'text': lyricsText,
-      'timer': lyricsTimer
-    };
-
+    if (!currentLyrics) {
+      console.log(currentMusic + "  加载歌词 无歌词");
+      return {
+        'text': ['暂无歌词。'],
+        'timer': []
+      };
+    } else {
+      console.log(currentMusic + "  加载歌词 有歌词 ");
+      const lyricsText = currentLyrics.lyrics.split('\n');
+      const lyricsRegex = /\[(\d{2}:\d{2}(?:\.\d{2,3})?)\](.*)/;  // 正则表达式匹配时间和歌词
+  
+      const lyricsData = lyricsText.map(line => {
+        const match = line.match(lyricsRegex);
+        if (match) {
+          const timeStr = match[1];
+          const lyricsLine = match[2];
+          const [minutes, secondsAndMilliseconds] = timeStr.split(':');
+          const [seconds, milliseconds] = secondsAndMilliseconds.split('.').map(parseFloat);
+          const timer = parseFloat(minutes) * 60 + parseFloat(seconds) + milliseconds / 1000;
+          return {
+            time: timer,
+            text: lyricsLine
+          };
+        }
+        return null;
+      }).filter(line => line !== null);
+  
+      const lyricsTimer = lyricsData.map(line => line.time);
+      const lyricsTextArray = lyricsData.map(line => line.text);
+  
+      // console.log("Lyrics Text:", lyricsTextArray);
+      // console.log("Lyrics Timer:", lyricsTimer);
+  
+      return {
+        'text': lyricsTextArray,
+        'timer': lyricsTimer
+      };
+    }
+  }else{
+    console.log(currentMusic + "  加载歌词 第一种 ");
+    const currentLyrics = lyricsList.find(item => item.name_path === currentMusicList[currentMusic].name_path);
+    if (!currentLyrics) {
+      console.log(currentMusic + "  加载歌词 无歌词");
+      return {
+        'text': ['暂无歌词。'],
+        'timer': []
+      };
+    } else {
+      console.log(currentMusic + "  加载歌词 有歌词 ");
+      const lyricsText = currentLyrics.lyrics.map(line => line.substring(line.indexOf(']') + 1));
+      // console.log("Lyrics Text:", lyricsText);
+  
+      const lyricsTimer = currentLyrics.lyrics.map(line => {
+        const timeStr = line.substring(1, 10); // 提取时间部分，包括毫秒
+        // console.log("Time String:", timeStr);
+        const [minutes, secondsAndMilliseconds] = timeStr.split(':');
+        const [seconds, milliseconds] = secondsAndMilliseconds.split('.').map(parseFloat);
+        // console.log("Parsed Time:", minutes, seconds, milliseconds);
+        return (parseFloat(minutes) * 60 + parseFloat(seconds) + milliseconds / 1000); // 转换为秒
+      });
+  
+      // console.log("Lyrics Timer:", lyricsTimer);
+  
+      return {
+        'text': lyricsText,
+        'timer': lyricsTimer
+      };
+  
+    }
   }
 
 }
+
+
 let currentMusicLyrics = ""
 let currentLyricsTimer_init = ""
 let currentLyricsTimer_change = [...currentLyricsTimer_init]
@@ -290,12 +337,13 @@ let currentLyricsTimer_change = [...currentLyricsTimer_init]
  * 
  */
 const renderLyrics = function () {
+
   var arr = getCurrentMusicLyrics()
   currentMusicLyrics = arr.text
   currentLyricsTimer_init = arr.timer
   currentLyricsTimer_change = [...currentLyricsTimer_init]
-  console.log(currentMusicLyrics)
-  console.log(currentLyricsTimer_init)
+  // console.log(currentMusicLyrics)
+  // console.log(currentLyricsTimer_init)
   playLyrics.innerHTML = ''
   for (let [idx, data] of currentMusicLyrics.entries()) {
     playLyrics.innerHTML += `
@@ -609,7 +657,7 @@ const musicPlayEnd = function () {
  */
 
 const playMusic = function (e) {
-  console.log("playMusic == ");
+  console.log("playMusic 开始播放音乐 ");
 
   //先通过 e = event || window.event 获取事件对象，然后通过 e.stopPropagation() 阻止事件继续向上冒泡，确保只在当前元素上处理该事件。
   e = event || window.event

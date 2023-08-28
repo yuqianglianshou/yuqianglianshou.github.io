@@ -386,6 +386,42 @@ const musicList3 = [
     lyrics: true,
     des: "我喜欢你"
   },
+  {
+    title: "有没有人告诉你 - 陈楚生",
+    author: "陈楚生",
+    name_path: "有没有人告诉你 - 陈楚生.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/有没有人告诉你 - 陈楚生.jpg",
+    time: '04:21',
+    lyrics: true,
+    des: "我们之间再无交集。",
+    lyricstype: true
+  },
+  {
+    title: "假如爱有天意 (Live) - 李健",
+    author: "李健",
+    name_path: "假如爱有天意 (Live) - 李健.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/17.jpg",
+    time: '05:03',
+    lyrics: true,
+    des: "如今我们已天各一方",
+    lyricstype: true
+  },
+  {
+    title: "灰色空间 - 罗志祥",
+    author: "李健",
+    name_path: "灰色空间 - 罗志祥.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/17.jpg",
+    time: '03:57',
+    lyrics: true,
+    des: "灰色空间我是谁",
+    lyricstype: true
+  },
 
 ]
 
@@ -468,6 +504,18 @@ const musicList4 = [
     lyrics: true,
     des: "我李逍遥可以对天发誓从今以后不会再让你一人孤苦伶仃。"
   },
+  {
+    title: "雨花石（电视连续剧《红红的雨花石》主题歌）",
+    author: "陈每文、熊健萍、陈帆等",
+    name_path: "雨花石（电视连续剧《红红的雨花石》主题歌）.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/17.jpg",
+    time: '03:49',
+    lyrics: true,
+    des: "我是一颗小小的石头",
+    lyricstype: true
+  },
 
 ]
 //气势BGM
@@ -531,6 +579,18 @@ const musicList6 = [
     time: '03:24',
     lyrics: true,
     des: "“你为什么要那么努力?”\n“想去的地方很远，想要的东西很贵，喜欢的人很优秀，周围人的嘲笑，以及，天生傲骨。”"
+  },
+  {
+    title: "挪威的森林 - 伍佰",
+    author: "伍佰",
+    name_path: "挪威的森林 - 伍佰.mp3",
+    type: TYPE_6,
+    type_path: FILE_MUSIC_lvdong,
+    imgPath: "./imgs/挪威的森林 - 伍佰.jpg",
+    time: '06:33',
+    lyrics: true,
+    des: "心中是否有我未曾到过的地方啊",
+    lyricstype: true
   },
 
 ]

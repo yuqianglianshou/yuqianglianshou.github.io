@@ -1181,6 +1181,3 @@ const lyricsList = [
     ]
   }
 ]
-
-const KEY_LYRICS_LIST = 'KEY_LYRICS_LIST'
-localStorage.setItem(KEY_LYRICS_LIST, JSON.stringify(lyricsList))
