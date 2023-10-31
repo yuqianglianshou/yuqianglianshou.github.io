@@ -974,4 +974,32 @@ function switchTab(tabElement) {
 
 }
 
+/**
+ * 2023-10-26
+ * 保持屏幕常亮
+ */
+let wakeLock = null;
+
+// 检查浏览器是否支持Wake Lock API
+if ('wakeLock' in navigator) {
+    // 请求屏幕常亮权限
+    (async () => {
+        try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            console.log('已获得屏幕常亮权限');
+        } catch (error) {
+            console.error('无法获得屏幕常亮权限:', error);
+        }
+    })();
+
+    // 监听页面关闭事件，释放屏幕常亮权限
+    window.addEventListener('unload', () => {
+        if (wakeLock !== null) {
+            wakeLock.release();
+        }
+    });
+} else {
+    console.log('你的浏览器不支持Wake Lock API');
+}
+
 

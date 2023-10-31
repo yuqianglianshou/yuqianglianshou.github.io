@@ -184,6 +184,18 @@ const musicList2 = [
     lyrics: false,
     des: "在那风吹的草原\n有我心上的人\n风啊 你轻轻吹\n听他忧伤的歌\n月亮啊 你照亮他\n火光啊 你温暖他\n在那遥远的天空 有我思念的云\n夜莺呀 你轻声和\n听我静静地唱\n云啊 飘向何方\n心啊 随好流浪"
   },
+  {
+    title: "送别 (口琴伴奏版) - 群星",
+    author: "群星",
+    name_path: "送别 (口琴伴奏版) - 群星.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/17.jpg",
+    time: '04:54',
+    lyrics: true,
+    des: "愿漂泊的人有酒喝，愿孤独的人会唱歌。\n往前走，别回头。",
+    lyricstype: true
+  },
 ]
 
 //emo  不经意间 你已经悄然离去 只留下一段回忆  很遗憾，我没能成为你的偏爱和例外
@@ -427,6 +439,42 @@ const musicList3 = [
 
 //经典
 const musicList4 = [
+  {
+    title: "大海 - 张雨生",
+    author: "张雨生",
+    name_path: "大海 - 张雨生.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '04:40',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "星星点灯 - 郑智化",
+    author: "郑智化",
+    name_path: "星星点灯 - 郑智化.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '05:00',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "老鼠爱大米 - 杨臣刚",
+    author: "杨臣刚",
+    name_path: "老鼠爱大米 - 杨臣刚.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '05:04',
+    lyrics: true,
+    des: "今天语文老师教我们文言文中“之”的取独用法，以本歌经典歌词为例，翻译成了古汉语：“吾之爱汝，如鼠之爱粟。”简直印象不能再深刻[大哭][大哭][大哭]",
+    lyricstype: true
+  },
   {
     title: "奇妙能力歌 - 陈粒",
     author: "陈粒",
