@@ -7,7 +7,7 @@ const IMG_DEFAULT_PATH1 = "./imgs/music_3-400x400.jpg";
 const IMG_DEFAULT_PATH2 = "./imgs/music_3-400x400.jpg";
 const IMG_DEFAULT_PATH3 = "./imgs/music_3-400x400.jpg";
 
-// 空白格  dance monkey 绿光 夜空中最亮的星 那些年 我怀念的  一生有你 生生世世爱 偏爱  
+// 空白格  dance monkey 绿光  那些年 我怀念的  生生世世爱 偏爱  
 // type 分类  （轻音乐，伤感，）
 
 // musicPath: FILE_MUSIC_ROOT + type_path + name_path,  ./music/jingdian/我的歌声里.mp3
@@ -36,13 +36,6 @@ const FILE_MUSIC_BGM = 'bgm/'
 // musicList6
 const TYPE_6 = "律动"
 const FILE_MUSIC_lvdong = 'lvdong/'
-
-
-const TYPE_9 = "未分类"
-const FILE_MUSIC_OTHER = 'other/'
-
-
-
 
 
 //天籁之音
@@ -434,11 +427,83 @@ const musicList3 = [
     des: "灰色空间我是谁",
     lyricstype: true
   },
+  {
+    title: "Daughter of heaven - 段玫梅",
+    author: "段玫梅",
+    name_path: "Daughter of heaven - 段玫梅.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/17.jpg",
+    time: '04:18',
+    lyrics: false,
+    des: "",
+    lyricstype: false
+  },
 
 ]
 
 //经典
 const musicList4 = [
+  {
+    title: "夜空中最亮的星 - 逃跑计划",
+    author: "逃跑计划",
+    name_path: "夜空中最亮的星 - 逃跑计划.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '04:12',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "我的歌声里-曲婉婷",
+    author: "曲婉婷",
+    name_path: "我的歌声里-曲婉婷.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '03:37',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "我好想你-苏打绿",
+    author: "苏打绿",
+    name_path: "我好想你-苏打绿.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '05:24',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "水木年华 - 一生有你",
+    author: "水木年华",
+    name_path: "水木年华 - 一生有你.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '04:18',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "陈一发儿 - 童话镇",
+    author: "陈一发儿",
+    name_path: "陈一发儿 - 童话镇.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/11.jpg",
+    time: '04:18',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
   {
     title: "大海 - 张雨生",
     author: "张雨生",
@@ -643,23 +708,6 @@ const musicList6 = [
 
 ]
 
-//未分类
-const musicList9 = [
-  {
-    title: "纸短情长 (完整版)",
-    author: "烟把儿乐队",
-    name_path: "纸短情长 (完整版)-烟把儿乐队.mp3",
-    type: TYPE_9,
-    type_path: FILE_MUSIC_OTHER,
-    imgPath: "./imgs/烟把儿乐队.jpg",
-    time: '02:54',
-    lyrics: true,
-    des: "从遇见你的那一天起，我所走的每一步，都是为了更接近你。"
-  },
-
-
-]
-
 
 
 const KEY_MUSIC_LIST_1 = 'musicList1';
@@ -680,8 +728,6 @@ localStorage.setItem(KEY_MUSIC_LIST_5, JSON.stringify(musicList5));
 const KEY_MUSIC_LIST_6 = 'musicList6';
 localStorage.setItem(KEY_MUSIC_LIST_6, JSON.stringify(musicList6));
 
-const KEY_MUSIC_LIST_9 = 'musicList9';
-localStorage.setItem(KEY_MUSIC_LIST_9, JSON.stringify(musicList9));
 
 
 

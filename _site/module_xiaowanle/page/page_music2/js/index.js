@@ -9,14 +9,14 @@ const musicList33 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_3) || '[]')
 const musicList44 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_4) || '[]')
 const musicList55 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_5) || '[]')
 const musicList66 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_6) || '[]')
-const musicList99 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_9) || '[]')
+const musicList77 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_7) || '[]')
 allMusicList.push(...musicList11);
 allMusicList.push(...musicList22);
 allMusicList.push(...musicList33);
 allMusicList.push(...musicList44);
 allMusicList.push(...musicList55);
 allMusicList.push(...musicList66);
-allMusicList.push(...musicList99);
+allMusicList.push(...musicList77);
 
 
 const currentMusicList = [];
@@ -939,7 +939,7 @@ const tabMusicMap = {
   'tab-E': musicList44,
   'tab-F': musicList55,
   'tab-G': musicList66,
-  'tab-I': musicList99
+  'tab-H': musicList77
 };
 // 列表切换
 function switchTab(tabElement) {
@@ -961,7 +961,7 @@ function switchTab(tabElement) {
   if (tabElement.classList.contains('tab-A') || tabElement.classList.contains('tab-B') ||
     tabElement.classList.contains('tab-C') || tabElement.classList.contains('tab-D') ||
     tabElement.classList.contains('tab-E') || tabElement.classList.contains('tab-F') ||
-    tabElement.classList.contains('tab-G') || tabElement.classList.contains('tab-I')) {
+    tabElement.classList.contains('tab-G') || tabElement.classList.contains('tab-H')) {
 
     const tabClassName = Array.from(tabElement.classList).find(className => className.startsWith('tab-'));
     if (tabClassName) {
