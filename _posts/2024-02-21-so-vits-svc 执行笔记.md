@@ -6,6 +6,12 @@ tags:  技术_AI语音
 ---
 ### 风能否向月而行。
 
+## 结果展示 
+
+[【AI-芙宁娜】 翻唱 - 轻涟（中文）](https://www.bilibili.com/video/BV1aC41187Vr/?spm_id_from=333.999.0.0&vd_source=98a6ce1d2586467c3641a8b5aac049ed)  
+[【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）](https://www.bilibili.com/video/BV1tA4m1P7YF/?spm_id_from=333.788.recommend_more_video.2&vd_source=98a6ce1d2586467c3641a8b5aac049ed)  
+[【AI-枫原万叶】 翻唱 - 阿拉斯加海湾](https://www.bilibili.com/video/BV1FK42147R6/?spm_id_from=333.788.recommend_more_video.2&vd_source=98a6ce1d2586467c3641a8b5aac049ed)
+
 ## 相关教程和参考资料
 
 so-vits-svc 项目地址： [https://github.com/svc-develop-team/so-vits-svc.git](https://github.com/svc-develop-team/so-vits-svc.git)   
@@ -134,7 +140,9 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
 2. 预训练底模文件： G_0.pth, D_0.pth 放在logs/44k目录下.  
 扩散模型预训练底模文件： model_0.pt 放在logs/44k/diffusion目录下.  
-[https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model](https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model)包含G_0.pth，D_0.pth，model_0.pt.s
+[https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model](https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model)包含G_0.pth，D_0.pth，model_0.pt.s  
+预训练的 NSF-HIFIGAN 声码器 ：nsf_hifigan_20221211.zip [https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip](https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip)  
+解压后，将四个文件放在pretrain/nsf_hifigan目录下
 
 ## 程序执行
 
@@ -171,7 +179,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
     <br/>
     ![](/images/posts/20240221/5.jpg){:width="90%"}  
 
-4. 主模型训练，需要5万步起，至少训练36小时，可ctrl+c中断，继续训练再次执行命令即可。
+4. 主模型训练，需要epoch 5000+，训练100小时效果应该可以了，可ctrl+c中断，继续训练再次执行命令即可。
    
     ```
     python train.py -c configs/config.json -m 44k
@@ -309,7 +317,17 @@ conda deactivate
 conda env remove --name <环境名称>
 ```
 
+## 关于 问题、建议
 
+1. 音频数据集理论上越多越好，越多也就意味着训练模型时的时间成本越高。  
+2. 音频数据集质量（清晰度、有无杂音）很重要，直接影响结果。
+3. 音频数据集的音调范围，数据集中有高音、低音的样本，在推理后才会有相应的结果，比如数据集中没有高音的样本，推理了一首高音的歌曲，会出现哑音、唱不上去的现象。
+4. 音频数据集的数据后缀需要小写的 .wav，大写的（.WAV）项目不支持，要注意。
+5. 尽量找和模型音色相近的音乐干声。相近的和差距很大的音色最后合成的效果差距很大。
+6. epoch 5000+以上，测试想要一个不错的结果训练时常需要100个小时以上。epoch次数在log里查看。
+7. 我尝试了一次训练了3个模型，结果推理后的歌曲有两个模型有节拍不同步的问题，不知道具体原因是什么，建议一次只训练一个模型。
+8. 训练过程中关闭不用的程序等减少内存占用，其他程序的cpu、gpu的使用，会导致训练epoch的时间增长。推理的使用和tensorboard的使用也会这样，不用时及时关闭，保证电脑资源尽量多的给到训练程序。
+9. 需要训练的声音要有足够的自己的声音特色。
 
 
 
