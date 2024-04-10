@@ -6,13 +6,19 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 Mar 2024 11:55:33 +0800</pubDate>
-    <lastBuildDate>Mon, 04 Mar 2024 11:55:33 +0800</lastBuildDate>
+    <pubDate>Thu, 11 Apr 2024 06:26:18 +0800</pubDate>
+    <lastBuildDate>Thu, 11 Apr 2024 06:26:18 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
     <item>
       <title>so-vits-svc 执行笔记</title>
       <description>&lt;h3 id=&quot;风能否向月而行&quot;&gt;风能否向月而行。&lt;/h3&gt;
+
+&lt;h2 id=&quot;结果展示&quot;&gt;结果展示&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1aC41187Vr/?spm_id_from=333.999.0.0&amp;amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed&quot;&gt;【AI-芙宁娜】 翻唱 - 轻涟（中文）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.bilibili.com/video/BV1tA4m1P7YF/?spm_id_from=333.788.recommend_more_video.2&amp;amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed&quot;&gt;【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.bilibili.com/video/BV1FK42147R6/?spm_id_from=333.788.recommend_more_video.2&amp;amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed&quot;&gt;【AI-枫原万叶】 翻唱 - 阿拉斯加海湾&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;相关教程和参考资料&quot;&gt;相关教程和参考资料&lt;/h2&gt;
 
@@ -135,7 +141,9 @@ tensorflow
   &lt;li&gt;
     &lt;p&gt;预训练底模文件： G_0.pth, D_0.pth 放在logs/44k目录下.&lt;br /&gt;
 扩散模型预训练底模文件： model_0.pt 放在logs/44k/diffusion目录下.&lt;br /&gt;
-&lt;a href=&quot;https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model&quot;&gt;https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model&lt;/a&gt;包含G_0.pth，D_0.pth，model_0.pt.s&lt;/p&gt;
+&lt;a href=&quot;https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model&quot;&gt;https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model&lt;/a&gt;包含G_0.pth，D_0.pth，model_0.pt.s&lt;br /&gt;
+预训练的 NSF-HIFIGAN 声码器 ：nsf_hifigan_20221211.zip &lt;a href=&quot;https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip&quot;&gt;https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip&lt;/a&gt;&lt;br /&gt;
+解压后，将四个文件放在pretrain/nsf_hifigan目录下&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -174,7 +182,7 @@ tensorflow
  &lt;img src=&quot;/images/posts/20240221/5.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;主模型训练，需要5万步起，至少训练36小时，可ctrl+c中断，继续训练再次执行命令即可。&lt;/p&gt;
+    &lt;p&gt;主模型训练，需要epoch 5000+，训练100小时效果应该可以了，可ctrl+c中断，继续训练再次执行命令即可。&lt;/p&gt;
 
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python train.py -c configs/config.json -m 44k
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
@@ -311,6 +319,20 @@ conda deactivate
 //删除创建的环境
 conda env remove --name &amp;lt;环境名称&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;关于-问题建议&quot;&gt;关于 问题、建议&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;音频数据集理论上越多越好，越多也就意味着训练模型时的时间成本越高。&lt;/li&gt;
+  &lt;li&gt;音频数据集质量（清晰度、有无杂音）很重要，直接影响结果。&lt;/li&gt;
+  &lt;li&gt;音频数据集的音调范围，数据集中有高音、低音的样本，在推理后才会有相应的结果，比如数据集中没有高音的样本，推理了一首高音的歌曲，会出现哑音、唱不上去的现象。&lt;/li&gt;
+  &lt;li&gt;音频数据集的数据后缀需要小写的 .wav，大写的（.WAV）项目不支持，要注意。&lt;/li&gt;
+  &lt;li&gt;尽量找和模型音色相近的音乐干声。相近的和差距很大的音色最后合成的效果差距很大。&lt;/li&gt;
+  &lt;li&gt;epoch 5000+以上，测试想要一个不错的结果训练时常需要100个小时以上。epoch次数在log里查看。&lt;/li&gt;
+  &lt;li&gt;我尝试了一次训练了3个模型，结果推理后的歌曲有两个模型有节拍不同步的问题，不知道具体原因是什么，建议一次只训练一个模型。&lt;/li&gt;
+  &lt;li&gt;训练过程中关闭不用的程序等减少内存占用，其他程序的cpu、gpu的使用，会导致训练epoch的时间增长。推理的使用和tensorboard的使用也会这样，不用时及时关闭，保证电脑资源尽量多的给到训练程序。&lt;/li&gt;
+  &lt;li&gt;需要训练的声音要有足够的自己的声音特色。&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;&lt;br /&gt; 
 &lt;br /&gt; 
@@ -859,8 +881,6 @@ PyTorch拥有一个庞大而活跃的社区，提供了丰富的资源和工具�
 &lt;p&gt;&lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/07/日记/&quot;&gt; 日记 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Sun, 23 Jul 2023 00:00:00 +0800</pubDate>
@@ -931,8 +951,6 @@ chrome-extension, chrome, https, chrome-untrusted.
 &lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/07/跨域问题/&quot;&gt; 跨域问题 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Thu, 06 Jul 2023 00:00:00 +0800</pubDate>
@@ -1151,10 +1169,9 @@ LLM虽然是一个“听人类的话并用人类的话回应”的机器，但�
 &lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/03/ChatGPT/&quot;&gt; ChatGPT &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0800</pubDate>
       <link>http://localhost:4000/2023/03/ChatGPT/</link>
@@ -1216,9 +1233,9 @@ X炸弹和Y炸弹同时都在农民甲手中的组合数为 26！/9！，&lt;br 
 &lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/01/斗地主_出牌系列概率计算_地主方/&quot;&gt; 斗地主出牌系列概率计算_地主方 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Tue, 03 Jan 2023 00:00:00 +0800</pubDate>
       <link>http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E5%87%BA%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97_%E5%9C%B0%E4%B8%BB%E6%96%B9/</link>
@@ -1492,10 +1509,9 @@ X Y Z， X Y J, X Y K，X Y L，X Z J, X Z K，X Z L，X J K，X J L，X K L，Y
 &lt;p&gt;&lt;br /&gt; 
 &lt;br /&gt; 
 &lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-转载请注明：&lt;a href=&quot;http://yuqianglianshou.com&quot;&gt;劉清揚的博客&lt;/a&gt; » &lt;a href=&quot;http://yuqianglianshou.com/2023/01/斗地主_补牌系列概率计算/&quot;&gt; 斗地主补牌系列概率计算 &lt;/a&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
       <pubDate>Mon, 02 Jan 2023 00:00:00 +0800</pubDate>
       <link>http://localhost:4000/2023/01/%E6%96%97%E5%9C%B0%E4%B8%BB_%E8%A1%A5%E7%89%8C%E7%B3%BB%E5%88%97%E6%A6%82%E7%8E%87%E8%AE%A1%E7%AE%97/</link>

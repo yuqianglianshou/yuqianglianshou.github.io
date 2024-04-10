@@ -8,20 +8,20 @@
 
   <title>so-vits-svc 执行笔记</title>
   <meta name="description"
-    content="风能否向月而行。相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git 官方 README 文档：https://github.com/svc-develop-team/so-vits-svc/blob/4.1-...">
+    content="风能否向月而行。结果展示【AI-芙宁娜】 翻唱 - 轻涟（中文）【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）【AI-枫原万叶】 翻唱 - 阿拉斯加海湾相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git ...">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
     content="so-vits-svc 执行笔记">
   <meta name="twitter:description"
-    content="风能否向月而行。相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git 官方 README 文档：https://github.com/svc-develop-team/so-vits-svc/blob/4.1-...">
+    content="风能否向月而行。结果展示【AI-芙宁娜】 翻唱 - 轻涟（中文）【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）【AI-枫原万叶】 翻唱 - 阿拉斯加海湾相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git ...">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
     content="so-vits-svc 执行笔记">
   <meta property="og:description"
-    content="风能否向月而行。相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git 官方 README 文档：https://github.com/svc-develop-team/so-vits-svc/blob/4.1-...">
+    content="风能否向月而行。结果展示【AI-芙宁娜】 翻唱 - 轻涟（中文）【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）【AI-枫原万叶】 翻唱 - 阿拉斯加海湾相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git ...">
 
   <link rel="icon" type="image/png" href="/images/avatar.jpg" />
   <link href="/images/avatar.jpg" rel="shortcut icon" type="image/png">
@@ -216,6 +216,12 @@
   <section class="post">
     <h3 id="风能否向月而行">风能否向月而行。</h3>
 
+<h2 id="结果展示">结果展示</h2>
+
+<p><a href="https://www.bilibili.com/video/BV1aC41187Vr/?spm_id_from=333.999.0.0&amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed">【AI-芙宁娜】 翻唱 - 轻涟（中文）</a><br />
+<a href="https://www.bilibili.com/video/BV1tA4m1P7YF/?spm_id_from=333.788.recommend_more_video.2&amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed">【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）</a><br />
+<a href="https://www.bilibili.com/video/BV1FK42147R6/?spm_id_from=333.788.recommend_more_video.2&amp;vd_source=98a6ce1d2586467c3641a8b5aac049ed">【AI-枫原万叶】 翻唱 - 阿拉斯加海湾</a></p>
+
 <h2 id="相关教程和参考资料">相关教程和参考资料</h2>
 
 <p>so-vits-svc 项目地址： <a href="https://github.com/svc-develop-team/so-vits-svc.git">https://github.com/svc-develop-team/so-vits-svc.git</a> <br />
@@ -337,7 +343,9 @@ tensorflow
   <li>
     <p>预训练底模文件： G_0.pth, D_0.pth 放在logs/44k目录下.<br />
 扩散模型预训练底模文件： model_0.pt 放在logs/44k/diffusion目录下.<br />
-<a href="https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model">https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model</a>包含G_0.pth，D_0.pth，model_0.pt.s</p>
+<a href="https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model">https://huggingface.co/Sucial/so-vits-svc4.1-pretrain_model</a>包含G_0.pth，D_0.pth，model_0.pt.s<br />
+预训练的 NSF-HIFIGAN 声码器 ：nsf_hifigan_20221211.zip <a href="https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip">https://github.com/openvpi/vocoders/releases/download/nsf-hifigan-v1/nsf_hifigan_20221211.zip</a><br />
+解压后，将四个文件放在pretrain/nsf_hifigan目录下</p>
   </li>
 </ol>
 
@@ -376,7 +384,7 @@ tensorflow
  <img src="/images/posts/20240221/5.jpg" alt="" width="90%" /></p>
   </li>
   <li>
-    <p>主模型训练，需要5万步起，至少训练36小时，可ctrl+c中断，继续训练再次执行命令即可。</p>
+    <p>主模型训练，需要epoch 5000+，训练100小时效果应该可以了，可ctrl+c中断，继续训练再次执行命令即可。</p>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python train.py -c configs/config.json -m 44k
 </code></pre></div>    </div>
@@ -514,6 +522,20 @@ conda deactivate
 conda env remove --name &lt;环境名称&gt;
 </code></pre></div></div>
 
+<h2 id="关于-问题建议">关于 问题、建议</h2>
+
+<ol>
+  <li>音频数据集理论上越多越好，越多也就意味着训练模型时的时间成本越高。</li>
+  <li>音频数据集质量（清晰度、有无杂音）很重要，直接影响结果。</li>
+  <li>音频数据集的音调范围，数据集中有高音、低音的样本，在推理后才会有相应的结果，比如数据集中没有高音的样本，推理了一首高音的歌曲，会出现哑音、唱不上去的现象。</li>
+  <li>音频数据集的数据后缀需要小写的 .wav，大写的（.WAV）项目不支持，要注意。</li>
+  <li>尽量找和模型音色相近的音乐干声。相近的和差距很大的音色最后合成的效果差距很大。</li>
+  <li>epoch 5000+以上，测试想要一个不错的结果训练时常需要100个小时以上。epoch次数在log里查看。</li>
+  <li>我尝试了一次训练了3个模型，结果推理后的歌曲有两个模型有节拍不同步的问题，不知道具体原因是什么，建议一次只训练一个模型。</li>
+  <li>训练过程中关闭不用的程序等减少内存占用，其他程序的cpu、gpu的使用，会导致训练epoch的时间增长。推理的使用和tensorboard的使用也会这样，不用时及时关闭，保证电脑资源尽量多的给到训练程序。</li>
+  <li>需要训练的声音要有足够的自己的声音特色。</li>
+</ol>
+
 <p><br /> 
 <br /> 
 <br /> 
@@ -533,7 +555,8 @@ conda env remove --name &lt;环境名称&gt;
 
 <section>
 
-  <div class="content-play">
+  <!-- 屏蔽 不能点 按钮  style="display: none; -->
+  <div class="content-play" style="display: none;">
     <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="此中有真意">不能点</a></p>
     <div class="hide_box-play"></div>
     <div class="shang_box-play">
