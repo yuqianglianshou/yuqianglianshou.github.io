@@ -238,11 +238,11 @@
 
 <h2 id="安装查看">安装查看</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//安装
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//安装
 brew install ffmpeg
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//版本信息
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//版本信息
 ffmpeg -version  
 
 结果：
@@ -264,7 +264,7 @@ libpostproc    57.  1.100 / 57.  1.100
 <p><strong>查看文件信息</strong></p>
 
 <p>示例:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.mp3  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.mp3  
 
 结果：  
 ffmpeg version 6.0 Copyright (c) 2000-2023 the FFmpeg developers
@@ -301,7 +301,7 @@ At least one output file must be specified
 
 <p><strong>文件编码格式转换</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//将M4A格式的音频文件转换为MP3格式
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//将M4A格式的音频文件转换为MP3格式
 ffmpeg -i input.m4a -acodec mp3 -vn output.mp3  
 
 //其中，input.m4a是要转换的M4A文件的路径和文件名，output.mp3是转换后的MP3文件的路径和文件名。您可以根据需要自定义文件名和路径。  
@@ -310,23 +310,23 @@ ffmpeg -i /Users/liuqiang/Desktop/我的歌声里.m4a  -acodec mp3 -vn /Users/li
 
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//转成 H.264 编码
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//转成 H.264 编码
 ffmpeg -i out.mp4 -c:v libx264 output.mp4
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//转成 H.265 编码
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//转成 H.265 编码
 ffmpeg -i out.mp4 -c:v libx265 output.mp4
 </code></pre></div></div>
 
 <p><strong>音视频提取</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//提取音频
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//提取音频
 ffmpeg -i origin.mp4 -acodec copy -vn voice.aac
 
 解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出音频文件
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 提取视频
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 提取视频
 ffmpeg -i origin.mp4 -vcodec copy -an video0.mp4
 
 解释：ffmpeg -i 原始视频文件 -acodec copy -vn 输出视频文件

@@ -237,14 +237,14 @@
 <br /></p>
 </blockquote>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="n">RelativeLayout</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="nc">RelativeLayout</span>
         <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"match_parent"</span>
         <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"40dp"</span>
         <span class="nl">android:</span><span class="n">background</span><span class="o">=</span><span class="s">"#aa363B41"</span>
         <span class="nl">android:</span><span class="n">paddingRight</span><span class="o">=</span><span class="s">"12dp"</span><span class="o">&gt;</span>
 
-        <span class="o">&lt;!--</span><span class="n">B</span> <span class="err">图标</span><span class="o">--&gt;</span>
-        <span class="o">&lt;</span><span class="n">ImageView</span>
+        <span class="o">&lt;!--</span><span class="no">B</span> <span class="n">图标</span><span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nc">ImageView</span>
             <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">"@+id/iv_b"</span>
             <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"wrap_content"</span>
             <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"wrap_content"</span>
@@ -252,8 +252,8 @@
             <span class="nl">android:</span><span class="n">layout_centerVertical</span><span class="o">=</span><span class="s">"true"</span>
             <span class="nl">android:</span><span class="n">src</span><span class="o">=</span><span class="s">"@mipmap/camera"</span><span class="o">/&gt;</span>
 
-        <span class="o">&lt;!--</span><span class="n">A</span> <span class="err">图标</span><span class="o">--&gt;</span>
-        <span class="o">&lt;</span><span class="n">ImageView</span>
+        <span class="o">&lt;!--</span><span class="no">A</span> <span class="n">图标</span><span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nc">ImageView</span>
             <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"wrap_content"</span>
             <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"wrap_content"</span>
             <span class="nl">android:</span><span class="n">layout_centerInParent</span><span class="o">=</span><span class="s">"true"</span>
@@ -261,21 +261,21 @@
             <span class="nl">android:</span><span class="n">layout_toLeftOf</span><span class="o">=</span><span class="s">"@id/iv_b"</span>
             <span class="nl">android:</span><span class="n">src</span><span class="o">=</span><span class="s">"@mipmap/flash_off"</span><span class="o">/&gt;</span>
 
-    <span class="o">&lt;/</span><span class="n">RelativeLayout</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nc">RelativeLayout</span><span class="o">&gt;</span>
 </code></pre></div></div>
 <blockquote>
   <p>简单说下，一个 RelativeLayout 中放了两个图标，B 放在父布局的最右侧，A 放在B 的左侧，预览的视觉效果就是横向排列的    图标A 图标B，我是一个有点强迫症的选手，既然是 图标A 图标B 这样的，代码也要按这个顺序啊，于是顺手换了下位置，改成了这样的  <br />
 <br /></p>
 </blockquote>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="n">RelativeLayout</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="nc">RelativeLayout</span>
         <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"match_parent"</span>
         <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"40dp"</span>
         <span class="nl">android:</span><span class="n">background</span><span class="o">=</span><span class="s">"#aa363B41"</span>
         <span class="nl">android:</span><span class="n">paddingRight</span><span class="o">=</span><span class="s">"12dp"</span><span class="o">&gt;</span>
 
-        <span class="o">&lt;!--</span><span class="n">A</span> <span class="err">图标</span><span class="o">--&gt;</span>
-        <span class="o">&lt;</span><span class="n">ImageView</span>
+        <span class="o">&lt;!--</span><span class="no">A</span> <span class="n">图标</span><span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nc">ImageView</span>
             <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"wrap_content"</span>
             <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"wrap_content"</span>
             <span class="nl">android:</span><span class="n">layout_centerInParent</span><span class="o">=</span><span class="s">"true"</span>
@@ -283,8 +283,8 @@
             <span class="nl">android:</span><span class="n">layout_toLeftOf</span><span class="o">=</span><span class="s">"@id/iv_b"</span>
             <span class="nl">android:</span><span class="n">src</span><span class="o">=</span><span class="s">"@mipmap/flash_off"</span><span class="o">/&gt;</span>
 
-        <span class="o">&lt;!--</span><span class="n">B</span> <span class="err">图标</span><span class="o">--&gt;</span>
-        <span class="o">&lt;</span><span class="n">ImageView</span>
+        <span class="o">&lt;!--</span><span class="no">B</span> <span class="n">图标</span><span class="o">--&gt;</span>
+        <span class="o">&lt;</span><span class="nc">ImageView</span>
             <span class="nl">android:</span><span class="n">id</span><span class="o">=</span><span class="s">"@+id/iv_b"</span>
             <span class="nl">android:</span><span class="n">layout_width</span><span class="o">=</span><span class="s">"wrap_content"</span>
             <span class="nl">android:</span><span class="n">layout_height</span><span class="o">=</span><span class="s">"wrap_content"</span>
@@ -293,7 +293,7 @@
             <span class="nl">android:</span><span class="n">src</span><span class="o">=</span><span class="s">"@mipmap/camera"</span><span class="o">/&gt;</span>
 
 
-    <span class="o">&lt;/</span><span class="n">RelativeLayout</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nc">RelativeLayout</span><span class="o">&gt;</span>
 </code></pre></div></div>
 <blockquote>
   <p>这你妹的不可能有问题啊，继续加了其他功能布局，一运行，呵呵，出于对自己年龄的考虑，可能老了，犯了点低级错误吧，一点点看，没问题，一点点屏蔽写了的东西，调试，最后就剩这点改动了，还是报错，我勒个去，这点自信我还是有的，这不可能有问题啊，实在没招了，重新svn下载，另起文件夹运行，没问题！那就这点不一样了，于是我抱着试一试的完全不相信的态度换了回去，一运行，挖槽，成了！这这这。。。怎么可能，违背我多年的信仰啊！赶紧新建了个android项目，把相同的报错的代码导进去，运行，没问题！这就尴尬了，这个错只在这个项目里出现，我已有的知识体系已经无法说明这个问题了，问了一个哥们，哥们说可能是编译方式、过程啊啥的问题，并且说你把报错的那个android:layout_toLeftOf=”@id/iv_b”  中@id 改为@+id 试试，我试试吧，确实就不报错了，哎，可怜了我整个上午的时光。

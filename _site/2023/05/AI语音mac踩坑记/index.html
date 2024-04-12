@@ -238,29 +238,29 @@
 <h2 id="环境配置">环境配置</h2>
 
 <p>首先确保本机已经安装好Python3.+的开发环境，这里我使用的是python3.9.0，随后使用Git命令克隆项目：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/svc-develop-team/so-vits-svc.git
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/svc-develop-team/so-vits-svc.git
 </code></pre></div></div>
 
 <p>随后进入项目的目录：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd so-vits-svc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd so-vits-svc
 </code></pre></div></div>
 <p>接着安装依赖，如果是Linux或者Mac系统，运行命令：</p>
 
 <p>pip3 install -r requirements.txt</p>
 
 <p>依赖库安装成功之后，在项目的根目录运行命令，启动服务：</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python webUI.py
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python webUI.py
 </code></pre></div></div>
 
 <p>安装 wget</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install wget
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install wget
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget --version
 </code></pre></div></div>
 
 <p>预先下载的模型文件,1.3G,需要一点时间。  <br />
 根目录下</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best_legacy_500.pt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best_legacy_500.pt
 </code></pre></div></div>
 
 <p>由于mac坑太多，且存在诸多不便，台式机安排上。</p>

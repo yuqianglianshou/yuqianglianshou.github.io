@@ -234,25 +234,25 @@
 <br />
 Kotlin 代码如下：<br />
 <br /></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
-<span class="nt">&lt;androidx.constraintlayout.widget.ConstraintLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
-    <span class="na">xmlns:app=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
-    <span class="na">xmlns:tools=</span><span class="s">"http://schemas.android.com/tools"</span>
-    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
-    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
-    <span class="na">tools:context=</span><span class="s">".MainActivity"</span><span class="nt">&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
 
-    <span class="nt">&lt;EditText</span>
-        <span class="na">android:id=</span><span class="s">"@+id/et"</span>
-        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
-        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
-        <span class="na">android:textSize=</span><span class="s">"18sp"</span>
-        <span class="na">app:layout_constraintBottom_toBottomOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintLeft_toLeftOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintRight_toRightOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintTop_toTopOf=</span><span class="s">"parent"</span> <span class="nt">/&gt;</span>
+    &lt;EditText
+        android:id="@+id/et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
 
-<span class="nt">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span>
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
 </code></pre></div></div>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">android.os.Bundle</span>
@@ -263,11 +263,11 @@ Kotlin 代码如下：<br />
 <span class="kn">import</span> <span class="nn">android.widget.EditText</span>
 <span class="kn">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span>
 
-<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="o">:</span> <span class="n">AppCompatActivity</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nl">savedInstanceState:</span> <span class="n">Bundle</span><span class="o">?)</span> <span class="o">{</span>
+<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="o">:</span> <span class="nc">AppCompatActivity</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nl">savedInstanceState:</span> <span class="nc">Bundle</span><span class="o">?)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">)</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">)</span>
-        <span class="n">val</span> <span class="n">editText</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">&lt;</span><span class="n">EditText</span><span class="o">&gt;(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">et</span><span class="o">)</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">)</span>
+        <span class="n">val</span> <span class="n">editText</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">&lt;</span><span class="nc">EditText</span><span class="o">&gt;(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">et</span><span class="o">)</span>
         <span class="n">customHint</span><span class="o">(</span><span class="n">editText</span><span class="o">,</span> <span class="s">"我是hint文本，10sp。秋风知我意，微凉又深情。"</span><span class="o">)</span>
     <span class="o">}</span>
 
@@ -276,18 +276,18 @@ Kotlin 代码如下：<br />
      * @param editText
      * @param hintString
      */</span>
-    <span class="n">fun</span> <span class="nf">customHint</span><span class="o">(</span><span class="nl">et:</span> <span class="n">EditText</span><span class="o">,</span> <span class="nl">hintString:</span> <span class="n">String</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">customHint</span><span class="o">(</span><span class="nl">et:</span> <span class="nc">EditText</span><span class="o">,</span> <span class="nl">hintString:</span> <span class="nc">String</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">//设置字体大小</span>
-        <span class="n">val</span> <span class="n">textSize</span> <span class="o">=</span> <span class="n">AbsoluteSizeSpan</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+        <span class="n">val</span> <span class="n">textSize</span> <span class="o">=</span> <span class="nc">AbsoluteSizeSpan</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
 
-        <span class="n">val</span> <span class="n">spannableString</span> <span class="o">=</span> <span class="n">SpannableString</span><span class="o">(</span><span class="n">hintString</span><span class="o">)</span>
+        <span class="n">val</span> <span class="n">spannableString</span> <span class="o">=</span> <span class="nc">SpannableString</span><span class="o">(</span><span class="n">hintString</span><span class="o">)</span>
         <span class="n">spannableString</span><span class="o">.</span><span class="na">setSpan</span><span class="o">(</span>
             <span class="n">textSize</span><span class="o">,</span>
             <span class="mi">0</span><span class="o">,</span>
             <span class="n">hintString</span><span class="o">.</span><span class="na">length</span> <span class="o">/</span> <span class="mi">2</span><span class="o">,</span><span class="c1">//注意这里，为了效果显示，只设置了文本的一半</span>
-            <span class="n">Spanned</span><span class="o">.</span><span class="na">SPAN_EXCLUSIVE_EXCLUSIVE</span>
+            <span class="nc">Spanned</span><span class="o">.</span><span class="na">SPAN_EXCLUSIVE_EXCLUSIVE</span>
         <span class="o">)</span>
-        <span class="n">et</span><span class="o">.</span><span class="na">hint</span> <span class="o">=</span> <span class="n">SpannedString</span><span class="o">(</span><span class="n">spannableString</span><span class="o">)</span>
+        <span class="n">et</span><span class="o">.</span><span class="na">hint</span> <span class="o">=</span> <span class="nc">SpannedString</span><span class="o">(</span><span class="n">spannableString</span><span class="o">)</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>

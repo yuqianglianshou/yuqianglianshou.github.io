@@ -1,0 +1,7 @@
+windows 
+1，删除Gemfile.lock 文件。
+2,安装项目依赖
+bundle install
+3,启动服务
+jekyll serve
+

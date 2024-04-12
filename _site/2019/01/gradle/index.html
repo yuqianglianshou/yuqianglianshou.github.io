@@ -218,20 +218,20 @@
 
 <ol>
   <li>报错 Error
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gradle's dependency cache may be corrupt
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gradle's dependency cache may be corrupt
 indexing paused due to batch update
 </code></pre></div>    </div>
     <p>新建项目或者打开其他项目，一直卡在这里，rebuild,clean,重启等等都用了并不行。
 此时的原因可能是在下载gradle时网络不好或者取消了下载操作，导致并未下载完全。<br />
 以 gradle-5.1.1-all.zip 举例：打开项目中的 gradle\wrapper\gradle-wrapper.properties 文件，看到</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>distributionBase=GRADLE_USER_HOME
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 distributionUrl=https\://services.gradle.org/distributions/gradle-5.1.1-all.zip
 </code></pre></div>    </div>
-    <p>windows 打开你的 <code class="highlighter-rouge">C:\Users\.gradle\wrapper\dists</code>，mac 在用户下的<code class="highlighter-rouge">User\.gradle\wrapper\dists</code>目录(mac查看 . 开头的文件夹快捷键 command+shift+. )，找到包目录，即gradle-5.1.1-all，删除，重新build，看到正在下载gradle就好了。
-注：网上有说可以将 <code class="highlighter-rouge">distributionUrl=https\://services.gradle.org/distributions/gradle-5.1.1-all.zip</code>中的https改为http,但是解决不了这个下载不完全的问题，改一下下载速度快了，仅此而已。<br />
+    <p>windows 打开你的 <code class="language-plaintext highlighter-rouge">C:\Users\.gradle\wrapper\dists</code>，mac 在用户下的<code class="language-plaintext highlighter-rouge">User\.gradle\wrapper\dists</code>目录(mac查看 . 开头的文件夹快捷键 command+shift+. )，找到包目录，即gradle-5.1.1-all，删除，重新build，看到正在下载gradle就好了。
+注：网上有说可以将 <code class="language-plaintext highlighter-rouge">distributionUrl=https\://services.gradle.org/distributions/gradle-5.1.1-all.zip</code>中的https改为http,但是解决不了这个下载不完全的问题，改一下下载速度快了，仅此而已。<br />
 如果并未解决，可以再试一下更狠的，退出AS，去项目目录下删除module下所有的 .impl 文件，删除 .idea 文件夹，然后打开AS，打开项目，如果还未解决，就不是gradle下载不完全而带来的错误了。</p>
   </li>
 </ol>

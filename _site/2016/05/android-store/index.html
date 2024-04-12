@@ -227,12 +227,12 @@
 <p>外部存储才是我们平时操作最多的，外部存储一般就是我们上面看到的storage文件夹，当然也有可能是mnt文件夹，这个名称不影响我们操作数据。</p>
 <h4 id="路径获取">路径获取</h4>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">内部存储：</span>  
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">内部存储</span><span class="err">：</span>  
  <span class="n">getFilesDir</span><span class="o">();</span><span class="c1">//获取内部存储的File路径 getCacheDir();//获取内部存储的Cache路径 getDatabasePath("demo.db");//获取database路径 getSharedPreferences("demo",MODE_PRIVATE);//获取SP  </span>
 
-<span class="err">外部存储：</span>  
+<span class="n">外部存储</span><span class="err">：</span>  
  <span class="n">getExternalCacheDir</span><span class="o">();</span><span class="c1">//获取外部存储私有目录</span>
- <span class="n">getExternalFilesDir</span><span class="o">(</span><span class="n">Environment</span><span class="o">.</span><span class="na">DIRECTORY_DCIM</span><span class="o">);</span><span class="c1">//获取外部存储公有目录  </span>
+ <span class="n">getExternalFilesDir</span><span class="o">(</span><span class="nc">Environment</span><span class="o">.</span><span class="na">DIRECTORY_DCIM</span><span class="o">);</span><span class="c1">//获取外部存储公有目录  </span>
 
 
 </code></pre></div></div>

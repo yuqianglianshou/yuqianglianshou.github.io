@@ -6,9 +6,9 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Apr 2024 06:26:18 +0800</pubDate>
-    <lastBuildDate>Thu, 11 Apr 2024 06:26:18 +0800</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
+    <pubDate>Fri, 12 Apr 2024 08:48:15 +0800</pubDate>
+    <lastBuildDate>Fri, 12 Apr 2024 08:48:15 +0800</lastBuildDate>
+    <generator>Jekyll v4.3.3</generator>
     
     <item>
       <title>so-vits-svc 执行笔记</title>
@@ -36,7 +36,7 @@ B 站 up Sucial的UVR5人声分离教程: &lt;a href=&quot;https://www.bilibili.
 &lt;p&gt;需要 NVIDIA-CUDA，版本11或版本12，请安装。&lt;br /&gt;
 查看cuda 版本&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvcc -V   
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvcc -V   
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
@@ -48,7 +48,7 @@ B 站 up Sucial的UVR5人声分离教程: &lt;a href=&quot;https://www.bilibili.
 
 &lt;p&gt;源码下载4.1-Stable稳定版 &lt;a href=&quot;https://github.com/svc-develop-team/so-vits-svc.git&quot;&gt;https://github.com/svc-develop-team/so-vits-svc.git&lt;/a&gt;&lt;br /&gt;
 vsCode 打开项目，在控制台使用 conda 创建虚拟环境，并启用&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//创建名称为 env_so_vits_svc 的虚拟环境并安装python 3.9版本。  
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//创建名称为 env_so_vits_svc 的虚拟环境并安装python 3.9版本。  
 conda create -n env_so_vits_svc python=3.9  
 //查看是否创建成功
 conda env list
@@ -58,7 +58,7 @@ conda activate env_so_vits_svc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;修改 requirements_win.txt 文件，将 gradio&amp;gt;=3.7.0 改为 gradio==3.41.2，并添加三个依赖包 fastapi==0.84.0  pydantic==1.10.12  tensorflow&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gradio==3.41.2  
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gradio==3.41.2  
 fastapi==0.84.0  
 pydantic==1.10.12 
 //用于辅助判断训练结果
@@ -66,7 +66,7 @@ tensorflow
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;然后安装依赖包 (windows)&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    pip install -r requirements_win.txt
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    pip install -r requirements_win.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;安装Pytorch， 版本要与CUDA对应，Pytorch 官网&lt;a href=&quot;https://pytorch.org/get-started/locally/&quot;&gt;https://pytorch.org/get-started/locally/&lt;/a&gt;&lt;/p&gt;
@@ -74,11 +74,11 @@ tensorflow
 &lt;p&gt;&lt;br /&gt;
 &lt;img src=&quot;/images/posts/20240221/7.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;验证是否安装成功&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    python
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    python
     # 回车运行
     import torch
     # 回车运行
@@ -105,7 +105,7 @@ tensorflow
 &lt;img src=&quot;/images/posts/20240221/11.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;将数据集放入项目中的 dataset_raw 目录，数据集以人名命名即可，不可为中文,原则上可同时训练多个人的声音模型，我同时训练了3个，出现了节奏不对的问题，不知道是否是因为同时训练产生的。建议单独训练，且训练1个和多个的时间是累加关系，所以同时训练多个并不会节省时间。
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; dataset_raw
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; dataset_raw
  ├───speaker0
  │   ├───xxx1-xxx1.wav
  │   ├───...
@@ -117,7 +117,7 @@ tensorflow
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;在dataset_raw下创建config.json文件。
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &quot;n_speakers&quot;: 1
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &quot;n_speakers&quot;: 1
 
  &quot;spk&quot;:{
      &quot;文件夹名字（不可为中文）&quot;: 0
@@ -153,14 +153,14 @@ tensorflow
   &lt;li&gt;
     &lt;p&gt;重采样至 44100Hz 单声道,添加–skip_loudnorm 跳过响度匹配步骤.&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python resample.py --skip_loudnorm
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python resample.py --skip_loudnorm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;执行成功后，.\dataset\44k 目录下将生成音频文件，如下图&lt;br /&gt;
  &lt;br /&gt;
  &lt;img src=&quot;/images/posts/20240221/3.jpg&quot; alt=&quot;&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;自动划分训练集、验证集，以及自动生成配置文件，增加–vol_aug 参数使用响度嵌入。
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python preprocess_flist_config.py --speech_encoder vec768l12 --vol_aug
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python preprocess_flist_config.py --speech_encoder vec768l12 --vol_aug
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;运行完毕后 .\configs\ 目录下将生成 config.json 与 diffusion.yaml 文件&lt;br /&gt;
@@ -175,7 +175,7 @@ tensorflow
   &lt;li&gt;
     &lt;p&gt;生成 hubert 与 f0。尚若需要浅扩散功能（可选），需要增加–use_diff 参数.执行需要一定时间。&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python preprocess_hubert_f0.py --f0_predictor dio --use_diff
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python preprocess_hubert_f0.py --f0_predictor dio --use_diff
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;执行成功后，每个音频文件都生成了5个相关的文件，如下图&lt;br /&gt;
  &lt;br /&gt;
@@ -184,11 +184,11 @@ tensorflow
   &lt;li&gt;
     &lt;p&gt;主模型训练，需要epoch 5000+，训练100小时效果应该可以了，可ctrl+c中断，继续训练再次执行命令即可。&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python train.py -c configs/config.json -m 44k
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python train.py -c configs/config.json -m 44k
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;扩散模型训练（可选），测试效果：我没听出来有啥变化。&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python train_diff.py -c configs/diffusion.yaml
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python train_diff.py -c configs/diffusion.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;模型训练结束后，模型文件保存在logs/44k目录下，扩散模型在logs/44k/diffusion下。&lt;/p&gt;
   &lt;/li&gt;
@@ -196,11 +196,11 @@ tensorflow
     &lt;p&gt;模型压缩/打包分享&lt;/p&gt;
 
     &lt;p&gt;生成的模型含有继续训练所需的信息。如果确认不再训练，可以移除模型中此部分信息，得到约 1/3 大小的最终模型。&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python compress_model.py -c=&quot;configs/config.json&quot; -i=&quot;logs/44k/G_30400.pth&quot; -o=&quot;logs/44k/release.pth&quot;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python compress_model.py -c=&quot;configs/config.json&quot; -i=&quot;logs/44k/G_30400.pth&quot; -o=&quot;logs/44k/release.pth&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;训练结果的判断
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 启动 tensorboard ，命令行输入
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 启动 tensorboard ，命令行输入
 python -m tensorboard.main --logdir=logs\44k
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;命令行返回一个本地地址，浏览器打开地址，需要等待训练200步之后才会出现表格。此时命令行窗口不能关闭。 
@@ -212,7 +212,7 @@ python -m tensorboard.main --logdir=logs\44k
 
 &lt;p&gt;由于命令行开启 tensorboard 会占用命令行窗口，写一个 .bat 执行文件，专门用于打开tensorboard，命名为 启动tensorboard.bat 即可，放在项目根目录下，双击点开即可&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    chcp 65001
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    chcp 65001
     @echo off
 
     echo 正在启动Tensorboard...
@@ -257,11 +257,11 @@ model = UVR-De-Echo-Normal&lt;br /&gt;
 
 &lt;ol&gt;
   &lt;li&gt;使用以下命令打开 webui 界面,推理期间，此命令行窗口不能关闭。
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python webUI.py
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python webUI.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;由于命令行开启 webui 界面会占用命令行窗口，写一个 .bat 执行文件，专门用于打开推理界面，命名为 启动 webui.bat 即可，放在项目根目录下，双击点开即可&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     chcp 65001
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     chcp 65001
      @echo off
 
      echo 初始化并启动WebUI……初次启动可能会花上较长时间
@@ -299,7 +299,7 @@ model = UVR-De-Echo-Normal&lt;br /&gt;
 
 &lt;p&gt;总的来说，Conda是一个强大而灵活的工具，可以帮助开发人员更轻松地管理项目的依赖关系，提高开发效率。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//conda 的版本查看
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//conda 的版本查看
 conda -V
 
 //存在的conda环境查看，正在启用的环境会有*标。
@@ -362,7 +362,7 @@ conda env remove --name &amp;lt;环境名称&amp;gt;
 
 &lt;p&gt;&lt;strong&gt;声音的基本属性：&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;音色（Timbre）：音色是声音的质地或音质，是使不同乐器或人的声音听起来不同的特征。即使两个声音具有相同的音调（频率）和响度（振幅），它们的音色也可能不同。
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;音色（Timbre）：音色是声音的质地或音质，是使不同乐器或人的声音听起来不同的特征。即使两个声音具有相同的音调（频率）和响度（振幅），它们的音色也可能不同。
     音色是由声波的谐波成分和频谱分布所决定的，不同乐器或声源产生的声波谐波成分和频谱分布不同，因此具有不同的音色。
 
 音调（Pitch）：音调是声音的频率属性，表示声波振动的快慢程度。频率高的声音听起来比频率低的声音更尖锐。音调与声音的音高相关，高频率对应高音调，低频率对应低音调。
@@ -389,7 +389,7 @@ conda env remove --name &amp;lt;环境名称&amp;gt;
 
 &lt;p&gt;&lt;strong&gt;TTS 和 VITS 的区别&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;文本到语音（TTS）和Voice Inverse Text-to-Speech（VITS）是两种不同的语音合成方法，它们在原理和应用方面有一些显著的区别：
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;文本到语音（TTS）和Voice Inverse Text-to-Speech（VITS）是两种不同的语音合成方法，它们在原理和应用方面有一些显著的区别：
 
 1. **输入数据**：
    - TTS：TTS系统接收文本作为输入，然后生成对应的语音输出。它将文本转换为声音，并通常包括文本预处理、语音合成和音频后处理等步骤。
@@ -412,7 +412,7 @@ conda env remove --name &amp;lt;环境名称&amp;gt;
 
 &lt;p&gt;&lt;strong&gt;Github 项目 vits&lt;/strong&gt;   &lt;a href=&quot;https://github.com/jaywalnut310/vits&quot;&gt;GitHub地址：https://github.com/jaywalnut310/vits&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 VITS 是 https://github.com/RVC-Boss/GPT-SoVITS 的基础框架。 
 
 VITS是一种基于自注意力机制（self-attention）的声音合成方法。以下是该项目的基本原理：
@@ -433,7 +433,7 @@ VITS是一种基于自注意力机制（self-attention）的声音合成方法�
 
 &lt;p&gt;&lt;strong&gt;Github 项目 ar-vits&lt;/strong&gt;  &lt;a href=&quot;https://github.com/innnky/ar-vits&quot;&gt;GitHub地址：https://github.com/innnky/ar-vits&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 AutoRegressive-VITS（自回归-VITS）
 
 AR-VITS 是 https://github.com/RVC-Boss/GPT-SoVITS 的基础框架。 
@@ -453,7 +453,7 @@ VITS是Voice Inverse Text-to-Speech的缩写，是一种端到端的声音合成
 
 &lt;p&gt;&lt;strong&gt;Github 项目 hifi-gan&lt;/strong&gt;  &lt;a href=&quot;https://github.com/jik876/hifi-gan&quot;&gt;GitHub地址：https://github.com/jik876/hifi-gan&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://github.com/RVC-Boss/GPT-SoVITS 的声码器。 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://github.com/RVC-Boss/GPT-SoVITS 的声码器。 
 
 HiFi-GAN 是一个基于生成对抗网络（GAN）的高保真度语音合成模型。以下是该项目的基本讲解：
 
@@ -481,7 +481,7 @@ HiFi-GAN可以应用于多种语音合成和语音处理任务，包括语音合
 
 &lt;p&gt;&lt;strong&gt;Github 项目 SoundStorm&lt;/strong&gt;  &lt;a href=&quot;https://github.com/yangdongchao/SoundStorm&quot;&gt;GitHub地址：https://github.com/yangdongchao/SoundStorm&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 https://github.com/RVC-Boss/GPT-SoVITS 的类GPT（AR）模型 https://github.com/yangdongchao/SoundStorm/tree/master/soundstorm/s1/AR。 
 
 SoundStorm是一个基于WaveNet的音频合成系统，它可以生成高质量的语音音频。以下是该项目的基本讲解：
@@ -507,7 +507,7 @@ SoundStorm可以应用于多种音频合成任务，包括语音合成、音乐�
 
 &lt;p&gt;&lt;strong&gt;Github 项目 chinese_speech_pretrain&lt;/strong&gt;  &lt;a href=&quot;https://github.com/TencentGameMate/chinese_speech_pretrain&quot;&gt;GitHub地址：https://github.com/TencentGameMate/chinese_speech_pretrain&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 https://github.com/RVC-Boss/GPT-SoVITS 的Hubert特征。 
 
 chinese_speech_pretrain是腾讯游戏助手团队开发的一个中文语音预训练模型库，旨在提供中文语音相关的预训练模型和工具。以下是该项目的基本讲解：
@@ -534,7 +534,7 @@ chinese_speech_pretrain可能提供了一些示例代码和应用案例，帮助
 
 &lt;p&gt;&lt;strong&gt;Github 项目 contentvec&lt;/strong&gt;  &lt;a href=&quot;https://github.com/auspicious3000/contentvec&quot;&gt;GitHub地址：https://github.com/auspicious3000/contentvec&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 https://github.com/RVC-Boss/GPT-SoVITS 的VC用的低音色特征。 
 
 contentvec 是一个用于内容建模的开源库，它提供了一种简单而强大的方法来将文本转换为向量表示。以下是该项目的基本讲解：
@@ -562,7 +562,7 @@ contentvec 的向量表示可以应用于多种文本相关的任务和应用，
 
 &lt;p&gt;&lt;strong&gt;Github 项目 fish-speech&lt;/strong&gt;  &lt;a href=&quot;https://github.com/fishaudio/fish-speech&quot;&gt;GitHub地址：https://github.com/fishaudio/fish-speech&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 https://github.com/RVC-Boss/GPT-SoVITS 的概率分布采样 https://github.com/fishaudio/fish-speech/blob/main/tools/llama/generate.py#L41。 
 
 fish-speech是一个基于Python的语音处理库，旨在提供简单易用的接口来进行语音信号的处理、分析和转换。以下是该项目的基本讲解：
@@ -582,7 +582,7 @@ fish-speech是一个基于Python的语音处理库，旨在提供简单易用的
 
 &lt;p&gt;&lt;strong&gt;在 Hugging Face 模型中心 chinese-roberta-wwm-ext-large&lt;/strong&gt;  &lt;a href=&quot;https://huggingface.co/hfl/chinese-roberta-wwm-ext-large&quot;&gt;GitHub地址：https://huggingface.co/hfl/chinese-roberta-wwm-ext-large&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 https://github.com/RVC-Boss/GPT-SoVITS 的中文BERT预训练特征。 
 
 https://huggingface.co/hfl/chinese-roberta-wwm-ext-large 是一个在 Hugging Face 模型中心提供的中文 RoBERTa 预训练模型，
@@ -614,7 +614,7 @@ https://huggingface.co/hfl/chinese-roberta-wwm-ext-large 是一个专门针对�
 
 &lt;p&gt;&lt;strong&gt;Gradio&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gradio是一个Python库，用于构建快速的机器学习界面。它允许用户将机器学习模型快速部署为易于使用的交互式界面，无需编写任何前端代码。Gradio提供了简单的API，
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gradio是一个Python库，用于构建快速的机器学习界面。它允许用户将机器学习模型快速部署为易于使用的交互式界面，无需编写任何前端代码。Gradio提供了简单的API，
 使得用户可以轻松地将模型部署为Web应用，以便用户可以通过浏览器与模型进行交互。
 
 Gradio支持各种类型的输入和输出，包括文本、图像、音频、视频等。用户可以使用Gradio来构建各种不同类型的机器学习应用，例如图像分类、目标检测、文本生成、语音识别等。
@@ -626,7 +626,7 @@ Gradio提供了一个简单直观的界面，用户可以通过拖放或上传�
 
 &lt;p&gt;&lt;strong&gt;PyTorch&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PyTorch是一个用于机器学习和深度学习的开源Python库，它提供了灵活而强大的工具和接口，用于构建和训练各种类型的神经网络模型。以下是关于PyTorch的一些重要特点和功能：
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PyTorch是一个用于机器学习和深度学习的开源Python库，它提供了灵活而强大的工具和接口，用于构建和训练各种类型的神经网络模型。以下是关于PyTorch的一些重要特点和功能：
 
 1. **动态计算图**：
 PyTorch使用动态计算图来表示神经网络模型，这意味着计算图是在运行时构建的，允许用户使用Python的控制流结构（如循环和条件语句）来定义复杂的计算图。
@@ -899,7 +899,7 @@ PyTorch拥有一个庞大而活跃的社区，提供了丰富的资源和工具�
 &lt;h2 id=&quot;问题的由来&quot;&gt;问题的由来&lt;/h2&gt;
 &lt;p&gt;发现了一个好玩的网页，解压放松型的， &lt;a href=&quot;https://aidn.jp/mikutap/&quot;&gt;https://aidn.jp/mikutap/&lt;/a&gt;,并找到了源码 &lt;a href=&quot;https://github.com/HFIProgramming/mikutap&quot;&gt;https://github.com/HFIProgramming/mikutap&lt;/a&gt;,很自然的，我要下载来运行看看，可以的话集成到自己的网页上。下载，然后浏览器打开，就报错了&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;index.html:1 Access to XMLHttpRequest at 'file:///Volumes/F/downloadchrome/mikutap-master/data/track/track.json' from origin 'null' 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;index.html:1 Access to XMLHttpRequest at &apos;file:///Volumes/F/downloadchrome/mikutap-master/data/track/track.json&apos; from origin &apos;null&apos; 
 has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, isolated-app, 
 chrome-extension, chrome, https, chrome-untrusted.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -988,29 +988,29 @@ chrome-extension, chrome, https, chrome-untrusted.
 &lt;h2 id=&quot;环境配置&quot;&gt;环境配置&lt;/h2&gt;
 
 &lt;p&gt;首先确保本机已经安装好Python3.+的开发环境，这里我使用的是python3.9.0，随后使用Git命令克隆项目：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/svc-develop-team/so-vits-svc.git
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/svc-develop-team/so-vits-svc.git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;随后进入项目的目录：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd so-vits-svc
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd so-vits-svc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;接着安装依赖，如果是Linux或者Mac系统，运行命令：&lt;/p&gt;
 
 &lt;p&gt;pip3 install -r requirements.txt&lt;/p&gt;
 
 &lt;p&gt;依赖库安装成功之后，在项目的根目录运行命令，启动服务：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python webUI.py
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python webUI.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;安装 wget&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install wget
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install wget
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget --version
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget --version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;预先下载的模型文件,1.3G,需要一点时间。  &lt;br /&gt;
 根目录下&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best_legacy_500.pt
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best_legacy_500.pt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;由于mac坑太多，且存在诸多不便，台式机安排上。&lt;/p&gt;

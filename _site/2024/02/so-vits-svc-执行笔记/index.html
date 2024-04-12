@@ -8,20 +8,20 @@
 
   <title>so-vits-svc 执行笔记</title>
   <meta name="description"
-    content="风能否向月而行。结果展示【AI-芙宁娜】 翻唱 - 轻涟（中文）【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）【AI-枫原万叶】 翻唱 - 阿拉斯加海湾相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git ...">
+    content="风能否向月而行。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
     content="so-vits-svc 执行笔记">
   <meta name="twitter:description"
-    content="风能否向月而行。结果展示【AI-芙宁娜】 翻唱 - 轻涟（中文）【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）【AI-枫原万叶】 翻唱 - 阿拉斯加海湾相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git ...">
+    content="风能否向月而行。">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
     content="so-vits-svc 执行笔记">
   <meta property="og:description"
-    content="风能否向月而行。结果展示【AI-芙宁娜】 翻唱 - 轻涟（中文）【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）【AI-枫原万叶】 翻唱 - 阿拉斯加海湾相关教程和参考资料so-vits-svc 项目地址： https://github.com/svc-develop-team/so-vits-svc.git ...">
+    content="风能否向月而行。">
 
   <link rel="icon" type="image/png" href="/images/avatar.jpg" />
   <link href="/images/avatar.jpg" rel="shortcut icon" type="image/png">
@@ -238,7 +238,7 @@ B 站 up Sucial的UVR5人声分离教程: <a href="https://www.bilibili.com/vide
 <p>需要 NVIDIA-CUDA，版本11或版本12，请安装。<br />
 查看cuda 版本</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc -V   
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvcc -V   
 </code></pre></div></div>
 
 <p><br />
@@ -250,7 +250,7 @@ B 站 up Sucial的UVR5人声分离教程: <a href="https://www.bilibili.com/vide
 
 <p>源码下载4.1-Stable稳定版 <a href="https://github.com/svc-develop-team/so-vits-svc.git">https://github.com/svc-develop-team/so-vits-svc.git</a><br />
 vsCode 打开项目，在控制台使用 conda 创建虚拟环境，并启用</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//创建名称为 env_so_vits_svc 的虚拟环境并安装python 3.9版本。  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//创建名称为 env_so_vits_svc 的虚拟环境并安装python 3.9版本。  
 conda create -n env_so_vits_svc python=3.9  
 //查看是否创建成功
 conda env list
@@ -260,7 +260,7 @@ conda activate env_so_vits_svc
 </code></pre></div></div>
 <p>修改 requirements_win.txt 文件，将 gradio&gt;=3.7.0 改为 gradio==3.41.2，并添加三个依赖包 fastapi==0.84.0  pydantic==1.10.12  tensorflow</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gradio==3.41.2  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gradio==3.41.2  
 fastapi==0.84.0  
 pydantic==1.10.12 
 //用于辅助判断训练结果
@@ -268,7 +268,7 @@ tensorflow
 </code></pre></div></div>
 
 <p>然后安装依赖包 (windows)</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pip install -r requirements_win.txt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    pip install -r requirements_win.txt
 </code></pre></div></div>
 
 <p>安装Pytorch， 版本要与CUDA对应，Pytorch 官网<a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></p>
@@ -276,11 +276,11 @@ tensorflow
 <p><br />
 <img src="/images/posts/20240221/7.jpg" alt="" width="90%" /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 </code></pre></div></div>
 
 <p>验证是否安装成功</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    python
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    python
     # 回车运行
     import torch
     # 回车运行
@@ -307,7 +307,7 @@ tensorflow
 <img src="/images/posts/20240221/11.jpg" alt="" width="90%" /></p>
   </li>
   <li>将数据集放入项目中的 dataset_raw 目录，数据集以人名命名即可，不可为中文,原则上可同时训练多个人的声音模型，我同时训练了3个，出现了节奏不对的问题，不知道是否是因为同时训练产生的。建议单独训练，且训练1个和多个的时间是累加关系，所以同时训练多个并不会节省时间。
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> dataset_raw
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> dataset_raw
  ├───speaker0
  │   ├───xxx1-xxx1.wav
  │   ├───...
@@ -319,7 +319,7 @@ tensorflow
 </code></pre></div>    </div>
   </li>
   <li>在dataset_raw下创建config.json文件。
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> "n_speakers": 1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> "n_speakers": 1
 
  "spk":{
      "文件夹名字（不可为中文）": 0
@@ -355,14 +355,14 @@ tensorflow
   <li>
     <p>重采样至 44100Hz 单声道,添加–skip_loudnorm 跳过响度匹配步骤.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python resample.py --skip_loudnorm
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python resample.py --skip_loudnorm
 </code></pre></div>    </div>
     <p>执行成功后，.\dataset\44k 目录下将生成音频文件，如下图<br />
  <br />
  <img src="/images/posts/20240221/3.jpg" alt="" width="90%" /></p>
   </li>
   <li>自动划分训练集、验证集，以及自动生成配置文件，增加–vol_aug 参数使用响度嵌入。
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python preprocess_flist_config.py --speech_encoder vec768l12 --vol_aug
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python preprocess_flist_config.py --speech_encoder vec768l12 --vol_aug
 </code></pre></div>    </div>
 
     <p>运行完毕后 .\configs\ 目录下将生成 config.json 与 diffusion.yaml 文件<br />
@@ -377,7 +377,7 @@ tensorflow
   <li>
     <p>生成 hubert 与 f0。尚若需要浅扩散功能（可选），需要增加–use_diff 参数.执行需要一定时间。</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python preprocess_hubert_f0.py --f0_predictor dio --use_diff
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python preprocess_hubert_f0.py --f0_predictor dio --use_diff
 </code></pre></div>    </div>
     <p>执行成功后，每个音频文件都生成了5个相关的文件，如下图<br />
  <br />
@@ -386,11 +386,11 @@ tensorflow
   <li>
     <p>主模型训练，需要epoch 5000+，训练100小时效果应该可以了，可ctrl+c中断，继续训练再次执行命令即可。</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python train.py -c configs/config.json -m 44k
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python train.py -c configs/config.json -m 44k
 </code></pre></div>    </div>
 
     <p>扩散模型训练（可选），测试效果：我没听出来有啥变化。</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python train_diff.py -c configs/diffusion.yaml
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python train_diff.py -c configs/diffusion.yaml
 </code></pre></div>    </div>
     <p>模型训练结束后，模型文件保存在logs/44k目录下，扩散模型在logs/44k/diffusion下。</p>
   </li>
@@ -398,11 +398,11 @@ tensorflow
     <p>模型压缩/打包分享</p>
 
     <p>生成的模型含有继续训练所需的信息。如果确认不再训练，可以移除模型中此部分信息，得到约 1/3 大小的最终模型。</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python compress_model.py -c="configs/config.json" -i="logs/44k/G_30400.pth" -o="logs/44k/release.pth"
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python compress_model.py -c="configs/config.json" -i="logs/44k/G_30400.pth" -o="logs/44k/release.pth"
 </code></pre></div>    </div>
   </li>
   <li>训练结果的判断
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 启动 tensorboard ，命令行输入
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 启动 tensorboard ，命令行输入
 python -m tensorboard.main --logdir=logs\44k
 </code></pre></div>    </div>
     <p>命令行返回一个本地地址，浏览器打开地址，需要等待训练200步之后才会出现表格。此时命令行窗口不能关闭。 
@@ -414,7 +414,7 @@ python -m tensorboard.main --logdir=logs\44k
 
 <p>由于命令行开启 tensorboard 会占用命令行窗口，写一个 .bat 执行文件，专门用于打开tensorboard，命名为 启动tensorboard.bat 即可，放在项目根目录下，双击点开即可</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    chcp 65001
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    chcp 65001
     @echo off
 
     echo 正在启动Tensorboard...
@@ -459,11 +459,11 @@ model = UVR-De-Echo-Normal<br />
 
 <ol>
   <li>使用以下命令打开 webui 界面,推理期间，此命令行窗口不能关闭。
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python webUI.py
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python webUI.py
 </code></pre></div>    </div>
 
     <p>由于命令行开启 webui 界面会占用命令行窗口，写一个 .bat 执行文件，专门用于打开推理界面，命名为 启动 webui.bat 即可，放在项目根目录下，双击点开即可</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     chcp 65001
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     chcp 65001
      @echo off
 
      echo 初始化并启动WebUI……初次启动可能会花上较长时间
@@ -501,7 +501,7 @@ model = UVR-De-Echo-Normal<br />
 
 <p>总的来说，Conda是一个强大而灵活的工具，可以帮助开发人员更轻松地管理项目的依赖关系，提高开发效率。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//conda 的版本查看
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//conda 的版本查看
 conda -V
 
 //存在的conda环境查看，正在启用的环境会有*标。

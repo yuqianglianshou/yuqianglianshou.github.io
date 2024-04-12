@@ -225,7 +225,7 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 
 <p>使用java代码写的调用使用范型T的adapter，如下，这是正常的</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    AutoFlowLayout flowLayout1 = (AutoFlowLayout) findViewById(R.id.autoflowlayout1);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    AutoFlowLayout flowLayout1 = (AutoFlowLayout) findViewById(R.id.autoflowlayout1);
 
     ArrayList list = new ArrayList&lt;String&gt;();
     FlowAdapter adapter = new FlowAdapter(list) {
@@ -241,7 +241,7 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 
 <p>复制到Kotlin代码中，androidstudio 自动将java代码转为kotlin代码，转完后的提示错误的代码</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    val list: java.util.ArrayList&lt;*&gt; = java.util.ArrayList&lt;String&gt;()
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    val list: java.util.ArrayList&lt;*&gt; = java.util.ArrayList&lt;String&gt;()
     val adapter: FlowAdapter&lt;*&gt; = object : FlowAdapter&lt;Any?&gt;(list) {
         override fun getView(position: Int): View {
             return LayoutInflater.from(mActivity)
@@ -253,7 +253,7 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 
 <p>按它的提示 to Nothing，改为这样</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">autoflowlayout1</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">adapter</span> <span class="n">as</span> <span class="n">Nothing</span><span class="o">)</span>  
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">autoflowlayout1</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">adapter</span> <span class="n">as</span> <span class="nc">Nothing</span><span class="o">)</span>  
 </code></pre></div></div>
 <p>运行时会报错.</p>
 
@@ -261,14 +261,14 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 
 <p>解决后的代码</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">val</span> <span class="nl">list:</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span>
-<span class="n">val</span> <span class="nl">adapter:</span> <span class="n">FlowAdapter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">object</span> <span class="o">:</span> <span class="n">FlowAdapter</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">list</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">override</span> <span class="n">fun</span> <span class="nf">getView</span><span class="o">(</span><span class="nl">position:</span> <span class="n">Int</span><span class="o">):</span> <span class="n">View</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">mActivity</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_flowlayout</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">val</span> <span class="nl">list:</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;()</span>
+<span class="n">val</span> <span class="nl">adapter:</span> <span class="nc">FlowAdapter</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">object</span> <span class="o">:</span> <span class="nc">FlowAdapter</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;(</span><span class="n">list</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">override</span> <span class="n">fun</span> <span class="nf">getView</span><span class="o">(</span><span class="nl">position:</span> <span class="nc">Int</span><span class="o">):</span> <span class="nc">View</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">mActivity</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">item_flowlayout</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>
     <span class="o">}</span>
 <span class="o">}</span>
-<span class="o">(</span><span class="n">autoflowlayout1</span> <span class="n">as</span> <span class="n">AutoFlowLayout</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;).</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">adapter</span><span class="o">)</span>
+<span class="o">(</span><span class="n">autoflowlayout1</span> <span class="n">as</span> <span class="nc">AutoFlowLayout</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;).</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">adapter</span><span class="o">)</span>
 </code></pre></div></div>
 <p>把 * 号 和 Any? 改为你的数据对象类型，我这里直接用的String，使用 autoflowlayout1 时强转一下就可以了。</p>
 

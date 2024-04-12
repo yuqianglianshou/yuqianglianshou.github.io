@@ -244,11 +244,11 @@ Kotlin 在线运行<a href="https://c.runoob.com/compile/2960">https://c.runoob.
  错误：此类型具有构造函数，因此必须在此处初始化。<br />
  我猜你这样写了一个类</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class FirstActivity : AppCompatActivity {}
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class FirstActivity : AppCompatActivity {}
 </code></pre></div>    </div>
 
     <p>需要构造函数，这样写</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class FirstActivity : AppCompatActivity() {}   
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  class FirstActivity : AppCompatActivity() {}   
 </code></pre></div>    </div>
   </li>
   <li>以前总喜欢这样用上下文环境<br />
@@ -257,7 +257,7 @@ Kotlin 在线运行<a href="https://c.runoob.com/compile/2960">https://c.runoob.
   然后 mContext = this;<br />
   mActivity = this;    <br />
   Kotlin 就这样写了
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  val instance by lazy { this }//这里使用了委托，表示只有使用到instance才会执行该段代码   
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  val instance by lazy { this }//这里使用了委托，表示只有使用到instance才会执行该段代码   
 </code></pre></div>    </div>
     <p>instance 即代表了上下文。<br />
   java中  XXXActivity.class  Kotlin中 this@XXXActivity （标签语法）<br />
@@ -265,13 +265,13 @@ Kotlin 在线运行<a href="https://c.runoob.com/compile/2960">https://c.runoob.
   &amp;&amp;、获取某个类的class对象，Java的写法是“类名.class”，而Kotlin的写法是“类名::class.java”，一看便知带有浓浓的Java风味；</p>
   </li>
   <li>Kotlin activity跳转-startActivity
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  startActivity(Intent(this@MainActivity, FirstActivity::class.java))
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  startActivity(Intent(this@MainActivity, FirstActivity::class.java))
 </code></pre></div>    </div>
     <p>或者</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  startActivity(Intent(this, FirstActivity::class.java))  
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  startActivity(Intent(this, FirstActivity::class.java))  
 </code></pre></div>    </div>
     <p>传参MainAcvivity</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var intent = Intent(this@MainActivity,FirstActivity::class.java)
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var intent = Intent(this@MainActivity,FirstActivity::class.java)
       var bundle = Bundle()
   bundle.putString("name","清扬")
   bundle.putInt("age",18)
@@ -280,7 +280,7 @@ Kotlin 在线运行<a href="https://c.runoob.com/compile/2960">https://c.runoob.
 </code></pre></div>    </div>
 
     <p>接收端FirstActivity</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var bundle = intent.extras
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var bundle = intent.extras
   var name = bundle.get("name")
   var age = bundle.get("age")
   Log.i("FirstActivity","name == "+name.toString())
@@ -289,7 +289,7 @@ Kotlin 在线运行<a href="https://c.runoob.com/compile/2960">https://c.runoob.
   </li>
   <li>控件findViewById<br />
 不使用依赖库，倾向于下面的写法
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private val btn : TextView by lazy{
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private val btn : TextView by lazy{
   findViewById(R.id.btn) as TextView
 }
 -----------------------------------------
@@ -305,11 +305,11 @@ btn.setOnClickListener(){
     <p>Kotlin 中 Float 和 Double 有一个静态变量NaN（不是一个数的数 not a number）,并且两个相同的NaN做比较，返回false，（Double.NaN == Double.NaN） == false。</p>
   </li>
   <li>定义闭区间
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // 0到1024的闭区间1,1024]
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // 0到1024的闭区间1,1024]
   val range = 1..1024
 </code></pre></div>    </div>
     <p>定义半开区间</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // 0到1024的闭区间[1,1024)
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // 0到1024的闭区间[1,1024)
   val openRange = 1 until 1024
 </code></pre></div>    </div>
   </li>
@@ -319,7 +319,7 @@ btn.setOnClickListener(){
   <li>Kotlin 作为一种独立的编程语言，有一些 Java 中没有的关键字，以下是 Kotlin 特有的一些关键字：</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>companion：伴生对象，可以在类内部定义一个对象，用于实现静态方法和属性。  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>companion：伴生对象，可以在类内部定义一个对象，用于实现静态方法和属性。  
 
 data：数据类，用于快速创建一个用于存储数据的类。  
 
@@ -340,7 +340,7 @@ suspend 和 coroutine：协程，Kotlin 支持协程编程，可以使用 suspen
   <li>Kotlin 常见内置函数</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let：作用于某个对象，让其调用一个函数，并返回 Lambda 表达式的结果。let 函数可以避免在调用 Lambda 表达式时产生多余的变量名，提高了代码可读性。  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let：作用于某个对象，让其调用一个函数，并返回 Lambda 表达式的结果。let 函数可以避免在调用 Lambda 表达式时产生多余的变量名，提高了代码可读性。  
 
 apply：作用于某个对象，将对象本身作为接收器（this）返回，可以连续进行多次调用，非常适合链式调用代码块的场景。  
 

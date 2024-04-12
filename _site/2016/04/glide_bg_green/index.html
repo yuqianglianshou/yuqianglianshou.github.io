@@ -222,7 +222,7 @@
 
 <p>改变一下Glide的bitmap编码，新建类 GlideConfiguration.java ,实现 GlideModule 接口，Ctrl + i 实现两个需实现的方法，在方法 applyOptions 中加上 builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888); ，如下:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import android.content.Context;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import android.content.Context;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
@@ -249,7 +249,7 @@ public class GlideConfiguration implements GlideModule{
 
 <p>然后在 AndroidManifext 中 增加：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- 解决glide加载图片背景变绿的问题 --&gt;  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- 解决glide加载图片背景变绿的问题 --&gt;  
 &lt;meta-data
 android:name="*包名路径*.GlideConfiguration"
 android:value="GlideModule"/&gt;

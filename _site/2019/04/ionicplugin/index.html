@@ -393,7 +393,7 @@ Install the free Ionic Pro SDK and connect your app? n<br />
   <p><br /> 
 现在ionic端添加下调用代码，先在home.html中加一个button</p>
   <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&lt;</span><span class="n">button</span> <span class="n">ion</span><span class="o">-</span><span class="n">button</span> <span class="o">(</span><span class="n">click</span><span class="o">)=</span><span class="s">"onClickBtn()"</span><span class="o">&gt;</span>
-    <span class="err">调用</span><span class="n">android</span><span class="err">原生</span>
+    <span class="n">调用android原生</span>
   <span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
 </code></pre></div>  </div>
   <p><br />
@@ -415,8 +415,8 @@ Install the free Ionic Pro SDK and connect your app? n<br />
       <span class="c1">// };</span>
       <span class="n">window</span><span class="o">.</span><span class="na">cordova</span><span class="o">.</span><span class="na">plugins</span><span class="o">.</span><span class="na">MyPlugin</span><span class="o">.</span><span class="na">coolMethod</span><span class="o">(</span>
         <span class="s">"你帅气么？"</span><span class="o">,</span>
-        <span class="n">function</span> <span class="o">(</span><span class="n">success_msg</span><span class="o">)</span> <span class="o">{</span> <span class="n">alert</span><span class="o">(</span><span class="s">"原生返回成功信息 == "</span> <span class="o">+</span> <span class="n">JSON</span><span class="o">.</span><span class="na">stringify</span><span class="o">(</span><span class="n">success_msg</span><span class="o">));</span> <span class="o">},</span>
-        <span class="n">function</span> <span class="o">(</span><span class="n">error_msg</span><span class="o">)</span> <span class="o">{</span> <span class="n">alert</span><span class="o">(</span><span class="s">"原生返回失败信息 == "</span> <span class="o">+</span> <span class="n">JSON</span><span class="o">.</span><span class="na">stringify</span><span class="o">(</span><span class="n">error_msg</span><span class="o">));</span> <span class="o">}</span>
+        <span class="n">function</span> <span class="o">(</span><span class="n">success_msg</span><span class="o">)</span> <span class="o">{</span> <span class="n">alert</span><span class="o">(</span><span class="s">"原生返回成功信息 == "</span> <span class="o">+</span> <span class="no">JSON</span><span class="o">.</span><span class="na">stringify</span><span class="o">(</span><span class="n">success_msg</span><span class="o">));</span> <span class="o">},</span>
+        <span class="n">function</span> <span class="o">(</span><span class="n">error_msg</span><span class="o">)</span> <span class="o">{</span> <span class="n">alert</span><span class="o">(</span><span class="s">"原生返回失败信息 == "</span> <span class="o">+</span> <span class="no">JSON</span><span class="o">.</span><span class="na">stringify</span><span class="o">(</span><span class="n">error_msg</span><span class="o">));</span> <span class="o">}</span>
       <span class="o">);</span>
       <span class="c1">//又一种写法</span>
       <span class="c1">// window.cordova.plugins.MyPlugin.coolMethod("ionic 传递到原生的参数",</span>

@@ -232,7 +232,7 @@
     <p>通过使用 mimikatz.exe 工具可以读取SAM文件；</p>
   </li>
   <li>SAM文件部分内容样例；
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RID : 000001f4
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RID : 000001f4
 User :Administrator
 Hash NTLM : 570a9a65db8fba761c1008a51d4c95ab
 </code></pre></div>    </div>
@@ -244,7 +244,7 @@ Hash NTLM : 570a9a65db8fba761c1008a51d4c95ab
   <li>NTLM-HASH 介绍</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NTLM（Windows NT Lan Manager）哈希是一种用于进行密码验证的加密散列函数，通常在Windows操作系统中使用。它用于在网络中验证用户的身份，并且在早期版本的Windows中广泛使用，但在现代环境中逐渐被更强大和安全性更高的哈希算法取代，如NTLMv2和Kerberos。
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NTLM（Windows NT Lan Manager）哈希是一种用于进行密码验证的加密散列函数，通常在Windows操作系统中使用。它用于在网络中验证用户的身份，并且在早期版本的Windows中广泛使用，但在现代环境中逐渐被更强大和安全性更高的哈希算法取代，如NTLMv2和Kerberos。
 
 NTLM哈希的工作原理如下：
 
@@ -263,7 +263,7 @@ NTLM哈希的工作原理如下：
   <li>NTLM-HASH 加密原理</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1，明文密码：Admin@123
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1，明文密码：Admin@123
 2，将明文转为十六进制格式：41646D696E40313233
 3，将十六进制转为Unicode格式（每位后面加两个0）：410064006D0069006E004000310032003300
 4，将Unicode字符串进行MD4加密：570a9a65db8fba761c1008a51d4c95ab
@@ -273,7 +273,7 @@ NTLM哈希的工作原理如下：
   <li>通过使用 mimikatz.exe 工具可以读取内存数据，下图为win7截图，win10看不到password明文密码；</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mimikatz.exe
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mimikatz.exe
 privilege::debug
 sekurlsa::logonPasswords
 </code></pre></div></div>
@@ -289,7 +289,7 @@ sekurlsa::logonPasswords
   </li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1，明文密码：Admin@123
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1，明文密码：Admin@123
 2，将明文转为大写：ADMIN@123
 3，转为十六进制格式：41444D494E40313233
 4，不足14字节(28位)用0补全：41444D494E403132330000000000
@@ -322,7 +322,7 @@ b组:B75E0C8D76954A50
   <li>win10 如何查看内存明文密码？在cmd（管理员运行 C:\Windows\System32\cmd.exe）中修改注册表信息，重启再抓取即可。</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f
 </code></pre></div></div>
 <p><br />
 <img src="/images/posts/H-windows/8.png" alt="" width="80%" /></p>

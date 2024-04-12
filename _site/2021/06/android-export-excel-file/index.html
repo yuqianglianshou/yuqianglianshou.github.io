@@ -227,7 +227,7 @@
 <p>本demo地址 <a href="https://github.com/yuqianglianshou/ExportExcelFile">https://github.com/yuqianglianshou/ExportExcelFile</a><br />
 以VSCode方式打开代码 <a href="https://github1s.com/yuqianglianshou/ExportExcelFile">https://github1s.com/yuqianglianshou/ExportExcelFile</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jxl &amp;&amp; POI
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jxl &amp;&amp; POI
 jxl是一个韩国人写的java操作excel的工具，是一个开源的Java Excel API项目，通过Jxl，Java可以很方便的操作微软的Excel文档。除了Jxl之外，  
 还有Apache的一个POI项目，也可以操作Excel，两者相比之下：Jxl使用方便，但功能相对POI比较弱,很多时候，一个软件应用程序需要生成  
 Microsoft Excel文件格式的报告。有时，一个应用程序甚至希望将Excel文件作为输入数据。例如，一个公司开发的应用程序将财务部门需要所有输出生成自己的Excel。  
@@ -256,47 +256,47 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
 <br />
 <img src="/images/posts/export_excel_file/7.png" alt="" width="50%" height="50%" /><br />
 <br /></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
-<span class="nt">&lt;androidx.constraintlayout.widget.ConstraintLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
-    <span class="na">xmlns:app=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
-    <span class="na">xmlns:tools=</span><span class="s">"http://schemas.android.com/tools"</span>
-    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
-    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
-    <span class="na">tools:context=</span><span class="s">".MainActivity"</span><span class="nt">&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
 
-    <span class="nt">&lt;Button</span>
-        <span class="na">android:id=</span><span class="s">"@+id/btn"</span>
-        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
-        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
-        <span class="na">android:text=</span><span class="s">"导出"</span>
-        <span class="na">app:layout_constraintBottom_toBottomOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintHorizontal_bias=</span><span class="s">"0.498"</span>
-        <span class="na">app:layout_constraintLeft_toLeftOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintRight_toRightOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintTop_toTopOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintVertical_bias=</span><span class="s">"0.229"</span> <span class="nt">/&gt;</span>
+    &lt;Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="导出"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.229" /&gt;
 
-    <span class="nt">&lt;TextView</span>
-        <span class="na">android:id=</span><span class="s">"@+id/textView"</span>
-        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
-        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
-        <span class="na">android:gravity=</span><span class="s">"center"</span>
-        <span class="na">android:padding=</span><span class="s">"20dp"</span>
-        <span class="na">android:text=</span><span class="s">"路径显示区"</span>
-        <span class="na">app:layout_constraintBottom_toBottomOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintEnd_toEndOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintStart_toStartOf=</span><span class="s">"parent"</span>
-        <span class="na">app:layout_constraintTop_toBottomOf=</span><span class="s">"@+id/btn"</span>
-        <span class="na">app:layout_constraintVertical_bias=</span><span class="s">"0.136"</span> <span class="nt">/&gt;</span>
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="路径显示区"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn"
+        app:layout_constraintVertical_bias="0.136" /&gt;
 
-<span class="nt">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span>
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
 </code></pre></div></div>
 <p>MainActivity.kt：<br />
 <br />
 <img src="/images/posts/export_excel_file/8.png" alt="" width="50%" height="50%" /><br />
 <br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">moon</span><span class="o">.</span><span class="na">exportexcelfile</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.moon.exportexcelfile</span>
 
 <span class="kn">import</span> <span class="nn">android.os.Bundle</span>
 <span class="kn">import</span> <span class="nn">android.os.Environment</span>
@@ -308,18 +308,18 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
 <span class="kn">import</span> <span class="nn">java.io.File</span>
 <span class="kn">import</span> <span class="nn">java.util.*</span>
 
-<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="o">:</span> <span class="n">AppCompatActivity</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nl">savedInstanceState:</span> <span class="n">Bundle</span><span class="o">?)</span> <span class="o">{</span>
+<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="o">:</span> <span class="nc">AppCompatActivity</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nl">savedInstanceState:</span> <span class="nc">Bundle</span><span class="o">?)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">)</span>
-        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">)</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">)</span>
         <span class="c1">//显示存储路径</span>
-        <span class="n">val</span> <span class="n">textView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">&lt;</span><span class="n">TextView</span><span class="o">&gt;(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">textView</span><span class="o">)</span>
+        <span class="n">val</span> <span class="n">textView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">&lt;</span><span class="nc">TextView</span><span class="o">&gt;(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">textView</span><span class="o">)</span>
         <span class="c1">//导出按键</span>
-        <span class="n">findViewById</span><span class="o">&lt;</span><span class="n">Button</span><span class="o">&gt;(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">btn</span><span class="o">).</span><span class="na">setOnClickListener</span> <span class="o">{</span>
+        <span class="n">findViewById</span><span class="o">&lt;</span><span class="nc">Button</span><span class="o">&gt;(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">btn</span><span class="o">).</span><span class="na">setOnClickListener</span> <span class="o">{</span>
             <span class="n">val</span> <span class="n">file</span> <span class="o">=</span> <span class="n">creatFile</span><span class="o">()</span>
-            <span class="n">ExcelUtils</span><span class="o">.</span><span class="na">writeDataToExcel</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="n">getData</span><span class="o">())</span>
-            <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"创建成功"</span><span class="o">,</span> <span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">()</span>
-            <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" ok"</span><span class="o">)</span>
+            <span class="nc">ExcelUtils</span><span class="o">.</span><span class="na">writeDataToExcel</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="n">getData</span><span class="o">())</span>
+            <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">"创建成功"</span><span class="o">,</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">()</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" ok"</span><span class="o">)</span>
             <span class="n">textView</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="s">"文件目录为  "</span> <span class="o">+</span> <span class="n">file</span><span class="o">.</span><span class="na">absolutePath</span>
         <span class="o">}</span>
     <span class="o">}</span>
@@ -327,20 +327,20 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
      * 创建一个本地存储路径
      * /storage/emulated/0/Android/data/com.moon.exportexcelfile/files/Documents/export.xls
      */</span>
-    <span class="kd">private</span> <span class="n">fun</span> <span class="nf">creatFile</span><span class="o">():</span> <span class="n">File</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">fun</span> <span class="nf">creatFile</span><span class="o">():</span> <span class="nc">File</span> <span class="o">{</span>
         <span class="n">val</span> <span class="n">file</span> <span class="o">=</span>
-            <span class="n">File</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getExternalFilesDir</span><span class="o">(</span><span class="n">Environment</span><span class="o">.</span><span class="na">DIRECTORY_DOCUMENTS</span><span class="o">)?.</span><span class="na">absolutePath</span> <span class="o">+</span> <span class="n">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">"export.xls"</span><span class="o">)</span>
+            <span class="nc">File</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getExternalFilesDir</span><span class="o">(</span><span class="nc">Environment</span><span class="o">.</span><span class="na">DIRECTORY_DOCUMENTS</span><span class="o">)?.</span><span class="na">absolutePath</span> <span class="o">+</span> <span class="nc">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">"export.xls"</span><span class="o">)</span>
 
-        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" file == "</span> <span class="o">+</span> <span class="n">file</span><span class="o">.</span><span class="na">absolutePath</span><span class="o">)</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" file == "</span> <span class="o">+</span> <span class="n">file</span><span class="o">.</span><span class="na">absolutePath</span><span class="o">)</span>
         <span class="k">return</span> <span class="n">file</span>
     <span class="o">}</span>
     <span class="cm">/**
      * 生成 20行8列 数据，第一行为表头
      */</span>
-    <span class="kd">private</span> <span class="n">fun</span> <span class="nf">getData</span><span class="o">():</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
-        <span class="n">val</span> <span class="n">list</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;()</span>
+    <span class="kd">private</span> <span class="n">fun</span> <span class="nf">getData</span><span class="o">():</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
+        <span class="n">val</span> <span class="n">list</span> <span class="o">=</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;()</span>
         <span class="k">for</span> <span class="o">(</span><span class="n">j</span> <span class="n">in</span> <span class="mi">1</span><span class="o">..</span><span class="mi">20</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">val</span> <span class="n">listRow</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span>
+            <span class="n">val</span> <span class="n">listRow</span> <span class="o">=</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;()</span>
             <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="mi">1</span><span class="o">..</span><span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
                 <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
                     <span class="c1">//添加表头</span>
@@ -351,7 +351,7 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
             <span class="o">}</span>
             <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">listRow</span><span class="o">)</span>
         <span class="o">}</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" list == $list"</span><span class="o">)</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" list == $list"</span><span class="o">)</span>
         <span class="k">return</span> <span class="n">list</span>
     <span class="o">}</span>
 
@@ -363,7 +363,7 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
 <img src="/images/posts/export_excel_file/9.png" alt="" width="50%" height="50%" /><br />
 <br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">moon</span><span class="o">.</span><span class="na">exportexcelfile</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.moon.exportexcelfile</span>
 
 <span class="kn">import</span> <span class="nn">android.util.Log</span>
 <span class="kn">import</span> <span class="nn">jxl.Workbook</span>
@@ -379,21 +379,21 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
  *@desc   : 在指定全路径的 Excel表中写入数据
  *
  */</span>
-<span class="n">object</span> <span class="n">ExcelUtils</span> <span class="o">{</span>
+<span class="n">object</span> <span class="nc">ExcelUtils</span> <span class="o">{</span>
     <span class="c1">//表头样式</span>
-    <span class="kd">private</span> <span class="n">lateinit</span> <span class="kt">var</span> <span class="nl">tableFormat:</span> <span class="n">WritableCellFormat</span>
+    <span class="kd">private</span> <span class="n">lateinit</span> <span class="kt">var</span> <span class="nl">tableFormat:</span> <span class="nc">WritableCellFormat</span>
     <span class="n">init</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">"ExcelUtils init"</span><span class="o">)</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">"ExcelUtils init"</span><span class="o">)</span>
         <span class="n">format</span><span class="o">()</span>
     <span class="o">}</span>
     <span class="cm">/**
      * excel 样式设置
      */</span>
     <span class="kd">private</span> <span class="n">fun</span> <span class="nf">format</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">val</span> <span class="n">tableFont1</span> <span class="o">=</span> <span class="n">WritableFont</span><span class="o">(</span><span class="n">WritableFont</span><span class="o">.</span><span class="na">ARIAL</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="n">WritableFont</span><span class="o">.</span><span class="na">BOLD</span><span class="o">)</span><span class="c1">//11号字，加粗</span>
+        <span class="n">val</span> <span class="n">tableFont1</span> <span class="o">=</span> <span class="nc">WritableFont</span><span class="o">(</span><span class="nc">WritableFont</span><span class="o">.</span><span class="na">ARIAL</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="nc">WritableFont</span><span class="o">.</span><span class="na">BOLD</span><span class="o">)</span><span class="c1">//11号字，加粗</span>
 <span class="c1">//        tableFont1.colour = jxl.format.Colour.LIGHT_BLUE // 可设置颜色</span>
 
-        <span class="n">tableFormat</span> <span class="o">=</span> <span class="n">WritableCellFormat</span><span class="o">(</span><span class="n">tableFont1</span><span class="o">)</span>
+        <span class="n">tableFormat</span> <span class="o">=</span> <span class="nc">WritableCellFormat</span><span class="o">(</span><span class="n">tableFont1</span><span class="o">)</span>
         <span class="n">tableFormat</span><span class="o">.</span><span class="na">alignment</span> <span class="o">=</span> <span class="n">jxl</span><span class="o">.</span><span class="na">format</span><span class="o">.</span><span class="na">Alignment</span><span class="o">.</span><span class="na">CENTRE</span> <span class="c1">// 表格数据居中显示</span>
         <span class="n">tableFormat</span><span class="o">.</span><span class="na">setBorder</span><span class="o">(</span><span class="n">jxl</span><span class="o">.</span><span class="na">format</span><span class="o">.</span><span class="na">Border</span><span class="o">.</span><span class="na">ALL</span><span class="o">,</span> <span class="n">jxl</span><span class="o">.</span><span class="na">format</span><span class="o">.</span><span class="na">BorderLineStyle</span><span class="o">.</span><span class="na">THIN</span><span class="o">)</span>
         <span class="n">tableFormat</span><span class="o">.</span><span class="na">setBackground</span><span class="o">(</span><span class="n">jxl</span><span class="o">.</span><span class="na">format</span><span class="o">.</span><span class="na">Colour</span><span class="o">.</span><span class="na">GRAY_25</span><span class="o">)</span><span class="c1">//表格添加背景颜色</span>
@@ -404,17 +404,17 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
      * file  所创建的Excel文件  /storage/emulated/0/Android/data/com.moon.exportexcelfile/files/Documents/export.xls
      * list  数据集合 j 行 i 列
      */</span>
-    <span class="n">fun</span> <span class="nf">writeDataToExcel</span><span class="o">(</span><span class="nl">file:</span> <span class="n">File</span><span class="o">,</span> <span class="nl">list:</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;)</span> <span class="o">{</span>
+    <span class="n">fun</span> <span class="nf">writeDataToExcel</span><span class="o">(</span><span class="nl">file:</span> <span class="nc">File</span><span class="o">,</span> <span class="nl">list:</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;&gt;)</span> <span class="o">{</span>
 
         <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">list</span><span class="o">.</span><span class="na">size</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">return</span>
         <span class="o">}</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">exists</span><span class="o">())</span> <span class="o">{</span>
-            <span class="n">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" 文件已经存在，删除重建"</span><span class="o">)</span>
+            <span class="nc">Log</span><span class="o">.</span><span class="na">i</span><span class="o">(</span><span class="s">"lq "</span><span class="o">,</span> <span class="s">" 文件已经存在，删除重建"</span><span class="o">)</span>
             <span class="n">file</span><span class="o">.</span><span class="na">delete</span><span class="o">()</span>
         <span class="o">}</span>
         <span class="n">file</span><span class="o">.</span><span class="na">createNewFile</span><span class="o">()</span>
-        <span class="kt">var</span> <span class="n">workbook</span> <span class="o">=</span> <span class="n">Workbook</span><span class="o">.</span><span class="na">createWorkbook</span><span class="o">(</span><span class="n">file</span><span class="o">)</span>
+        <span class="kt">var</span> <span class="n">workbook</span> <span class="o">=</span> <span class="nc">Workbook</span><span class="o">.</span><span class="na">createWorkbook</span><span class="o">(</span><span class="n">file</span><span class="o">)</span>
         <span class="k">try</span> <span class="o">{</span>
             <span class="c1">//一张 execl 表可以创建很多表单（sheet），默认有3个，这里使用第一张表单创建数据</span>
             <span class="n">val</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">workbook</span><span class="o">.</span><span class="na">createSheet</span><span class="o">(</span><span class="s">"表单1"</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
@@ -426,9 +426,9 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
                 <span class="nf">for</span> <span class="o">(</span><span class="n">i</span> <span class="n">in</span> <span class="n">listRow</span><span class="o">.</span><span class="na">indices</span><span class="o">)</span> <span class="o">{</span>
                     <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
                         <span class="c1">//为表头添加样式</span>
-                        <span class="n">sheet</span><span class="o">.</span><span class="na">addCell</span><span class="o">(</span><span class="n">Label</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">listRow</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">tableFormat</span><span class="o">))</span>
+                        <span class="n">sheet</span><span class="o">.</span><span class="na">addCell</span><span class="o">(</span><span class="nc">Label</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">listRow</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">tableFormat</span><span class="o">))</span>
                     <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-                        <span class="n">sheet</span><span class="o">.</span><span class="na">addCell</span><span class="o">(</span><span class="n">Label</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">listRow</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span>
+                        <span class="n">sheet</span><span class="o">.</span><span class="na">addCell</span><span class="o">(</span><span class="nc">Label</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">listRow</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span>
                     <span class="o">}</span>
 
                     <span class="c1">//根据数据长度设置合适列宽</span>
@@ -444,7 +444,7 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
 
             <span class="o">}</span>
             <span class="n">workbook</span><span class="o">.</span><span class="na">write</span><span class="o">()</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nl">e:</span> <span class="n">Exception</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nl">e:</span> <span class="nc">Exception</span><span class="o">)</span> <span class="o">{</span>
             <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">()</span>
         <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
             <span class="n">workbook</span><span class="o">?.</span><span class="na">close</span><span class="o">()</span>
@@ -455,7 +455,7 @@ jxl.jar包的下载地址：<a href="http://jexcelapi.sourceforge.net/">http://j
 </code></pre></div></div>
 
 <p>注意：需要添加文件写入权限:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;
 </code></pre></div></div>
 
 <p>运行截图：<br />
@@ -483,7 +483,7 @@ wps 打开 Excel ：<br />
 
 <p>AndroidManifest.xml 中 添加代码</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        &lt;provider
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        &lt;provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
@@ -496,195 +496,195 @@ wps 打开 Excel ：<br />
 
 <p>资源文件夹（res）下创建 xml 目录，创建 provider_paths.xml 文件，内容如下</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
-<span class="nt">&lt;paths&gt;</span>
-    <span class="nt">&lt;external-path</span>
-        <span class="na">name=</span><span class="s">"external_files"</span>
-        <span class="na">path=</span><span class="s">"."</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/paths&gt;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;paths&gt;
+    &lt;external-path
+        name="external_files"
+        path="." /&gt;
+&lt;/paths&gt;
 </code></pre></div></div>
 
 <p>新增 FileUtils.kt 工具类，代码如下</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">com</span><span class="p">.</span><span class="n">moon</span><span class="p">.</span><span class="n">exportexcelfile</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package com.moon.exportexcelfile
 
-<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">Context</span>
-<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">Intent</span>
-<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">Uri</span>
-<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">os</span><span class="p">.</span><span class="n">Build</span>
-<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">Log</span>
-<span class="n">import</span> <span class="n">android</span><span class="p">.</span><span class="n">widget</span><span class="p">.</span><span class="n">Toast</span>
-<span class="n">import</span> <span class="n">androidx</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">FileProvider</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">File</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.*</span>
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.util.Log
+import android.widget.Toast
+import androidx.core.content.FileProvider
+import java.io.File
+import java.util.*
 
-<span class="p">/**</span>
- <span class="p">*</span>
- <span class="p">*@</span><span class="n">author</span> <span class="p">:</span> <span class="n">lq</span>
- <span class="p">*@</span><span class="n">date</span>   <span class="p">:</span> <span class="m">5</span><span class="p">/</span><span class="m">10</span><span class="p">/</span><span class="m">21</span>
- <span class="p">*@</span><span class="n">desc</span>   <span class="p">:</span> <span class="err">文件打开工具类</span>
- <span class="p">*</span>
- <span class="p">*/</span>
-<span class="n">class</span> <span class="n">FileUtils</span> <span class="p">{</span>
+/**
+ *
+ *@author : lq
+ *@date   : 5/10/21
+ *@desc   : 文件打开工具类
+ *
+ */
+class FileUtils {
 
-    <span class="n">private</span> <span class="n">var</span> <span class="n">mContext</span><span class="p">:</span> <span class="n">Context</span>
+    private var mContext: Context
 
-    <span class="n">constructor</span><span class="p">(</span><span class="n">mContext</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">this</span><span class="p">.</span><span class="n">mContext</span> <span class="p">=</span> <span class="n">mContext</span>
-    <span class="p">}</span>
+    constructor(mContext: Context) {
+        this.mContext = mContext
+    }
 
-    <span class="p">/**</span><span class="err">声明各种类型文件的</span><span class="n">dataType</span> <span class="p">*/</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_ALL</span> <span class="p">=</span> <span class="s2">"*/*"</span> <span class="p">//</span><span class="err">未指定明确的文件类型，不能使用精确类型的工具打开，需要用户选择</span>
+    /**声明各种类型文件的dataType */
+    private val DATA_TYPE_ALL = "*/*" //未指定明确的文件类型，不能使用精确类型的工具打开，需要用户选择
 
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_APK</span> <span class="p">=</span> <span class="s2">"application/vnd.android.package-archive"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_VIDEO</span> <span class="p">=</span> <span class="s2">"video/*"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_AUDIO</span> <span class="p">=</span> <span class="s2">"audio/*"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_HTML</span> <span class="p">=</span> <span class="s2">"text/html"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_IMAGE</span> <span class="p">=</span> <span class="s2">"image/*"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_PPT</span> <span class="p">=</span> <span class="s2">"application/vnd.ms-powerpoint"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_EXCEL</span> <span class="p">=</span> <span class="s2">"application/vnd.ms-excel"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_WORD</span> <span class="p">=</span> <span class="s2">"application/msword"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_CHM</span> <span class="p">=</span> <span class="s2">"application/x-chm"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_TXT</span> <span class="p">=</span> <span class="s2">"text/plain"</span>
-    <span class="n">private</span> <span class="n">val</span> <span class="n">DATA_TYPE_PDF</span> <span class="p">=</span> <span class="s2">"application/pdf"</span>
+    private val DATA_TYPE_APK = "application/vnd.android.package-archive"
+    private val DATA_TYPE_VIDEO = "video/*"
+    private val DATA_TYPE_AUDIO = "audio/*"
+    private val DATA_TYPE_HTML = "text/html"
+    private val DATA_TYPE_IMAGE = "image/*"
+    private val DATA_TYPE_PPT = "application/vnd.ms-powerpoint"
+    private val DATA_TYPE_EXCEL = "application/vnd.ms-excel"
+    private val DATA_TYPE_WORD = "application/msword"
+    private val DATA_TYPE_CHM = "application/x-chm"
+    private val DATA_TYPE_TXT = "text/plain"
+    private val DATA_TYPE_PDF = "application/pdf"
 
-    <span class="p">/**</span>
-     <span class="p">*</span> <span class="err">产生除了视频、音频、网页文件外，打开其他类型文件的</span><span class="n">Intent</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件路径</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">dataType</span> <span class="err">文件类型</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
-     <span class="p">*/</span>
-    <span class="n">private</span> <span class="n">fun</span> <span class="n">generateCommonIntent</span><span class="p">(</span>
-        <span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">,</span>
-        <span class="n">dataType</span><span class="p">:</span> <span class="k">String</span>
-    <span class="p">):</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">{</span>
-        <span class="n">val</span> <span class="n">intent</span> <span class="p">=</span> <span class="n">Intent</span><span class="p">()</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">addFlags</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">FLAG_ACTIVITY_NEW_TASK</span><span class="p">)</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">setAction</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">ACTION_VIEW</span><span class="p">)</span>
-        <span class="n">val</span> <span class="n">file</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
-        <span class="n">val</span> <span class="n">uri</span> <span class="p">=</span> <span class="n">getUri</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">setDataAndType</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">dataType</span><span class="p">)</span>
-        <span class="n">return</span> <span class="n">intent</span>
-    <span class="p">}</span>
+    /**
+     * 产生除了视频、音频、网页文件外，打开其他类型文件的Intent
+     * @param filePath 文件路径
+     * @param dataType 文件类型
+     * @return
+     */
+    private fun generateCommonIntent(
+        filePath: String,
+        dataType: String
+    ): Intent? {
+        val intent = Intent()
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.setAction(Intent.ACTION_VIEW)
+        val file = File(filePath)
+        val uri = getUri(intent, file)
+        intent.setDataAndType(uri, dataType)
+        return intent
+    }
 
 
-    <span class="p">/**</span>
-     <span class="p">*</span> <span class="err">产生打开视频或音频的</span><span class="n">Intent</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件路径</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">dataType</span> <span class="err">文件类型</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
-     <span class="p">*/</span>
-    <span class="n">private</span> <span class="n">fun</span> <span class="n">generateVideoAudioIntent</span><span class="p">(</span>
-        <span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">,</span>
-        <span class="n">dataType</span><span class="p">:</span> <span class="k">String</span>
-    <span class="p">):</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">{</span>
-        <span class="n">val</span> <span class="n">intent</span> <span class="p">=</span>
-            <span class="n">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">ACTION_VIEW</span><span class="p">)</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">addFlags</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">FLAG_ACTIVITY_CLEAR_TOP</span><span class="p">)</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">putExtra</span><span class="p">(</span><span class="s2">"oneshot"</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">putExtra</span><span class="p">(</span><span class="s2">"configchange"</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
-        <span class="n">val</span> <span class="n">file</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">setDataAndType</span><span class="p">(</span><span class="n">getUri</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span> <span class="n">dataType</span><span class="p">)</span>
-        <span class="n">return</span> <span class="n">intent</span>
-    <span class="p">}</span>
+    /**
+     * 产生打开视频或音频的Intent
+     * @param filePath 文件路径
+     * @param dataType 文件类型
+     * @return
+     */
+    private fun generateVideoAudioIntent(
+        filePath: String,
+        dataType: String
+    ): Intent? {
+        val intent =
+            Intent(Intent.ACTION_VIEW)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.putExtra("oneshot", 0)
+        intent.putExtra("configchange", 0)
+        val file = File(filePath)
+        intent.setDataAndType(getUri(intent, file), dataType)
+        return intent
+    }
 
-    <span class="p">/**</span>
-     <span class="p">*</span> <span class="err">产生打开网页文件的</span><span class="n">Intent</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件路径</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
-     <span class="p">*/</span>
-    <span class="n">private</span> <span class="n">fun</span> <span class="n">generateHtmlFileIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">):</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">{</span>
-        <span class="n">val</span> <span class="n">uri</span> <span class="p">=</span> <span class="n">Uri</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
-            <span class="p">.</span><span class="n">buildUpon</span><span class="p">()</span>
-            <span class="p">.</span><span class="n">encodedAuthority</span><span class="p">(</span><span class="s2">"com.android.htmlfileprovider"</span><span class="p">)</span>
-            <span class="p">.</span><span class="n">scheme</span><span class="p">(</span><span class="s2">"content"</span><span class="p">)</span>
-            <span class="p">.</span><span class="n">encodedPath</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
-            <span class="p">.</span><span class="n">build</span><span class="p">()</span>
-        <span class="n">val</span> <span class="n">intent</span> <span class="p">=</span>
-            <span class="n">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">ACTION_VIEW</span><span class="p">)</span>
-        <span class="n">intent</span><span class="p">.</span><span class="n">setDataAndType</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">DATA_TYPE_HTML</span><span class="p">)</span>
-        <span class="n">return</span> <span class="n">intent</span>
-    <span class="p">}</span>
+    /**
+     * 产生打开网页文件的Intent
+     * @param filePath 文件路径
+     * @return
+     */
+    private fun generateHtmlFileIntent(filePath: String): Intent? {
+        val uri = Uri.parse(filePath)
+            .buildUpon()
+            .encodedAuthority("com.android.htmlfileprovider")
+            .scheme("content")
+            .encodedPath(filePath)
+            .build()
+        val intent =
+            Intent(Intent.ACTION_VIEW)
+        intent.setDataAndType(uri, DATA_TYPE_HTML)
+        return intent
+    }
 
-    <span class="p">/**</span>
-     <span class="p">*</span> <span class="err">获取对应文件的</span><span class="n">Uri</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">intent</span> <span class="err">相应的</span><span class="n">Intent</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">file</span> <span class="err">文件对象</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">return</span>
-     <span class="p">*/</span>
-    <span class="n">private</span> <span class="n">fun</span> <span class="n">getUri</span><span class="p">(</span><span class="n">intent</span><span class="p">:</span> <span class="n">Intent</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">File</span><span class="p">):</span> <span class="n">Uri</span><span class="p">?</span> <span class="p">{</span>
-        <span class="n">var</span> <span class="n">uri</span><span class="p">:</span> <span class="n">Uri</span><span class="p">?</span> <span class="p">=</span> <span class="n">null</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">Build</span><span class="p">.</span><span class="k">VERSION</span><span class="p">.</span><span class="n">SDK_INT</span> <span class="p">&gt;=</span> <span class="n">Build</span><span class="p">.</span><span class="n">VERSION_CODES</span><span class="p">.</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
-            <span class="p">//</span><span class="err">判断版本是否在</span><span class="m">7.0</span><span class="err">以上</span>
-            <span class="n">uri</span> <span class="p">=</span> <span class="n">FileProvider</span><span class="p">.</span><span class="n">getUriForFile</span><span class="p">(</span>
-                <span class="n">mContext</span><span class="p">,</span> <span class="n">mContext</span><span class="p">.</span><span class="n">getPackageName</span><span class="p">().</span><span class="n">toString</span><span class="p">()</span> <span class="p">+</span> <span class="s2">".fileprovider"</span><span class="p">,</span>
-                <span class="n">file</span>
-            <span class="p">)</span>
-            <span class="p">//</span><span class="err">添加这一句表示对目标应用临时授权该</span><span class="n">Uri</span><span class="err">所代表的文件</span>
-            <span class="n">intent</span><span class="p">.</span><span class="n">addFlags</span><span class="p">(</span><span class="n">Intent</span><span class="p">.</span><span class="n">FLAG_GRANT_READ_URI_PERMISSION</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">uri</span> <span class="p">=</span> <span class="n">Uri</span><span class="p">.</span><span class="n">fromFile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="n">return</span> <span class="n">uri</span>
-    <span class="p">}</span>
+    /**
+     * 获取对应文件的Uri
+     * @param intent 相应的Intent
+     * @param file 文件对象
+     * @return
+     */
+    private fun getUri(intent: Intent, file: File): Uri? {
+        var uri: Uri? = null
+        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) {
+            //判断版本是否在7.0以上
+            uri = FileProvider.getUriForFile(
+                mContext, mContext.getPackageName().toString() + ".fileprovider",
+                file
+            )
+            //添加这一句表示对目标应用临时授权该Uri所代表的文件
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        } else {
+            uri = Uri.fromFile(file)
+        }
+        return uri
+    }
 
-    <span class="p">/**</span>
-     <span class="p">*</span> <span class="err">打开文件</span>
-     <span class="p">*</span> <span class="p">@</span><span class="n">param</span> <span class="n">filePath</span> <span class="err">文件的全路径，包括到文件名</span>
-     <span class="p">*/</span>
-    <span class="n">fun</span> <span class="n">openFile</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span> <span class="k">String</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Log</span><span class="p">.</span><span class="n">i</span><span class="p">(</span><span class="s2">"lq"</span><span class="p">,</span> <span class="s2">"打开文件 == $filePath"</span><span class="p">)</span>
-        <span class="n">val</span> <span class="n">file</span> <span class="p">=</span> <span class="n">File</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="c1">!file.exists()) {
-</span>            <span class="p">//</span><span class="err">如果文件不存在</span>
-            <span class="n">Toast</span><span class="p">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">mContext</span><span class="p">,</span> <span class="s2">"文件打开失败，文件已经被移动或者删除"</span><span class="p">,</span> <span class="n">Toast</span><span class="p">.</span><span class="n">LENGTH_SHORT</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>
-            <span class="n">return</span>
-        <span class="p">}</span>
-        <span class="p">/*</span> <span class="err">取得扩展名</span> <span class="p">*/</span>
-        <span class="n">val</span> <span class="k">end</span> <span class="p">=</span>
-            <span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">lastIndexOf</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">file</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">length</span><span class="p">)</span>
-                <span class="p">.</span><span class="n">toLowerCase</span><span class="p">(</span><span class="n">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">())</span>
-        <span class="p">/*</span> <span class="err">依扩展名的类型决定</span><span class="n">MimeType</span> <span class="p">*/</span>
-        <span class="n">var</span> <span class="n">intent</span><span class="p">:</span> <span class="n">Intent</span><span class="p">?</span> <span class="p">=</span> <span class="n">null</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"m4a"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"mp3"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"mid"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"xmf"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"ogg"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"wav"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateVideoAudioIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_AUDIO</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"3gp"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"mp4"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateVideoAudioIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_VIDEO</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"jpg"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"gif"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"png"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"jpeg"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"bmp"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_IMAGE</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"apk"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_APK</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"html"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"htm"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateHtmlFileIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"ppt"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_PPT</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"xls"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"xlsx"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_EXCEL</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"doc"</span> <span class="p">||</span> <span class="k">end</span> <span class="p">==</span> <span class="s2">"docx"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_WORD</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"pdf"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_PDF</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"chm"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_CHM</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">end</span> <span class="p">==</span> <span class="s2">"txt"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_TXT</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">intent</span> <span class="p">=</span> <span class="n">generateCommonIntent</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">DATA_TYPE_ALL</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="n">try</span> <span class="p">{</span>
-            <span class="n">mContext</span><span class="p">.</span><span class="n">startActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">)</span>
-        <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">Exception</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">()</span>
-            <span class="n">Toast</span><span class="p">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">mContext</span><span class="p">,</span> <span class="s2">"未找到可以打开文件的软件"</span><span class="p">,</span> <span class="n">Toast</span><span class="p">.</span><span class="n">LENGTH_SHORT</span><span class="p">).</span><span class="n">show</span><span class="p">()</span>
-        <span class="p">}</span>
+    /**
+     * 打开文件
+     * @param filePath 文件的全路径，包括到文件名
+     */
+    fun openFile(filePath: String) {
+        Log.i("lq", "打开文件 == $filePath")
+        val file = File(filePath)
+        if (!file.exists()) {
+            //如果文件不存在
+            Toast.makeText(mContext, "文件打开失败，文件已经被移动或者删除", Toast.LENGTH_SHORT).show()
+            return
+        }
+        /* 取得扩展名 */
+        val end =
+            file.name.substring(file.name.lastIndexOf(".") + 1, file.name.length)
+                .toLowerCase(Locale.getDefault())
+        /* 依扩展名的类型决定MimeType */
+        var intent: Intent? = null
+        if (end == "m4a" || end == "mp3" || end == "mid" || end == "xmf" || end == "ogg" || end == "wav") {
+            intent = generateVideoAudioIntent(filePath, DATA_TYPE_AUDIO)
+        } else if (end == "3gp" || end == "mp4") {
+            intent = generateVideoAudioIntent(filePath, DATA_TYPE_VIDEO)
+        } else if (end == "jpg" || end == "gif" || end == "png" || end == "jpeg" || end == "bmp") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_IMAGE)
+        } else if (end == "apk") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_APK)
+        } else if (end == "html" || end == "htm") {
+            intent = generateHtmlFileIntent(filePath)
+        } else if (end == "ppt") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_PPT)
+        } else if (end == "xls" || end == "xlsx") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_EXCEL)
+        } else if (end == "doc" || end == "docx") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_WORD)
+        } else if (end == "pdf") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_PDF)
+        } else if (end == "chm") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_CHM)
+        } else if (end == "txt") {
+            intent = generateCommonIntent(filePath, DATA_TYPE_TXT)
+        } else {
+            intent = generateCommonIntent(filePath, DATA_TYPE_ALL)
+        }
+        try {
+            mContext.startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(mContext, "未找到可以打开文件的软件", Toast.LENGTH_SHORT).show()
+        }
 
-    <span class="p">}</span>
-<span class="p">}</span>
+    }
+}
 </code></pre></div></div>
 
 <p>在导出后调用即可</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     FileUtils(this).openFile(file.absolutePath)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     FileUtils(this).openFile(file.absolutePath)
 </code></pre></div></div>
 
 <p>新的代码结构图：</p>
@@ -695,7 +695,7 @@ wps 打开 Excel ：<br />
 
 <p>问题：<br />
 混淆打包需要在 proguard-rules.pro 混淆文件中添加</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#表格导出相关
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#表格导出相关
 -keep class jxl.** {*;}
 -keep class common.** {*;}
 
