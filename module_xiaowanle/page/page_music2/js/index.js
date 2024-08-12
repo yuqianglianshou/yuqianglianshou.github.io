@@ -246,7 +246,7 @@ const getCurrentMusicLyrics = function () {
 
   console.log(" 当前歌词类型 lyricstype == " + currentMusicList[currentMusic].lyricstype);
 
-  if(currentMusicList[currentMusic].lyricstype === true){
+  if (currentMusicList[currentMusic].lyricstype === true) {
     console.log(currentMusic + "  加载歌词 第二种 ");
     //第二种歌词数据
     const currentLyrics = lyricsList2.find(item => item.name_path === currentMusicList[currentMusic].name_path);
@@ -261,7 +261,7 @@ const getCurrentMusicLyrics = function () {
       console.log(currentMusic + "  加载歌词 有歌词 ");
       const lyricsText = currentLyrics.lyrics.split('\n');
       const lyricsRegex = /\[(\d{2}:\d{2}(?:\.\d{2,3})?)\](.*)/;  // 正则表达式匹配时间和歌词
-  
+
       const lyricsData = lyricsText.map(line => {
         const match = line.match(lyricsRegex);
         if (match) {
@@ -277,19 +277,19 @@ const getCurrentMusicLyrics = function () {
         }
         return null;
       }).filter(line => line !== null);
-  
+
       const lyricsTimer = lyricsData.map(line => line.time);
       const lyricsTextArray = lyricsData.map(line => line.text);
-  
+
       // console.log("Lyrics Text:", lyricsTextArray);
       // console.log("Lyrics Timer:", lyricsTimer);
-  
+
       return {
         'text': lyricsTextArray,
         'timer': lyricsTimer
       };
     }
-  }else{
+  } else {
     console.log(currentMusic + "  加载歌词 第一种 ");
     const currentLyrics = lyricsList.find(item => item.name_path === currentMusicList[currentMusic].name_path);
     if (!currentLyrics) {
@@ -302,7 +302,7 @@ const getCurrentMusicLyrics = function () {
       console.log(currentMusic + "  加载歌词 有歌词 ");
       const lyricsText = currentLyrics.lyrics.map(line => line.substring(line.indexOf(']') + 1));
       // console.log("Lyrics Text:", lyricsText);
-  
+
       const lyricsTimer = currentLyrics.lyrics.map(line => {
         const timeStr = line.substring(1, 10); // 提取时间部分，包括毫秒
         // console.log("Time String:", timeStr);
@@ -311,14 +311,14 @@ const getCurrentMusicLyrics = function () {
         // console.log("Parsed Time:", minutes, seconds, milliseconds);
         return (parseFloat(minutes) * 60 + parseFloat(seconds) + milliseconds / 1000); // 转换为秒
       });
-  
+
       // console.log("Lyrics Timer:", lyricsTimer);
-  
+
       return {
         'text': lyricsText,
         'timer': lyricsTimer
       };
-  
+
     }
   }
 
@@ -874,6 +874,7 @@ initMusicList()
 
 
 function showHoverWindow(event) {
+
   const item = event.currentTarget;
   const dataIndex = item.getAttribute('data-id');
   const musicDes = currentMusicList[dataIndex].des;
@@ -881,11 +882,43 @@ function showHoverWindow(event) {
   const hoverWindow = document.getElementById('hoverWindow');
   const hoverContent = document.getElementById('hoverContent');
 
+  // 获取item的位置信息
+  const itemRect = item.getBoundingClientRect();
+  const itemWidth = itemRect.width;
+  const itemLeft = itemRect.left;
+
+  // 计算鼠标相对item的水平位置
+  const mouseX = event.clientX;
+
+  // 判断鼠标是否在item的右半部分
+  const isMouseInRightHalf = (mouseX - itemLeft) > (itemWidth / 2);
+
   // 设置悬浮窗的内容并显示
   hoverContent.innerHTML = `${musicDes.replace(/\n/g, '<br>')}`;
-  hoverWindow.style.left = `${event.clientX}px`;
-  hoverWindow.style.top = `${event.clientY}px`;
   hoverWindow.style.display = 'block';
+
+  // 强制浏览器重新计算悬浮窗宽度
+  const hoverWindowWidth = hoverWindow.offsetWidth;
+  const hoverWindowHeight = hoverWindow.offsetHeight;
+
+  // 根据鼠标位置调整悬浮窗的显示位置
+  if (isMouseInRightHalf) {
+    hoverWindow.style.left = `${mouseX - hoverWindowWidth}px`; // 显示在鼠标左侧
+  } else {
+    hoverWindow.style.left = `${mouseX}px`; // 显示在鼠标右侧
+  }
+
+
+  // 判断鼠标是否接近屏幕底部
+  const windowHeight = window.innerHeight;
+  const mouseY = event.clientY;
+
+  if (mouseY + hoverWindowHeight > windowHeight) {
+    hoverWindow.style.top = `${mouseY - hoverWindowHeight}px`; // 显示在鼠标上方
+  } else {
+    hoverWindow.style.top = `${mouseY}px`; // 显示在鼠标下方
+  }
+
 }
 
 function hideHoverWindow() {
@@ -982,24 +1015,24 @@ let wakeLock = null;
 
 // 检查浏览器是否支持Wake Lock API
 if ('wakeLock' in navigator) {
-    // 请求屏幕常亮权限
-    (async () => {
-        try {
-            wakeLock = await navigator.wakeLock.request('screen');
-            console.log('已获得屏幕常亮权限');
-        } catch (error) {
-            console.error('无法获得屏幕常亮权限:', error);
-        }
-    })();
+  // 请求屏幕常亮权限
+  (async () => {
+    try {
+      wakeLock = await navigator.wakeLock.request('screen');
+      console.log('已获得屏幕常亮权限');
+    } catch (error) {
+      console.error('无法获得屏幕常亮权限:', error);
+    }
+  })();
 
-    // 监听页面关闭事件，释放屏幕常亮权限
-    window.addEventListener('unload', () => {
-        if (wakeLock !== null) {
-            wakeLock.release();
-        }
-    });
+  // 监听页面关闭事件，释放屏幕常亮权限
+  window.addEventListener('unload', () => {
+    if (wakeLock !== null) {
+      wakeLock.release();
+    }
+  });
 } else {
-    console.log('你的浏览器不支持Wake Lock API');
+  console.log('你的浏览器不支持Wake Lock API');
 }
 
 
