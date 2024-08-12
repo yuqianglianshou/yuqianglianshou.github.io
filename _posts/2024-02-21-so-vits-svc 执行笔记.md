@@ -6,11 +6,12 @@ tags:  技术_AI语音
 ---
 ### 风能否向月而行。
 
-## 结果展示 
+## 效果展示 
 
+[【AI-胡桃】 翻唱 - 丫头](https://www.bilibili.com/video/BV1Ym411m7Un/?vd_source=98a6ce1d2586467c3641a8b5aac049ed)  
 [【AI-芙宁娜】 翻唱 - 轻涟（中文）](https://www.bilibili.com/video/BV1aC41187Vr/?spm_id_from=333.999.0.0&vd_source=98a6ce1d2586467c3641a8b5aac049ed)  
 [【AI-芙宁娜】 翻唱 - ありがとう（泪的告白）](https://www.bilibili.com/video/BV1tA4m1P7YF/?spm_id_from=333.788.recommend_more_video.2&vd_source=98a6ce1d2586467c3641a8b5aac049ed)  
-[【AI-枫原万叶】 翻唱 - 阿拉斯加海湾](https://www.bilibili.com/video/BV1FK42147R6/?spm_id_from=333.788.recommend_more_video.2&vd_source=98a6ce1d2586467c3641a8b5aac049ed)
+[【AI-芙宁娜】 翻唱 - 堕](https://www.bilibili.com/video/BV1GZ421J7Dd/?spm_id_from=333.788&vd_source=98a6ce1d2586467c3641a8b5aac049ed)
 
 ## 相关教程和参考资料
 
@@ -26,7 +27,7 @@ B 站 up Sucial的UVR5人声分离教程: [https://www.bilibili.com/video/BV1F44
 
 需要 显存 6G+，并设置虚拟内存 20G+；  
 
-需要 NVIDIA-CUDA，版本11或版本12，请安装。  
+需要 NVIDIA-CUDA，版本11.7,11.8或版本12，请安装。  
 查看cuda 版本   
 
 ```
@@ -54,11 +55,15 @@ conda env list
 conda activate env_so_vits_svc
 
 ```
-修改 requirements_win.txt 文件，将 gradio>=3.7.0 改为 gradio==3.41.2，并添加三个依赖包 fastapi==0.84.0  pydantic==1.10.12  tensorflow  
+修改 requirements_win.txt 文件，
+将 gradio>=3.7.0 改为 gradio==3.41.2，
+将 scipy==1.7.3 改为 scipy==1.13.0，（解决与numpy的版本不匹配警告问题）
+并添加三个依赖包 fastapi==0.84.0  pydantic==1.10.12  tensorflow  
 
 
 ```
 gradio==3.41.2  
+scipy==1.13.0
 fastapi==0.84.0  
 pydantic==1.10.12 
 //用于辅助判断训练结果
@@ -96,7 +101,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 ![](/images/posts/20240221/8.jpg){:width="90%"}  
 
 ## 音频数据集准备
-1. 音频格式为wav，通过 Adobe Audition 的持续时间排序功能，删除时长 比较短的和比较长的，（回到原文件夹再次删除所有音频，由于Adobe Audition程序占用着没有删除的音频，从而无法删除占用音频，但是能够删除在Adobe Audition 中删除的音频，以此达到我们的过滤删除目的）每条时长在5s～15s之间最佳，过长容易爆内存，保留150条数据以上，然后拖拽所有文件到下方，选中所有，匹配响度。关闭Adobe Audition，保存所有。
+1. 音频格式为wav，通过 Adobe Audition 的持续时间排序功能，删除时长 比较短的和比较长的，（回到原文件夹再次删除所有音频，由于Adobe Audition程序占用着没有删除的音频，从而无法删除占用音频，但是能够删除在Adobe Audition 中删除的音频，以此达到我们的过滤删除目的）每条时长在5s～15s之间最佳，过长容易爆内存，保留150条数据以上，然后拖拽所有文件到下方，选中所有，匹配响度。关闭Adobe Audition，保存所有。 （注：可以通过windows资源管理器直接删除不符合要求的音频，选择 排序-》分组依据-》大小，即可对音频重新排序，比AU简单方便。）
 <br/>
 ![](/images/posts/20240221/1.jpg){:width="90%"}  
 
@@ -179,7 +184,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
     <br/>
     ![](/images/posts/20240221/5.jpg){:width="90%"}  
 
-4. 主模型训练，需要epoch 5000+，训练100小时效果应该可以了，可ctrl+c中断，继续训练再次执行命令即可。
+4. 主模型训练，需要epoch 5000+，追求效果建议epoch > 9000,训练时间与训练集大小和显卡性能相关，3小时数据集 + 4070Ti 12G显卡+ epoch=10000，大约需要120小时。训练过程中 可ctrl+c中断，继续训练再次执行训练命令即可。
    
     ```
     python train.py -c configs/config.json -m 44k
@@ -193,7 +198,8 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
 5. 模型压缩/打包分享
     
-    生成的模型含有继续训练所需的信息。如果确认不再训练，可以移除模型中此部分信息，得到约 1/3 大小的最终模型。
+    生成的模型含有继续训练所需的信息。如果确认不再训练，可以移除模型中此部分信息，得到约 1/3 大小的最终模型。  
+    生成模型大小在600M~800M，压缩后200M左右。
     ```
     python compress_model.py -c="configs/config.json" -i="logs/44k/G_30400.pth" -o="logs/44k/release.pth"
     ```
@@ -227,26 +233,9 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
 ## 目标音频处理 uvr5工具
 
-1. 原曲分离为 伴奏+带和声的人声   
-method = MDX-Net，segment size = 512，overlap = 30
-model = MDX23C-InstVoc HQ  
-    <br/>
-    ![](/images/posts/20240221/9.jpg){:width="90%"}  
-2. 带和声的人声分离为 和声 + 人声（和声是否需要的问题）  
-method = VR Architecture，window size = 320，aggression setting = 5
-model = 5_HP-Karaoke-UVR(激进)\model = 6_HP-Karaoke-UVR(平滑)
-    <br/>
-    ![](/images/posts/20240221/a.jpg){:width="90%"}  
-3. 人声去除混响   
-method = VR Architecture，window size = 320，aggression setting = 5
-model = UVR-De-Echo-Normal  
-勾选只要无混响的干声。
-    <br/>
-    ![](/images/posts/20240221/b.jpg){:width="90%"}  
+[UVR5提取干声](http://yuqianglianshou.com/2024/02/so-vits-svc-UVR5提取干声/)
 
-4. 如果上述3步之后还存在明显的噪声，再选择UVR-DeNoice去噪。  
 
-经过处理后最终得到 伴奏 + 干声。
 
 ## 推理
 

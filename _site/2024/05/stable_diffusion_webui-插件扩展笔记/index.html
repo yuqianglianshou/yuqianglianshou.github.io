@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>AI语音mac踩坑记</title>
+  <title>stable_diffusion_webui 插件扩展笔记</title>
   <meta name="description"
-    content="原来你需要的不是答案，而是时间。">
+    content="悬上该有的天真。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title"
-    content="AI语音mac踩坑记">
+    content="stable_diffusion_webui 插件扩展笔记">
   <meta name="twitter:description"
-    content="原来你需要的不是答案，而是时间。">
+    content="悬上该有的天真。">
 
   <meta property="og:type" content="article">
   <meta property="og:title"
-    content="AI语音mac踩坑记">
+    content="stable_diffusion_webui 插件扩展笔记">
   <meta property="og:description"
-    content="原来你需要的不是答案，而是时间。">
+    content="悬上该有的天真。">
 
   <link rel="icon" type="image/png" href="/images/avatar.jpg" />
   <link href="/images/avatar.jpg" rel="shortcut icon" type="image/png">
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href=" /css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2023/05/AI%E8%AF%AD%E9%9F%B3mac%E8%B8%A9%E5%9D%91%E8%AE%B0/">
+  <link rel="canonical" href="http://localhost:4000/2024/05/stable_diffusion_webui-%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95%E7%AC%94%E8%AE%B0/">
   <link rel="alternate" type="application/rss+xml" title="劉清揚" href="http://localhost:4000 /feed.xml">
 
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -203,10 +203,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">AI语音mac踩坑记</h1>
+    <h1 class="post-title">stable_diffusion_webui 插件扩展笔记</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2023-05-16 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2023-05-16</time>  
+      <time datetime="2024-05-08 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2024-05-08</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -214,61 +214,51 @@
   </header>
 
   <section class="post">
-    <h3 id="原来你需要的不是答案而是时间">原来你需要的不是答案，而是时间。</h3>
+    <h3 id="悬上该有的天真">悬上该有的天真。</h3>
 
-<p>so-vits-svc是基于VITS的开源项目，VITS（Variational Inference with adversarial learning for end-to-end Text-to-Speech）是一种结合变分推理（variational inference）、标准化流（normalizing flows）和对抗训练的高表现力语音合成模型。</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>扩展：
 
-<p>基于Python3.10的开源库<a href="https://github.com/svc-develop-team/so-vits-svc/tree/4.0-Vec768-Layer12">so-vits-svc</a></p>
+推荐的八款插件：
 
-<h2 id="踩坑记">踩坑记</h2>
+【初学者入门类】
 
-<ul>
-  <li>模型训练需要英伟达显卡，我的mac配置很高，没有。（如果已经获得模型文件，去运行推理是没有问题的）</li>
-  <li>电脑配置低，或者像我一样没有英伟达显卡的可以使用（不推荐）google的colab。有一定技术门槛，需要懂程序代码；需要翻墙；虽然免费但是每天有使用时长限制，我在模型训练运行中就直接给我断了。</li>
-  <li>
-    <p>人声伴奏分离不要使用 Spleeter，需要下载几个G的文件和模型，我使用后觉得效果很差。<a href="https://vocalremover.org/">https://vocalremover.org/</a> 这个网站效果很好了，不用注册，简单易使用，几分钟搞定，如果想要专业点，使用UVR5 （Ultimate Vocal Remover），它目前是最优秀的人声伴奏分离工具之一，而且开源免费，开源地址：<a href="https://github.com/Anjok07/ultimatevocalremovergui">https://github.com/Anjok07/ultimatevocalremovergui</a> ,windows和mac版本都有，也需要英伟达显卡，不过没有也可以用，就是差点意思。可以根据不同类型、乐器、背景音乐等去选择不同的算法，分离后的效果是不一样的，对于一般的歌曲来说差别似乎不是很大。需要时间去学习了解这个软件，追求高品质的同学要用它。这里有不错的介绍<a href="https://www.bilibili.com/read/cv21997904">最强 AI 人声伴奏分离工具 UVR5，更新5.5版本</a></p>
-  </li>
-  <li>底模文件直接去官网下载，放到代码指定目录中。</li>
-  <li>这个开源库（so-vits-svc）已经停止更新，分支有好几个，使用默认 stable 分支，请先仔细查看readme文档说明。</li>
-  <li>训练模型需要使用的音频文件质量很关键，直接影响模型质量，推理质量。宁缺毋滥。这是一项庞大的工作，要有耐心。</li>
-  <li>推理的最终效果不好不一定是模型的问题，有可能是你想要让模型人物唱的歌并不适合模型人物，比如模型训练了一个男声，几乎都是低音素材，你要让他去唱韩红的青藏高原，他必然唱不上去的，沙哑或跑调或直接刺啦声了。</li>
-  <li>无论训练的是歌手还是动漫人物，都涉及到侵权问题，请慎重传播。</li>
-</ul>
+1.中文本地化安装包。
 
-<h2 id="环境配置">环境配置</h2>
+2.图库浏览器。
 
-<p>首先确保本机已经安装好Python3.+的开发环境，这里我使用的是python3.9.0，随后使用Git命令克隆项目：</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/svc-develop-team/so-vits-svc.git
+3.提示词自动补全。
+
+4.Tagger提示词反推。
+
+【进阶提升类】
+
+5.UItimate Upscale 图片绘制修复、放大、优化算法。
+
+6.局部潜空间放大。
+
+7.提示词分割控制。
+
+8.无限放大视频制作。
+
+webui上安装或git安装：
+
+例如：双语：https://github.com/journey-ad/sd-webui-bilingual-localization
+
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients extensions/aesthetic-gradients
+
 </code></pre></div></div>
 
-<p>随后进入项目的目录：</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd so-vits-svc
-</code></pre></div></div>
-<p>接着安装依赖，如果是Linux或者Mac系统，运行命令：</p>
-
-<p>pip3 install -r requirements.txt</p>
-
-<p>依赖库安装成功之后，在项目的根目录运行命令，启动服务：</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python webUI.py
-</code></pre></div></div>
-
-<p>安装 wget</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install wget
-</code></pre></div></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget --version
-</code></pre></div></div>
-
-<p>预先下载的模型文件,1.3G,需要一点时间。  <br />
-根目录下</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best_legacy_500.pt
-</code></pre></div></div>
-
-<p>由于mac坑太多，且存在诸多不便，台式机安排上。</p>
-
-<p><img src="/images/posts/20230516/1.jpg" alt="" width="45%" /><br />
-<br /></p>
-
-<p><img src="/images/posts/20230516/2.jpg" alt="" width="45%" /><br />
+<p><br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
 <br /></p>
 
 
@@ -474,15 +464,15 @@
   <ul class="pager">
     
     <li class="previous">
-      <a href="/2023/03/ChatGPT/" data-toggle="tooltip"
-        data-placement="top" title="ChatGPT">上一篇： <span>ChatGPT</span>
+      <a href="/2024/05/stable_diffusion_webui-%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%AC%94%E8%AE%B0/" data-toggle="tooltip"
+        data-placement="top" title="stable_diffusion_webui 安装运行笔记">上一篇： <span>stable_diffusion_webui 安装运行笔记</span>
       </a>
     </li>
     
     
     <li class="next">
-      <a href="/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" data-toggle="tooltip"
-        data-placement="top" title="跨域问题">下一篇： <span>跨域问题</span>
+      <a href="/2024/05/stable_diffusion_webui-%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" data-toggle="tooltip"
+        data-placement="top" title="stable_diffusion_webui 模型相关笔记">下一篇： <span>stable_diffusion_webui 模型相关笔记</span>
       </a>
     </li>
     

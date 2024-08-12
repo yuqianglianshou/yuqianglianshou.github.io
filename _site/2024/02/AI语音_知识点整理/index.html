@@ -266,6 +266,54 @@
 总的来说，TTS和VITS是两种不同的语音合成方法，它们在输入数据、训练方法、应用场景和训练复杂度等方面有所不同，可以根据具体的需求选择合适的方法。
 </code></pre></div></div>
 
+<p><strong>F0预测器中 crepe,pm,dio,harvest,rmvpe  的区别</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>F0预测器用于从音频信号中提取基频（F0）或基频轮廓，这对于语音合成、变声和其他音频处理应用至关重要。以下是您提到的几个F0预测器的简介及其主要区别：
+
+### 1. CREPE
+- **全称**：Convolutional Recurrent Neural Network for Pitch Estimation
+- **方法**：基于卷积神经网络（CNN）和递归神经网络（RNN）。
+- **特点**：CREPE直接对音频波形进行操作，能够提供高精度的基频估计。它不依赖于传统的时域或频域处理方法，而是使用深度学习来提取音频信号的特征。
+- **优点**：在嘈杂环境下表现良好，适合多种音频信号的基频提取。
+- **缺点**：计算资源需求较高，需要大量训练数据。
+
+### 2. PM (Parabolic Interpolation)
+- **全称**：Parabolic Interpolation Method
+- **方法**：利用傅里叶变换和抛物线插值来估计基频。
+- **特点**：这是一个基于频域的方法，通过在频谱上找到峰值并进行抛物线插值来精确定位基频。
+- **优点**：计算简单，适用于实时应用。
+- **缺点**：在处理复杂信号或低信噪比信号时，精度可能较低。
+
+### 3. DIO
+- **全称**：Distributed Inline Operation
+- **方法**：一种基于自相关函数和周期图的基频估计算法。
+- **特点**：DIO是一种快速而精确的基频提取方法，广泛应用于语音合成领域。
+- **优点**：计算效率高，能够在短时间内处理大量数据。
+- **缺点**：在处理含有高噪声或谐波丰富的信号时，可能会有一定的误差。
+
+### 4. Harvest
+- **方法**：一种基于时间域和频域的混合方法，用于精确的基频估计。
+- **特点**：Harvest结合了自相关方法和谐波增强技术，以提高基频估计的准确性。
+- **优点**：能够在较低信噪比的环境下提供可靠的基频估计。
+- **缺点**：计算复杂度较高，相对于简单的方法计算速度较慢。
+
+### 5. RMVPE
+- **全称**：Robust Multi-Voice Pitch Estimation
+- **方法**：基于机器学习或深度学习的方法，专门设计用于处理多声部或复杂声源的基频提取。
+- **特点**：RMVPE能够在多声部音乐或合唱中准确分离和提取每个声部的基频。
+- **优点**：在复杂音频环境中表现出色，适用于多声源信号。
+- **缺点**：模型复杂，训练和推理过程需要大量计算资源。
+
+### 总结
+- **CREPE**：高精度、深度学习方法、适合复杂和嘈杂环境。
+- **PM**：基于抛物线插值、计算简单、适合实时应用。
+- **DIO**：高效快速、基于自相关函数和周期图。
+- **Harvest**：混合时间域和频域方法、精度高、计算复杂度高。
+- **RMVPE**：适用于多声部音频、机器学习方法、适合复杂声源环境。
+
+选择适合的F0预测器取决于具体的应用需求、计算资源以及所处理音频信号的复杂程度。
+</code></pre></div></div>
+
 <p><strong>Github 项目 vits</strong>   <a href="https://github.com/jaywalnut310/vits">GitHub地址：https://github.com/jaywalnut310/vits</a></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
