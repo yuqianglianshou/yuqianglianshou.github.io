@@ -679,7 +679,7 @@ const musicList4 = [
   {
     title: "偏爱-张芸京",
     author: "张芸京",
-    name_path: "偏爱-张芸京.mp3",
+    name_path: "偏爱-张芸京.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
