@@ -189,6 +189,18 @@ const musicList2 = [
     des: "愿漂泊的人有酒喝，愿孤独的人会唱歌。\n往前走，别回头。",
     lyricstype: true
   },
+  {
+    title: "call of silence",
+    author: "",
+    name_path: "call of silence.mp3",
+    type: TYPE_2,
+    type_path: FILE_MUSIC_QINGYINYUE,
+    imgPath: "./imgs/17.jpg",
+    time: '04:39',
+    lyrics: false,
+    des: "",
+    lyricstype: true
+  },
 ]
 
 //emo  不经意间 你已经悄然离去 只留下一段回忆  很遗憾，我没能成为你的偏爱和例外
@@ -439,7 +451,42 @@ const musicList3 = [
     des: "",
     lyricstype: false
   },
-
+  {
+    title: "安河桥-宋冬野",
+    author: "宋冬野",
+    name_path: "安河桥-宋冬野.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/17.jpg",
+    time: '04:10',
+    lyrics: false,
+    des: "",
+    lyricstype: false
+  },
+  {
+    title: "后来-刘若英",
+    author: "宋冬野",
+    name_path: "后来-刘若英.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/17.jpg",
+    time: '05:41',
+    lyrics: false,
+    des: "",
+    lyricstype: false
+  },
+  {
+    title: "我用什么把你留住-福禄寿",
+    author: "福禄寿",
+    name_path: "我用什么把你留住-福禄寿.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/17.jpg",
+    time: '05:29',
+    lyrics: false,
+    des: "",
+    lyricstype: false
+  },
 ]
 
 //经典
@@ -627,6 +674,66 @@ const musicList4 = [
     time: '03:49',
     lyrics: true,
     des: "我是一颗小小的石头",
+    lyricstype: true
+  },
+  {
+    title: "偏爱-张芸京",
+    author: "张芸京",
+    name_path: "偏爱-张芸京.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/17.jpg",
+    time: '03:33',
+    lyrics: false,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "唯一-告五人",
+    author: "告五人",
+    name_path: "唯一-告五人.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/17.jpg",
+    time: '04:31',
+    lyrics: false,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "不浪漫罪名-王杰",
+    author: "王杰",
+    name_path: "不浪漫罪名-王杰.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/17.jpg",
+    time: '04:43',
+    lyrics: false,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "下雨天-南拳妈妈",
+    author: "南拳妈妈",
+    name_path: "下雨天-南拳妈妈.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/17.jpg",
+    time: '04:13',
+    lyrics: false,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "一直很安静-阿桑",
+    author: "阿桑",
+    name_path: "一直很安静-阿桑.mp3",
+    type: TYPE_4,
+    type_path: FILE_MUSIC_JINGDIAN,
+    imgPath: "./imgs/17.jpg",
+    time: '04:07',
+    lyrics: false,
+    des: "",
     lyricstype: true
   },
 
