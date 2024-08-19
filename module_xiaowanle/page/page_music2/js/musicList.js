@@ -192,7 +192,7 @@ const musicList2 = [
   {
     title: "call of silence",
     author: "",
-    name_path: "call of silence.mp3",
+    name_path: "call of silence.MP3",
     type: TYPE_2,
     type_path: FILE_MUSIC_QINGYINYUE,
     imgPath: "./imgs/17.jpg",
@@ -454,7 +454,7 @@ const musicList3 = [
   {
     title: "安河桥-宋冬野",
     author: "宋冬野",
-    name_path: "安河桥-宋冬野.mp3",
+    name_path: "安河桥-宋冬野.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
     imgPath: "./imgs/17.jpg",
@@ -466,7 +466,7 @@ const musicList3 = [
   {
     title: "后来-刘若英",
     author: "宋冬野",
-    name_path: "后来-刘若英.mp3",
+    name_path: "后来-刘若英.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
     imgPath: "./imgs/17.jpg",
@@ -478,7 +478,7 @@ const musicList3 = [
   {
     title: "我用什么把你留住-福禄寿",
     author: "福禄寿",
-    name_path: "我用什么把你留住-福禄寿.mp3",
+    name_path: "我用什么把你留住-福禄寿.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
     imgPath: "./imgs/17.jpg",
@@ -487,42 +487,7 @@ const musicList3 = [
     des: "",
     lyricstype: false
   },
-  {
-    title: "测试",
-    author: "福禄寿",
-    name_path: "测试.mp3",
-    type: TYPE_3,
-    type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
-    time: '05:24',
-    lyrics: false,
-    des: "",
-    lyricstype: false
-  },
-  {
-    title: "测试2",
-    author: "福禄寿",
-    name_path: "测试2.MP3",
-    type: TYPE_3,
-    type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
-    time: '05:24',
-    lyrics: false,
-    des: "",
-    lyricstype: false
-  },
-  {
-    title: "测试3",
-    author: "福禄寿",
-    name_path: "测试3.MP3",
-    type: TYPE_3,
-    type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
-    time: '05:24',
-    lyrics: false,
-    des: "",
-    lyricstype: false
-  },
+
 ]
 
 //经典
@@ -727,7 +692,7 @@ const musicList4 = [
   {
     title: "唯一-告五人",
     author: "告五人",
-    name_path: "唯一-告五人.mp3",
+    name_path: "唯一-告五人.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
@@ -739,7 +704,7 @@ const musicList4 = [
   {
     title: "不浪漫罪名-王杰",
     author: "王杰",
-    name_path: "不浪漫罪名-王杰.mp3",
+    name_path: "不浪漫罪名-王杰.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
@@ -751,7 +716,7 @@ const musicList4 = [
   {
     title: "下雨天-南拳妈妈",
     author: "南拳妈妈",
-    name_path: "下雨天-南拳妈妈.mp3",
+    name_path: "下雨天-南拳妈妈.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
@@ -763,7 +728,7 @@ const musicList4 = [
   {
     title: "一直很安静-阿桑",
     author: "阿桑",
-    name_path: "一直很安静-阿桑.mp3",
+    name_path: "一直很安静-阿桑.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
