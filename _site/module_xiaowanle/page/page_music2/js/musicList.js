@@ -487,6 +487,18 @@ const musicList3 = [
     des: "",
     lyricstype: false
   },
+  {
+    title: "测试",
+    author: "福禄寿",
+    name_path: "测试.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/17.jpg",
+    time: '05:24',
+    lyrics: false,
+    des: "",
+    lyricstype: false
+  },
 ]
 
 //经典
@@ -679,7 +691,7 @@ const musicList4 = [
   {
     title: "偏爱-张芸京",
     author: "张芸京",
-    name_path: "偏爱-张芸京.mp3",
+    name_path: "偏爱-张芸京.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
