@@ -502,7 +502,7 @@ const musicList3 = [
   {
     title: "测试2",
     author: "福禄寿",
-    name_path: "测试2.mp3",
+    name_path: "测试2.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
     imgPath: "./imgs/17.jpg",
