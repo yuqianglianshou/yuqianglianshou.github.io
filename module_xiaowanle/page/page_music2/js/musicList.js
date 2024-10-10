@@ -206,6 +206,18 @@ const musicList2 = [
 //emo  不经意间 你已经悄然离去 只留下一段回忆  很遗憾，我没能成为你的偏爱和例外
 const musicList3 = [
   {
+    title: "무지개는 있다 (有彩虹) ",
+    author: "빈센트 블루 (Vincent Blue)",
+    name_path: "有彩虹.mp3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "./imgs/有彩虹.png",
+    time: '03:23',
+    lyrics: true,
+    des: "谢谢你， 听尽了我不堪的人生， 仍选择站在我这边。",
+    lyricstype: true
+  },
+  {
     title: "ありがとう（泪的告白）",
     author: "墓辰倾心",
     name_path: "泪的告白.mp3",
