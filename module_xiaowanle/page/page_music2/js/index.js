@@ -237,33 +237,50 @@ const updateRangeColor = function (e) {
 }
 
 
+// 进度条事件处理
 addEventListeners(playProgress, {
-  'input': updateRangeColor,
-  'click': (e) => e.stopPropagation()
-})
+  'input': (e) => {
+    updateRangeColor(e);
+    updatePlaytime(e);
+  },
+  'change': (e) => {
+    updateRangeColor(e);
+    updatePlaytime(e);
+  },
+  'click': (e) => {
+    e.stopPropagation();
+    updateRangeColor(e);
+    updatePlaytime(e);
+  }
+});
 
 /**
- * updatePlaytime()
  * 更新进度条值
  * 更新 音乐播放|当前播放时间
  *  
  */
 const updatePlaytime = function (e) {
   e.stopPropagation()
-
+  const currentTime = parseFloat(e.target.value);
   // 进度条 value = 音乐 currentTime
-  audioSource.currentTime = e.target.value
-  for (let i = 0; i < playProgress.length; i++) {
-    playCurrentTime[i].textContent = timeFormatSecondsToMinutes(e.target.value)
-  }
+  audioSource.currentTime = currentTime
 
-  // 更新计时器 + 滚动歌词
-  // 更新歌词显示
+  // 更新时间显示
+  playCurrentTime.forEach(el => {
+    el.textContent = timeFormatSecondsToMinutes(currentTime);
+  });
+
+  // 立即更新歌词位置
   if (lyricsManager) {
-    // 清除旧的歌词状态
-    lyricsManager.clear();
-    // 立即更新到当前时间点的歌词
-    lyricsManager.update(audioSource.currentTime);
+    // 获取当前播放的音乐
+    const currentMusic = currentMusicList[currentMusicIndex];
+
+    // 检查是否有歌词
+    if (currentMusic && currentMusic.lyrics) {
+      // 强制更新歌词位置
+      lyricsManager.isAutoScrolling = true;
+      lyricsManager.update(currentTime);
+    }
   }
 }
 
@@ -395,7 +412,6 @@ function stopPlayback() {
   updateUIForPaused();
   // 清除计时器
   clearInterval(playInterval);
-  lyricsManager.clear();
 }
 /**
  * 更新UI为播放状态

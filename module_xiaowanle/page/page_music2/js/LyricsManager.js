@@ -19,6 +19,12 @@ export class LyricsManager {
         this.lineHeight = 80; // 每行歌词的高度
         this.isAutoScrolling = true; // 添加自动滚动标志
 
+        // 修改滚轮事件处理
+        this.scrollTimer = null;
+        this.lastWheelTime = 0;
+        this.wheelThreshold = 50; // 滚轮事件节流阈值（毫秒）
+        this.currentScrollTop = 0;  // 当前滚动位置
+
         // DOM 元素
         this.lyricsContainer = document.querySelector('[play-lyrics]');
         this.wrapLyrics = document.querySelector('[wrap-lyrics]');
@@ -229,6 +235,9 @@ export class LyricsManager {
         // 确保不会超出边界
         targetOffset = Math.max(0, Math.min(targetOffset, totalHeight - containerHeight));
 
+        // 更新当前滚动位置
+        this.currentScrollTop = targetOffset;
+
         // 应用滚动
         this.lyricsContainer.style.transition = smooth ? 'transform 0.3s ease-out' : 'none';
         this.lyricsContainer.style.transform = `translateY(-${targetOffset}px)`;
@@ -320,32 +329,46 @@ export class LyricsManager {
      * 处理滚动
      */
     handleScroll(e) {
-        e.preventDefault(); // 阻止默认滚动行为
+        e.preventDefault();
+        const now = Date.now();
 
-        // 如果用户手动滚动，暂时禁用自动滚动
+        // 节流处理
+        if (now - this.lastWheelTime < this.wheelThreshold) {
+            return;
+        }
+        this.lastWheelTime = now;
+
+        // 暂时禁用自动滚动
         this.isAutoScrolling = false;
 
-        // 3秒后恢复自动滚动
+        // 计算新的滚动位置
+        const scrollStep = 160;  // 每次滚动的步长
+        const deltaY = e.deltaY > 0 ? scrollStep : -scrollStep;
+        this.currentScrollTop += deltaY;
+
+        // 获取容器和内容的高度
+        const containerHeight = this.wrapLyrics.clientHeight;
+        const contentHeight = this.lyricsContainer.scrollHeight;
+
+        // 限制滚动范围
+        this.currentScrollTop = Math.max(0, Math.min(this.currentScrollTop, contentHeight - containerHeight));
+
+        // 应用滚动
+        this.lyricsContainer.style.transition = 'transform 0.3s ease-out';
+        this.lyricsContainer.style.transform = `translateY(-${this.currentScrollTop}px)`;
+
+        // 清除之前的定时器
         if (this.scrollTimer) {
             clearTimeout(this.scrollTimer);
         }
+
+        // 3秒后恢复自动滚动
         this.scrollTimer = setTimeout(() => {
             this.isAutoScrolling = true;
-            // 恢复时立即滚动到当前行
-            this.scrollToCenter(this.currentIndex);
+            // 获取当前最接近的歌词索引
+            const currentIndex = Math.floor(this.currentScrollTop / this.lineHeight);
+            this.scrollToCenter(currentIndex);
         }, 3000);
-
-        // 处理手动滚动逻辑
-        const currentTransform = this.lyricsContainer.style.transform;
-        const currentY = currentTransform ?
-            parseFloat(currentTransform.match(/-?\d+\.?\d*/)[0]) : 0;
-
-        const newY = currentY + (e.deltaY > 0 ? -10 : 10);
-        const maxScroll = (this.currentLyrics.length * this.lineHeight) - this.wrapLyrics.clientHeight;
-
-        // 限制滚动范围
-        const limitedY = Math.max(Math.min(newY, maxScroll), 0);
-        this.lyricsContainer.style.transform = `translateY(-${limitedY}px)`;
     }
 
     /**
@@ -370,6 +393,7 @@ export class LyricsManager {
         this.currentLyrics = [];
         this.timerArray = [];
         this.currentIndex = 0;
+        this.currentScrollTop = 0;  // 重置滚动位置
 
         if (this.lyricsContainer) {
             this.lyricsContainer.style.transform = 'translateY(0)';
