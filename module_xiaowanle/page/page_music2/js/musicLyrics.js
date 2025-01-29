@@ -4,7 +4,7 @@
 //   name_path: '.mp3',
 // },
 
-const lyricsList = [
+export const lyricsList = [
   {
     name_path: '无期-石白其.mp3',
     lyrics: [

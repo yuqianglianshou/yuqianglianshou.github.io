@@ -61,7 +61,7 @@
     <div id="app">
 
         <!-- *********** app_footer *************** -->
-        <footer class="app_footer" app_footer>
+        <footer class="app_footer" id="app-footer">
             <div class="songs_play flex">
                 <!-- 播放信息 -->
                 <div class="play-info">
@@ -205,41 +205,15 @@
             <!-- *************** header ************** -->
             <header class="list_header flex" list_header>
 
-                <div class="list-tab flex fw-6 fc-2 fs-14" header-list-tabs>
-                    <div class="tab-A active" onclick="switchTab(this)">
-                        <span class="text-ol">所有歌曲</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-                    <div class="tab-B" onclick="switchTab(this)">
-                        <span class="text-ol">天籁之音</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-                    <div class="tab-C" onclick="switchTab(this)">
-                        <span class="text-ol">轻音乐</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-                    <div class="tab-D" onclick="switchTab(this)">
-                        <span class="text-ol">emo</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-                    <div class="tab-E" onclick="switchTab(this)">
-                        <span class="text-ol">经典</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-                    <div class="tab-F" onclick="switchTab(this)">
-                        <span class="text-ol">气势BGM</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-                    <div class="tab-G" onclick="switchTab(this)">
-                        <span class="text-ol">律动</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-                    <div class="tab-H" onclick="switchTab(this)">
-                        <span class="text-ol">动画片</span>
-                        <div class="tab-undeline"></div>
-                    </div>
-
-
+                <div class="list-tab">
+                    <div class="tab-A active" data-tab="tab-A">全部</div>
+                    <div class="tab-B" data-tab="tab-B">天籁之音</div>
+                    <div class="tab-C" data-tab="tab-C">轻音乐</div>
+                    <div class="tab-D" data-tab="tab-D">伤感</div>
+                    <div class="tab-E" data-tab="tab-E">经典</div>
+                    <div class="tab-F" data-tab="tab-F">背景音乐</div>
+                    <div class="tab-G" data-tab="tab-G">律动</div>
+                    <div class="tab-H" data-tab="tab-H">动画片</div>
                 </div>
 
 
@@ -262,7 +236,7 @@
                 <div class="song_panel " song-panel>
                     <div class="panel-options flex">
                         <div class="options-close flex">
-                            <span class="close-icon flex" close-panel-btn>
+                            <span class="close-icon flex" id="close-panel-btn">
                                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
                                     stroke="currentColor" class="icon arco-icon-down" stroke-width="5"
                                     stroke-linecap="butt" stroke-linejoin="miter" data-v-b99b404e=""
@@ -392,13 +366,17 @@
 
 
     </div>
-
+    <!-- 使用 type="module" 启用 ES6 模块 -->
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/LyricsManager.js"></script>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/musicList.js"></script>
+    <script type="module" src="js/musicList_donghuapian.js"></script>
+    <script type="module" src="js/musicLyrics.js"></script>
+    <script type="module" src="js/musicLyrics2.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
 
-<script src="./js/musicList.js"></script>
-<script src="./js/musicList_donghuapian.js"></script>
-<script src="./js/musicLyrics.js"></script>
-<script src="./js/musicLyrics2.js"></script>
-<script src="./js/index.js"></script>
+
 
 </html>

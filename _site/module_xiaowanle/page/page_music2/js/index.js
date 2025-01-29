@@ -1,37 +1,38 @@
 'use strict';
 // "use strict"; 是一种JavaScript的编程指令，它是ECMAScript 5（ES5）引入的严格模式（strict mode）。
 
-// 列表
-const allMusicList = [];
-const musicList11 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_1) || '[]')
-const musicList22 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_2) || '[]')
-const musicList33 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_3) || '[]')
-const musicList44 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_4) || '[]')
-const musicList55 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_5) || '[]')
-const musicList66 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_6) || '[]')
-const musicList77 = JSON.parse(localStorage.getItem(KEY_MUSIC_LIST_7) || '[]')
-allMusicList.push(...musicList11);
-allMusicList.push(...musicList22);
-allMusicList.push(...musicList33);
-allMusicList.push(...musicList44);
-allMusicList.push(...musicList55);
-allMusicList.push(...musicList66);
-allMusicList.push(...musicList77);
+import { CONFIG } from './config.js';
+import { LyricsManager } from './LyricsManager.js';
+import { addEventListeners, timeFormatSecondsToMinutes } from './utils.js';
+import { getMusicList, MusicStorage, FILE_MUSIC_ROOT } from './musicList.js';
 
-
-const currentMusicList = [];
-currentMusicList.push(...allMusicList);
-// console.log("当前 currentMusicList  === " + JSON.stringify(currentMusicList, null, 2))
 
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+// 创建实例
+const lyricsManager = new LyricsManager();
+lyricsManager.setTimeUpdateCallback((time) => {
+  if (audioSource) {
+    audioSource.currentTime = time;
+  }
+});
+
+const currentMusicList = MusicStorage.getListAllMusic();
+
 // 当前音乐列表序号
-let currentMusic = 0
+let currentMusicIndex = 0
 // 音频 对象
-const audioSource = new Audio(FILE_MUSIC_ROOT + currentMusicList[currentMusic].type_path + currentMusicList[currentMusic].name_path);
-audioSource.volume = 0.8
+const initAudioSource = () => {
+  const audio = new Audio();
+  audio.preload = 'metadata'; // 添加预加载设置
+  audio.volume = CONFIG.VOLUME.DEFAULT;
+  return audio;
+}
+const audioSource = initAudioSource();
+const audioUrl = FILE_MUSIC_ROOT + currentMusicList[currentMusicIndex].type_path + currentMusicList[currentMusicIndex].name_path;
+audioSource.src = audioUrl;
 
 
 // updatePlayInfo() - 修改 播放信息
@@ -54,7 +55,7 @@ const playcolorFill = $$("[play-colorFill]")
 // playMusic() - 播放|暂停 音乐
 let playInterval
 // 单位 ms
-const updateIntervalTime = 500
+const updateIntervalTime = CONFIG.UPDATE_INTERVAL
 const playBtns = $$("[play-btn]")
 const playImgBorad = $('[play-imgBorad]')
 
@@ -80,95 +81,28 @@ const playVolumeColorFill = $("[play-volume-colorFill]")
 // muteVolume() - 设置静音
 const playVolumeIcon = $("[play-volume-icon]")
 
-
-// togglePanel() - 显示隐藏歌词面板
-const fullscreenBtn = document.getElementById('fullscreen-btn');
-const appFooter = $$('[app_footer]')
 const imgBoard = $('.imgBoard')
 const songPanel = $('[song-panel]')
-const closePanelBtn = $$('[close-panel-btn]')
 
-// 歌词计时器数组
-let playLyricsTimeout = []
-
-// playclickedLyrics() - 双击歌词，跳到对应播放
-const playLyrics = $('[play-lyrics]')
-
-// scrollUpLyrics() - 控制歌词向上滚动
-const wrapLyrics = $('[wrap-lyrics]')
-const scrollUpSpeed = 150
-
-// lyricsGoHome() - 歌词回原位
-let rollingTimeouter
-let rollTransitionInterval
-const goHomedelayTime = 2500
-const transitionIntervalTime = 20
-const transitionReduceNum = 50
 
 // initMusicList() - 初始化列表歌曲
 let contentList = $('[content-list]')
 
 
 /**
-  * Helper
-  * 
-*/
-const addEventOnElements = function (elements, eventType, callback) {
-
-  for (let i = 0, len = elements.length; i < len; i++) {
-    // bind指向 this，获取 event
-    elements[i].addEventListener(eventType, callback.bind(this))
-  }
-}
-
-const addEventOnElementChildren = function (elements, eventType, callback) {
-  for (let i = 0, len = elements.children.length; i < len; i++) {
-    elements.children[i].addEventListener(eventType, callback)
-  }
-}
-
-
-
-/** 
- * updatePlayInfo()
- * 设置 修改 播放面板信息
- * const PlayElements = [currentPlayImg70,currentPlayImg400, currentPlayName, currentPlayAuthor]
- */
-
-const updatePlayInfo = function () {
-  for (let index in PlayElements) {
-    PlayElements[index].forEach((ele) => {
-      if (index <= 1) {
-        ele.src = currentMusicList[currentMusic].imgPath
-        ele.alt = '...'
-      } else if (index == 2) {
-        ele.textContent = currentMusicList[currentMusic].title
-        ele.title = currentMusicList[currentMusic].title
-      } else {
-        ele.textContent = currentMusicList[currentMusic].author
-        ele.title = currentMusicList[currentMusic].author
-      }
-    })
-  }
-
-  // audioSource.src = currentMusicList[currentMusic].musicPath
-  audioSource.src = FILE_MUSIC_ROOT + currentMusicList[currentMusic].type_path + currentMusicList[currentMusic].name_path
-  console.log("当前 播放  === " + currentMusic + "    " + currentMusicList[currentMusic].title + "  ")
-
-  // 更新歌词
-  renderLyrics()
-  clearAllLyricsTimeout()
-  PauseLyricsTimer()
-}
-
-/**
- * playingTool()
  * 播放工具
  */
-const playingTool = function () {
-  updatePlayInfo()
-  playMusic()
-}
+const playingTool = async function () {
+  try {
+    updatePlayInfo();
+    await playMusic();
+
+  } catch (error) {
+    console.error('播放失败:', error);
+    alert(`播放失败: ${error.message}\n请检查音频文件是否存在或已损坏`);
+  }
+};
+
 
 
 // ---------------------------------------播放进度和歌词显示部分 start------------------------------------------------------------------------------------
@@ -176,32 +110,48 @@ const playingTool = function () {
 
 
 /**
- * togglePanel()
  * 显示|隐藏 歌词面板
- * 
  */
 const togglePanel = function (e) {
+  // 阻止事件冒泡
+  e.stopPropagation();
+  console.log('togglePanel called'); // 调试日志
+
   if (document.fullscreenElement) {
     //全屏状态，先退出全屏，再隐藏歌词面板
     exitFullscreen();
   }
-  imgBoard.classList.toggle('active')
-  songPanel.classList.toggle('active')
+
+  // 确保元素存在
+  if (!imgBoard || !songPanel) {
+    console.error('找不到必要的 DOM 元素');
+    return;
+  }
+
+  // 切换状态
+  imgBoard.classList.toggle('active');
+  songPanel.classList.toggle('active');
+
 }
-addEventOnElements(appFooter, 'click', togglePanel)
-addEventOnElements(closePanelBtn, 'click', togglePanel)
+// 事件绑定
+$('#fullscreen-btn')?.addEventListener('click', toggleFullscreen);
+$('#close-panel-btn')?.addEventListener('click', togglePanel);
+$('#app-footer')?.addEventListener('click', togglePanel);
 
-/**
- * 歌词面板全屏显示功能
- * 
- */
-fullscreenBtn.addEventListener('click', toggleFullscreen);
+// 防止面板内部点击关闭
+$('.song_panel')?.addEventListener('click', e => e.stopPropagation());
 
-function toggleFullscreen() {
+function toggleFullscreen(e) {
+  e.stopPropagation(); // 阻止事件冒泡
+  console.log('toggleFullscreen called');
+
+  const songPanel = $('.song_panel');
+  if (!songPanel) return;
+
   if (document.fullscreenElement) {
     exitFullscreen();
   } else {
-    enterFullscreen();
+    enterFullscreen(songPanel);
   }
 }
 
@@ -229,134 +179,6 @@ function exitFullscreen() {
   }
 }
 
-/**
- * getCurrentMusicLyrics()
- * 获取当前音乐 歌词和时间
- * 
- */
-const getCurrentMusicLyrics = function () {
-
-  if (currentMusicList[currentMusic].lyrics === false) {
-    console.log(currentMusic + "  加载歌词 纯音乐")
-    return {
-      'text': ['纯音乐请欣赏。'],
-      'timer': []
-    }
-  }
-
-  console.log(" 当前歌词类型 lyricstype == " + currentMusicList[currentMusic].lyricstype);
-
-  if (currentMusicList[currentMusic].lyricstype === true) {
-    console.log(currentMusic + "  加载歌词 第二种 ");
-    //第二种歌词数据
-    const currentLyrics = lyricsList2.find(item => item.name_path === currentMusicList[currentMusic].name_path);
-
-    if (!currentLyrics) {
-      console.log(currentMusic + "  加载歌词 无歌词");
-      return {
-        'text': ['暂无歌词。'],
-        'timer': []
-      };
-    } else {
-      console.log(currentMusic + "  加载歌词 有歌词 ");
-      const lyricsText = currentLyrics.lyrics.split('\n');
-      const lyricsRegex = /\[(\d{2}:\d{2}(?:\.\d{2,3})?)\](.*)/;  // 正则表达式匹配时间和歌词
-
-      const lyricsData = lyricsText.map(line => {
-        const match = line.match(lyricsRegex);
-        if (match) {
-          const timeStr = match[1];
-          const lyricsLine = match[2];
-          const [minutes, secondsAndMilliseconds] = timeStr.split(':');
-          const [seconds, milliseconds] = secondsAndMilliseconds.split('.').map(parseFloat);
-          const timer = parseFloat(minutes) * 60 + parseFloat(seconds) + milliseconds / 1000;
-          return {
-            time: timer,
-            text: lyricsLine
-          };
-        }
-        return null;
-      }).filter(line => line !== null);
-
-      const lyricsTimer = lyricsData.map(line => line.time);
-      const lyricsTextArray = lyricsData.map(line => line.text);
-
-      // console.log("Lyrics Text:", lyricsTextArray);
-      // console.log("Lyrics Timer:", lyricsTimer);
-
-      return {
-        'text': lyricsTextArray,
-        'timer': lyricsTimer
-      };
-    }
-  } else {
-    console.log(currentMusic + "  加载歌词 第一种 ");
-    const currentLyrics = lyricsList.find(item => item.name_path === currentMusicList[currentMusic].name_path);
-    if (!currentLyrics) {
-      console.log(currentMusic + "  加载歌词 无歌词");
-      return {
-        'text': ['暂无歌词。'],
-        'timer': []
-      };
-    } else {
-      console.log(currentMusic + "  加载歌词 有歌词 ");
-      const lyricsText = currentLyrics.lyrics.map(line => line.substring(line.indexOf(']') + 1));
-      // console.log("Lyrics Text:", lyricsText);
-
-      const lyricsTimer = currentLyrics.lyrics.map(line => {
-        const timeStr = line.substring(1, 10); // 提取时间部分，包括毫秒
-        // console.log("Time String:", timeStr);
-        const [minutes, secondsAndMilliseconds] = timeStr.split(':');
-        const [seconds, milliseconds] = secondsAndMilliseconds.split('.').map(parseFloat);
-        // console.log("Parsed Time:", minutes, seconds, milliseconds);
-        return (parseFloat(minutes) * 60 + parseFloat(seconds) + milliseconds / 1000); // 转换为秒
-      });
-
-      // console.log("Lyrics Timer:", lyricsTimer);
-
-      return {
-        'text': lyricsText,
-        'timer': lyricsTimer
-      };
-
-    }
-  }
-
-}
-
-
-let currentMusicLyrics = ""
-let currentLyricsTimer_init = ""
-let currentLyricsTimer_change = [...currentLyricsTimer_init]
-
-
-
-/**
- * renderLyrics()
- * 渲染 歌词
- * 
- */
-const renderLyrics = function () {
-
-  var arr = getCurrentMusicLyrics()
-  currentMusicLyrics = arr.text
-  currentLyricsTimer_init = arr.timer
-  currentLyricsTimer_change = [...currentLyricsTimer_init]
-  // console.log(currentMusicLyrics)
-  // console.log(currentLyricsTimer_init)
-  playLyrics.innerHTML = ''
-  for (let [idx, data] of currentMusicLyrics.entries()) {
-    playLyrics.innerHTML += `
-    <div id="line-${idx + 1}" data-time="${currentLyricsTimer_init[idx]}" class="lyric ${idx === 0 ? "active" : ""}">
-      <span class="">
-        ${data}
-      </span>
-    </div>
-    `
-  }
-  addEventOnElementChildren(playLyrics, 'dblclick', playclickedLyrics)
-}
-
 
 
 /** 
@@ -367,22 +189,10 @@ const renderLyrics = function () {
 const updateRange = function () {
   for (let i = 0; i < playProgress.length; i++) {
     playProgress[i].max = Math.ceil(audioSource.duration)
-    playTotalTime[i].textContent = getTotalTime(Number(playProgress[i].max))
+    playTotalTime[i].textContent = timeFormatSecondsToMinutes(Number(playProgress[i].max))
   }
 }
 audioSource.addEventListener("loadeddata", updateRange);
-
-
-/** 
- * getTotalTime()
- * 获取总时长，秒 -> 分（170s -> 2m50s）
- */
-const getTotalTime = function (duration) {
-  const minutes = Math.floor(duration / 60)
-  const seconds = Math.ceil(duration - (minutes * 60))
-  const totalTime = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
-  return totalTime
-}
 
 
 /** 
@@ -394,7 +204,7 @@ const updateRunningTime = function () {
   for (let i = 0; i < playProgress.length; i++) {
     // 当前播放秒 = 进度条 value
     playProgress[i].value = audioSource.currentTime
-    playCurrentTime[i].textContent = getTotalTime(audioSource.currentTime)
+    playCurrentTime[i].textContent = timeFormatSecondsToMinutes(audioSource.currentTime)
   }
 
   // 改变 进度条颜色范围
@@ -419,18 +229,18 @@ const updateRangeColor = function (e) {
 
   for (let i = 0; i < playcolorFill.length; i++) {
     playcolorFill[i].style.width = `${rangeValue}%`
-    if (rangeValue < 20) {
+    if (rangeValue < CONFIG.TRANSITION.INTERVAL) {
       element.value = element.value - 1
     }
     playProgress[i].value = element.value
   }
 }
 
-addEventOnElements(playProgress, "input", updateRangeColor)
-addEventOnElements(playProgress, "click", function (e) {
-  e.stopPropagation()
-})
 
+addEventListeners(playProgress, {
+  'input': updateRangeColor,
+  'click': (e) => e.stopPropagation()
+})
 
 /**
  * updatePlaytime()
@@ -444,182 +254,25 @@ const updatePlaytime = function (e) {
   // 进度条 value = 音乐 currentTime
   audioSource.currentTime = e.target.value
   for (let i = 0; i < playProgress.length; i++) {
-    playCurrentTime[i].textContent = getTotalTime(e.target.value)
+    playCurrentTime[i].textContent = timeFormatSecondsToMinutes(e.target.value)
   }
 
   // 更新计时器 + 滚动歌词
-  clearAllLyricsTimeout()
-  playRollLyrics(true)
-}
-addEventOnElements(playProgress, "input", updatePlaytime)
-
-
-
-/**
- * playRollLyrics(onlySkip)
- * 参数1 onlySkip - true表示只跳到对应歌词，不更新计时器数组
- * 播放时，处理歌词滚动
- * 
- */
-const playRollLyrics = function (onlySkip = false) {
-  currentLyricsTimer_change = PauseLyricsTimer()
-
-  const currentLyricsIndex = currentLyricsTimer_init.length - currentLyricsTimer_change.length
-  // console.log(currentLyricsIndex)
-  if (onlySkip) {
-    skipLyrics(currentLyricsIndex)
-
-    // 如果是暂停状态，只跳歌词，不需要计时器
-    if (audioSource.paused) {
-      return
-    }
-  }
-
-  for (let i = 0; i < currentLyricsTimer_change.length; i++) {
-    playLyricsTimeout[i] = setTimeout(function () {
-      // for (let j = 0; j < playLyrics.children.length; j++){
-      //   playLyrics.children[j].style.transform = `translateY(${-100 * i}%)`
-      // }
-      let j = currentLyricsIndex + i
-      playLyrics.style.transform = `translateY(${-80 * j}px)`
-      // playLyrics.scrollTop='0'
-
-      for (let idx = 0; idx < playLyrics.children.length; idx++) {
-        playLyrics.children[idx].classList.remove('active')
-      }
-      playLyrics.children[j].classList.add('active')
-    }, Math.round(currentLyricsTimer_change[i] * 1000))
-
+  // 更新歌词显示
+  if (lyricsManager) {
+    // 清除旧的歌词状态
+    lyricsManager.clear();
+    // 立即更新到当前时间点的歌词
+    lyricsManager.update(audioSource.currentTime);
   }
 }
 
+addEventListeners(playProgress, {
+  'input': updatePlaytime,
+  'change': updatePlaytime, // 添加 change 事件处理
+  'click': (e) => e.stopPropagation()
+})
 
-/**
- * skipLyrics()
- * 如果鼠标改变播放进度，直接跳到对应的歌词
- */
-const skipLyrics = function (currentLyricsIndex) {
-  currentLyricsIndex = currentLyricsIndex <= 0 ? 0 : currentLyricsIndex - 1
-
-  for (let k = 0; k < playLyrics.children.length; k++) {
-    playLyrics.children[k].classList.remove('active')
-  }
-  playLyrics.children[currentLyricsIndex].classList.add('active')
-  playLyrics.style.transform = `translateY(${-80 * currentLyricsIndex}px)`
-}
-
-
-
-
-
-/**
- * playclickedLyrics()
- * 双击歌词，跳到对应播放
- */
-const playclickedLyrics = function (e) {
-
-  let lyricsDiv = e.target
-  if (e.target.tagName === 'SPAN') {
-    lyricsDiv = e.target.parentNode
-  }
-  audioSource.currentTime = Number(lyricsDiv.getAttribute("data-time"))
-
-  // 正在播放，不需要 playMusic()
-  if (audioSource.paused) {
-    playMusic()
-  } else {
-    audioSource.play()
-    // 关闭 歌词计时器
-    clearAllLyricsTimeout()
-    // 歌词滚动处理
-    playRollLyrics()
-  }
-}
-
-
-
-/**
- * scrollUpLyrics()
- * 使用 tansform 后，导致不能向上滚动，可自行设置(调整滑动速度)
- * 
- */
-const scrollUpLyrics = function (e) {
-  const matrix = getComputedStyle(playLyrics).getPropertyValue('transform')
-  // 矩阵各个值
-  //matrix(scaleX, skewY, skewX, scaleY, translateX, translateY)
-  const translateY = Number(matrix.split(' ').pop().split(')')[0])
-
-  if (!playLyrics.children[0].classList.contains('active') && e.deltaY < 0) {
-    playLyrics.style.transform = `translateY(${translateY + scrollUpSpeed}px)`
-  }
-}
-wrapLyrics.addEventListener('wheel', scrollUpLyrics)
-
-
-
-/**
- * lyricsGoHome()
- * 鼠标滚动歌词后，停止滚动一段时间(2.5s)后， 返回原位
- * 通过 setInterval 加一个 歌词回原位 过渡效果
- * 
- */
-const lyricsGoHome = function (e) {
-  if (rollingTimeouter) {
-    clearTimeout(rollingTimeouter)
-  }
-  rollingTimeouter = setTimeout(() => {
-    // 过渡效果
-    rollTransitionInterval = setInterval(() => {
-      e.target.scrollTop = e.target.scrollTop - transitionReduceNum < 0 ? 0 : e.target.scrollTop - transitionReduceNum
-      if (e.target.scrollTop === 0) {
-
-        clearInterval(rollTransitionInterval)
-      }
-    }, transitionIntervalTime)
-  }, goHomedelayTime)
-}
-wrapLyrics.addEventListener('scroll', lyricsGoHome)
-
-
-
-/**
- * PauseLyricsTimer()
- * 播放暂停时，记录 暂停时间，重新设置 歌词时间数组
- */
-
-const PauseLyricsTimer = function () {
-
-  currentLyricsTimer_change = [...currentLyricsTimer_init]
-  // console.log(currentLyricsTimer_change)
-  for (let i = 0; i < currentLyricsTimer_change.length; i++) {
-    if (currentLyricsTimer_change[i] >= audioSource.currentTime) {
-      currentLyricsTimer_change.splice(0, i)
-      break
-    }
-    else {
-      // 当大于 全部歌词时间 
-      if (i === currentLyricsTimer_change.length - 1) {
-        return []
-      }
-    }
-  }
-  currentLyricsTimer_change = currentLyricsTimer_change.map((timer) => {
-    // 保留3位，刚好对应毫秒
-    timer = Number((timer - audioSource.currentTime).toFixed(3))
-    return timer
-  })
-  return currentLyricsTimer_change
-}
-
-/**
- * clearAllLyricsTimeout()
- * 清除所有 歌词计时器
- */
-const clearAllLyricsTimeout = function () {
-  playLyricsTimeout.forEach((timeouter) => {
-    clearTimeout(timeouter)
-  })
-}
 
 
 /**
@@ -650,61 +303,133 @@ const musicPlayEnd = function () {
 // ---------------------------------------播放进度和歌词显示部分 end------------------------------------------------------------------------------------
 
 
+/** 
+ * updatePlayInfo()
+ * 设置 修改 播放面板信息
+ * const PlayElements = [currentPlayImg70,currentPlayImg400, currentPlayName, currentPlayAuthor]
+ */
+const updatePlayInfo = function () {
+  for (let index in PlayElements) {
+    PlayElements[index].forEach((ele) => {
+      if (index <= 1) {
+        ele.src = currentMusicList[currentMusicIndex].imgPath
+        ele.alt = '...'
+      } else if (index == 2) {
+        ele.textContent = currentMusicList[currentMusicIndex].title
+        ele.title = currentMusicList[currentMusicIndex].title
+      } else {
+        ele.textContent = currentMusicList[currentMusicIndex].author
+        ele.title = currentMusicList[currentMusicIndex].author
+      }
+    })
+  }
+  audioSource.src = FILE_MUSIC_ROOT + currentMusicList[currentMusicIndex].type_path + currentMusicList[currentMusicIndex].name_path;
+  // 更新歌词 - 确保在切换歌曲时重新加载歌词
+  if (lyricsManager) {
+    lyricsManager.clear(); // 先清除现有歌词
+    lyricsManager.loadLyrics(currentMusicList[currentMusicIndex]);
+  }
 
+}
+
+// 修改歌词点击回调的设置
+lyricsManager.setTimeUpdateCallback((time) => {
+  if (audioSource) {
+    audioSource.currentTime = time;
+    // 立即更新歌词显示
+    lyricsManager.update(time);
+  }
+});
 /**
- * playMusic()
  * 控制 播放|暂停 音乐
  */
-
-const playMusic = function (e) {
+const playMusic = async function (e) {
   console.log("playMusic 开始播放音乐 ");
 
-  //先通过 e = event || window.event 获取事件对象，然后通过 e.stopPropagation() 阻止事件继续向上冒泡，确保只在当前元素上处理该事件。
-  e = event || window.event
-  e.stopPropagation()
+  if (e) e.stopPropagation()
 
-  // loadeddata - 当前帧的数据加载完成且还没有足够的数据播放下一帧时
-  audioSource.addEventListener("loadeddata", updateRange)
-  if (audioSource.paused) {
-    audioSource.play()
+  // audioSource.addEventListener("loadeddata", updateRange)
 
-    // 歌词滚动
-    playRollLyrics()
-
-    // 播放 按钮样式
-    playBtns.forEach((btn) => {
-      btn.classList.add("playing")
-      btn.classList.remove("pause")
-    })
-
-    //列表选中样式
-    for (let i = 0; i < contentList.children.length; i++) {
-      contentList.children[i].classList.remove('active')
+  try {
+    if (audioSource.paused) {
+      // 播放音乐
+      await audioSource.play();
+      // 更新UI
+      startPlayback();
+    } else {
+      // 暂停音乐
+      stopPlayback();
     }
-    contentList.children[currentMusic].classList.add('active')
-
-    playImgBorad.classList.toggle('active')
-
-    // 每0.5s，更新 当前播放时间
-    playInterval = setInterval(updateRunningTime, updateIntervalTime)
-
-  } else {
-    audioSource.pause()
-
-    playBtns.forEach((btn) => {
-      btn.classList.add("pause")
-      btn.classList.remove("playing")
-    })
-    playImgBorad.classList.toggle('active')
-
-    // 关闭 播放时间计时器
-    clearInterval(playInterval)
-    // 关闭 歌词计时器
-    clearAllLyricsTimeout()
-
+  } catch (error) {
+    console.error('播放失败:', error);
+    throw error; // 向上传递错误
   }
+
 }
-addEventOnElements(playBtns, 'click', playMusic)
+addEventListeners(playBtns, {
+  'click': playMusic,
+  'dblclick': (e) => e.stopPropagation()
+});
+
+function startPlayback() {
+  updateUIForPlaying();
+  // 清除可能存在的旧计时器
+  if (playInterval) {
+    clearInterval(playInterval);
+  }
+
+  // 启动新的计时器
+  playInterval = setInterval(() => {
+    // 更新播放进度和时间显示
+    updateRunningTime();
+
+    // 更新歌词显示 - 确保每次都调用歌词更新
+    if (lyricsManager && !audioSource.paused) {
+      lyricsManager.update(audioSource.currentTime);
+    }
+  }, updateIntervalTime);
+}
+
+function stopPlayback() {
+  audioSource.pause();
+  updateUIForPaused();
+  // 清除计时器
+  clearInterval(playInterval);
+  lyricsManager.clear();
+}
+/**
+ * 更新UI为播放状态
+ */
+function updateUIForPlaying() {
+  // 更新播放按钮状态
+  playBtns.forEach((btn) => {
+    btn.classList.add("playing");
+    btn.classList.remove("pause");
+  });
+
+  // 更新专辑图片旋转动画
+  playImgBorad.classList.add('active');
+
+  // 更新列表选中状态
+  Array.from(contentList.children).forEach((item, index) => {
+    item.classList.toggle('active', index === currentMusicIndex);
+  });
+}
+
+/**
+ * 更新UI为暂停状态
+ */
+function updateUIForPaused() {
+  // 更新播放按钮状态
+  playBtns.forEach((btn) => {
+    btn.classList.add("pause");
+    btn.classList.remove("playing");
+  });
+
+  // 更新专辑图片旋转动画
+  playImgBorad.classList.remove('active');
+
+}
 
 /**
  * playSkipNext()
@@ -720,11 +445,15 @@ const playSkipNext = function (e) {
     shuffleMusic()
   } else {
     // 是否超出 播放列表数
-    currentMusic >= currentMusicList.length - 1 ? currentMusic = 0 : currentMusic++
+    currentMusicIndex >= currentMusicList.length - 1 ? currentMusicIndex = 0 : currentMusicIndex++
   }
   playingTool()
 }
-addEventOnElements(playNextBtns, "click", playSkipNext)
+
+addEventListeners(playNextBtns, {
+  'click': playSkipNext,
+  'dblclick': (e) => e.stopPropagation()
+})
 
 
 /**
@@ -737,19 +466,23 @@ const playSkipPrev = function (e) {
   if (isShuffle) {
     shuffleMusic()
   } else {
-    currentMusic <= 0 ? currentMusic = currentMusicList.length - 1 : currentMusic--
+    currentMusicIndex <= 0 ? currentMusicIndex = currentMusicList.length - 1 : currentMusicIndex--
   }
 
   playingTool()
 }
-addEventOnElements(playPrevBtns, "click", playSkipPrev)
+
+addEventListeners(playPrevBtns, {
+  'click': playSkipPrev,
+  'dblclick': (e) => e.stopPropagation()
+})
 
 /**
  * shuffle()
  * 当前列表 随机播放
  */
 const getRandomMusic = () => Math.floor(Math.random() * currentMusicList.length)
-const shuffleMusic = () => currentMusic = getRandomMusic()
+const shuffleMusic = () => currentMusicIndex = getRandomMusic()
 
 
 /**
@@ -780,50 +513,92 @@ const isPlayMode = function (e) {
 playModeBtn.addEventListener("click", isPlayMode)
 
 
-
 /**
- * 
- * changeVolume()
- * 修改音量
+ * 音量控制
  */
-const changeVolume = function (e) {
-  e.stopPropagation()
+const volumeControl = {
+  // 存储静音前的音量值
+  lastVolume: CONFIG.VOLUME.DEFAULT,
+  change(e) {
+    // 阻止事件冒泡和默认行为
+    e.stopPropagation();
+    e.preventDefault();
+    const volume = playVolumeRange.value;
+    const percentage = (volume / playVolumeRange.max) * 100;
 
-  playVolumeIcon.classList.add('sound')
-  playVolumeIcon.classList.remove('mute')
-
-  audioSource.volume = playVolumeRange.value
-
-  const rangeValue = (playVolumeRange.value / playVolumeRange.max) * 100
-  playVolumeColorFill.style.width = `${rangeValue}%`
-  console.log(audioSource.volume)
-  // 开启音量 
-  audioSource.muted = false
-}
-playVolumeRange.addEventListener("input", changeVolume)
-playVolumeRange.addEventListener("click", function (e) {
-  e.stopPropagation()
-})
-
-
-
-/**
- * muteVolume()
- * 设置静音
- */
-const muteVolume = function (e) {
-  e.stopPropagation()
-  if (!audioSource.muted) {
-    playVolumeIcon.classList.add('mute')
-    playVolumeIcon.classList.remove('sound')
-    audioSource.muted = true;
-  } else {
-    playVolumeIcon.classList.remove('mute');
-    playVolumeIcon.classList.add('sound');
+    audioSource.volume = volume;
     audioSource.muted = false;
+    this.lastVolume = volume; // 保存最后的音量值
+    playVolumeColorFill.style.width = `${percentage}%`;
+
+    this.updateVolumeIcon(volume > 0);
+  },
+
+  updateVolumeIcon(hasSound) {
+    if (audioSource.muted || audioSource.volume === 0) {
+      playVolumeIcon.classList.remove('sound');
+      playVolumeIcon.classList.add('mute');
+    } else {
+      playVolumeIcon.classList.add('sound');
+      playVolumeIcon.classList.remove('mute');
+    }
+  },
+
+  toggleMute(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    audioSource.muted = !audioSource.muted;
+
+    // 更新音量条显示
+    if (audioSource.muted) {
+      // 静音时保持进度条显示，但更新图标
+      playVolumeRange.value = 0;
+      playVolumeColorFill.style.width = '0%';
+    } else {
+      // 取消静音时恢复之前的音量
+      audioSource.volume = this.lastVolume;
+      playVolumeRange.value = this.lastVolume;
+      const percentage = (audioSource.volume / playVolumeRange.max) * 100;
+      playVolumeColorFill.style.width = `${percentage}%`;
+    }
+    this.updateVolumeIcon(!audioSource.muted);
+  },
+  // 初始化音量控制
+  init() {
+    // 设置初始音量和显示
+    const initialVolume = CONFIG.VOLUME.DEFAULT;
+    audioSource.volume = initialVolume;
+    this.lastVolume = initialVolume;
+    playVolumeRange.value = initialVolume;
+
+    const percentage = (initialVolume / playVolumeRange.max) * 100;
+    playVolumeColorFill.style.width = `${percentage}%`;
+
+    this.updateVolumeIcon(true);
   }
+};
+
+// 绑定音量控制事件
+playVolumeRange.addEventListener("input", volumeControl.change.bind(volumeControl));
+playVolumeRange.addEventListener("click", (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+});
+
+// 添加新的音量图标点击事件
+playVolumeIcon.addEventListener("click", volumeControl.toggleMute.bind(volumeControl));
+
+// 为音量控制区域添加点击事件阻止
+const volumeControlArea = document.querySelector('.volume-control');
+if (volumeControlArea) {
+  volumeControlArea.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  });
 }
-playVolumeIcon.addEventListener("click", muteVolume);
+
+// 初始化音量控制
+volumeControl.init();
 
 /**
  * playSelectMusic()
@@ -831,17 +606,38 @@ playVolumeIcon.addEventListener("click", muteVolume);
  * 
  */
 const playSelectMusic = function (e) {
-  currentMusic = this.dataset.id
-  let playArray = Array.from(this.parentNode.children)
+  e.stopPropagation();
 
+  // 获取点击的元素
+  const clickedElement = e.target.closest('.contentList-item');
+  if (!clickedElement) return;  // 如果点击的不是列表项，直接返回
+
+  // 获取数据索引
+  const musicIndex = parseInt(clickedElement.dataset.id);
+
+  // 验证索引的有效性
+  if (isNaN(musicIndex) || musicIndex < 0 || musicIndex >= currentMusicList.length) {
+    console.error('无效的音乐索引:', musicIndex);
+    return;
+  }
+
+  // 更新当前音乐索引
+  currentMusicIndex = musicIndex;
+
+  // 更新列表项的激活状态
+  const playArray = Array.from(contentList.children);
   playArray.forEach((element) => {
-    element.classList.remove('active')
-  })
-  this.classList.add('active')
+    element.classList.remove('active');
+  });
+  clickedElement.classList.add('active');
 
-  playingTool()
+  // 播放音乐
+  playingTool();
 }
-
+// 绑定事件监听
+addEventListeners(contentList, {
+  'dblclick': playSelectMusic
+});
 /**
  * initMusicList()
  * 初始化 列表
@@ -866,21 +662,37 @@ const initMusicList = function () {
     </div>                 
     `
   }
-  addEventOnElementChildren(contentList, 'dblclick', playSelectMusic)
-  addEventOnElementChildren(contentList, 'mouseover', showHoverWindow);
-  addEventOnElementChildren(contentList, 'mouseout', hideHoverWindow);
+
 }
 initMusicList()
 
-
+/**
+ * 悬浮窗
+ * @param {*} event 
+ * @returns 
+ */
 function showHoverWindow(event) {
+  // 获取触发事件的列表项元素
+  const item = event.target.closest('.contentList-item');
+  if (!item) return; // 如果不是列表项，直接返回
 
-  const item = event.currentTarget;
-  const dataIndex = item.getAttribute('data-id');
-  const musicDes = currentMusicList[dataIndex].des;
+  // 获取音乐索引
+  const dataIndex = parseInt(item.getAttribute('data-id'));
+  if (isNaN(dataIndex) || dataIndex < 0 || dataIndex >= currentMusicList.length) {
+    console.error('无效的音乐索引:', dataIndex);
+    return;
+  }
+
+  // 获取音乐描述信息
+  const musicData = currentMusicList[dataIndex];
+  if (!musicData || !musicData.des) {
+    console.log('该音乐没有描述信息');
+    return;
+  }
 
   const hoverWindow = document.getElementById('hoverWindow');
   const hoverContent = document.getElementById('hoverContent');
+  if (!hoverWindow || !hoverContent) return;
 
   // 获取item的位置信息
   const itemRect = item.getBoundingClientRect();
@@ -894,7 +706,7 @@ function showHoverWindow(event) {
   const isMouseInRightHalf = (mouseX - itemLeft) > (itemWidth / 2);
 
   // 设置悬浮窗的内容并显示
-  hoverContent.innerHTML = `${musicDes.replace(/\n/g, '<br>')}`;
+  hoverContent.innerHTML = `${musicData.des.replace(/\n/g, '<br>')}`;
   hoverWindow.style.display = 'block';
 
   // 强制浏览器重新计算悬浮窗宽度
@@ -908,7 +720,6 @@ function showHoverWindow(event) {
     hoverWindow.style.left = `${mouseX}px`; // 显示在鼠标右侧
   }
 
-
   // 判断鼠标是否接近屏幕底部
   const windowHeight = window.innerHeight;
   const mouseY = event.clientY;
@@ -918,40 +729,35 @@ function showHoverWindow(event) {
   } else {
     hoverWindow.style.top = `${mouseY}px`; // 显示在鼠标下方
   }
-
 }
 
 function hideHoverWindow() {
   const hoverWindow = document.getElementById('hoverWindow');
-  hoverWindow.style.display = 'none';
+  if (hoverWindow) {
+    hoverWindow.style.display = 'none';
+  }
 }
+
+// 绑定事件监听
+addEventListeners(contentList, {
+  'mouseover': showHoverWindow,
+  'mouseout': hideHoverWindow
+});
 
 
 // 监听键盘按下事件
-document.addEventListener('keydown', function (event) {
+const keyActionMap = {
+  'Enter': () => document.getElementById("btn-play").click(),
+  ' ': () => document.getElementById("btn-play").click(),
+  'ArrowLeft': () => document.getElementById("btn-pre").click(),
+  'ArrowRight': () => document.getElementById("btn-next").click()
+};
 
-  if (event.key === "Enter" || event.key === " ") {
-    // 在这里执行你的命令
-    console.log('回车触发  执行命令');
-    const btn = document.getElementById("btn-play");
-    const clickEvent = new Event("click");
-    btn.dispatchEvent(clickEvent);
-  } else if (event.key === "ArrowLeft") {
-    // 向左箭头按下
-    console.log('向左箭头按下');
-    const btn = document.getElementById("btn-pre");
-    const clickEvent = new Event("click");
-    btn.dispatchEvent(clickEvent);
-
-  } else if (event.key === "ArrowRight") {
-    // 向右箭头按下
-    console.log('向右箭头按下');
-    const btn = document.getElementById("btn-next");
-    const clickEvent = new Event("click");
-    btn.dispatchEvent(clickEvent);
+document.addEventListener('keydown', ({ key }) => {
+  if (keyActionMap[key]) {
+    keyActionMap[key]();
   }
 });
-
 
 /**
  * Start()
@@ -963,49 +769,51 @@ const Start = function () {
 
 Start()
 
-// 将选项卡和对应的音乐列表映射到一个对象中
-const tabMusicMap = {
-  'tab-A': allMusicList,
-  'tab-B': musicList11,
-  'tab-C': musicList22,
-  'tab-D': musicList33,
-  'tab-E': musicList44,
-  'tab-F': musicList55,
-  'tab-G': musicList66,
-  'tab-H': musicList77
-};
-// 列表切换
-function switchTab(tabElement) {
-
+/**
+ * 切换标签页
+ * @param {HTMLElement} tabElement - 被点击的标签页元素
+ */
+const switchTab = (tabElement) => {
   // 如果点击的选项卡已经是活动状态，则不进行任何操作
   if (tabElement.classList.contains('active')) {
     return;
   }
 
+  // 更新标签页状态
   const tabs = document.querySelectorAll('.list-tab > div');
-
-  tabs.forEach(tab => {
-    tab.classList.remove('active');
-  });
-
+  tabs.forEach(tab => tab.classList.remove('active'));
   tabElement.classList.add('active');
 
-  // 判断选项卡是否在映射对象中
-  if (tabElement.classList.contains('tab-A') || tabElement.classList.contains('tab-B') ||
-    tabElement.classList.contains('tab-C') || tabElement.classList.contains('tab-D') ||
-    tabElement.classList.contains('tab-E') || tabElement.classList.contains('tab-F') ||
-    tabElement.classList.contains('tab-G') || tabElement.classList.contains('tab-H')) {
+  // 获取标签页对应的音乐列表
+  const tabName = tabElement.dataset.tab;
+  if (tabName) {
+    // 更新音乐列表
+    currentMusicList.length = 0;
+    currentMusicList.push(...getMusicList(tabName));
 
-    const tabClassName = Array.from(tabElement.classList).find(className => className.startsWith('tab-'));
-    if (tabClassName) {
-      console.log(`点击了${tabClassName}选项卡`);
-      currentMusicList.length = 0;
-      currentMusicList.push(...tabMusicMap[tabClassName]);
-      initMusicList();
-    }
+    // 重新初始化列表
+    initMusicList();
   }
+};
 
-}
+// 绑定标签页点击事件
+const initTabs = () => {
+  const tabs = document.querySelectorAll('.list-tab > div');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => switchTab(tab));
+  });
+};
+
+// 初始化
+document.addEventListener('DOMContentLoaded', () => {
+  initTabs();
+  // ... 其他初始化代码 ...
+});
+
+// 导出 switchTab 函数（如果需要在其他模块中使用）
+export { switchTab };
+
+
 
 /**
  * 2023-10-26

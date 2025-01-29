@@ -1,5 +1,5 @@
 //音乐根路径
-const FILE_MUSIC_ROOT = './music/';
+export const FILE_MUSIC_ROOT = './music/';
 //作者未知
 const AUTHOR_DEFAULT = "未知";
 //默认图片路径
@@ -36,6 +36,11 @@ const FILE_MUSIC_BGM = 'bgm/'
 // musicList6
 const TYPE_6 = "律动"
 const FILE_MUSIC_lvdong = 'lvdong/'
+
+
+// musicList7
+const TYPE_7 = "动画片"
+const FILE_MUSIC_donghuapian = 'donghuapian/'
 
 
 //天籁之音
@@ -829,26 +834,188 @@ const musicList6 = [
 ]
 
 
+//动画片
+const musicList7 = [
+  {
+    title: "光能使者-田中公平",
+    author: "田中公平",
+    name_path: "光能使者-田中公平.mp3",
+    type: TYPE_7,
+    type_path: FILE_MUSIC_donghuapian,
+    imgPath: IMG_DEFAULT_PATH1,
+    time: '02:52',
+    lyrics: false,
+    des: "",
+    lyricstype: false
+  },
+  {
+    title: "七龙珠",
+    author: "橋本潮",
+    name_path: "七龙珠.mp3",
+    type: TYPE_7,
+    type_path: FILE_MUSIC_donghuapian,
+    imgPath: IMG_DEFAULT_PATH1,
+    time: '03:50',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
+  {
+    title: "数码宝贝",
+    author: "和田光司",
+    name_path: "数码宝贝.mp3",
+    type: TYPE_7,
+    type_path: FILE_MUSIC_donghuapian,
+    imgPath: IMG_DEFAULT_PATH1,
+    time: '04:18',
+    lyrics: true,
+    des: "",
+    lyricstype: true
+  },
 
-const KEY_MUSIC_LIST_1 = 'musicList1';
-localStorage.setItem(KEY_MUSIC_LIST_1, JSON.stringify(musicList1));
-
-const KEY_MUSIC_LIST_2 = 'musicList2';
-localStorage.setItem(KEY_MUSIC_LIST_2, JSON.stringify(musicList2));
-
-const KEY_MUSIC_LIST_3 = 'musicList3';
-localStorage.setItem(KEY_MUSIC_LIST_3, JSON.stringify(musicList3));
-
-const KEY_MUSIC_LIST_4 = 'musicList4';
-localStorage.setItem(KEY_MUSIC_LIST_4, JSON.stringify(musicList4));
-
-const KEY_MUSIC_LIST_5 = 'musicList5';
-localStorage.setItem(KEY_MUSIC_LIST_5, JSON.stringify(musicList5));
-
-const KEY_MUSIC_LIST_6 = 'musicList6';
-localStorage.setItem(KEY_MUSIC_LIST_6, JSON.stringify(musicList6));
+]
 
 
 
 
+// 统一管理所有音乐列表的存储
+export const STORAGE_KEYS = {
+  TIANLANZHIYIN: 'musicList1',
+  QINGYINYUE: 'musicList2',
+  EMO: 'musicList3',
+  JINGDIAN: 'musicList4',
+  BGM: 'musicList5',
+  LVDONG: 'musicList6',
+  DONGHUAPIAN: 'musicList7'
+};
+
+// 创建一个统一的存储管理类
+export class MusicStorage {
+
+  // 定义音乐类型枚举
+  static MUSIC_TYPES = {
+    TIANLANZHIYIN: { key: 'musicList1', label: '天籁之音' },
+    QINGYINYUE: { key: 'musicList2', label: '轻音乐' },
+    EMO: { key: 'musicList3', label: 'EMO' },
+    JINGDIAN: { key: 'musicList4', label: '经典' },
+    BGM: { key: 'musicList5', label: '气势BGM' },
+    LVDONG: { key: 'musicList6', label: '律动' },
+    DONGHUAPIAN: { key: 'musicList7', label: '动画片' }
+  };
+  // 定义音乐列表映射
+  static musicListMap = {
+    [STORAGE_KEYS.TIANLANZHIYIN]: musicList1,
+    [STORAGE_KEYS.QINGYINYUE]: musicList2,
+    [STORAGE_KEYS.EMO]: musicList3,
+    [STORAGE_KEYS.JINGDIAN]: musicList4,
+    [STORAGE_KEYS.BGM]: musicList5,
+    [STORAGE_KEYS.LVDONG]: musicList6,
+    [STORAGE_KEYS.DONGHUAPIAN]: musicList7
+  };
+
+  // 验证音乐对象
+  static validateMusic(music) {
+    const requiredFields = ['title', 'author', 'name_path', 'type', 'type_path'];
+    return music && requiredFields.every(field => music[field] !== undefined);
+  }
+
+
+  // 存储单个列表
+  static saveList(key, list) {
+    try {
+      const validList = list.filter(this.validateMusic);
+      localStorage.setItem(key, JSON.stringify(validList));
+      return true;
+    } catch (error) {
+      console.error(`存储音乐列表失败 (${key}):`, error);
+      return false;
+    }
+  }
+
+  // 获取单个列表
+  static getList(key) {
+    try {
+      const list = JSON.parse(localStorage.getItem(key)) || [];
+      return list.filter(this.validateMusic);
+    } catch (error) {
+      console.error(`获取音乐列表失败 (${key}):`, error);
+      return [];
+    }
+  }
+
+  // 存储所有列表
+  static saveAllLists() {
+    return Object.entries(this.musicListMap)
+      .map(([key, list]) => this.saveList(key, list))
+      .every(Boolean);
+  }
+
+
+  // 获取所有音乐
+  static getListAllMusic() {
+    try {
+      return Object.values(this.musicListMap)
+        .flat()
+        .filter(this.validateMusic);
+    } catch (error) {
+      console.error('获取所有音乐列表失败:', error);
+      return [];
+    }
+  }
+  // 按类型获取音乐
+  static getListByType(type) {
+    return this.musicListMap[type]?.filter(this.validateMusic) || [];
+  }
+
+  // 搜索音乐
+  static searchMusic(keyword) {
+    if (!keyword?.trim()) return [];
+
+    const searchTerm = keyword.toLowerCase().trim();
+    return this.getListAllMusic().filter(music =>
+      music.title.toLowerCase().includes(searchTerm) ||
+      music.author.toLowerCase().includes(searchTerm) ||
+      music.des?.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  // 获取随机音乐
+  static getRandomMusic() {
+    const allMusic = this.getListAllMusic();
+    return allMusic[Math.floor(Math.random() * allMusic.length)];
+  }
+
+  // 按关键词搜索音乐
+  static searchMusic(keyword) {
+    if (!keyword) return [];
+
+    const searchTerm = keyword.toLowerCase();
+    return this.getListAllMusic().filter(music =>
+      music.title.toLowerCase().includes(searchTerm) ||
+      music.author.toLowerCase().includes(searchTerm)
+    );
+  }
+
+
+}
+
+// 使用优化后的存储方式
+MusicStorage.saveAllLists();
+
+/**
+ * 获取音乐列表
+ */
+export const getMusicList = (tabName) => {
+  const tabMusicMap = {
+    'tab-A': MusicStorage.getListAllMusic(),
+    'tab-B': MusicStorage.getList(STORAGE_KEYS.TIANLANZHIYIN),
+    'tab-C': MusicStorage.getList(STORAGE_KEYS.QINGYINYUE),
+    'tab-D': MusicStorage.getList(STORAGE_KEYS.EMO),
+    'tab-E': MusicStorage.getList(STORAGE_KEYS.JINGDIAN),
+    'tab-F': MusicStorage.getList(STORAGE_KEYS.BGM),
+    'tab-G': MusicStorage.getList(STORAGE_KEYS.LVDONG),
+    'tab-H': MusicStorage.getList(STORAGE_KEYS.DONGHUAPIAN)
+  };
+  return tabMusicMap[tabName] || [];
+};
 

@@ -4,7 +4,7 @@
 
 //   `
 // },
-const lyricsList2 = [
+export const lyricsList2 = [
   {
   name_path: '有彩虹.mp3',
   lyrics:`
