@@ -550,10 +550,12 @@ function initEventListeners() {
   });
   elements.volumeIcon.addEventListener("click", volumeControl.toggleMute.bind(volumeControl));
 
+  // 使用防抖处理悬浮窗显示
+  const debouncedShowHover = debounce(showHoverWindow, 50);
   // 播放列表事件
   addEventListeners(elements.contentList, {
     'dblclick': playlistControl.playSelectMusic.bind(playlistControl), // 修改这里，绑定正确的this
-    'mouseover': showHoverWindow,
+    'mousemove': debouncedShowHover,
     'mouseout': hideHoverWindow
   });
 
@@ -603,32 +605,54 @@ function showHoverWindow(event) {
   const hoverContent = document.getElementById('hoverContent');
   if (!hoverWindow || !hoverContent) return;
 
+  hoverContent.innerHTML = musicData.des.replace(/\n/g, '<br>');
+
   const itemRect = item.getBoundingClientRect();
   const mouseX = event.clientX;
   const mouseY = event.clientY;
-  const isMouseInRightHalf = (mouseX - itemRect.left) > (itemRect.width / 2);
 
-  hoverContent.innerHTML = musicData.des.replace(/\n/g, '<br>');
-  hoverWindow.style.display = 'block';
-
-  const hoverWindowWidth = hoverWindow.offsetWidth;
-  const hoverWindowHeight = hoverWindow.offsetHeight;
+  const hoverWindowWidth = 300;
+  const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
 
-  hoverWindow.style.left = isMouseInRightHalf ?
-    `${mouseX - hoverWindowWidth}px` :
-    `${mouseX}px`;
+  let left = mouseX;
+  let top = mouseY + 20;
 
-  hoverWindow.style.top = mouseY + hoverWindowHeight > windowHeight ?
-    `${mouseY - hoverWindowHeight}px` :
-    `${mouseY}px`;
+  if (left + hoverWindowWidth > windowWidth) {
+    left = windowWidth - hoverWindowWidth - 20;
+  }
+
+  const hoverWindowHeight = hoverWindow.offsetHeight;
+  if (top + hoverWindowHeight > windowHeight) {
+    top = mouseY - hoverWindowHeight - 10;
+  }
+
+  hoverWindow.style.left = `${Math.max(10, left)}px`;
+  hoverWindow.style.top = `${Math.max(10, top)}px`;
+
+  requestAnimationFrame(() => {
+    hoverWindow.classList.add('visible');
+  });
 }
 
 function hideHoverWindow() {
   const hoverWindow = document.getElementById('hoverWindow');
   if (hoverWindow) {
-    hoverWindow.style.display = 'none';
+    hoverWindow.classList.remove('visible');
   }
+}
+
+// 使用防抖优化鼠标移动事件
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }
 
 /**
