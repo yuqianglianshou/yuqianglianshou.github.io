@@ -4,15 +4,16 @@
 
 <head>
     <meta charset="utf-8" />
-    <!-- 适配移动端 https://www.cnblogs.com/gaogch/p/10628613.html-->
+    <!-- 移动端适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- 网站图标 -->
     <link rel="icon" type="image/png" href="/images/icon.jpeg" />
 
     <title>小玩乐</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <!-- gallay 图片 -->
+    <!-- 图片画廊相关依赖 -->
     <link href="https://cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
@@ -20,103 +21,118 @@
 </head>
 
 <body>
-    <div class="logo">
-        <img src="/images/icon.jpeg" alt="" width="200px">
+    <!-- ================ 头部Logo区域 ================ -->
+    <header class="logo">
+        <img src="/images/icon.jpeg" alt="小玩乐图标" width="200" height="200">
         <h4>小玩乐</h4>
         <p>绝版的昨天</p>
-    </div>
+    </header>
 
-    <!-- game  button -->
-
-    <div class="game-box">
+    <!-- ================ 游戏按钮区域 ================ -->
+    <nav class="game-box">
+        <!-- 奏乐游戏入口 -->
         <a class="game-btn" href="/module_xiaowanle/game/mikutap-master/index.html" target="_blank">
-            <!-- <i class="fab fa-github"></i> -->
             <p>奏乐</p>
         </a>
+
+        <!-- 冥想游戏入口 -->
         <a class="game-btn" href="/module_xiaowanle/game/night_sky/index.html" target="_blank">
             <p>冥想</p>
         </a>
+
+        <!-- 音乐播放器入口 -->
         <a class="game-btn" href="../page_music2/index.html" target="_blank">
             <p>听歌</p>
         </a>
+    </nav>
 
-    </div>
-
-    <!-- 图片 -->
-    <div class="gallery">
+    <!-- ================ 图片画廊区域 ================ -->
+    <section class="gallery">
+        <!-- 图片1-4 -->
         <a href="./imgs/1.jpg" class="image">
-            <img src="./imgs/1.jpg" alt="" />
+            <img src="./imgs/1.jpg" alt="画廊图片1" loading="lazy">
         </a>
         <a href="./imgs/2.jpg" class="image">
-            <img src="./imgs/2.jpg" alt="" />
+            <img src="./imgs/2.jpg" alt="画廊图片2" loading="lazy">
         </a>
         <a href="./imgs/3.jpg" class="image">
-            <img src="./imgs/3.jpg" alt="" />
+            <img src="./imgs/3.jpg" alt="画廊图片3" loading="lazy">
         </a>
         <a href="./imgs/4.jpg" class="image">
-            <img src="./imgs/4.jpg" alt="" />
+            <img src="./imgs/4.jpg" alt="画廊图片4" loading="lazy">
         </a>
 
+        <!-- 图片5-8 -->
         <a href="./imgs/5.png" class="image">
-            <img src="./imgs/5.png" alt="" />
+            <img src="./imgs/5.png" alt="画廊图片5" loading="lazy">
         </a>
         <a href="./imgs/6.png" class="image">
-            <img src="./imgs/6.png" alt="" />
+            <img src="./imgs/6.png" alt="画廊图片6" loading="lazy">
         </a>
         <a href="./imgs/7.png" class="image">
-            <img src="./imgs/7.png" alt="" />
+            <img src="./imgs/7.png" alt="画廊图片7" loading="lazy">
         </a>
         <a href="./imgs/8.png" class="image">
-            <img src="./imgs/8.png" alt="" />
+            <img src="./imgs/8.png" alt="画廊图片8" loading="lazy">
         </a>
-    </div>
+    </section>
 
-    <!-- 视频 -->
-    <div class="video-box">
-
-        <div class="video-box-child">
+    <!-- ================ 视频展示区域 ================ -->
+    <section class="video-box">
+        <!-- 视频1 -->
+        <article class="video-box-child">
             <h3>我们都过了耳听爱情的年纪了</h3>
             <div class="video">
-                <video width="400px" height="" controls="controls">
+                <video width="400" controls preload="metadata">
                     <source src="./video/我们都过了耳听爱情的年纪了.mp4" type="video/mp4">
-                    </source>
+                    您的浏览器不支持视频播放。
                 </video>
             </div>
-        </div>
+        </article>
 
-        <div class="video-box-child">
+        <!-- 视频2 -->
+        <article class="video-box-child">
             <h3>我希望有个如你一般的人</h3>
             <div class="video">
-                <video width="400px" height="" controls="controls">
+                <video width="400" controls preload="metadata">
                     <source src="./video/我希望有个如你一般的人.mp4" type="video/mp4">
-                    </source>
+                    您的浏览器不支持视频播放。
                 </video>
             </div>
-        </div>
+        </article>
 
-        <div class="video-box-child">
+        <!-- 视频3 -->
+        <article class="video-box-child">
             <h3>你是谁啊</h3>
             <div class="video">
-                <video width="400px" height="" controls="controls">
+                <video width="400" controls preload="metadata">
                     <source src="./video/你是谁啊.mp4" type="video/mp4">
-                    </source>
+                    您的浏览器不支持视频播放。
                 </video>
             </div>
-        </div>
+        </article>
+    </section>
 
-
-    </div>
-
-
-    <!-- gallay 图片 -->
+    <!-- ================ 图片画廊初始化脚本 ================ -->
     <script>
-        $('.gallery').magnificPopup({
-            delegate: 'a',
-            type: 'image',
-            gallery: {
-                enabled: true
-            }
-        })
+        // 初始化Magnific Popup图片画廊
+        $(document).ready(function () {
+            $('.gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1]
+                },
+                image: {
+                    tError: '图片加载失败。',
+                    titleSrc: function (item) {
+                        return item.el.attr('title');
+                    }
+                }
+            });
+        });
     </script>
 
 </body>

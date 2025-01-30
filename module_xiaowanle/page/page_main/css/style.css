@@ -1,13 +1,30 @@
+/* ================ 全局样式重置 ================ */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* 全局变量定义 */
+:root {
+    --primary-color: #3498db;
+    --accent-color: #ce8460;
+    --bg-light: #f1f1f1;
+    --bg-lighter: #fafafa;
+    --text-color: #333;
+    --transition-fast: 0.2s linear;
+    --transition-normal: 0.4s ease;
+    --shadow-normal: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* 基础样式设置 */
 body {
     font-size: 16px;
     letter-spacing: 2px;
+    color: var(--text-color);
 }
 
+/* ================ Logo区域样式 ================ */
 .logo {
     width: 100%;
     text-align: center;
@@ -16,67 +33,89 @@ body {
     border-bottom: 1px solid #cccccc;
 }
 
+.logo img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Logo标题样式 */
 .logo h4 {
     font-size: 32px;
     letter-spacing: 2px;
     margin-top: 10px;
     cursor: pointer;
+    transition: var(--transition-fast);
 }
 
 .logo h4:hover {
-    color: #ce8460;
+    color: var(--accent-color);
 }
 
+/* Logo副标题样式 */
 .logo p {
     margin-top: 10px;
     cursor: pointer;
+    transition: var(--transition-fast);
 }
 
 .logo p:hover {
-    color: #ce8460;
+    color: var(--accent-color);
 }
 
-/* button game*/
+/* ================ 游戏按钮区域 ================ */
 .game-box {
     width: 80%;
-    margin: 60px auto 60px auto;
+    margin: 60px auto;
+    text-align: center;
 }
 
+/* 游戏按钮基础样式 */
 .game-btn {
     display: inline-block;
     width: 100px;
     height: 100px;
-    background: #f1f1f1;
+    background: var(--bg-light);
     margin: 10px;
     border-radius: 30%;
-    box-shadow: 0 5px 15px -5px #00000070;
-    color: #3498db;
+    box-shadow: var(--shadow-normal);
+    color: var(--primary-color);
     overflow: hidden;
     position: relative;
     text-align: center;
     text-decoration: none;
 }
 
+/* 按钮文字样式 */
 .game-btn p {
     line-height: 100px;
     font-size: 22px;
-    transition: 0.2s linear;
+    transition: var(--transition-fast);
 }
 
+/* 按钮悬停效果 */
 .game-btn:hover p {
     transform: scale(1.2);
-    color: #f1f1f1;
+    color: var(--bg-light);
 }
 
+/* 按钮动画背景 */
 .game-btn::before {
     content: '';
     position: absolute;
     width: 120%;
     height: 120%;
-    background: #3498db;
+    background: var(--primary-color);
     transform: rotate(45deg);
     left: -110%;
     top: 90%;
+    transition: var(--transition-fast);
 }
 
 .game-btn:hover::before {
@@ -85,6 +124,7 @@ body {
     left: -10%;
 }
 
+/* 按钮动画关键帧 */
 @keyframes flash {
     0% {
         left: -100%;
@@ -101,95 +141,159 @@ body {
         top: -10%;
     }
 }
-/* 图片部分 */
+
+/* ================ 图片画廊区域 ================ */
 .gallery {
     width: 76%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: center;
-    /* padding: 30px 40px; */
-    background: #fafafa;
+    background: var(--bg-lighter);
 }
+
+/* 图片容器样式 */
 .gallery .image {
     flex: 25%;
     overflow: hidden;
     cursor: pointer;
 }
+
+/* 图片样式及动画 */
 .gallery .image img {
     width: 100%;
     height: 100%;
-    transition: 0.4s;
+    transition: var(--transition-normal);
 }
+
 .gallery .image:hover img {
     transform: scale(1.4) rotate(15deg);
 }
+
+/* ================ 响应式布局 ================ */
 @media screen and (max-width: 960px) {
     .gallery-section .image {
         flex: 33.33%;
     }
 }
+
 @media screen and (max-width: 768px) {
     .gallery-section .image {
         flex: 50%;
     }
 }
+
 @media screen and (max-width: 480px) {
     .gallery-section .image {
         flex: 100%;
     }
 }
 
-/* 视频部分 */
+/* ================ 视频区域样式 ================ */
 .video-box {
     width: 80%;
     margin: auto;
     overflow: hidden;
 }
 
+/* 视频卡片样式 */
 .video-box-child {
     float: left;
     width: auto;
     padding: 24px;
 }
 
+/* 视频标题样式 */
 .video-box h3 {
-    color: #ce8460;
+    color: var(--accent-color);
     font-size: 24px;
     display: flex;
     align-items: center;
     margin-top: 20px;
-
 }
 
+/* 标题装饰条 */
 .video-box h3::before {
     content: "";
     display: inline-block;
     width: 5px;
     height: 25px;
     margin-right: 10px;
-    background-color: #ce8460;
+    background-color: var(--accent-color);
 }
 
-.video-box video {
-    margin: 20px 0 0 0;
+/* 视频区域 */
+.video-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.test {
-    float: left;
-    background-color: #cccccc;
-    width: 90%;
+.video-box-child {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-.test-child {
-    float: left;
-    background-color: #000;
-    width: 400px;
-    padding: 10px;
+.video-box-child:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.test img {
-    background-color: #ce8460;
-    padding: 10px;
-    width: 260px;
+.video-box-child h3 {
+    margin: 0;
+    padding: 20px;
+    font-size: 18px;
+    color: var(--text-color);
+    text-align: center;
+    background: #f8f9fa;
+}
+
+.video {
+    padding: 20px;
+}
+
+.video video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .game-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .video-box {
+        grid-template-columns: 1fr;
+    }
+
+    .video-box-child {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+}
+
+/* Magnific Popup 样式优化 */
+.mfp-bg {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.mfp-figure {
+    box-shadow: var(--shadow);
+}
+
+.mfp-close {
+    color: white !important;
 }
