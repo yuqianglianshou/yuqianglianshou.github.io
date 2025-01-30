@@ -7,29 +7,53 @@ import { lyricsList2 } from './musicLyrics2.js';
 /**
  * 歌词管理类
  * 负责歌词的加载、解析、渲染和滚动等功能
+ * 
+ * 主要功能：
+ * 1. 歌词解析：支持两种不同格式的歌词解析
+ * 2. 歌词渲染：将歌词文本渲染到DOM中
+ * 3. 歌词滚动：支持自动滚动和手动滚动
+ * 4. 交互控制：支持点击跳转和滚轮控制
  */
 export class LyricsManager {
+    /**
+     * 初始化歌词管理器
+     * 设置基础属性、DOM元素、样式和事件监听
+     */
     constructor() {
-        // 基础属性
+        // 歌词数据相关属性
         this.currentLyrics = [];      // 当前歌词文本数组
         this.timeouts = [];          // 歌词滚动计时器数组
         this.timerArray = [];        // 歌词时间点数组
         this.currentIndex = 0;       // 当前播放的歌词索引 
 
-        this.lineHeight = 80; // 每行歌词的高度
-        this.isAutoScrolling = true; // 添加自动滚动标志
-
-        // 修改滚轮事件处理
-        this.scrollTimer = null;
-        this.lastWheelTime = 0;
-        this.wheelThreshold = 50; // 滚轮事件节流阈值（毫秒）
-        this.currentScrollTop = 0;  // 当前滚动位置
+        // 滚动控制相关属性
+        this.lineHeight = 80;        // 每行歌词的高度
+        this.isAutoScrolling = true; // 自动滚动标志
+        this.scrollTimer = null;     // 滚动定时器
+        this.lastWheelTime = 0;      // 上次滚轮事件时间
+        this.wheelThreshold = 50;    // 滚轮事件节流阈值（毫秒）
+        this.currentScrollTop = 0;   // 当前滚动位置
 
         // DOM 元素
+        this.initDOMElements();
+
+        // 配置参数
+        this.initConfig();
+
+        // 事件处理
+        this.bindEvents();
+
+        // 回调函数
+        this.onTimeUpdate = null;    // 时间更新回调函数
+    }
+    /**
+ * 初始化DOM元素并设置基础样式
+ * @private
+ */
+    initDOMElements() {
         this.lyricsContainer = document.querySelector('[play-lyrics]');
         this.wrapLyrics = document.querySelector('[wrap-lyrics]');
 
-        // 初始化容器样式
         if (this.wrapLyrics) {
             this.wrapLyrics.style.position = 'relative';
             this.wrapLyrics.style.overflow = 'hidden';
@@ -39,21 +63,21 @@ export class LyricsManager {
             this.lyricsContainer.style.width = '100%';
             this.lyricsContainer.style.transition = 'transform 0.3s ease-out';
         }
+    }
 
-        // 配置参数
+    /**
+     * 初始化配置参数
+     * @private
+     */
+    initConfig() {
         this.config = {
-            scrollSpeed: CONFIG.SCROLL_SPEED,        // 滚动速度
+            scrollSpeed: CONFIG.SCROLL_SPEED,
             transition: {
-                delay: CONFIG.TRANSITION.DELAY,      // 过渡延迟
-                interval: CONFIG.TRANSITION.INTERVAL, // 过渡间隔
-                reduce: CONFIG.TRANSITION.REDUCE     // 过渡减速
+                delay: CONFIG.TRANSITION.DELAY,
+                interval: CONFIG.TRANSITION.INTERVAL,
+                reduce: CONFIG.TRANSITION.REDUCE
             }
         };
-
-        // 绑定事件处理
-        this.bindEvents();
-        // 添加事件回调属性
-        this.onTimeUpdate = null;  // 用于存储时间更新回调函数
     }
     /**
      * 绑定歌词相关事件
