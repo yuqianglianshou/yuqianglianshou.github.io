@@ -48,44 +48,27 @@
                         <div class="items-btn flex">
                             <!-- 上一首 -->
                             <div class="btn-prev flex" play-prev-btn id="btn-prev">
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon" stroke-width="5" stroke-linecap="butt"
-                                    stroke-linejoin="miter">
-                                    <path
-                                        d="M13.585 12.145a1 1 0 0 0-1.585.81v22.09a1 1 0 0 0 1.585.81L28.878 24.81a1 1 0 0 0 0-1.622L13.585 12.145Z"
-                                        fill="currentColor" stroke="none" transform="rotate(180 24 24)"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M33 36a1 1 0 0 1-1-1V13a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v22a1 1 0 0 1-1 1h-2Z"
-                                        fill="currentColor" stroke="none" transform="rotate(180 24 24)"></path>
+                                <svg fill="none" stroke="currentColor" class="icon" stroke-width="5"
+                                    stroke-linecap="butt" stroke-linejoin="miter">
+                                    <use xlink:href="#icon-prev"></use>
                                 </svg>
                             </div>
                             <!-- 播放/暂停按钮 -->
                             <div class="btn-play pause flex" play-btn id="btn-play">
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon pause" stroke-width="5" stroke-linecap="butt"
-                                    stroke-linejoin="miter">
-                                    <path
-                                        d="M17.533 10.974a1 1 0 0 0-1.537.844v24.356a1 1 0 0 0 1.537.844L36.67 24.84a1 1 0 0 0 0-1.688L17.533 10.974Z"
-                                        fill="currentColor" stroke="none"></path>
+                                <svg fill="none" stroke="currentColor" class="icon pause" stroke-width="5"
+                                    stroke-linecap="butt" stroke-linejoin="miter">
+                                    <use xlink:href="#icon-play"></use>
                                 </svg>
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon playing" stroke-width="5" stroke-linecap="butt"
-                                    stroke-linejoin="miter">
-                                    <path d="M14 12h4v24h-4zM30 12h4v24h-4z"></path>
-                                    <path fill="currentColor" stroke="none" d="M14 12h4v24h-4zM30 12h4v24h-4z"></path>
+                                <svg fill="none" stroke="currentColor" class="icon playing" stroke-width="5"
+                                    stroke-linecap="butt" stroke-linejoin="miter">
+                                    <use xlink:href="#icon-pause"></use>
                                 </svg>
                             </div>
                             <!-- 下一首按钮 -->
                             <div class="btn-next flex" play-next-btn id="btn-next">
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon " stroke-width="5" stroke-linecap="butt"
-                                    stroke-linejoin="miter">
-                                    <path
-                                        d="M13.585 12.145a1 1 0 0 0-1.585.81v22.09a1 1 0 0 0 1.585.81L28.878 24.81a1 1 0 0 0 0-1.622L13.585 12.145Z"
-                                        fill="currentColor" stroke="none"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M33 36a1 1 0 0 1-1-1V13a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v22a1 1 0 0 1-1 1h-2Z"
-                                        fill="currentColor" stroke="none"></path>
+                                <svg fill="none" stroke="currentColor" class="icon" stroke-width="5"
+                                    stroke-linecap="butt" stroke-linejoin="miter">
+                                    <use xlink:href="#icon-next"></use>
                                 </svg>
                             </div>
                         </div>
@@ -111,33 +94,26 @@
                         <div class="options-circulationMode flex">
                             <li class="flex listLoop" play-mode>
                                 <svg class="icon listLoop" style="color: var(--blue-color);">
-                                    <use xlink:href="#icon-liebiaoxunhuan" fill="currentColor"></use>
+                                    <use xlink:href="#icon-liebiaoxunhuan"></use>
                                 </svg>
                                 <svg class="icon randomLoop" style="color: var(--blue-color);">
-                                    <use xlink:href="#icon-suijibofang1" fill="currentColor"></use>
+                                    <use xlink:href="#icon-suijibofang1"></use>
                                 </svg>
                                 <svg class="icon singleLoop" style="color: var(--blue-color);">
-                                    <use xlink:href="#icon-danquxunhuan1" fill="currentColor"></use>
+                                    <use xlink:href="#icon-danquxunhuan1"></use>
                                 </svg>
                             </li>
                         </div>
                         <!-- 音量控制 -->
                         <div class="options-sound flex">
                             <li class="flex sound" play-volume-icon>
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon sound" stroke-width="4" stroke-linecap="butt"
-                                    stroke-linejoin="miter" data-v-00a66cdf="" style="font-size: 20px;">
-                                    <path d="m14 16 10-9v34l-10-9H6V16h8Z"></path>
-                                    <path
-                                        d="M31.071 16.929c3.905 3.905 3.905 10.237 0 14.142M36.727 11.272c7.03 7.03 7.03 18.426 0 25.456">
-                                    </path>
+                                <svg fill="none" stroke="currentColor" class="icon sound" stroke-width="4"
+                                    stroke-linecap="butt" stroke-linejoin="miter" style="font-size: 20px;">
+                                    <use xlink:href="#icon-volume"></use>
                                 </svg>
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon mute" stroke-width="4" stroke-linecap="butt"
-                                    stroke-linejoin="miter" data-v-00a66cdf="" style="font-size: 20px;">
-                                    <path
-                                        d="m19 11.5 4.833-4.35a.1.1 0 0 1 .167.075V17m-14-1H7.1a.1.1 0 0 0-.1.1v15.8a.1.1 0 0 0 .1.1H14l9.833 8.85a.1.1 0 0 0 .167-.075V31m6.071-14.071C32.535 19.393 34 23 32.799 26m2.929-14.728C41.508 17.052 42.5 25 39.123 32M6.5 6.5l35 35">
-                                    </path>
+                                <svg fill="none" stroke="currentColor" class="icon mute" stroke-width="4"
+                                    stroke-linecap="butt" stroke-linejoin="miter" style="font-size: 20px;">
+                                    <use xlink:href="#icon-mute"></use>
                                 </svg>
                             </li>
                         </div>
@@ -186,24 +162,18 @@
                         <!-- 关闭按钮 -->
                         <div class="options-close flex">
                             <span class="close-icon flex" id="close-panel-btn">
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon arco-icon-down" stroke-width="5"
-                                    stroke-linecap="butt" stroke-linejoin="miter" data-v-b99b404e=""
-                                    style="font-size: 30px;">
-                                    <path d="M39.6 17.443 24.043 33 8.487 17.443"></path>
+                                <svg fill="none" stroke="currentColor" class="icon" stroke-width="5"
+                                    stroke-linecap="butt" stroke-linejoin="miter" style="font-size: 30px;">
+                                    <use xlink:href="#icon-down"></use>
                                 </svg>
                             </span>
                         </div>
                         <!-- 全屏按钮 -->
                         <div class="options-fullScreen flex">
                             <span class="fullScreen-icon flex" id="fullscreen-btn">
-                                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    stroke="currentColor" class="icon arco-icon-fullscreen" stroke-width="5"
-                                    stroke-linecap="butt" stroke-linejoin="miter" data-v-b99b404e=""
-                                    style="font-size: 30px;">
-                                    <path
-                                        d="M42 17V9a1 1 0 0 0-1-1h-8M6 17V9a1 1 0 0 1 1-1h8m27 23v8a1 1 0 0 1-1 1h-8M6 31v8a1 1 0 0 0 1 1h8">
-                                    </path>
+                                <svg fill="none" stroke="currentColor" class="icon" stroke-width="5"
+                                    stroke-linecap="butt" stroke-linejoin="miter" style="font-size: 30px;">
+                                    <use xlink:href="#icon-fullscreen"></use>
                                 </svg>
                             </span>
                         </div>
@@ -246,51 +216,31 @@
                                     <!-- 上一首 -->
                                     <div class="function-prevSong flex">
                                         <span class="prevSong-icon flex" play-prev-btn>
-                                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                                stroke="currentColor" class="icon arco-icon-skip-previous-fill"
-                                                stroke-width="5" stroke-linecap="butt" stroke-linejoin="miter"
-                                                data-v-71b8316a="">
-                                                <path
-                                                    d="M34.414 35.855a1 1 0 0 0 1.586-.81v-22.09a1 1 0 0 0-1.586-.81L19.122 23.19a1 1 0 0 0 0 1.622l15.292 11.044Z"
-                                                    fill="currentColor" stroke="none"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M15 12a1 1 0 0 1 1 1v22a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V13a1 1 0 0 1 1-1h2Z"
-                                                    fill="currentColor" stroke="none"></path>
+                                            <svg fill="none" stroke="currentColor" class="icon" stroke-width="5"
+                                                stroke-linecap="butt" stroke-linejoin="miter">
+                                                <use xlink:href="#icon-prev"></use>
                                             </svg>
                                         </span>
                                     </div>
                                     <!-- 播放/暂停 -->
                                     <div class="function-Play flex">
                                         <span class="Play-icon flex pause" play-btn>
-                                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                                stroke="currentColor" class="icon pause" stroke-width="5"
-                                                stroke-linecap="butt" stroke-linejoin="miter" data-v-71b8316a="">
-                                                <path
-                                                    d="M17.533 10.974a1 1 0 0 0-1.537.844v24.356a1 1 0 0 0 1.537.844L36.67 24.84a1 1 0 0 0 0-1.688L17.533 10.974Z"
-                                                    fill="currentColor" stroke="none"></path>
-                                            </svg>
-                                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                                stroke="currentColor" class="icon playing" stroke-width="5"
+                                            <svg fill="none" stroke="currentColor" class="icon pause" stroke-width="5"
                                                 stroke-linecap="butt" stroke-linejoin="miter">
-                                                <path d="M14 12h4v24h-4zM30 12h4v24h-4z"></path>
-                                                <path fill="currentColor" stroke="none"
-                                                    d="M14 12h4v24h-4zM30 12h4v24h-4z"></path>
+                                                <use xlink:href="#icon-play"></use>
+                                            </svg>
+                                            <svg fill="none" stroke="currentColor" class="icon playing" stroke-width="5"
+                                                stroke-linecap="butt" stroke-linejoin="miter">
+                                                <use xlink:href="#icon-pause"></use>
                                             </svg>
                                         </span>
                                     </div>
                                     <!-- 下一首 -->
                                     <div class="function-nextSong flex">
                                         <span class="nextSong-icon flex" play-next-btn>
-                                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                                stroke="currentColor" class="icon arco-icon-skip-next-fill"
-                                                stroke-width="5" stroke-linecap="butt" stroke-linejoin="miter"
-                                                data-v-71b8316a="">
-                                                <path
-                                                    d="M13.585 12.145a1 1 0 0 0-1.585.81v22.09a1 1 0 0 0 1.585.81L28.878 24.81a1 1 0 0 0 0-1.622L13.585 12.145Z"
-                                                    fill="currentColor" stroke="none"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                                    d="M33 36a1 1 0 0 1-1-1V13a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v22a1 1 0 0 1-1 1h-2Z"
-                                                    fill="currentColor" stroke="none"></path>
+                                            <svg fill="none" stroke="currentColor" class="icon" stroke-width="5"
+                                                stroke-linecap="butt" stroke-linejoin="miter">
+                                                <use xlink:href="#icon-next"></use>
                                             </svg>
                                         </span>
                                     </div>
@@ -315,7 +265,7 @@
     <!-- JavaScript模块引入 -->
     <script>
         // 加载SVG图标
-        fetch('./icons/icons.html')
+        fetch('./icons/svg_icons.html')
             .then(response => response.text())
             .then(svgContent => {
                 document.getElementById('svg-icons-container').innerHTML = svgContent;
