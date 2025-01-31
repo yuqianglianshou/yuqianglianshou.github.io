@@ -9,7 +9,7 @@ const IMG_DEFAULT_PATH1 = "./imgs/music_3-400x400.jpg";
 const IMG_DEFAULT_PATH2 = "./imgs/music_3-400x400.jpg";
 const IMG_DEFAULT_PATH3 = "./imgs/music_3-400x400.jpg";
 
-// 空白格  dance monkey 绿光  那些年 我怀念的  生生世世爱 偏爱  
+// 空白格  dance monkey 绿光  那些年 我怀念的  生生世世爱  
 // type 分类  （轻音乐，伤感，）
 
 // musicPath: FILE_MUSIC_ROOT + type_path + name_path,  ./music/jingdian/我的歌声里.mp3
@@ -204,7 +204,8 @@ const musicList2 = [
     imgPath: "./imgs/17.jpg",
     time: '04:39',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: 'call of silence.lrc'
   },
 ]
 
@@ -340,7 +341,8 @@ const musicList3 = [
     imgPath: "./imgs/12.jpg",
     time: '04:52',
     des: "这种感觉真的很糟\n因为一句话就高兴半天\n发现了一件事就心凉半截\n喜欢不能太明显 不然不值钱",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '书房.lrc'
   },
   {
     title: "清新的小女孩 (For Ma) - July Tun",
@@ -351,7 +353,8 @@ const musicList3 = [
     imgPath: "./imgs/14.jpg",
     time: '04:01',
     des: "也许永远都不可能懂，但不影响她很好听。",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '清新的小女孩.lrc'
   },
   {
     title: "思君黯然 - 陈国樑",
@@ -417,7 +420,8 @@ const musicList3 = [
     imgPath: "./imgs/无期.webp",
     time: '02:41',
     des: "我喜欢你",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '无期.lrc'
   },
   {
     title: "有没有人告诉你 - 陈楚生",
@@ -436,7 +440,7 @@ const musicList3 = [
     name_path: "假如爱有天意 (Live) - 李健.mp3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/假如爱有天意.jpg",
+    imgPath: "./imgs/17.jpg",
     time: '05:13',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -464,15 +468,16 @@ const musicList3 = [
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
   },
   {
-    title: "安河桥-宋冬野",
+    title: "安和桥-宋冬野",
     author: "宋冬野",
-    name_path: "安河桥-宋冬野.MP3",
+    name_path: "安和桥-宋冬野.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
     imgPath: "./imgs/17.jpg",
     time: '04:10',
-    des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_1
+    des: "村东头的狗都懂了遗憾的意义",
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '安和桥.lrc'
   },
   {
     title: "后来-刘若英",
@@ -483,7 +488,8 @@ const musicList3 = [
     imgPath: "./imgs/17.jpg",
     time: '05:41',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_1
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '后来.lrc'
   },
   {
     title: "我用什么把你留住-福禄寿",
@@ -494,7 +500,8 @@ const musicList3 = [
     imgPath: "./imgs/17.jpg",
     time: '05:29',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_1
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '我用什么把你留住.lrc'
   },
 
 ]
@@ -685,8 +692,9 @@ const musicList4 = [
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
     time: '03:33',
-    des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    des: "如此喜欢你的偏爱",
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '偏爱.lrc'
   },
   {
     title: "唯一-告五人",
@@ -697,7 +705,8 @@ const musicList4 = [
     imgPath: "./imgs/17.jpg",
     time: '04:31',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '唯一.lrc'
   },
   {
     title: "不浪漫罪名-王杰",
@@ -707,8 +716,9 @@ const musicList4 = [
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "./imgs/17.jpg",
     time: '04:43',
-    des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    des: "我犯下了滔天的罪名",
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '不浪漫罪名.lrc'
   },
   {
     title: "下雨天-南拳妈妈",
@@ -719,7 +729,8 @@ const musicList4 = [
     imgPath: "./imgs/17.jpg",
     time: '04:13',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '下雨天.lrc'
   },
   {
     title: "一直很安静-阿桑",
@@ -730,7 +741,8 @@ const musicList4 = [
     imgPath: "./imgs/17.jpg",
     time: '04:07',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '一直很安静.lrc'
   },
 
 ]
@@ -822,7 +834,7 @@ const musicList7 = [
     imgPath: IMG_DEFAULT_PATH1,
     time: '02:52',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_3
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
   },
   {
     title: "七龙珠",

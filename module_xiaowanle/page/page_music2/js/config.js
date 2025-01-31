@@ -15,7 +15,7 @@ export const CONFIG = {
     TYPE_chunyinyue: 99,
     TYPE_1: 1,
     TYPE_2: 2,
-    TYPE_3: 3,
+    TYPE_file: 3,
   }
 
 };

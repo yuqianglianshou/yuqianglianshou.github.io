@@ -98,44 +98,41 @@ export class LyricsManager {
      * 加载歌词
      * @param {Object} musicData - 音乐数据对象
      */
-    loadLyrics(musicData) {
+    async loadLyrics(musicData) {
         if (!musicData) return;
 
         // 清除现有歌词
         this.clear();
         this.isAutoScrolling = true; // 重置自动滚动标志
 
-
-        // 解析歌词
         // 处理纯音乐
         if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue) {
-            lyrics = ['纯音乐请欣赏。'];
+            this.currentLyrics = ['纯音乐请欣赏。'];
             this.timerArray = [0];
             this.render();
-            this.scrollToActiveLine(false); // 立即滚动到初始位置
+            this.scrollToActiveLine(false);
             return;
         }
+
         let lyrics = null;
         if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_1) {
             lyrics = this.parseLyricsType1(musicData);
         } else if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_2) {
             lyrics = this.parseLyricsType2(musicData);
-        } else if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_3) {
-            // lyrics1 = this.parseLyricsType3(musicData);
+        } else if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_file) {
+            lyrics = await this.parseLyricsType3(musicData);
         }
-
 
         if (lyrics) {
             this.currentLyrics = lyrics.text;
             this.timerArray = lyrics.timer;
             this.render();
-            this.scrollToCenter(0, false); // 立即滚动到初始位置
+            this.scrollToCenter(0, false);
         } else {
             this.currentLyrics = ['暂无歌词提供。'];
             this.timerArray = [0];
             this.render();
-            this.scrollToActiveLine(false); // 立即滚动到初始位置
-            return;
+            this.scrollToActiveLine(false);
         }
     }
     /**
@@ -193,6 +190,62 @@ export class LyricsManager {
             text: lyricsData.map(line => line.text),
             timer: lyricsData.map(line => line.time)
         };
+    }
+    /**
+     * 解析第三种格式的歌词
+     */
+    async parseLyricsType3(musicData) {
+        try {
+            const basePath = './music_lyrics/';
+            const lyricsPath = basePath + musicData.lyrics_path.split('/').pop();
+
+            const response = await fetch(lyricsPath);
+            if (!response.ok) {
+                throw new Error(`无法加载歌词文件: ${lyricsPath}`);
+            }
+            const lyricsContent = await response.text();
+            const lyricsText = lyricsContent.split('\n');
+
+            // 支持两种时间格式的正则表达式
+            const lyricsRegex = /\[(\d{2}:\d{2}[\.:]?\d{0,3})\](.*)/;
+
+            const lyricsData = lyricsText
+                .map(line => {
+                    const match = line.match(lyricsRegex);
+                    if (!match) return null;
+
+                    const timeStr = match[1];
+                    const lyricsLine = match[2].trim();
+
+                    // 处理时间戳
+                    let timer = 0;
+                    if (timeStr.includes('.')) {
+                        // 处理 00:29.299 格式
+                        const [minutes, secondsAndMilliseconds] = timeStr.split(':');
+                        const [seconds, milliseconds] = secondsAndMilliseconds.split('.');
+                        timer = parseFloat(minutes) * 60 +
+                            parseFloat(seconds) +
+                            parseFloat(milliseconds) / (milliseconds.length === 2 ? 100 : 1000);
+                    } else {
+                        // 处理 00:15:50 格式
+                        const [minutes, seconds, milliseconds] = timeStr.split(':');
+                        timer = parseFloat(minutes) * 60 +
+                            parseFloat(seconds) +
+                            (milliseconds ? parseFloat(milliseconds) / 100 : 0);
+                    }
+
+                    return { time: timer, text: lyricsLine };
+                })
+                .filter(line => line !== null);
+
+            return {
+                text: lyricsData.map(line => line.text),
+                timer: lyricsData.map(line => line.time)
+            };
+        } catch (error) {
+            console.error('解析歌词文件失败:', error);
+            return null;
+        }
     }
 
 
