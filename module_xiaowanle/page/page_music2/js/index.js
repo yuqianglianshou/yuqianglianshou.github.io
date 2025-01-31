@@ -102,6 +102,15 @@ lyricsManager.setTimeUpdateCallback((time) => {
   }
 });
 
+// 添加默认图片数组
+const DEFAULT_IMAGES = Array.from({ length: 53 }, (_, i) => `./imgs/${i + 1}.jpg`);
+
+// 获取随机默认图片的函数
+function getRandomDefaultImage() {
+  const randomIndex = Math.floor(Math.random() * DEFAULT_IMAGES.length);
+  return DEFAULT_IMAGES[randomIndex];
+}
+
 /**
  * 播放控制相关函数
  */
@@ -406,10 +415,16 @@ const playlistControl = {
     elements.contentList.innerHTML = '';
 
     state.currentMusicList.forEach((music, idx) => {
+      const imgSrc = (!music.imgPath || music.imgPath.trim() === '') ? getRandomDefaultImage() : music.imgPath; // 判断空字符串
+      // 保存随机生成的默认图片路径
+      if (!music.imgPath || music.imgPath.trim() === '') {
+        music.imgPath = imgSrc;
+      }
+      
       elements.contentList.innerHTML += `
         <div class="contentList-item flex fs-14 fw-5" data-id='${idx}'>
           <div class="item-img">
-            <img src="${music.imgPath}" alt="">
+            <img src="${imgSrc}" alt="">
           </div>
           <div class="item-title text-ol ">${music.title}</div>
           <div class="item-author text-ol ">${music.author}</div>
@@ -421,17 +436,23 @@ const playlistControl = {
   },
 
   updatePlayInfo() {
+    const currentMusic = state.currentMusicList[state.currentMusicIndex];
+    // 如果没有图片路径或为空字符串，生成一个随机的并保存
+    if (!currentMusic.imgPath || currentMusic.imgPath.trim() === '') {
+      currentMusic.imgPath = getRandomDefaultImage();
+    }
+    
     elements.playElements.forEach((elementGroup, index) => {
       elementGroup.forEach(element => {
         if (index <= 1) {
-          element.src = state.currentMusicList[state.currentMusicIndex].imgPath;
+          element.src = currentMusic.imgPath;
           element.alt = '...';
         } else if (index === 2) {
-          element.textContent = state.currentMusicList[state.currentMusicIndex].title;
-          element.title = state.currentMusicList[state.currentMusicIndex].title;
+          element.textContent = currentMusic.title;
+          element.title = currentMusic.title;
         } else {
-          element.textContent = state.currentMusicList[state.currentMusicIndex].author;
-          element.title = state.currentMusicList[state.currentMusicIndex].author;
+          element.textContent = currentMusic.author;
+          element.title = currentMusic.author;
         }
       });
     });
@@ -440,7 +461,7 @@ const playlistControl = {
 
     if (lyricsManager) {
       lyricsManager.clear();
-      lyricsManager.loadLyrics(state.currentMusicList[state.currentMusicIndex]);
+      lyricsManager.loadLyrics(currentMusic);
     }
   },
 

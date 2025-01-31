@@ -120,7 +120,11 @@ export class LyricsManager {
         } else if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_2) {
             lyrics = this.parseLyricsType2(musicData);
         } else if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_file) {
-            lyrics = await this.parseLyricsType3(musicData);
+            if(musicData.lyrics_path && musicData.lyrics_path.trim() !== ''){
+                lyrics = await this.parseLyricsType3(musicData);
+            }else{
+                lyrics = ""
+            }
         }
 
         if (lyrics) {

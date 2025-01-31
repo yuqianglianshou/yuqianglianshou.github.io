@@ -2,12 +2,6 @@ import { CONFIG } from './config.js';
 
 //音乐根路径
 export const FILE_MUSIC_ROOT = './music/';
-//作者未知
-const AUTHOR_DEFAULT = "未知";
-//默认图片路径
-const IMG_DEFAULT_PATH1 = "./imgs/music_3-400x400.jpg";
-const IMG_DEFAULT_PATH2 = "./imgs/music_3-400x400.jpg";
-const IMG_DEFAULT_PATH3 = "./imgs/music_3-400x400.jpg";
 
 // 空白格  dance monkey 绿光  那些年 我怀念的  生生世世爱  
 // type 分类  （轻音乐，伤感，）
@@ -179,7 +173,7 @@ const musicList2 = [
     name_path: "寂静的天空 (来自草原的寂静天籁) - 代青塔娜.mp3",
     type: TYPE_2,
     type_path: FILE_MUSIC_QINGYINYUE,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '06:05',
     des: "在那风吹的草原\n有我心上的人\n风啊 你轻轻吹\n听他忧伤的歌\n月亮啊 你照亮他\n火光啊 你温暖他\n在那遥远的天空 有我思念的云\n夜莺呀 你轻声和\n听我静静地唱\n云啊 飘向何方\n心啊 随好流浪",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
@@ -190,7 +184,7 @@ const musicList2 = [
     name_path: "送别 (口琴伴奏版) - 群星.mp3",
     type: TYPE_2,
     type_path: FILE_MUSIC_QINGYINYUE,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:54',
     des: "愿漂泊的人有酒喝，愿孤独的人会唱歌。\n往前走，别回头。",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
@@ -201,7 +195,7 @@ const musicList2 = [
     name_path: "call of silence.MP3",
     type: TYPE_2,
     type_path: FILE_MUSIC_QINGYINYUE,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:39',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -211,6 +205,18 @@ const musicList2 = [
 
 //emo  不经意间 你已经悄然离去 只留下一段回忆  很遗憾，我没能成为你的偏爱和例外
 const musicList3 = [
+  {
+    title: "堕",
+    author: "Zyboy忠宇",
+    name_path: "堕_旺仔小乔.MP3",
+    type: TYPE_3,
+    type_path: FILE_MUSIC_EMO,
+    imgPath: "",
+    time: '03:00',
+    des: "",
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: ' '
+  },
   {
     title: "무지개는 있다 (有彩虹) ",
     author: "빈센트 블루 (Vincent Blue)",
@@ -440,7 +446,7 @@ const musicList3 = [
     name_path: "假如爱有天意 (Live) - 李健.mp3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '05:13',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -451,7 +457,7 @@ const musicList3 = [
     name_path: "灰色空间 - 罗志祥.mp3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '03:57',
     des: "灰色空间我是谁",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -462,7 +468,7 @@ const musicList3 = [
     name_path: "Daughter of heaven - 段玫梅.mp3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:18',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
@@ -473,7 +479,7 @@ const musicList3 = [
     name_path: "安和桥-宋冬野.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:10',
     des: "村东头的狗都懂了遗憾的意义",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -485,7 +491,7 @@ const musicList3 = [
     name_path: "后来-刘若英.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '05:41',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -497,7 +503,7 @@ const musicList3 = [
     name_path: "我用什么把你留住-福禄寿.MP3",
     type: TYPE_3,
     type_path: FILE_MUSIC_EMO,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '05:29',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -514,7 +520,7 @@ const musicList4 = [
     name_path: "夜空中最亮的星 - 逃跑计划.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '04:12',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -525,7 +531,7 @@ const musicList4 = [
     name_path: "我的歌声里-曲婉婷.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '03:37',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -536,7 +542,7 @@ const musicList4 = [
     name_path: "我好想你-苏打绿.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '05:24',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -547,7 +553,7 @@ const musicList4 = [
     name_path: "水木年华 - 一生有你.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '04:18',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -558,7 +564,7 @@ const musicList4 = [
     name_path: "陈一发儿 - 童话镇.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '04:18',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -569,7 +575,7 @@ const musicList4 = [
     name_path: "大海 - 张雨生.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '04:40',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -580,7 +586,7 @@ const musicList4 = [
     name_path: "星星点灯 - 郑智化.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '05:00',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -591,7 +597,7 @@ const musicList4 = [
     name_path: "老鼠爱大米 - 杨臣刚.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '05:04',
     des: "今天语文老师教我们文言文中\"之\"的取独用法，以本歌经典歌词为例，翻译成了古汉语：\"吾之爱汝，如鼠之爱粟。\"简直印象不能再深刻[大哭][大哭][大哭]",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -602,7 +608,7 @@ const musicList4 = [
     name_path: "奇妙能力歌 - 陈粒.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/11.jpg",
+    imgPath: "  ",
     time: '04:13',
     des: "我听过一万首歌，看过一千部电影，读过一百本书，却从未俘获一个人的心。",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_1
@@ -679,7 +685,7 @@ const musicList4 = [
     name_path: "雨花石（电视连续剧《红红的雨花石》主题歌）.mp3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '03:49',
     des: "我是一颗小小的石头",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -690,7 +696,7 @@ const musicList4 = [
     name_path: "偏爱-张芸京.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '03:33',
     des: "如此喜欢你的偏爱",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -702,7 +708,7 @@ const musicList4 = [
     name_path: "唯一-告五人.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:31',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -714,7 +720,7 @@ const musicList4 = [
     name_path: "不浪漫罪名-王杰.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:43',
     des: "我犯下了滔天的罪名",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -726,7 +732,7 @@ const musicList4 = [
     name_path: "下雨天-南拳妈妈.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:13',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -738,7 +744,7 @@ const musicList4 = [
     name_path: "一直很安静-阿桑.MP3",
     type: TYPE_4,
     type_path: FILE_MUSIC_JINGDIAN,
-    imgPath: "./imgs/17.jpg",
+    imgPath: " ",
     time: '04:07',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
@@ -831,7 +837,7 @@ const musicList7 = [
     name_path: "光能使者-田中公平.mp3",
     type: TYPE_7,
     type_path: FILE_MUSIC_donghuapian,
-    imgPath: IMG_DEFAULT_PATH1,
+    imgPath: "",
     time: '02:52',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
@@ -842,7 +848,7 @@ const musicList7 = [
     name_path: "七龙珠.mp3",
     type: TYPE_7,
     type_path: FILE_MUSIC_donghuapian,
-    imgPath: IMG_DEFAULT_PATH1,
+    imgPath: "",
     time: '03:50',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
@@ -853,7 +859,7 @@ const musicList7 = [
     name_path: "数码宝贝.mp3",
     type: TYPE_7,
     type_path: FILE_MUSIC_donghuapian,
-    imgPath: IMG_DEFAULT_PATH1,
+    imgPath: "",
     time: '04:18',
     des: "",
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
