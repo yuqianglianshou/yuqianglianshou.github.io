@@ -105,25 +105,37 @@ export class LyricsManager {
         this.clear();
         this.isAutoScrolling = true; // 重置自动滚动标志
 
+
+        // 解析歌词
         // 处理纯音乐
-        if (musicData.lyrics === false) {
-            this.currentLyrics = ['纯音乐请欣赏。'];
+        if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue) {
+            lyrics = ['纯音乐请欣赏。'];
             this.timerArray = [0];
             this.render();
             this.scrollToActiveLine(false); // 立即滚动到初始位置
             return;
         }
+        let lyrics = null;
+        if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_1) {
+            lyrics = this.parseLyricsType1(musicData);
+        } else if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_2) {
+            lyrics = this.parseLyricsType2(musicData);
+        } else if (musicData.type_load_lyrics === CONFIG.LOAD_LYRICS_TYPE.TYPE_3) {
+            // lyrics1 = this.parseLyricsType3(musicData);
+        }
 
-        // 解析歌词
-        const lyrics = musicData.lyricstype ?
-            this.parseLyricsType2(musicData) :
-            this.parseLyricsType1(musicData);
 
         if (lyrics) {
             this.currentLyrics = lyrics.text;
             this.timerArray = lyrics.timer;
             this.render();
             this.scrollToCenter(0, false); // 立即滚动到初始位置
+        } else {
+            this.currentLyrics = ['暂无歌词提供。'];
+            this.timerArray = [0];
+            this.render();
+            this.scrollToActiveLine(false); // 立即滚动到初始位置
+            return;
         }
     }
     /**
