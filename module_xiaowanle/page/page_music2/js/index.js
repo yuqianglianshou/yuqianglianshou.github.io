@@ -108,9 +108,9 @@ let defaultImageIndex = 0; // 添加一个索引计数器
 
 // 优化获取随机默认图片的函数
 function getRandomDefaultImage() {
-    // 使用递增索引而不是随机数，确保均匀分配
-    defaultImageIndex = (defaultImageIndex + 1) % DEFAULT_IMAGES.length;
-    return DEFAULT_IMAGES[defaultImageIndex];
+  // 使用递增索引而不是随机数，确保均匀分配
+  defaultImageIndex = (defaultImageIndex + 1) % DEFAULT_IMAGES.length;
+  return DEFAULT_IMAGES[defaultImageIndex];
 }
 
 /**
@@ -415,7 +415,7 @@ const volumeControl = {
 const playlistControl = {
   initMusicList() {
     elements.contentList.innerHTML = '';
-    
+
     // 预处理所有音乐的图片路径
     state.currentMusicList.forEach(music => {
       if (!music.imgPath || music.imgPath.trim() === '') {
@@ -425,32 +425,72 @@ const playlistControl = {
 
     // 使用文档片段优化DOM操作
     const fragment = document.createDocumentFragment();
-    
+
     state.currentMusicList.forEach((music, idx) => {
       const itemDiv = document.createElement('div');
       itemDiv.className = 'contentList-item flex fs-14 fw-5';
       itemDiv.dataset.id = idx;
-      
+
+      // 使用懒加载属性
       itemDiv.innerHTML = `
         <div class="item-img">
-          <img src="${music.imgPath}" alt="">
+          <img loading="lazy" 
+               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+               data-src="${music.imgPath}" 
+               alt="">
         </div>
         <div class="item-title text-ol ">${music.title}</div>
         <div class="item-author text-ol ">${music.author}</div>
         <div class="item-album text-ol ">${music.type}</div>
         <div class="item-totalTime text-ol flex">${music.time}</div>
       `;
-      
+
       fragment.appendChild(itemDiv);
     });
 
     elements.contentList.appendChild(fragment);
+
+    // 初始化Intersection Observer
+    this.initImageObserver();
   },
+
+  // 添加Intersection Observer来处理图片懒加载
+  initImageObserver() {
+    const options = {
+      root: elements.contentList,
+      rootMargin: '50px 0px',  // 提前50px开始加载
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.src = src;
+            img.removeAttribute('data-src');
+            observer.unobserve(img);  // 加载后停止观察
+          }
+        }
+      });
+    }, options);
+
+    // 观察所有图片
+    document.querySelectorAll('.item-img img[data-src]').forEach(img => {
+      observer.observe(img);
+    });
+  },
+
+  // 添加滚动节流
+  handleScroll: throttle(() => {
+    // 滚动处理逻辑
+  }, 100),  // 100ms的节流时间
 
   updatePlayInfo() {
     const currentMusic = state.currentMusicList[state.currentMusicIndex];
     // 图片路径已经在初始化时处理过，这里直接使用
-    
+
     elements.playElements.forEach((elementGroup, index) => {
       elementGroup.forEach(element => {
         if (index <= 1) {
@@ -594,6 +634,9 @@ function initEventListeners() {
 
   // 键盘事件
   document.addEventListener('keydown', handleKeyboardEvents);
+
+  // 添加滚动事件监听
+  elements.contentList.addEventListener('scroll', playlistControl.handleScroll);
 }
 
 /**
@@ -751,3 +794,15 @@ document.addEventListener('DOMContentLoaded', init);
 
 // 导出需要的函数
 export { switchTab };
+
+// 节流函数
+function throttle(func, limit) {
+  let inThrottle;
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  }
+}
