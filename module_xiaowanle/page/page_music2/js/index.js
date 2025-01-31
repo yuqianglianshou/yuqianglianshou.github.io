@@ -622,11 +622,38 @@ function initEventListeners() {
 
   // 使用防抖处理悬浮窗显示
   const debouncedShowHover = debounce(showHoverWindow, 50);
-  // 播放列表事件
-  addEventListeners(elements.contentList, {
-    'dblclick': playlistControl.playSelectMusic.bind(playlistControl), // 修改这里，绑定正确的this
-    'mousemove': debouncedShowHover,
-    'mouseout': hideHoverWindow
+
+  // 修改列表事件监听方式
+  const contentList = document.querySelector('.wrapper-contentList');
+  if (contentList) {
+    contentList.addEventListener('mousemove', (e) => {
+      // 确保事件源是在列表项内
+      const listItem = e.target.closest('.contentList-item');
+      if (listItem) {
+        debouncedShowHover(e);
+      } else {
+        hideHoverWindow();
+      }
+    });
+
+    contentList.addEventListener('scroll', playlistControl.handleScroll);
+    contentList.addEventListener('dblclick', playlistControl.playSelectMusic.bind(playlistControl));
+  }
+
+  // 添加全局鼠标事件监听
+  document.addEventListener('mouseleave', hideHoverWindow);  // 鼠标离开文档
+  document.addEventListener('mouseout', (e) => {
+    // 检查鼠标是否真的离开了文档
+    if (!e.relatedTarget) {
+      hideHoverWindow();
+    }
+  });
+
+  // 添加全局点击事件来隐藏悬浮窗
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.contentList-item')) {
+      hideHoverWindow();
+    }
   });
 
   // 播放模式事件
@@ -634,9 +661,6 @@ function initEventListeners() {
 
   // 键盘事件
   document.addEventListener('keydown', handleKeyboardEvents);
-
-  // 添加滚动事件监听
-  elements.contentList.addEventListener('scroll', playlistControl.handleScroll);
 }
 
 /**
@@ -659,59 +683,91 @@ function handleKeyboardEvents({ key }) {
  * 悬浮窗控制
  */
 function showHoverWindow(event) {
+  const contentList = document.querySelector('.wrapper-contentList');
+  const headerHeight = 80;  // 导航栏高度
+  const footerHeight = 100; // 底部控制栏高度
+
+  // 检查鼠标是否在有效的内容区域
+  if (event.clientY <= headerHeight ||
+    event.clientY >= (window.innerHeight - footerHeight)) {
+    hideHoverWindow();
+    return;
+  }
+
   const item = event.target.closest('.contentList-item');
-  if (!item) return;
+  if (!item) {
+    hideHoverWindow();
+    return;
+  }
 
   const dataIndex = parseInt(item.getAttribute('data-id'));
   if (isNaN(dataIndex) || dataIndex < 0 || dataIndex >= state.currentMusicList.length) {
     console.error('无效的音乐索引:', dataIndex);
+    hideHoverWindow();
     return;
   }
 
   const musicData = state.currentMusicList[dataIndex];
-  if (!musicData?.des) {
-    console.log('该音乐没有描述信息');
+  // 检查是否有描述信息，如果没有就隐藏悬浮窗
+  if (!musicData?.des || musicData.des.trim() === '') {
+    hideHoverWindow();
     return;
   }
 
   const hoverWindow = document.getElementById('hoverWindow');
   const hoverContent = document.getElementById('hoverContent');
-  if (!hoverWindow || !hoverContent) return;
+  if (!hoverWindow || !hoverContent) {
+    hideHoverWindow();
+    return;
+  }
 
+  // 清空之前的内容，设置新内容
+  hoverContent.innerHTML = '';
   hoverContent.innerHTML = musicData.des.replace(/\n/g, '<br>');
 
-  const itemRect = item.getBoundingClientRect();
-  const mouseX = event.clientX;
-  const mouseY = event.clientY;
-
+  // 计算悬浮窗位置，考虑导航栏和底部控制栏
   const hoverWindowWidth = 300;
+  const hoverWindowHeight = hoverWindow.offsetHeight;
   const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
 
-  let left = mouseX;
-  let top = mouseY + 20;
+  let left = event.clientX;
+  let top = event.clientY + 20;
 
+  // 水平位置调整
   if (left + hoverWindowWidth > windowWidth) {
     left = windowWidth - hoverWindowWidth - 20;
   }
 
-  const hoverWindowHeight = hoverWindow.offsetHeight;
-  if (top + hoverWindowHeight > windowHeight) {
-    top = mouseY - hoverWindowHeight - 10;
+  // 垂直位置调整，确保不会被导航栏和底部控制栏遮挡
+  if (top + hoverWindowHeight > (window.innerHeight - footerHeight)) {
+    top = event.clientY - hoverWindowHeight - 10;
+  }
+
+  // 确保不会超出顶部导航栏
+  if (top < headerHeight) {
+    top = headerHeight + 10;
   }
 
   hoverWindow.style.left = `${Math.max(10, left)}px`;
-  hoverWindow.style.top = `${Math.max(10, top)}px`;
+  hoverWindow.style.top = `${top}px`;
 
   requestAnimationFrame(() => {
     hoverWindow.classList.add('visible');
   });
 }
 
+/**
+ * 悬浮窗隐藏函数
+ */
 function hideHoverWindow() {
   const hoverWindow = document.getElementById('hoverWindow');
+  const hoverContent = document.getElementById('hoverContent');
   if (hoverWindow) {
     hoverWindow.classList.remove('visible');
+    // 清空内容
+    if (hoverContent) {
+      hoverContent.innerHTML = '';
+    }
   }
 }
 

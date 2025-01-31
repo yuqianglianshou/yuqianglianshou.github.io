@@ -26,7 +26,7 @@ const TYPE_4 = "经典"
 const FILE_MUSIC_JINGDIAN = 'jingdian/'
 
 // musicList5
-const TYPE_5 = "气势BGNM"
+const TYPE_5 = "气势 BGM"
 const FILE_MUSIC_BGM = 'bgm/'
 
 // musicList6
