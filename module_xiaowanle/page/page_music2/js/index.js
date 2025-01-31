@@ -102,13 +102,15 @@ lyricsManager.setTimeUpdateCallback((time) => {
   }
 });
 
-// 添加默认图片数组
+// 修改默认图片数组的生成方式
 const DEFAULT_IMAGES = Array.from({ length: 53 }, (_, i) => `./imgs/${i + 1}.jpg`);
+let defaultImageIndex = 0; // 添加一个索引计数器
 
-// 获取随机默认图片的函数
+// 优化获取随机默认图片的函数
 function getRandomDefaultImage() {
-  const randomIndex = Math.floor(Math.random() * DEFAULT_IMAGES.length);
-  return DEFAULT_IMAGES[randomIndex];
+    // 使用递增索引而不是随机数，确保均匀分配
+    defaultImageIndex = (defaultImageIndex + 1) % DEFAULT_IMAGES.length;
+    return DEFAULT_IMAGES[defaultImageIndex];
 }
 
 /**
@@ -413,34 +415,41 @@ const volumeControl = {
 const playlistControl = {
   initMusicList() {
     elements.contentList.innerHTML = '';
-
-    state.currentMusicList.forEach((music, idx) => {
-      const imgSrc = (!music.imgPath || music.imgPath.trim() === '') ? getRandomDefaultImage() : music.imgPath; // 判断空字符串
-      // 保存随机生成的默认图片路径
+    
+    // 预处理所有音乐的图片路径
+    state.currentMusicList.forEach(music => {
       if (!music.imgPath || music.imgPath.trim() === '') {
-        music.imgPath = imgSrc;
+        music.imgPath = getRandomDefaultImage();
       }
-      
-      elements.contentList.innerHTML += `
-        <div class="contentList-item flex fs-14 fw-5" data-id='${idx}'>
-          <div class="item-img">
-            <img src="${imgSrc}" alt="">
-          </div>
-          <div class="item-title text-ol ">${music.title}</div>
-          <div class="item-author text-ol ">${music.author}</div>
-          <div class="item-album text-ol ">${music.type}</div>
-          <div class="item-totalTime text-ol flex">${music.time}</div>
-        </div>
-      `;
     });
+
+    // 使用文档片段优化DOM操作
+    const fragment = document.createDocumentFragment();
+    
+    state.currentMusicList.forEach((music, idx) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'contentList-item flex fs-14 fw-5';
+      itemDiv.dataset.id = idx;
+      
+      itemDiv.innerHTML = `
+        <div class="item-img">
+          <img src="${music.imgPath}" alt="">
+        </div>
+        <div class="item-title text-ol ">${music.title}</div>
+        <div class="item-author text-ol ">${music.author}</div>
+        <div class="item-album text-ol ">${music.type}</div>
+        <div class="item-totalTime text-ol flex">${music.time}</div>
+      `;
+      
+      fragment.appendChild(itemDiv);
+    });
+
+    elements.contentList.appendChild(fragment);
   },
 
   updatePlayInfo() {
     const currentMusic = state.currentMusicList[state.currentMusicIndex];
-    // 如果没有图片路径或为空字符串，生成一个随机的并保存
-    if (!currentMusic.imgPath || currentMusic.imgPath.trim() === '') {
-      currentMusic.imgPath = getRandomDefaultImage();
-    }
+    // 图片路径已经在初始化时处理过，这里直接使用
     
     elements.playElements.forEach((elementGroup, index) => {
       elementGroup.forEach(element => {
