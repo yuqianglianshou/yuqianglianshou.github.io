@@ -124,7 +124,7 @@ const musicList2 = [
     type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
   },
   {
-    title: "西风（排箫）芈月传 - 王备",
+    title: "残月（排箫）芈月传 - 王备",
     author: "王备",
     name_path: "西风（排箫）.mp3",
     type: TYPE_2,
@@ -165,7 +165,8 @@ const musicList2 = [
     imgPath: "./imgs/16.jpg",
     time: '05:07',
     des: "且听清风拂过。",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_1
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path: '醉清风.lrc'
   },
   {
     title: "寂静的天空 (来自草原的寂静天籁) - 代青塔娜",
@@ -187,7 +188,8 @@ const musicList2 = [
     imgPath: " ",
     time: '04:54',
     des: "愿漂泊的人有酒喝，愿孤独的人会唱歌。\n往前走，别回头。",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_chunyinyue
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'送别.lrc'
   },
   {
     title: "call of silence",
@@ -226,7 +228,8 @@ const musicList3 = [
     imgPath: "./imgs/有彩虹.png",
     time: '03:23',
     des: "谢谢你， 听尽了我不堪的人生， 仍选择站在我这边。",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'有彩虹.lrc'
   },
   {
     title: "ありがとう（泪的告白）",
@@ -438,7 +441,8 @@ const musicList3 = [
     imgPath: "./imgs/有没有人告诉你 - 陈楚生.jpg",
     time: '04:21',
     des: "我们之间再无交集。",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'有没有人告诉你.lrc'
   },
   {
     title: "假如爱有天意 (Live) - 李健",
@@ -449,7 +453,8 @@ const musicList3 = [
     imgPath: " ",
     time: '05:13',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'假如爱有天意.lrc'
   },
   {
     title: "灰色空间 - 罗志祥",
@@ -460,7 +465,8 @@ const musicList3 = [
     imgPath: " ",
     time: '03:57',
     des: "灰色空间我是谁",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+      lyrics_path:'灰色空间.lrc'
   },
   {
     title: "Daughter of heaven - 段玫梅",
@@ -545,7 +551,8 @@ const musicList4 = [
     imgPath: "  ",
     time: '05:24',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'我好想你.lrc'
   },
   {
     title: "水木年华 - 一生有你",
@@ -555,8 +562,9 @@ const musicList4 = [
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "  ",
     time: '04:18',
-    des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    des: "此生未曾拥有。",
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'一生有你.lrc'
   },
   {
     title: "陈一发儿 - 童话镇",
@@ -566,8 +574,9 @@ const musicList4 = [
     type_path: FILE_MUSIC_JINGDIAN,
     imgPath: "  ",
     time: '04:18',
-    des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    des: "沉浸在童话的世界里不愿醒来。",
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'童话镇.lrc'
   },
   {
     title: "大海 - 张雨生",
@@ -578,7 +587,8 @@ const musicList4 = [
     imgPath: "  ",
     time: '04:40',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'大海.lrc'
   },
   {
     title: "星星点灯 - 郑智化",
@@ -589,7 +599,8 @@ const musicList4 = [
     imgPath: "  ",
     time: '05:00',
     des: "",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'星星点灯.lrc'
   },
   {
     title: "老鼠爱大米 - 杨臣刚",
@@ -600,7 +611,8 @@ const musicList4 = [
     imgPath: "  ",
     time: '05:04',
     des: "今天语文老师教我们文言文中\"之\"的取独用法，以本歌经典歌词为例，翻译成了古汉语：\"吾之爱汝，如鼠之爱粟。\"简直印象不能再深刻[大哭][大哭][大哭]",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'老鼠爱大米.lrc'
   },
   {
     title: "奇妙能力歌 - 陈粒",
@@ -688,7 +700,8 @@ const musicList4 = [
     imgPath: " ",
     time: '03:49',
     des: "我是一颗小小的石头",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'雨花石.lrc'
   },
   {
     title: "偏爱-张芸京",
@@ -823,7 +836,8 @@ const musicList6 = [
     imgPath: "./imgs/挪威的森林 - 伍佰.jpg",
     time: '06:33',
     des: "心中是否有我未曾到过的地方啊",
-    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_2
+    type_load_lyrics: CONFIG.LOAD_LYRICS_TYPE.TYPE_file,
+    lyrics_path:'挪威的森林.lrc'
   },
 
 ]
