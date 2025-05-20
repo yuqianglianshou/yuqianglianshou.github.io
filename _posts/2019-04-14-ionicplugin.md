@@ -13,7 +13,7 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > 1，E盘新建一个文件夹，起名为 IonicDemo ，作为工作空间，以后ionic项目demo都可以放到这里。  
 > 2，打开Visual Studio Code(以下用简称 VSCode),左上角 文件——》打开文件夹，选择刚刚新建的 E:\IonicDemo。  
 > <br/>
-![](/images/posts/ionicplugin/ionic_1.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/ionic_1.webp){:height="70%" width="70%"}
 > <br/>
 > 
 > 3，控制台终端 执行    
@@ -36,14 +36,14 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > 
 > 你最初的样子  
 > <br/>
-![](/images/posts/ionicplugin/xiangmuxinjianwancheng.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/xiangmuxinjianwancheng.webp){:height="70%" width="70%"}
 > <br/>
 > 
 > 4，添加android平台  
 > 先来定义包名，默认的包名是在config.xml中的io.ionic.starter，如图（此图是已经添加了插件和android端后的截图）：  
 > 
 > <br/>
-![](/images/posts/ionicplugin/package.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/package.webp){:height="70%" width="70%"}
 > <br/>
 
 > 在生成android平台前修改为自己未来项目的包名，例如  com.gosky，
@@ -63,7 +63,7 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > E:\IonicDemo\myApp>ionic serve  
 
 > <br/>
-![](/images/posts/ionicplugin/liulanqi.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/liulanqi.webp){:height="70%" width="70%"}
 > <br/>
 > 
 > 模拟器或手机运行执行
@@ -81,7 +81,7 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > 在项目根目录下，即E:\IonicDemo\myApp\ ，多出一个MyPlugin文件。  
 > 
 > <br/>
-![](/images/posts/ionicplugin/plugin1.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/plugin1.webp){:height="70%" width="70%"}
 > <br/>
 > 
 > 2,进入到自定义的plugin目录中添加android部分。   
@@ -97,22 +97,22 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > 然后会提示填写插件信息，包括作者描述信息啥的，一路回车就ok。  
 
 > <br/>
-![](/images/posts/ionicplugin/pluginfinish.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/pluginfinish.webp){:height="70%" width="70%"}
 > <br/>
 > 至此，一个带有android端的自定义插件完成，此时这个插件和项目还没有任何关系，他只是放在了项目的根目录下，你可以剪切复制到任何地方，包括生成时，你可以进入到任何目录去生成（看好终端路径的对应关系）。  
 > 但是，默认的plugin.xml配置的CordovaPlugin实现类是有问题的，这里有问题，如图：
 
 > <br/>
-![](/images/posts/ionicplugin/packageerr0.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/packageerr0.webp){:height="70%" width="70%"}
 > <br/>
 > 
 > 当然也可以运行 但有时Corodva会报找不到插件的错误,一旦安装了这个插件后，在AndroidStudio上也会有报错提示，如图：  
 > <br/>
-![](/images/posts/ionicplugin/packageerr.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/packageerr.webp){:height="70%" width="70%"}
 > <br/>
 > 不过运行是没问题的。但是恶心啊，所以，还是改了吧，将这里的  
 > <br/>
-![](/images/posts/ionicplugin/packageerr0.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/packageerr0.webp){:height="70%" width="70%"}
 > <br/>
 > /MyPlugin 去掉就好了，插件名字为其他的，以此类推就行。
 
@@ -128,11 +128,11 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
 > 
 > 完成后根目录下的plugins文件夹下会有我们自定义的插件，如图：  
 > <br/>
-![](/images/posts/ionicplugin/pluginionicjiegou.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/pluginionicjiegou.webp){:height="70%" width="70%"}
 > <br/>  
 > 在AS中打开  
 > <br/>
-![](/images/posts/ionicplugin/as_1.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/as_1.webp){:height="70%" width="70%"}
 > <br/>  
 #### 下面试着用下
 > <br/> 
@@ -143,7 +143,7 @@ Demo地址： [https://github.com/yuqianglianshou/IonicPluginDemo](https://githu
   </button>
 ```
 > <br/>
-![](/images/posts/ionicplugin/ioniccode1.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/ioniccode1.webp){:height="70%" width="70%"}
 > <br/>
 
 > home.ts中加上声明  
@@ -179,7 +179,7 @@ onClickBtn() {
   }
 ```
 > <br/>
-![](/images/posts/ionicplugin/ioniccode2.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/ioniccode2.webp){:height="70%" width="70%"}
 > <br/>
 > 当然要用AS回答一下问题了 
 ```java
@@ -190,13 +190,13 @@ onClickBtn() {
      }
 ```
 > <br/>
-![](/images/posts/ionicplugin/as_2.jpg){:height="70%" width="70%"}
+![](/images/posts/ionicplugin/as_2.webp){:height="70%" width="70%"}
 > <br/>
 > 此时，作为一名android开发的我，终于可以在AS中写代码了，那ionic的代码，着实让我头疼，甚是头疼。
 <br/> 
 > 手机运行截图：  
 > <br/>
-![](/images/posts/ionicplugin/phone.png){:height="40%" width="40%"}
+![](/images/posts/ionicplugin/phone.webp){:height="40%" width="40%"}
 > <br/> 
 > <br/> 
 > <br/> 

@@ -11,7 +11,7 @@ tags:  技术
 
 ## 先看下生成的Excel效果：  
 <br/>
-![](/images/posts/export_excel_file/4.jpeg){:width="40%" height="40%"}  
+![](/images/posts/export_excel_file/4.webp){:width="40%" height="40%"}  
 <br/>
 
 本demo地址 [https://github.com/yuqianglianshou/ExportExcelFile](https://github.com/yuqianglianshou/ExportExcelFile)  
@@ -34,7 +34,7 @@ poi的相关内容：
 
 整体代码结构：  
 <br/>
-![](/images/posts/export_excel_file/6.png){:width="60%" height="60%"}  
+![](/images/posts/export_excel_file/6.webp){:width="60%" height="60%"}  
 <br/>
 
 
@@ -44,12 +44,12 @@ jxl.jar包的下载地址：[http://jexcelapi.sourceforge.net/](http://jexcelapi
 可以到我的项目工程中直接拷贝。
 
 <br/>
-![](/images/posts/export_excel_file/0.png){:width="40%" height="40%"}  
+![](/images/posts/export_excel_file/0.webp){:width="40%" height="40%"}  
 <br/>
 
 布局文件 activity_main.xml：  
 <br/>
-![](/images/posts/export_excel_file/7.png){:width="50%" height="50%"}  
+![](/images/posts/export_excel_file/7.webp){:width="50%" height="50%"}  
 <br/>
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -89,7 +89,7 @@ jxl.jar包的下载地址：[http://jexcelapi.sourceforge.net/](http://jexcelapi
 ```
 MainActivity.kt：  
 <br/>
-![](/images/posts/export_excel_file/8.png){:width="50%" height="50%"}  
+![](/images/posts/export_excel_file/8.webp){:width="50%" height="50%"}  
 <br/>
 
 ```java
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
 
 工具类 ExcelUtils.kt：  
 <br/>
-![](/images/posts/export_excel_file/9.png){:width="50%" height="50%"}  
+![](/images/posts/export_excel_file/9.webp){:width="50%" height="50%"}  
 <br/>
 
 ```java
@@ -260,23 +260,23 @@ object ExcelUtils {
 
 运行截图：  
 <br/>
-![](/images/posts/export_excel_file/1.jpeg){:width="40%" height="40%"}  
+![](/images/posts/export_excel_file/1.webp){:width="40%" height="40%"}  
 <br/>
 点击导出后：  
 <br/>
-![](/images/posts/export_excel_file/2.jpeg){:width="40%" height="40%"}  
+![](/images/posts/export_excel_file/2.webp){:width="40%" height="40%"}  
 <br/>
 后台log：  
 <br/>
-![](/images/posts/export_excel_file/3.png){:width="80%" height="80%"}  
+![](/images/posts/export_excel_file/3.webp){:width="80%" height="80%"}  
 <br/>
 手机文件管理器找到文件：  
 <br/>
-![](/images/posts/export_excel_file/5.jpeg){:width="40%" height="40%"}  
+![](/images/posts/export_excel_file/5.webp){:width="40%" height="40%"}  
 <br/>
 wps 打开 Excel ：  
 <br/>
-![](/images/posts/export_excel_file/4.jpeg){:width="40%" height="40%"}  
+![](/images/posts/export_excel_file/4.webp){:width="40%" height="40%"}  
 <br/>
 
 
@@ -495,7 +495,7 @@ class FileUtils {
 新的代码结构图：   
 
 <br/>
-![](/images/posts/export_excel_file/10.png){:width="80%" height="80%"}  
+![](/images/posts/export_excel_file/10.webp){:width="80%" height="80%"}  
 <br/>
 
 问题：  

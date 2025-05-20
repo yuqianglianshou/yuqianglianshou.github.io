@@ -12,7 +12,7 @@ Android studio 全局搜索中文报错
 Android studio 输入中文变成方框   
 Android studio 中文编码问题  
 <br/>
-![](/images/posts/android_zhongwencuowu/1.png){:width="80%" height="80%"}  
+![](/images/posts/android_zhongwencuowu/1.webp){:width="80%" height="80%"}  
 <br/>
 Google了很多这个问题，试了N多种网上的解决方案，没成，最后去设置里找文本相关的属性，一个个挨着试的，最后解决！  
 
@@ -21,15 +21,15 @@ Google了很多这个问题，试了N多种网上的解决方案，没成，最�
 如下图所示：  
 
 <br/>
-![](/images/posts/android_zhongwencuowu/2.png){:width="80%" height="80%"}  
+![](/images/posts/android_zhongwencuowu/2.webp){:width="80%" height="80%"}  
 <br/>
 
-![](/images/posts/android_zhongwencuowu/3.png){:width="80%" height="80%"}  
+![](/images/posts/android_zhongwencuowu/3.webp){:width="80%" height="80%"}  
 <br/>
 
 此时，输入中文就可以看到了。  
 <br/>
-![](/images/posts/android_zhongwencuowu/4.png){:width="80%" height="80%"}  
+![](/images/posts/android_zhongwencuowu/4.webp){:width="80%" height="80%"}  
 <br/>
 <br/> 
 <br/> 

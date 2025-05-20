@@ -11,11 +11,11 @@ tags:  技术
 效果 由于放GIF图比较卡，这里放几张静态图，也是一目了然。
 
 
-![](/images/posts/android_excellist/1.jpeg){:width="30%" height="30%"}  
+![](/images/posts/android_excellist/1.webp){:width="30%" height="30%"}  
 <br/>
-![](/images/posts/android_excellist/2.jpeg){:width="30%" height="30%"} 
+![](/images/posts/android_excellist/2.webp){:width="30%" height="30%"} 
 <br/>
-![](/images/posts/android_excellist/3.jpeg){:width="30%" height="30%"} 
+![](/images/posts/android_excellist/3.webp){:width="30%" height="30%"} 
 
 <br/>
 ## 一个类Excel表格似的数据展示如何实现？  

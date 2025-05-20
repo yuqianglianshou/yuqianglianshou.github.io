@@ -35,11 +35,11 @@ nvcc -V
 ```
 
 <br/>
-![](/images/posts/20240221/6.jpg){:width="90%"}  
+![](/images/posts/20240221/6.webp){:width="90%"}  
 
 
 
-需要 安装 visual studio 2022，组件里装“使用 c++的桌面开发”。否则依赖包 fairseq 会安装失败。 
+需要 安装 visual studio 2022，组件里装"使用 c++的桌面开发"。否则依赖包 fairseq 会安装失败。 
 
 需要环境管理系统 conda，请安装。  
 
@@ -78,7 +78,7 @@ tensorflow
 安装Pytorch， 版本要与CUDA对应，Pytorch 官网[https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)  
 
 <br/>
-![](/images/posts/20240221/7.jpg){:width="90%"}  
+![](/images/posts/20240221/7.webp){:width="90%"}  
 
 ```
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
@@ -98,16 +98,16 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 ```
 
 <br/>
-![](/images/posts/20240221/8.jpg){:width="90%"}  
+![](/images/posts/20240221/8.webp){:width="90%"}  
 
 ## 音频数据集准备
 1. 音频格式为wav，通过 Adobe Audition 的持续时间排序功能，删除时长 比较短的和比较长的，（回到原文件夹再次删除所有音频，由于Adobe Audition程序占用着没有删除的音频，从而无法删除占用音频，但是能够删除在Adobe Audition 中删除的音频，以此达到我们的过滤删除目的）每条时长在5s～15s之间最佳，过长容易爆内存，保留150条数据以上，然后拖拽所有文件到下方，选中所有，匹配响度。关闭Adobe Audition，保存所有。 （注：可以通过windows资源管理器直接删除不符合要求的音频，选择 排序-》分组依据-》大小，即可对音频重新排序，比AU简单方便。）
 <br/>
-![](/images/posts/20240221/1.jpg){:width="90%"}  
+![](/images/posts/20240221/1.webp){:width="90%"}  
 
 2. 回到原文件夹，删除因为匹配响度而产生的所有.pkf文件.  
 <br/>
-![](/images/posts/20240221/11.jpg){:width="90%"}  
+![](/images/posts/20240221/11.webp){:width="90%"}  
 
 3. 将数据集放入项目中的 dataset_raw 目录，数据集以人名命名即可，不可为中文,原则上可同时训练多个人的声音模型，我同时训练了3个，出现了节奏不对的问题，不知道是否是因为同时训练产生的。建议单独训练，且训练1个和多个的时间是累加关系，所以同时训练多个并不会节省时间。
       ```
@@ -131,7 +131,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
     }
    ```
 <br/>
-![](/images/posts/20240221/2.jpg){:width="90%"}    
+![](/images/posts/20240221/2.webp){:width="90%"}    
 <br/>  
 
 
@@ -158,7 +158,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
     ```
     执行成功后，.\dataset\44k 目录下将生成音频文件，如下图  
     <br/>
-    ![](/images/posts/20240221/3.jpg){:width="90%"}  
+    ![](/images/posts/20240221/3.webp){:width="90%"}  
 
 
 2. 自动划分训练集、验证集，以及自动生成配置文件，增加--vol_aug 参数使用响度嵌入。
@@ -173,7 +173,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
     如下图  
     <br/>
-    ![](/images/posts/20240221/4.jpg){:width="90%"}  
+    ![](/images/posts/20240221/4.webp){:width="90%"}  
 
 3. 生成 hubert 与 f0。尚若需要浅扩散功能（可选），需要增加--use_diff 参数.执行需要一定时间。
    
@@ -182,7 +182,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
     ```
     执行成功后，每个音频文件都生成了5个相关的文件，如下图  
     <br/>
-    ![](/images/posts/20240221/5.jpg){:width="90%"}  
+    ![](/images/posts/20240221/5.webp){:width="90%"}  
 
 4. 主模型训练，需要epoch 5000+，追求效果建议epoch > 9000,训练时间与训练集大小和显卡性能相关，3小时数据集 + 4070Ti 12G显卡+ epoch=10000，大约需要120小时。训练过程中 可ctrl+c中断，继续训练再次执行训练命令即可。
    
@@ -211,7 +211,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
    命令行返回一个本地地址，浏览器打开地址，需要等待训练200步之后才会出现表格。此时命令行窗口不能关闭。 
    如何判断训练的差不多了？找到 loss 标签下的 loss/g/lf0，当图像趋于稳定的直线时，则说明训练的差不多了，此时去推理听一听结果在做判断。下图是训练十万步的结果。 
     <br/>
-    ![](/images/posts/20240221/c.jpg){:width="90%"}  
+    ![](/images/posts/20240221/c.webp){:width="90%"}  
      
 由于命令行开启 tensorboard 会占用命令行窗口，写一个 .bat 执行文件，专门用于打开tensorboard，命名为 启动tensorboard.bat 即可，放在项目根目录下，双击点开即可
   
@@ -229,7 +229,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 ```
 
    <br/>
-    ![](/images/posts/20240221/e.jpg){:width="90%"} 
+    ![](/images/posts/20240221/e.webp){:width="90%"} 
 
 ## 目标音频处理 uvr5工具
 
@@ -259,7 +259,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
      ```  
 
    <br/>
-    ![](/images/posts/20240221/d.jpg){:width="90%"} 
+    ![](/images/posts/20240221/d.webp){:width="90%"} 
 
 2. 模型选择 .\logs\44k\G_步数.pth 文件，配置文件选择 .\configs\config.json  
    下面的音频选择 选择处理好的干声。  

@@ -18,7 +18,7 @@ cmd打开命令行，查看当前显卡支持版本
 如下图，我的显卡是4070Ti，当前最高可支持12.4版本，我们需要安装11.8版本，所以>=11.8即可。
 ```
 <br/>
-![](/images/posts/20240507/1.png){:width="60%"}  
+![](/images/posts/20240507/1.webp){:width="60%"}  
 <br/>
 
 ```
@@ -28,19 +28,19 @@ cmd打开命令行，查看当前显卡支持版本
 ```
 
 <br/>
-![](/images/posts/20240507/4.png){:width="80%"}  
+![](/images/posts/20240507/4.webp){:width="80%"}  
 <br/>
 
 CUDA Toolkit 下载地址：[https://developer.nvidia.com/cuda-toolkit-archive](https://developer.nvidia.com/cuda-toolkit-archive)
 
 <br/>
-![](/images/posts/20240507/2.png){:width="60%"}  
+![](/images/posts/20240507/2.webp){:width="60%"}  
 <br/>
 
 点击版本11.8，选择符合当前系统的版本下载安装即可，比如我的是 windows 11。
 
 <br/>
-![](/images/posts/20240507/3.png){:width="80%"}  
+![](/images/posts/20240507/3.webp){:width="80%"}  
 <br/>
 
 ```
@@ -57,19 +57,19 @@ Download cuDNN v8.9.5 (October 27th, 2023), for CUDA 11.x
 cuDNN 下载地址：[https://developer.nvidia.com/rdp/cudnn-archive](https://developer.nvidia.com/rdp/cudnn-archive)
 
 <br/>
-![](/images/posts/20240507/5.png){:width="60%"}  
+![](/images/posts/20240507/5.webp){:width="60%"}  
 <br/>
 
 解压后的文件  
 <br/>
-![](/images/posts/20240507/6.png){:width="60%"}  
+![](/images/posts/20240507/6.webp){:width="60%"}  
 <br/>
 
 复制这3个文件夹到 CUDA Toolkit 的安装目录中即可，
 比如我的安装目录是 D:\NVIDIA\v11.8，可以发现CUDA Toolkit安装目录中也有这三个文件夹，复制过来，相同文件夹中的文件会合并。这种安装方式称之为 插入式安装。 
 
 <br/>
-![](/images/posts/20240507/7.png){:width="60%"}  
+![](/images/posts/20240507/7.webp){:width="60%"}  
 <br/>
 
 
@@ -106,7 +106,7 @@ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 
 ```
 <br/>
-![](/images/posts/20240507/8.png){:width="60%"}  
+![](/images/posts/20240507/8.webp){:width="60%"}  
 <br/>
 
 ```
@@ -131,7 +131,7 @@ set COMMANDLINE_ARGS=
 双击  webui-user.bat 执行脚本。脚本执行时会在项目根路径下创建venv的环境，安装大量依赖包和sd的基础模型，下载量很大，需要十几分钟+。执行成功浏览器窗口自动打开，如下图：
 ```
 <br/>
-![](/images/posts/20240507/9.png){:width="100%"}  
+![](/images/posts/20240507/9.webp){:width="100%"}  
 <br/>
 
 
