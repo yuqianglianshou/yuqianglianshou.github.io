@@ -1,0 +1,328 @@
+// Buttons
+.btn {
+  @include button-base;
+
+  &-primary {
+    @include button-variant($primary-color, white);
+  }
+
+  &-secondary {
+    @include button-variant($secondary-color, white);
+  }
+
+  &-success {
+    @include button-variant($success-color, white);
+  }
+
+  &-danger {
+    @include button-variant($danger-color, white);
+  }
+
+  &-warning {
+    @include button-variant($warning-color, $dark-color);
+  }
+
+  &-info {
+    @include button-variant($info-color, white);
+  }
+
+  &-light {
+    @include button-variant($light-color, $dark-color);
+  }
+
+  &-dark {
+    @include button-variant($dark-color, white);
+  }
+
+  &-outline-primary {
+    background-color: transparent;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+
+  &-outline-secondary {
+    background-color: transparent;
+    border: 1px solid $secondary-color;
+    color: $secondary-color;
+
+    &:hover {
+      background-color: $secondary-color;
+      color: white;
+    }
+  }
+}
+
+// Cards
+.card {
+  @include card-base;
+
+  &-header {
+    padding: $spacing-md;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &-body {
+    padding: $spacing-md;
+  }
+
+  &-footer {
+    padding: $spacing-md;
+    border-top: 1px solid $border-color;
+  }
+}
+
+// Alerts
+.alert {
+  padding: $spacing-md;
+  border-radius: $border-radius;
+  margin-bottom: $spacing-md;
+
+  &-primary {
+    background-color: lighten($primary-color, 35%);
+    border: 1px solid lighten($primary-color, 30%);
+    color: darken($primary-color, 10%);
+  }
+
+  &-secondary {
+    background-color: lighten($secondary-color, 35%);
+    border: 1px solid lighten($secondary-color, 30%);
+    color: darken($secondary-color, 10%);
+  }
+
+  &-success {
+    background-color: lighten($success-color, 35%);
+    border: 1px solid lighten($success-color, 30%);
+    color: darken($success-color, 10%);
+  }
+
+  &-danger {
+    background-color: lighten($danger-color, 35%);
+    border: 1px solid lighten($danger-color, 30%);
+    color: darken($danger-color, 10%);
+  }
+
+  &-warning {
+    background-color: lighten($warning-color, 35%);
+    border: 1px solid lighten($warning-color, 30%);
+    color: darken($warning-color, 10%);
+  }
+
+  &-info {
+    background-color: lighten($info-color, 35%);
+    border: 1px solid lighten($info-color, 30%);
+    color: darken($info-color, 10%);
+  }
+}
+
+// Badges
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $border-radius;
+
+  &-primary {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  &-secondary {
+    background-color: $secondary-color;
+    color: white;
+  }
+
+  &-success {
+    background-color: $success-color;
+    color: white;
+  }
+
+  &-danger {
+    background-color: $danger-color;
+    color: white;
+  }
+
+  &-warning {
+    background-color: $warning-color;
+    color: $dark-color;
+  }
+
+  &-info {
+    background-color: $info-color;
+    color: white;
+  }
+}
+
+// Forms
+.form-group {
+  margin-bottom: $spacing-md;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: $spacing-xs;
+  font-weight: 500;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  transition: $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+
+  &:disabled {
+    background-color: $light-color;
+    cursor: not-allowed;
+  }
+}
+
+// Tables
+.table {
+  width: 100%;
+  margin-bottom: $spacing-md;
+  color: $dark-color;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: $spacing-sm;
+    border-bottom: 1px solid $border-color;
+  }
+
+  th {
+    font-weight: 600;
+    text-align: left;
+  }
+
+  tbody tr:hover {
+    background-color: rgba($primary-color, 0.05);
+  }
+}
+
+// Lists
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: $spacing-sm $spacing-md;
+  background-color: white;
+  border: 1px solid $border-color;
+
+  &:first-child {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  &:hover {
+    background-color: $light-color;
+  }
+}
+
+// Navigation
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  &-link {
+    display: block;
+    padding: $spacing-sm $spacing-md;
+    color: $dark-color;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &.active {
+      color: $primary-color;
+      font-weight: 500;
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: $border-radius;
+
+  .page-item {
+    &:first-child .page-link {
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+    }
+
+    &:last-child .page-link {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+
+    &.active .page-link {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: white;
+    }
+
+    &.disabled .page-link {
+      color: $secondary-color;
+      pointer-events: none;
+      background-color: white;
+      border-color: $border-color;
+    }
+  }
+
+  .page-link {
+    position: relative;
+    display: block;
+    padding: $spacing-sm $spacing-md;
+    margin-left: -1px;
+    line-height: $line-height-base;
+    color: $primary-color;
+    background-color: white;
+    border: 1px solid $border-color;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+      background-color: $light-color;
+      border-color: $border-color;
+    }
+  }
+} 
