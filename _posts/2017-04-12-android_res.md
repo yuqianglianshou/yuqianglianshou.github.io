@@ -8,7 +8,7 @@ tags: 技术
 
 ***mipmap***
 <br/>
-在使用Android Studio（应该是从1.1版本开始）创建Android应用项目时，常常会看到系统把ic_launcher.png图标放在了mipmap-xxhdpi目录下了。那么这个mipmap是什么意思呢？和drawable的对应dpi目录有什么区别呢？  
+在使用Android Studio（应该是从1.1版本开始）创建Android应用项目时，常常会看到系统把ic_launcher.webp图标放在了mipmap-xxhdpi目录下了。那么这个mipmap是什么意思呢？和drawable的对应dpi目录有什么区别呢？  
 
 我们知道，drawable文件夹是存放一些xml(如selector)和图片，Android会根据设备的屏幕密度(density)自动去对应的drawable文件夹匹配资源文件。  
 

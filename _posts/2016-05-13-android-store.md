@@ -9,7 +9,7 @@ tags:  技术
 #### Android 平台的存储目录
 
 <br/>
-![](/images/posts/android_store/store.png)
+![](/images/posts/android_store/store.webp)
 <br/>
 #### 内部存储  
 data文件夹就是我们常说的内部存储，对于没有root的手机来说，我们是没有权限打开这个文件夹的但是可以访问到。

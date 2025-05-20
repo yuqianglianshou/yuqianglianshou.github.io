@@ -17,13 +17,13 @@ tags:  技术
 检测到更新后
 <br/>
 <br/>
-![](/images/posts/android_appupdate/1.jpeg){:width="40%" height="40%"}  
+![](/images/posts/android_appupdate/1.webp){:width="40%" height="40%"}  
 <br/>
 <br/>
 <br/>
 安装了B之后A的日志
 <br/>
-![](/images/posts/android_appupdate/2.png)
+![](/images/posts/android_appupdate/2.webp)
 <br/> 
 <br/> 
 

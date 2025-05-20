@@ -17,11 +17,11 @@ Google官方是否考虑出一组hint字体相关的属性呢？比如 hintSize,
 
 <br/>
 图1:输入文本，字体大小18sp。
-![](/images/posts/android_hint_size/2.jpeg){:width="80%" height="80%"}  
+![](/images/posts/android_hint_size/2.webp){:width="80%" height="80%"}  
 <br/>
 图2:hint文本，设置前半部分字体大小为10sp。
 <br/>
-![](/images/posts/android_hint_size/1.jpeg){:width="80%" height="80%"}  
+![](/images/posts/android_hint_size/1.webp){:width="80%" height="80%"}  
 <br/>
 Kotlin 代码如下：  
 <br/>

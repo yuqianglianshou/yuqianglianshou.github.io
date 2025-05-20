@@ -9,11 +9,11 @@ tags:  技术
 先看一下效果图： 
 <br/> 
 <br/> 
-![](/images/posts/record_video/recordvideo2.jpeg){:height="40%" width="40%"}   
+![](/images/posts/record_video/recordvideo2.webp){:height="40%" width="40%"}   
 <br/> 
-![](/images/posts/record_video/recordvideo1.jpeg){:height="40%" width="40%"}   
+![](/images/posts/record_video/recordvideo1.webp){:height="40%" width="40%"}   
 <br/> 
-![](/images/posts/record_video/recordvideo3.jpeg){:height="40%" width="40%"}   
+![](/images/posts/record_video/recordvideo3.webp){:height="40%" width="40%"}   
 <br/> 
 <br/> 
 

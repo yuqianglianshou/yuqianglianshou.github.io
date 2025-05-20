@@ -18,34 +18,34 @@ tags:  技术
 2. 准备一张图片,大小为 889*1080 311.83kB,分别放入如下5个drawable目录，取名与之对应，如下图所示  
 <br/>
 <br/>
-![](/images/posts/drawable_lacation/drawable1.png)
+![](/images/posts/drawable_lacation/drawable1.webp)
 <br/>
 3. 在布局文件中以背景使用此图片，第一次使用drawable目录下的图，如下图   
 <br/>
 <br/>
-![](/images/posts/drawable_lacation/drawable2.png)  
+![](/images/posts/drawable_lacation/drawable2.webp)  
 <br/>
 4. 运行程序，打开Profiler,看下内存使用情况，如下图：   
 <br/>
 <br/>
-![](/images/posts/drawable_lacation/drawable3.png)  
+![](/images/posts/drawable_lacation/drawable3.webp)  
 <br/>
 5. 更改布局背景使用的图片，这次使用drawable_hdpi,再次运行观看内存使用情况  
 <br/>
 <br/>
-![](/images/posts/drawable_lacation/drawableh.png)  
+![](/images/posts/drawable_lacation/drawableh.webp)  
 <br/>
 6. drawable_xhdpi  
 <br/>
-![](/images/posts/drawable_lacation/drawablexh.png)  
+![](/images/posts/drawable_lacation/drawablexh.webp)  
 <br/>
 7. drawable_xxhdpi  
 <br/>
-![](/images/posts/drawable_lacation/drawablexxh.png)  
+![](/images/posts/drawable_lacation/drawablexxh.webp)  
 <br/>
 8. drawable_xxxhdpi  
 <br/>
-![](/images/posts/drawable_lacation/drawablexxxh.png)  
+![](/images/posts/drawable_lacation/drawablexxxh.webp)  
 <br/>
 
 ***整理数据如下：***

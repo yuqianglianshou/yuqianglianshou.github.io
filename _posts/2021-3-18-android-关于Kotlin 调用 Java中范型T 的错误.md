@@ -10,7 +10,7 @@ Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  
 如下图所示：
 
 <br/>
-![](/images/posts/android_T/1.png){:width="80%" height="80%"}  
+![](/images/posts/android_T/1.webp){:width="80%" height="80%"}  
 <br/>
 
 使用java代码写的调用使用范型T的adapter，如下，这是正常的  
@@ -66,7 +66,7 @@ val adapter: FlowAdapter<String> = object : FlowAdapter<String>(list) {
 把 * 号 和 Any? 改为你的数据对象类型，我这里直接用的String，使用 autoflowlayout1 时强转一下就可以了。
 
 <br/>
-![](/images/posts/android_T/2.png){:width="80%" height="80%"}  
+![](/images/posts/android_T/2.webp){:width="80%" height="80%"}  
 <br/>
 
 
