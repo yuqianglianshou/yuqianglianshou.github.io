@@ -1,1 +1,91 @@
- 
+// 文本工具类
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+// 边距工具类
+.m-0 {
+  margin: 0;
+}
+
+.m-1 {
+  margin: $spacing-xs;
+}
+
+.m-2 {
+  margin: $spacing-sm;
+}
+
+.m-3 {
+  margin: $spacing-md;
+}
+
+.m-4 {
+  margin: $spacing-lg;
+}
+
+// 内边距工具类
+.p-0 {
+  padding: 0;
+}
+
+.p-1 {
+  padding: $spacing-xs;
+}
+
+.p-2 {
+  padding: $spacing-sm;
+}
+
+.p-3 {
+  padding: $spacing-md;
+}
+
+.p-4 {
+  padding: $spacing-lg;
+}
+
+// 显示工具类
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+// 浮动工具类
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+} 

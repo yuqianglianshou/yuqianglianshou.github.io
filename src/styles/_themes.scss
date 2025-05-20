@@ -1,0 +1,20 @@
+$border-radius: 3px;
+
+// 过渡变量
+$transition-base: all 0.3s ease-in-out;
+
+:root,
+[data-theme='light'] {
+  --primary-color: #00688B;
+  --background-color: #f0f0f0;
+  // 其他变量
+}
+[data-theme='dark'] {
+  --primary-color: #27408B;
+  --background-color: #222;
+  // 其他变量
+}
+body {
+  background-color: var(--background-color);
+  color: var(--text-color, #333);
+} 

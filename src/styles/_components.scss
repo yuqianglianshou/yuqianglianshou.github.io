@@ -1,4 +1,4 @@
-// Buttons
+// 按钮组件
 .btn {
   @include button-base;
 
@@ -57,7 +57,7 @@
   }
 }
 
-// Cards
+// 卡片组件
 .card {
   @include card-base;
 
@@ -76,7 +76,7 @@
   }
 }
 
-// Alerts
+// 警告框组件
 .alert {
   padding: $spacing-md;
   border-radius: $border-radius;
@@ -119,7 +119,7 @@
   }
 }
 
-// Badges
+// 徽章组件
 .badge {
   display: inline-block;
   padding: 0.25em 0.6em;
@@ -162,7 +162,7 @@
   }
 }
 
-// Forms
+// 表单组件
 .form-group {
   margin-bottom: $spacing-md;
 }
@@ -197,7 +197,7 @@
   }
 }
 
-// Tables
+// 表格组件
 .table {
   width: 100%;
   margin-bottom: $spacing-md;
@@ -220,7 +220,7 @@
   }
 }
 
-// Lists
+// 列表组件
 .list-group {
   display: flex;
   flex-direction: column;
@@ -250,7 +250,7 @@
   }
 }
 
-// Navigation
+// 导航组件
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -276,7 +276,7 @@
   }
 }
 
-// Pagination
+// 分页组件
 .pagination {
   display: flex;
   padding-left: 0;
