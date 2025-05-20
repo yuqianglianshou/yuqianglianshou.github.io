@@ -1,0 +1,27 @@
+{
+  "name": "yuqianglianshou.github.io",
+  "version": "1.0.0",
+  "description": "一个天才的个人网站   <br/> 此情可待成追忆，只是当时已惘然。   此情已成追忆，追忆亦是枉然。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuqianglianshou/yuqianglianshou.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuqianglianshou/yuqianglianshou.github.io/issues"
+  },
+  "homepage": "https://github.com/yuqianglianshou/yuqianglianshou.github.io#readme",
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "prettier": "^3.5.3",
+    "sass": "^1.89.0"
+  }
+}
