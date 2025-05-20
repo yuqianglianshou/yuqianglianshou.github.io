@@ -1,1 +1,52 @@
- 
+// 引入变量文件
+@import 'variables';
+
+// 引入混入文件
+@import 'mixins';
+
+// 引入工具类文件
+@import 'utilities';
+
+// 引入动画文件
+@import 'animations';
+
+// 引入组件样式文件
+@import 'components';
+
+// 引入主题文件
+@import 'themes';
+
+// 全局样式
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// 响应式设计
+@include responsive(sm) {
+  .container {
+    padding: 0 $spacing-md * 2;
+  }
+}
+
+@include responsive(md) {
+  .nav-menu {
+    gap: $spacing-md * 2;
+  }
+}
+
+@include responsive(lg) {
+  .main-content {
+    padding: $spacing-md * 3 0;
+  }
+} 
