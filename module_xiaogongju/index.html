@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 移动端适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/png" href="/images/icon/icon_tools.png" />
+    <title>小工具</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: linear-gradient(to right, #f7f8fc, #eef1f5);
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 20px;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .tool-card h2 {
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            color: #007acc;
+        }
+
+        .tool-card p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .tool-card a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #007acc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tool-card a:hover {
+            background-color: #005fa3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 60px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>实用小工具导航</h1>
+        <p>快速访问你常用的在线工具</p>
+    </header>
+
+    <div class="tools-grid">
+        <!-- 工具1 -->
+        <div class="tool-card">
+            <h2>图片压缩</h2>
+            <p>快速压缩图片大小，保持清晰度。</p>
+            <a href="https://yuqianglianshou.github.io/mazanoke_ice/" target="_blank">立即使用</a>
+        </div>
+
+        <!-- 可继续添加更多工具 -->
+        <!--
+    <div class="tool-card">
+      <h2>PDF 合并</h2>
+      <p>将多个 PDF 文件合并为一个。</p>
+      <a href="#">立即使用</a>
+    </div>
+    -->
+    </div>
+
+    <footer>
+        &copy; 2025 小工具集 | 构建自 GitHub Pages
+    </footer>
+
+</body>
+
+</html>
