@@ -1,3 +1,13 @@
 {
-    "svn.ignoreMissingSvnWarning": true
+  "svn.ignoreMissingSvnWarning": true,
+  "prettier.insertPragma": false,
+  "prettier.requireConfig": true,
+  "prettier.requirePragma": false,
+  "prettier.singleAttributePerLine": true,
+  "prettier.withNodeModules": true,
+
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  }
 }
