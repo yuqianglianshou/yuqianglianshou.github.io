@@ -1,0 +1,75 @@
+---
+layout: post
+title: 自适应宽度的流式标签布局
+date: 2025-09-13
+tags: 技术
+---
+
+### 一个个大佬走下神坛。
+
+<br/>
+<br/>
+
+## autosize-flowlayout
+
+**一个自适应宽度的流式标签布局（FlowLayout）库**  
+— 每行剩余空间自动平分给各标签，获得更整齐、均匀分布的标签排列效果。
+
+项目地址： [https://github.com/yuqianglianshou/autosize-flowlayout](https://github.com/yuqianglianshou/autosize-flowlayout)
+
+---
+
+## 特性
+
+- ✅ 自动平分剩余宽度：每行最后余下的空白宽度，会尽量平均分配给行内的标签
+- ✅ 支持任意类型标签（`String`、自定义数据类型等）
+- ✅ 支持单选 / 多选标签状态
+- ✅ 轻量、易集成、依赖少
+- 🛠 开源 MIT 许可证
+
+---
+
+## 效果预览：
+
+<div style="display: flex; gap: 10px;">
+  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/1.jpg" alt="示例1" width="24%"/>
+  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/2.jpg" alt="示例2" width="24%"/>
+  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/3.jpg" alt="示例3" width="24%"/>
+  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/4.jpg" alt="示例4" width="24%"/>
+</div>
+
+---
+
+## 核心代码：
+
+<img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/5.png" width="80%"/>
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/6.png" width="80%"/>
+
+---
+
+## 设计思路与实现原理（简要）
+
+测量阶段：先按标签的内容测量其理想宽度
+
+行划分：确定每行可包含的标签数（累加宽度 + 间距 <= 父宽度）
+
+宽度分配：对每行剩余空间，按标签数量平均分配给每个标签（若达到最大宽度限制则额外调整）
+
+布局阶段：将每个标签按照最终宽度、间距计算布局位置
+
+选中机制：内部维护选中状态（单选 / 多选），UI 刷新及回调处理
+
+这种方式兼顾标签内容展示和视觉均衡感。
+
+---
+
+## 使用注意 / 限制
+
+若标签数量很多、动态增删、频繁数据刷新，需要优化测量 / 布局性能
+
+在 RecyclerView / 滚动容器中使用时，要注意重用、测量缓存等问题
+
+当一行只有一个标签时，其宽度可能直接使用内容宽度加上均分机制的空白部分，这有可能导致标签显得过宽或过窄
