@@ -75,6 +75,12 @@
 
       </div>
     </div>
+    <!-- 滚动提示 -->
+    {% unless page.layout == 'post' or page.layout == 'page' %}
+    <div class="scroll-indicator">
+      <span>查看博客</span>
+    </div>
+    {% endunless %}
   </div>
 
   {% if site.cover_color %}
