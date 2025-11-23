@@ -6,3 +6,7 @@
 _site/
 
 .DS_Store
+
+# Node.js 相关
+node_modules/
+package-lock.json

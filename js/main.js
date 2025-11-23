@@ -11,7 +11,7 @@ $(document).ready(function () {
       $('.panel-cover').addClass('panel-cover--collapsed');
     } else {
       $('.panel-cover').css('max-width', currentWidth);
-      $('.panel-cover').animate({ 'max-width': '320px', 'width': '22%' }, 400, swing = 'swing', function () { });
+      $('.panel-cover').animate({ 'max-width': '320px', 'width': '22%' }, 400, 'swing', function () { });
     }
 
 
@@ -26,8 +26,8 @@ $(document).ready(function () {
     $('.panel-cover').addClass('panel-cover--collapsed');
   }
 
+  // 移动端菜单按钮点击事件
   $('.btn-mobile-menu__icon').click(function () {
-    // 导航按钮被点击
-    // this.style.backgroundColor = '#fff'; 设置颜色后会自动消失
+    // 菜单功能已在CSS中实现
   });
 });
