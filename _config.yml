@@ -9,7 +9,7 @@ avatarDesc: 那双眼动人
 
 # welcome_message: 总会有地上的生灵，敢于直面雷霆的威光。
 
-url: ""
+url: "https://yuqianglianshou.com"
 
 # Social
 social:
@@ -61,8 +61,8 @@ nav:
       }
 
 # Pagination
-gems: [jekyll-sitemap]
 paginate: 20
 paginate_path: "page/:num/"
 plugins:
     - jekyll-paginate
+    - jekyll-sitemap

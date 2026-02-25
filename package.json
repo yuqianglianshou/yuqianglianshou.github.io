@@ -4,7 +4,9 @@
   "description": "一个天才的个人网站   <br/> 此情可待成追忆，只是当时已惘然。   此情已成追忆，追忆亦是枉然。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "styles:build": "sass src/styles/main.scss css/main.css --style=expanded --no-source-map",
+    "styles:watch": "sass --watch src/styles/main.scss:css/main.css --style=expanded --no-source-map",
+    "test": "echo \"No automated tests configured\""
   },
   "repository": {
     "type": "git",
