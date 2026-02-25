@@ -7,7 +7,7 @@
           {% if site.social.github %}
           <!-- Github -->
           <li class="navigation__item_social">
-            <a href="https://github.com/{{site.social.github}}" title="{{site.social.github}} 的 Github" target="_blank">
+            <a href="https://github.com/{{site.social.github}}" title="{{site.social.github}} 的 Github" target="_blank" rel="noopener noreferrer">
               <i class='social fa fa-github fa-2x'></i>
               <span class="label">Github</span>
             </a>
@@ -16,7 +16,7 @@
 
           <!-- RSS -->
           <li class="navigation__item_social">
-            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+            <a href="/feed.xml" rel="author noopener noreferrer" title="RSS" target="_blank">
               <i class='social fa fa-rss fa-2x'></i>
               <span class="label">RSS</span>
             </a>
@@ -40,7 +40,7 @@
           <!-- 冥想空间 在_config.yml 文件中屏蔽-->
           {% if site.social.sky %}
           <li class="navigation__item_social">
-            <a href="/game/night_sky/" target="_blank" title="{{site.social.sky}}">
+            <a href="/game/night_sky/" target="_blank" rel="noopener noreferrer" title="{{site.social.sky}}">
               <i class='fa fa-play-circle fa-2x'></i>
               <span class="label">Sky</span>
             </a>
@@ -56,7 +56,7 @@
     <div class="footer_div">
       <p class="copyright text-muted">
         Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }} Theme by
-        <a href="http://yuqianglianshou.com/">yuqianglianshou</a>
+        <a href="https://yuqianglianshou.com/">yuqianglianshou</a>
 
       </p>
       <div align="right">

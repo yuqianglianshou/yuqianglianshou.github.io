@@ -1,12 +1,12 @@
 $(document).ready(function () {
-
+  'use strict';
 
   $('a.blog-button').click(function () {
     // If already in blog, return early without animate overlay panel again.
-    if (location.hash && location.hash == "#blog") return;
+    if (location.hash && location.hash === "#blog") return;
     if ($('.panel-cover').hasClass('panel-cover--collapsed')) return;
     $('.main-post-list').removeClass('hidden');
-    currentWidth = $('.panel-cover').width();
+    var currentWidth = $('.panel-cover').width();
     if (currentWidth < 2000) {
       $('.panel-cover').addClass('panel-cover--collapsed');
     } else {
@@ -17,19 +17,14 @@ $(document).ready(function () {
 
   });
 
-  if (window.location.hash && window.location.hash == "#blog") {
+  if (window.location.hash && window.location.hash === "#blog") {
     $('.panel-cover').addClass('panel-cover--collapsed');
     $('.main-post-list').removeClass('hidden');
   }
 
-  if (window.location.pathname.substring(0, 5) == "/tag/") {
+  if (window.location.pathname.substring(0, 5) === "/tag/") {
     $('.panel-cover').addClass('panel-cover--collapsed');
   }
-
-  // 移动端菜单按钮点击事件
-  $('.btn-mobile-menu__icon').click(function () {
-    // 菜单功能已在CSS中实现
-  });
 
   // 滚动提示隐藏/显示
   var scrollIndicator = $('.scroll-indicator');
@@ -130,6 +125,9 @@ $(document).ready(function () {
         var checkPanelState = setInterval(function() {
           checkScrollIndicator();
         }, 500);
+        $(window).on('beforeunload', function() {
+          clearInterval(checkPanelState);
+        });
       }
     }
 
@@ -154,7 +152,9 @@ $(document).ready(function () {
 
   // 平滑滚动
   $('a[href^="#"]').on('click', function(event) {
-    var target = $(this.getAttribute('href'));
+    var href = this.getAttribute('href');
+    if (!href || href === '#blog') return;
+    var target = $(href);
     if (target.length) {
       event.preventDefault();
       $('html, body').stop().animate({
