@@ -11,7 +11,7 @@ tags:  技术
 > <br/>
 > <br/>
 > <br/>
-![](/images/posts/excel_list/ExcelList.gif)
+![](/images/posts/excel_list/ExcelList.webp)
 > <br/>
 > 
 > 这个效果是16年做项目时用到的，最近找工作，就把它写简历上了，奈何当年网上找的demo，记忆中还是eclipse的，具体咋实现的忘得差不多了，面试的那哥们对这个特别的感兴趣，啊啊啊。。so,请一定要记得，去面试，简历上自己写的东西一定要滚瓜烂熟的，这是血的教训啊。  

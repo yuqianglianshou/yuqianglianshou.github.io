@@ -20,7 +20,9 @@
   <meta property="og:description"
     content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <link rel="icon" type="image/png" href="/images/avatar.jpg" />
+  <link rel="icon" type="image/png" href="/images/avatar.jpg">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://busuanzi.ibruce.info" crossorigin>
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -29,7 +31,7 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend:
     site.baseurl | prepend: site.url }}">
 
-  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw">
 
   <!-- 不蒜子 静态网页计数器 -->
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
@@ -64,9 +66,10 @@
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-9005224472374751",
-      enable_page_level_ads: true
+    window.adsbygoogle = window.adsbygoogle || [];
+    window.adsbygoogle.push({
+      google_ad_client: 'ca-pub-9005224472374751',
+      enable_page_level_ads: true,
     });
   </script>
 

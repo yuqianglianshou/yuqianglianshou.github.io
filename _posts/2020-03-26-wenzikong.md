@@ -16,9 +16,9 @@ demo地址 ：
  * 效果：运行程序文字依次随机位置以水波纹动画显示，触摸或滑动屏幕，有水波纹动画，程序退到后台，动画暂停，返回到前台继续执行，效果如下：
 
  <br/> 
-![](/images/posts/wenzikong/wenzikong.gif)
+![](/images/posts/wenzikong/wenzikong.webp)
  <br/> 
-![](/images/posts/wenzikong/wenzikong2.gif)
+![](/images/posts/wenzikong/wenzikong2.webp)
  <br/> 
 
 
