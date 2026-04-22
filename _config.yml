@@ -41,6 +41,7 @@ cover_color: clear
 # The blog button should not be removed.
 blog_button:
     title: 博客主页
+    description: 博客主页
 
 # Navigation buttons in the front page.s
 nav:
@@ -50,13 +51,13 @@ nav:
     - {
           title: 小玩乐,
           description: 小玩乐,
-          url: "/module_xiaowanle/page/page_main",
+          url: "/modules/xiaowanle/",
           new_window: true,
       }
     - {
           title: 小工具,
           description: 小工具,
-          url: "/module_xiaogongju",
+          url: "/modules/tools/",
           new_window: true,
       }
 
@@ -66,3 +67,23 @@ paginate_path: "page/:num/"
 plugins:
     - jekyll-paginate
     - jekyll-sitemap
+
+exclude:
+    - .bundle/
+    - .editorconfig
+    - .gitignore
+    - .hintrc
+    - .prettierrc.json
+    - .vscode/
+    - eslint.config.mjs
+    - Gemfile
+    - Gemfile.lock
+    - docs/
+    - README.md
+    - Rakefile
+    - node_modules/
+    - package-lock.json
+    - package.json
+    - scripts/
+    - src/
+    - vendor/
