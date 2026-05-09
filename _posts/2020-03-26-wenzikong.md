@@ -1,9 +1,10 @@
 ---
-layout: post  
+layout: post
 title: Android 文字点阵图的水波纹动画
-date: 2020-03-26  
-tags:  技术
+date: 2020-03-26
+tags: 技术
 ---
+
 ### 我总想在宇宙中寻求意义，他却不予以理睬。  
 
 demo地址 ：
@@ -24,10 +25,9 @@ demo地址 ：
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 文字点阵图的水波纹动画 ](http://yuqianglianshou.com/2020/03/wenzikong/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

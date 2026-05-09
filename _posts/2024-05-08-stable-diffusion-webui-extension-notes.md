@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: stable_diffusion_webui 插件扩展笔记
-date: 2024-05-08  
+date: 2024-05-08
 permalink: "/2024/05/stable_diffusion_webui-%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95%E7%AC%94%E8%AE%B0/"
-tags:  技术_AI绘画
+tags: 技术_AI绘画
 ---
+
 ### 悬上该有的天真。
 
 ```
@@ -40,15 +41,15 @@ git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-grad
 
 ```
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

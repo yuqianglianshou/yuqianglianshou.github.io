@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: 读 小明与小强的故事 之感   
-date: 2012-01-07  
-tags: 人生  
+layout: post
+title: 读 小明与小强的故事 之感
+date: 2012-01-07
+tags: 人生
 ---
+
 ### 那年岁月
 
   

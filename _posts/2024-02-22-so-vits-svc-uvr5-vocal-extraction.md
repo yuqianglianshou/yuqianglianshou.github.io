@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: UVR5提取干声
-date: 2024-02-22  
+date: 2024-02-22
 permalink: "/2024/02/so-vits-svc-UVR5%E6%8F%90%E5%8F%96%E5%B9%B2%E5%A3%B0/"
-tags:  技术_AI语音
+tags: 技术_AI语音
 ---
+
 ### 时间给出了答案。
 
 一首音乐大多数由 人声（干声）+ 混响 + 和声 + 伴奏  组成，将各个部分分离。
@@ -37,15 +38,15 @@ model = UVR-De-Echo-Normal，最后得到文件即为人声文件。
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

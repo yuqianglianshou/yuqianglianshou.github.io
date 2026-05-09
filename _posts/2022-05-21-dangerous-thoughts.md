@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: 一点危险的感悟
-date: 2022-05-21  
+date: 2022-05-21
 permalink: "/2022/05/%E4%B8%80%E7%82%B9%E5%8D%B1%E9%99%A9%E7%9A%84%E6%84%9F%E6%82%9F/"
-tags:  人生
+tags: 人生
 ---
+
 ### 苏格拉底说，唯有星空可以放逐我的思想。
-<br/> 
+<br/>
 看到一段视频是这样说的：  
    
 
@@ -20,9 +21,8 @@ tags:  人生
 
 <br/>
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 一点危险的感悟 ](http://yuqianglianshou.com/2022/05/一点危险的感悟/)  
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

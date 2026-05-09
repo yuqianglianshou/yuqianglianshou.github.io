@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: 网站开发 
-date: 2019-12-01  
+layout: post
+title: 网站开发
+date: 2019-12-01
 permalink: "/2019/12/website-development_0/"
-tags:  技术
+tags: 技术
 ---
+
 ### 也许此生都不可能懂，却不影响他很好听。歌曲：清新小女孩 
 
 ## 论一个Android开发如何做得后台开发，说的有点吹牛逼的意思了，其实我只是想调一个自己写的接口而已，然而，这一路走来，颇为艰难，后续几篇文章，我将为你介绍一个小白是如何搞定一个hello World接口的。 
@@ -27,10 +28,9 @@ tags:  技术
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 网站开发  ](http://yuqianglianshou.com/2019/12/website-development_0/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

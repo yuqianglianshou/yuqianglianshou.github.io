@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: so-vits-svc 执行笔记
-date: 2024-02-21  
+date: 2024-02-21
 permalink: "/2024/02/so-vits-svc-%E6%89%A7%E8%A1%8C%E7%AC%94%E8%AE%B0/"
-tags:  技术_AI语音
+tags: 技术_AI语音
 ---
+
 ### 风能否向月而行。
 
 ## 效果展示 
@@ -133,7 +134,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
    ```
 <br/>
 ![](/images/posts/20240221/2.webp){:width="90%"}    
-<br/>  
+<br/>
 
 
 
@@ -324,15 +325,15 @@ conda env remove --name <环境名称>
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

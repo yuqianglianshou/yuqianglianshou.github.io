@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: res目录-图片  
-date: 2017-04-12  
+layout: post
+title: res目录-图片
+date: 2017-04-12
 permalink: "/2017/04/android_res/"
-tags: 技术  
+tags: 技术
 ---
+
 ### 读书，永远都不晚。  
 
 ***mipmap***
@@ -48,10 +49,9 @@ mipmap-xxxhdpi  |	192 * 192
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ res目录-图片 ](http://yuqianglianshou.com/2017/04/android_res/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

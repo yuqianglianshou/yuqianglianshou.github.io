@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: H系列 - Windows系统的账号密码
-date: 2022-10-11  
+date: 2022-10-11
 permalink: "/2022/10/H%E7%B3%BB%E5%88%97-Windows%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"
-tags:  H系列
+tags: H系列
 ---
+
 ### 你还拥有多少，你还在乎多少。
 
 + 系统  -- windows 10；
@@ -109,11 +110,10 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WD
 
 
 <br/>
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ H系列 - Windows系统的账号密码 ](http://yuqianglianshou.com/2022/10/H系列-Windows系统的账号密码/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

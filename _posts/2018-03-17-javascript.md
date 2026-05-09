@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: 初识 JavaScript 的不解 
-date: 2018-03-17  
-tags:  笔记
+layout: post
+title: 初识 JavaScript 的不解
+date: 2018-03-17
+tags: 笔记
 ---
+
 ### 待整理格式化  
  
 
@@ -143,10 +144,9 @@ console.log( Number(undefined) );//NaN
 函数表达式： var fun = function(){}
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 初识 JavaScript 的不解  ](http://yuqianglianshou.com/2018/03/javascript/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

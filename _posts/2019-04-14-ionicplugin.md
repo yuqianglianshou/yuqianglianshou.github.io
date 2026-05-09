@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: ionic建一个项目自定义一个插件   
-date: 2019-04-14  
-tags:  技术
+layout: post
+title: ionic建一个项目自定义一个插件
+date: 2019-04-14
+tags: 技术
 ---
+
 ### 难道我们的青春就这样结束了吗？难道就这样了么？  
 ## 本文目的：创建一个带有android端自定义插件的ionic空项目
 #### 先来创建一个带有android端的ionic空项目 
@@ -193,7 +194,7 @@ onClickBtn() {
 ![](/images/posts/ionicplugin/as_2.webp){:height="70%" width="70%"}
 > <br/>
 > 此时，作为一名android开发的我，终于可以在AS中写代码了，那ionic的代码，着实让我头疼，甚是头疼。
-<br/> 
+<br/>
 > 手机运行截图：  
 > <br/>
 ![](/images/posts/ionicplugin/phone.webp){:height="40%" width="40%"}
@@ -202,5 +203,4 @@ onClickBtn() {
 > <br/> 
 > <br/> 
 > <br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ ionic建一个项目自定义一个插件 ](http://yuqianglianshou.com/2019/04/ionicplugin/)  
 > <br/>

@@ -1,13 +1,14 @@
 ---
-layout: post  
+layout: post
 title: 我的2024年终总结
-date: 2025-01-01  
+date: 2025-01-01
 permalink: "/2025/01/%E6%88%91%E7%9A%842024%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"
-tags:  人生
+tags: 人生
 ---
+
 ### 有了一阵风，他便活了。
-<br/> 
-<br/> 
+<br/>
+<br/>
 
 这一年，又了无建树了么？想想，还是可以写写的。  
 
@@ -25,8 +26,8 @@ suno 创作音乐，cursor 编程，chatGPT 问你想问的任何问题，人工
 <br/>
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

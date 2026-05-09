@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: Android 关于使用 azhon/AppUpdate 的一点想法
-date: 2020-12-22  
+date: 2020-12-22
 permalink: "/2020/12/android_appupdate/"
-tags:  技术
+tags: 技术
 ---
+
 ### 莲出淤泥而不染，但你忘了，藕是它身体的一部分。
 
 [本demo地址 https://github.com/yuqianglianshou/AppUpdate](https://github.com/yuqianglianshou/AppUpdate)  
@@ -25,12 +26,12 @@ tags:  技术
 安装了B之后A的日志
 <br/>
 ![](/images/posts/android_appupdate/2.webp)
-<br/> 
-<br/> 
+<br/>
+<br/>
 
 关键代码：
-<br/> 
-<br/> 
+<br/>
+<br/>
 ```
 class MainActivity : AppCompatActivity() {
 
@@ -77,8 +78,8 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-<br/> 
-<br/> 
+<br/>
+<br/>
 
 ```
 object AppUpdateUtils {
@@ -156,8 +157,8 @@ object AppUpdateUtils {
 }
 
 ```
-<br/> 
-<br/> 
+<br/>
+<br/>
 
 ```
 
@@ -195,8 +196,7 @@ public class AppInstallReceiver extends BroadcastReceiver {
 
 }
 ```
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 关于使用 azhon/AppUpdate 的一点想法 ](http://yuqianglianshou.com/2020/12/android_appupdate/)  
+<br/>
+<br/>
+<br/>
 <br/>

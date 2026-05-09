@@ -1,9 +1,10 @@
 ---
-layout: post  
+layout: post
 title: 永不休止的循环
-date: 2020-12-31  
-tags:  人生
+date: 2020-12-31
+tags: 人生
 ---
+
 ### 故事的开头极具温柔，我们却给了一个及其不配的结尾。
 
 
@@ -33,10 +34,9 @@ God：愿望禁止套娃。
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 永不休止的循环 ](http://yuqianglianshou.com/2020/12/deardream/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

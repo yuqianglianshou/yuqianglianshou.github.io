@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: everything 
-date: 2012-12-16  
-tags: 人生  
+layout: post
+title: everything
+date: 2012-12-16
+tags: 人生
 ---
+
 ### 那年沉思
 
 

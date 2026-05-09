@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: 我,为什么要努力?
-date: 2022-07-15  
+date: 2022-07-15
 permalink: "/2022/07/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%AA%E5%8A%9B/"
-tags:  人生
+tags: 人生
 ---
+
 ### 我变成荒凉的景象 变成无所谓的模样
 
 <br/>
@@ -35,6 +36,5 @@ tags:  人生
 <br/>
 <br/>
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 我,为什么要努力? ](http://yuqianglianshou.com/2022/07/我为什么要努力/)  
 
 <br/>

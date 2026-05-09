@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: 网站开发_tomcat运行 
-date: 2019-12-01  
+layout: post
+title: 网站开发_tomcat运行
+date: 2019-12-01
 permalink: "/2019/12/website-development_3/"
-tags:  技术
+tags: 技术
 ---
+
 ###  每个优秀的人，都有一段沉默的时光。 那段时光，是付出了很多努力，却得不到结果的日子，我们把它叫作扎根。 
 
 ## 一，本地tomcat安装（mac为例）  
@@ -51,10 +52,9 @@ ForkLift 是一款mac上专业的文件管理程序，我用它进行ftp链接�
 
 ## 至此，一个 hello World 接口完成了。不想总结了，睡了。
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 网站开发_tomcat运行  ](http://yuqianglianshou.com/2019/12/website-development_3/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

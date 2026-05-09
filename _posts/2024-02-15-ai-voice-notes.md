@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: AI语音_知识点整理
-date: 2024-02-15  
+date: 2024-02-15
 permalink: "/2024/02/AI%E8%AF%AD%E9%9F%B3_%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/"
-tags:  技术_AI语音
+tags: 技术_AI语音
 ---
+
 ### 乐观是极度的绝境之中唯一的武器，也是最后的救命稻草。
 
 **声音的基本属性：**  

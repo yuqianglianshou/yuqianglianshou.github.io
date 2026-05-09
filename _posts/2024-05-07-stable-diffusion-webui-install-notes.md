@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: stable_diffusion_webui 安装运行笔记
-date: 2024-05-07  
+date: 2024-05-07
 permalink: "/2024/05/stable_diffusion_webui-%E5%AE%89%E8%A3%85%E8%BF%90%E8%A1%8C%E7%AC%94%E8%AE%B0/"
-tags:  技术_AI绘画
+tags: 技术_AI绘画
 ---
+
 ### 我主张克制不了就放任。
 
 项目地址：[https://github.com/AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
@@ -136,15 +137,15 @@ set COMMANDLINE_ARGS=
 <br/>
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

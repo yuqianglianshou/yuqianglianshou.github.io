@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: 网站开发_项目创建 
-date: 2019-12-01  
+layout: post
+title: 网站开发_项目创建
+date: 2019-12-01
 permalink: "/2019/12/website-development_1/"
-tags:  技术
+tags: 技术
 ---
+
 ### 如果没有躺赢的命 那就站起来跑。 
 ## demo样例:  
 [https://github.com/yuqianglianshou/WebsiteDemo](https://github.com/yuqianglianshou/WebsiteDemo)  
@@ -43,10 +44,9 @@ Group 和 Artifact 组合起来就是包名,即最下行Package，自行命名�
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 网站开发_项目创建  ](http://yuqianglianshou.com/2019/12/website-development_1/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

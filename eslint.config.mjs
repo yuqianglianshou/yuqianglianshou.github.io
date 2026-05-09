@@ -16,7 +16,6 @@ export default [
       ecmaVersion: 2020,
       sourceType: 'script',
       globals: {
-        $: 'readonly',
         document: 'readonly',
         location: 'readonly',
         MutationObserver: 'readonly',

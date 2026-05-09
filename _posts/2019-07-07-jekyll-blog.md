@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: jkeyll 搭建博客 
-date: 2019-07-07  
-tags:  技术
+layout: post
+title: jkeyll 搭建博客
+date: 2019-07-07
+tags: 技术
 ---
+
 ### Just remember your name,no matter where you are in the world,I must and will go to see you.      --Miyamizu Mitsuha  
 
 
@@ -87,10 +88,9 @@ Custom domains allow you to serve your site from a domain other than yuqianglian
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ jkeyll 搭建博客 ](http://yuqianglianshou.com/2019/07/jekyll-blog/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

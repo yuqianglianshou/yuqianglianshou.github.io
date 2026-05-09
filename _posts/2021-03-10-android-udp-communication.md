@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: Android UDP通信
-date: 2021-03-10  
+date: 2021-03-10
 permalink: "/2021/03/android-UDP%E9%80%9A%E4%BF%A1/"
-tags:  技术
+tags: 技术
 ---
+
 ### 清风不识字，何故翻书页。
-<br/> 
+<br/>
 
 本程序代码 [https://github.com/yuqianglianshou/Socket](https://github.com/yuqianglianshou/Socket)  
 
@@ -34,11 +35,10 @@ tags:  技术
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android UDP通信 ](http://yuqianglianshou.com/2021/03/android-UDP通信/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

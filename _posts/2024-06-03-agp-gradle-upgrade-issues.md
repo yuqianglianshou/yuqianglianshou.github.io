@@ -1,14 +1,14 @@
 ---
-layout: post  
+layout: post
 title: AGP 和 Gradle 升级问题
-date: 2024-06-03  
+date: 2024-06-03
 permalink: "/2024/06/agp%E5%92%8Cgradle%E5%8D%87%E7%BA%A7%E9%97%AE%E9%A2%98/"
-tags:  技术
+tags: 技术
 ---
 
 ### 突然之间，他想到了生命的意义。
-<br/> 
-<br/> 
+<br/>
+<br/>
 
 
 ## **有些项目依然使用 AGP（Android Gradle Plugin）4.x版本、 Gradle 6.x版本 和 JDK = 8。google已经不再维护了，本文简单记录如何分阶段升级。**

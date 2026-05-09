@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: mac 上安装破解 Matlab 
-date: 2019-06-23  
-tags:  技术
+layout: post
+title: mac 上安装破解 Matlab
+date: 2019-06-23
+tags: 技术
 ---
+
 ### 祝你能够再次遇到，那个值得你奋斗一生的人。  
  
 版本：     
@@ -25,10 +26,9 @@ MATLAB 2014 b
  
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ mac 上安装破解 Matlab ](http://yuqianglianshou.com/2019/06/matlab-for-mac/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

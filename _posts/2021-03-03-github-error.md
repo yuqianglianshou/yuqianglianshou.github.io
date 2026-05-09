@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: 问题解决：Failed to connect to github.com port 443：Operation timed out
-date: 2021-03-03  
+date: 2021-03-03
 permalink: "/2021/03/github_error/"
-tags:  技术
+tags: 技术
 ---
+
 ### 大雨一下子就淋湿了我的全身，我在雨中已经没有任何体面可言。
-<br/> 
+<br/>
 
 北京三月的天气忽冷忽热，实在琢磨不透，像极了我的心情。  
 想往 GitHub 上提交点文件，结果无论 push 还是 pull 都报错了。  
@@ -25,11 +26,10 @@ pull报  Error in the HTTP2 framing layer 错误，
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 问题解决：Failed to connect to github.com port 443: Operation timed out ](http://yuqianglianshou.com/2021/03/github_error/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

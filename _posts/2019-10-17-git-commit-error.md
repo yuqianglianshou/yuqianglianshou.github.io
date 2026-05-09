@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: git 提交代码到GitHub报错 
-date: 2019-10-17  
-tags:  技术
+layout: post
+title: git 提交代码到GitHub报错
+date: 2019-10-17
+tags: 技术
 ---
+
 ### 劝君立足眼前事，荆棘丛中也开花。  
 
 qingyang:###.github.io liuqiang$ git push -u origin master
@@ -22,10 +23,9 @@ fatal: unable to access 'https://github.com/####/###.github.io.git/': The reques
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
 > <br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ git 提交代码到GitHub报错  ](http://yuqianglianshou.com/2019/10/git-commit-error/)  
 > <br/>

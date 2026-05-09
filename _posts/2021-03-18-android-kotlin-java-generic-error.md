@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: 关于Kotlin 调用 Java中范型T 的错误
-date: 2021-03-18  
+date: 2021-03-18
 permalink: "/2021/03/android-%E5%85%B3%E4%BA%8EKotlin-%E8%B0%83%E7%94%A8-Java%E4%B8%AD%E8%8C%83%E5%9E%8BT-%E7%9A%84%E9%94%99%E8%AF%AF/"
-tags:  技术
+tags: 技术
 ---
+
 ### 明月本无情，安能慰良人。
-<br/> 
+<br/>
 Java 代码使用 范型T 的方法，在Kotlin代码中使用时，报错 ：  Cast expression adapter to Nothing   
 如下图所示：
 
@@ -73,11 +74,10 @@ val adapter: FlowAdapter<String> = object : FlowAdapter<String>(list) {
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 关于Kotlin 调用 Java中范型T 的错误 ](http://yuqianglianshou.com/2021/03/android-关于Kotlin 调用 Java中范型T 的错误/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

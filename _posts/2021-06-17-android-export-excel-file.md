@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: 实现 android 程序导出数据到 Excel 表格
-date: 2021-06-17  
+date: 2021-06-17
 permalink: "/2021/06/android-export-excel-file/"
-tags:  技术
+tags: 技术
 ---
+
 ### 我学会了很多东西，勤俭 隐忍 坚持 淡然 息事宁人，却没学会享受生活。
-<br/> 
+<br/>
 
 ## 数据如何输出到 Excel 表格中？如下。
 
@@ -508,11 +509,10 @@ class FileUtils {
 
 ```
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 实现 android 程序导出数据到 Excel 表格 ](http://yuqianglianshou.com/2021/06/android-export-excel-file/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

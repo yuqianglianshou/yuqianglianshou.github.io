@@ -1,165 +1,212 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  $('a.blog-button').click(function () {
-    // If already in blog, return early without animate overlay panel again.
-    if (location.hash && location.hash === "#blog") return;
-    if ($('.panel-cover').hasClass('panel-cover--collapsed')) return;
-    $('.main-post-list').removeClass('hidden');
-    var currentWidth = $('.panel-cover').width();
-    if (currentWidth < 2000) {
-      $('.panel-cover').addClass('panel-cover--collapsed');
-    } else {
-      $('.panel-cover').css('max-width', currentWidth);
-      $('.panel-cover').animate({ 'max-width': '320px', 'width': '22%' }, 400, 'swing', function () { });
+  var panelCover = document.querySelector('.panel-cover');
+  var mainPostList = document.querySelector('.main-post-list');
+  var blogButtons = Array.from(document.querySelectorAll('a.blog-button'));
+  var scrollIndicator = document.querySelector('.scroll-indicator');
+
+  function hasCollapsedPanel() {
+    return !!panelCover && panelCover.classList.contains('panel-cover--collapsed');
+  }
+
+  function collapsePanel() {
+    if (!panelCover) return;
+    panelCover.classList.add('panel-cover--collapsed');
+  }
+
+  function showPostList() {
+    if (mainPostList) {
+      mainPostList.classList.remove('hidden');
+    }
+  }
+
+  function fadeElement(element, visible, duration) {
+    if (!element) return;
+
+    var startOpacity = Number(window.getComputedStyle(element).opacity);
+    var endOpacity = visible ? 1 : 0;
+    var startTime = window.performance ? window.performance.now() : Date.now();
+
+    if (visible) {
+      element.hidden = false;
+      element.style.display = '';
     }
 
+    function step(timestamp) {
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var opacity = startOpacity + (endOpacity - startOpacity) * progress;
 
-  });
+      element.style.opacity = String(opacity);
 
-  if (window.location.hash && window.location.hash === "#blog") {
-    $('.panel-cover').addClass('panel-cover--collapsed');
-    $('.main-post-list').removeClass('hidden');
-  }
-
-  if (window.location.pathname.substring(0, 5) === "/tag/") {
-    $('.panel-cover').addClass('panel-cover--collapsed');
-  }
-
-  // 滚动提示隐藏/显示
-  var scrollIndicator = $('.scroll-indicator');
-  if (scrollIndicator.length) {
-    // 点击滚动提示：触发博客按钮点击，展开博客列表
-    scrollIndicator.on('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      // 直接触发博客按钮的点击事件
-      if (!$('.panel-cover').hasClass('panel-cover--collapsed')) {
-        // 模拟点击博客按钮
-        var blogButton = $('a.blog-button').first();
-        if (blogButton.length) {
-          blogButton[0].click(); // 使用原生click方法，确保触发事件
-        }
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+        return;
       }
-      
-      // 延迟隐藏滚动提示，等待动画完成
-      setTimeout(function() {
-        scrollIndicator.fadeOut(300);
-      }, 100);
-      
-      return false;
+
+      element.style.opacity = '';
+      if (!visible) {
+        element.style.display = 'none';
+      }
+    }
+
+    window.requestAnimationFrame(step);
+  }
+
+  function animatePanelCollapse() {
+    if (!panelCover) return;
+
+    var currentWidth = panelCover.getBoundingClientRect().width;
+    showPostList();
+
+    if (currentWidth < 2000) {
+      collapsePanel();
+      return;
+    }
+
+    panelCover.style.maxWidth = currentWidth + 'px';
+    panelCover.style.width = '100%';
+    panelCover.style.transition = 'max-width 400ms ease, width 400ms ease';
+
+    window.requestAnimationFrame(function () {
+      panelCover.style.maxWidth = '320px';
+      panelCover.style.width = '22%';
     });
 
-    // 检查并更新滚动提示的显示状态
-    var checkScrollIndicator = function() {
-      var panelCollapsed = $('.panel-cover').hasClass('panel-cover--collapsed');
-      var blogListVisible = $('.main-post-list').length && !$('.main-post-list').hasClass('hidden');
-      var scrollTop = $(window).scrollTop() || $(document).scrollTop() || 0;
-      
-      // 如果面板已折叠（博客已展开），则隐藏滚动提示
-      if (panelCollapsed) {
-        if (scrollIndicator.is(':visible')) {
-          scrollIndicator.fadeOut(300);
+    window.setTimeout(function () {
+      collapsePanel();
+      panelCover.style.transition = '';
+      panelCover.style.maxWidth = '';
+      panelCover.style.width = '';
+    }, 420);
+  }
+
+  function hideScrollIndicator(duration) {
+    if (scrollIndicator && scrollIndicator.style.display !== 'none') {
+      fadeElement(scrollIndicator, false, duration || 300);
+    }
+  }
+
+  blogButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      // If already in blog, return early without animate overlay panel again.
+      if (location.hash && location.hash === '#blog') return;
+      if (hasCollapsedPanel()) return;
+      animatePanelCollapse();
+    });
+  });
+
+  if (window.location.hash && window.location.hash === '#blog') {
+    collapsePanel();
+    showPostList();
+  }
+
+  if (window.location.pathname.substring(0, 5) === '/tag/') {
+    collapsePanel();
+  }
+
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (!hasCollapsedPanel()) {
+        var blogButton = blogButtons[0];
+        if (blogButton) {
+          blogButton.click();
         }
+      }
+
+      window.setTimeout(function () {
+        hideScrollIndicator(300);
+      }, 100);
+    });
+
+    var checkScrollIndicator = function () {
+      var panelCollapsed = hasCollapsedPanel();
+      var blogListVisible = !!mainPostList && !mainPostList.classList.contains('hidden');
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+      if (panelCollapsed || (blogListVisible && scrollTop > 100) || scrollTop > 100) {
+        hideScrollIndicator(300);
         return;
       }
-      
-      // 如果博客列表可见且已滚动，则隐藏滚动提示
-      if (blogListVisible && scrollTop > 100) {
-        if (scrollIndicator.is(':visible')) {
-          scrollIndicator.fadeOut(300);
-        }
-        return;
-      }
-      
-      // 如果用户已经滚动了页面（虽然首页是fixed，但某些情况下可能滚动），则隐藏
-      if (scrollTop > 100) {
-        if (scrollIndicator.is(':visible')) {
-          scrollIndicator.fadeOut(300);
-        }
-        return;
-      }
-      
-      // 只有在首页初始状态（面板未折叠，博客列表隐藏，滚动在顶部）时才显示
-      if (!panelCollapsed && !blogListVisible && scrollTop <= 10) {
-        if (!scrollIndicator.is(':visible')) {
-          scrollIndicator.fadeIn(300);
-        }
+
+      if (!panelCollapsed && !blogListVisible && scrollTop <= 10 && scrollIndicator.style.display === 'none') {
+        fadeElement(scrollIndicator, true, 300);
       }
     };
 
-    // 使用节流优化性能
     var scrollTimer = null;
-    $(window).on('scroll', function() {
+    window.addEventListener('scroll', function () {
       if (scrollTimer) clearTimeout(scrollTimer);
       scrollTimer = setTimeout(checkScrollIndicator, 100);
     });
-    
-    $(window).on('resize', checkScrollIndicator);
-    
-    // 点击博客按钮时隐藏滚动提示
-    $(document).on('click', 'a.blog-button', function() {
-      setTimeout(function() {
-        scrollIndicator.fadeOut(500);
-      }, 200);
+
+    window.addEventListener('resize', checkScrollIndicator);
+
+    blogButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        window.setTimeout(function () {
+          hideScrollIndicator(500);
+        }, 200);
+      });
     });
 
-    // 使用MutationObserver监听panel-cover类名变化（更精确）
-    if (window.MutationObserver && $('.panel-cover').length) {
-      var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
+    if (window.MutationObserver && panelCover) {
+      var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
           if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
             setTimeout(checkScrollIndicator, 150);
           }
         });
       });
-      
+
       try {
-        observer.observe($('.panel-cover')[0], {
+        observer.observe(panelCover, {
           attributes: true,
           attributeFilter: ['class']
         });
-      } catch(e) {
-        // 如果MutationObserver不支持，使用定时检查作为备选
-        var checkPanelState = setInterval(function() {
+      } catch {
+        var checkPanelState = setInterval(function () {
           checkScrollIndicator();
         }, 500);
-        $(window).on('beforeunload', function() {
+        window.addEventListener('beforeunload', function () {
           clearInterval(checkPanelState);
         });
       }
     }
 
-    // 初始检查
     setTimeout(checkScrollIndicator, 100);
-    
-    // 页面加载完成后再次检查
-    $(window).on('load', function() {
+    window.addEventListener('load', function () {
       setTimeout(checkScrollIndicator, 200);
     });
   }
 
-  // 页面加载动画
-  if (!$('.panel-cover--collapsed').length) {
-    $('body').css('opacity', '0');
-    $(window).on('load', function() {
-      setTimeout(function() {
-        $('body').animate({opacity: 1}, 600);
+  if (!document.querySelector('.panel-cover--collapsed')) {
+    document.body.style.opacity = '0';
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.body.style.transition = 'opacity 600ms ease';
+        document.body.style.opacity = '1';
       }, 100);
     });
   }
 
-  // 平滑滚动
-  $('a[href^="#"]').on('click', function(event) {
-    var href = this.getAttribute('href');
-    if (!href || href === '#blog') return;
-    var target = $(href);
-    if (target.length) {
-      event.preventDefault();
-      $('html, body').stop().animate({
-        scrollTop: target.offset().top
-      }, 800, 'swing');
-    }
+  Array.from(document.querySelectorAll('a[href^="#"]')).forEach(function (anchor) {
+    anchor.addEventListener('click', function (event) {
+      var href = anchor.getAttribute('href');
+      if (!href || href === '#blog') return;
+
+      var target = document.querySelector(href);
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
   });
 });
