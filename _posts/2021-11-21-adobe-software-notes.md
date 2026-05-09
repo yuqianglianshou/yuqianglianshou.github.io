@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: Adobe 软件知识点
-date: 2021-11-21  
+date: 2021-11-21
 permalink: "/2021/11/Adobe-%E8%BD%AF%E4%BB%B6%E7%9F%A5%E8%AF%86%E7%82%B9/"
-tags:  技术
+tags: 技术
 ---
+
 ### 通过我的试验，我起码明白了这点：倘若一个人信心满怀地朝他梦想的方向前进，努力过上他想象的那种生活，那他会在平常的时光里获得意外的成功。 --梭罗
-<br/> 
+<br/>
 
 **Adobe公司**（英语：Adobe Inc.，发音：宽式IPA：/əˈdoʊbiː/，旧称Adobe系统公司），是美国一家跨国电脑软件公司，总部位于加州的圣何塞。  
 
@@ -34,11 +35,10 @@ tags:  技术
 
 
 <br/>
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Adobe 软件知识点 ](http://yuqianglianshou.com/2021/11/Adobe 软件知识点/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

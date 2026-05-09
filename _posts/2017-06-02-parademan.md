@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "灵感记录"
-date:   2017-06-02
+title: "灵感记录"
+date: 2017-06-02
 tags: 个人
 ---
 
@@ -28,4 +28,3 @@ tags: 个人
 
 **生命没息，更新不能止。缓慢更新中。。。**
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  灵感记录  ](http://yuqianglianshou.com/2017/06/parademan/)  

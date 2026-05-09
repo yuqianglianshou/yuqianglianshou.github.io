@@ -1,22 +1,23 @@
 ---
-layout: post  
-title: Android实现小视频的录制和预览，界面和功能靠拢微信。 
-date: 2019-05-21  
+layout: post
+title: Android实现小视频的录制和预览，界面和功能靠拢微信。
+date: 2019-05-21
 permalink: "/2019/05/record_view/"
-tags:  技术
+tags: 技术
 ---
+
 ### 不过是看淡利益，看穿时间，推己及人。  
  
 先看一下效果图： 
-<br/> 
-<br/> 
+<br/>
+<br/>
 ![](/images/posts/record_video/recordvideo2.webp){:height="40%" width="40%"}   
-<br/> 
+<br/>
 ![](/images/posts/record_video/recordvideo1.webp){:height="40%" width="40%"}   
-<br/> 
+<br/>
 ![](/images/posts/record_video/recordvideo3.webp){:height="40%" width="40%"}   
-<br/> 
-<br/> 
+<br/>
+<br/>
 
 
 1，实现的功能  
@@ -56,10 +57,9 @@ c)SurfaceView尺寸、Previewsize 、Picturesize 的选择方式。原则是比�
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
 > <br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android实现小视频的录制和预览，界面和功能靠拢微信。 ](http://yuqianglianshou.com/2019/05/record_view/)  
 > <br/>

@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: 在社会的什么时候让你突然怀念高中生活
-date: 2022-03-07  
+date: 2022-03-07
 permalink: "/2022/03/%E5%9C%A8%E7%A4%BE%E4%BC%9A%E7%9A%84%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%AE%A9%E4%BD%A0%E7%AA%81%E7%84%B6%E6%80%80%E5%BF%B5%E9%AB%98%E4%B8%AD%E7%94%9F%E6%B4%BB/"
-tags:  人生
+tags: 人生
 ---
+
 ### 春天的风给人以心旷神怡的状态。
-<br/> 
+<br/>
 
 1
 
@@ -161,11 +162,10 @@ tags:  人生
 
 废寝忘食，可以形容我，而它，此时却是一个贬义词。
 
-<br/> 
+<br/>
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 在社会的什么时候让你突然怀念高中生活 ](http://yuqianglianshou.com/2022/03/在社会的什么时候让你突然怀念高中生活/)  
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

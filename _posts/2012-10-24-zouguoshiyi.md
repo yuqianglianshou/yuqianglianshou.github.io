@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: 走过诗意  
-date: 2012-10-24  
-tags: 人生  
+layout: post
+title: 走过诗意
+date: 2012-10-24
+tags: 人生
 ---
+
 ### 那年青涩
 
 带着渴望的目光而来

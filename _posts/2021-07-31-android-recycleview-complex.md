@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: Android 使用 recycleview 实现复杂的分组需求
-date: 2021-07-31  
+date: 2021-07-31
 permalink: "/2021/07/android-recycleview-complex/"
-tags:  技术
+tags: 技术
 ---
+
 ### 晚上我做了一个梦，乱七八糟的，有星星，有月亮，有二月花，有七月雪，有剥我壳的螃蟹，有写我笔记本的你。
-<br/> 
+<br/>
 
 <br/>
 <!-- ![](/images/posts/export_excel_file/4.webp){:width="40%" height="40%"}   -->
@@ -17,11 +18,10 @@ tags:  技术
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 使用 recycleview 实现复杂的分组需求 ](http://yuqianglianshou.com/2021/07/android-recycleview-complex/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: 网站开发_打war包 
-date: 2019-12-01  
+layout: post
+title: 网站开发_打war包
+date: 2019-12-01
 permalink: "/2019/12/website-development_2/"
-tags:  技术
+tags: 技术
 ---
+
 ### 没有谁会为你踏雪而来，喜欢的风景要自己去看。 
 
 ## demo样例:  
@@ -64,10 +65,9 @@ Maven 不熟悉的可以通过下面地址了解一下
 
 ![](/images/posts/websitedev/13.webp){:width="60%" height="60%"}  
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 网站开发_打war包  ](http://yuqianglianshou.com/2019/12/website-development_2/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

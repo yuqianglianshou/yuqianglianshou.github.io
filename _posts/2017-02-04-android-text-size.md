@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: Android使其App字体大小不跟随系统设置  
-date: 2017-02-04  
+layout: post
+title: Android使其App字体大小不跟随系统设置
+date: 2017-02-04
 permalink: "/2017/02/android_text_size/"
-tags: 技术  
+tags: 技术
 ---
+
 ### 若一去不回。便一去不回。  
 Android手机可以通过系统设置来改变字体大小，如图(vivo x5 proD )  
 <br/>

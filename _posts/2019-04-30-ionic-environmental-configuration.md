@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: Mac 系统上搭建ionic需要的环境变量配置 
-date: 2019-04-30  
-tags:  技术
+layout: post
+title: Mac 系统上搭建ionic需要的环境变量配置
+date: 2019-04-30
+tags: 技术
 ---
+
 ### 很远，远到海枯以后，远到余生已逝。  
  
 打开你的终端，输入如下命令，如果都存在，此文不必看了。  
@@ -118,10 +119,9 @@ export GRADLE_HOME
 export PATH=$PATH:$GRADLE_HOME/bin  
  
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
 > <br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Mac 系统上搭建ionic需要的环境变量配置 ](http://yuqianglianshou.com/2019/04/ionic-environmental-configuration/)  
 > <br/>

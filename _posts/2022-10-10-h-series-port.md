@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: H系列 - 端口号
-date: 2022-10-10  
+date: 2022-10-10
 permalink: "/2022/10/H%E7%B3%BB%E5%88%97-%E7%AB%AF%E5%8F%A3%E5%8F%B7/"
-tags:  H系列
+tags: H系列
 ---
+
 ### 遇见的都是幸运，或许下次见面只能靠运气了。
 
 **计算机端口号是在网络通信中用于标识特定应用程序或服务的数字标识。它们帮助将传入的数据包路由到正确的应用程序，从而实现不同应用程序之间的并发通信。端口号范围从0到65535，被分为不同的范围和用途。以下是一些常见的端口号及其用途的详细解释：**
@@ -152,11 +153,10 @@ ICMP (Internet Control Message Protocol)
 用途：用于网络设备之间的错误报告和消息传递，通常不使用端口号。
 ```
 <br/>
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ H系列 - 端口号 ](http://yuqianglianshou.com/2022/10/H系列-端口号/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

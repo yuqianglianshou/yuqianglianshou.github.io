@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: 跨域问题
-date: 2023-07-06  
+date: 2023-07-06
 permalink: "/2023/07/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"
-tags:  技术
+tags: 技术
 ---
+
 ### 吾尝终日而思矣，不如须臾之所学。
 
 ## 问题的由来  
@@ -21,7 +22,7 @@ chrome-extension, chrome, https, chrome-untrusted.
 ![](/images/posts/kuayuwenti/1.webp){:width="90%"}  
 
 <br/>
-<br/> 
+<br/>
 
 ## 原因及解析  
 
@@ -33,17 +34,17 @@ chrome-extension, chrome, https, chrome-untrusted.
 先说一下这个问题只会发生在本地，如果是部署到服务器上面是没有问题的。网上的解决方案大多都是禁用Chrome的安全策略，我觉得不妥。有个简单的方法解决这个问题，下载vscode的一个插件，使用插件打开即可。插件叫 Live Server，搜索安装即可。  
 <br/>
 ![](/images/posts/kuayuwenti/2.webp){:width="90%"}  
-<br/> 
+<br/>
 
 安装以后右击要打开的文件，选择 Open with Live Server 就可以了。  
 
 <br/>
 ![](/images/posts/kuayuwenti/3.webp){:width="90%"}  
-<br/> 
+<br/>
 
 <br/>
 ![](/images/posts/kuayuwenti/4.webp){:width="90%"}  
-<br/> 
+<br/>
 
 用Live Server 打开之后浏览器上的地址是 http://127.0.0.1:5500/index.html  
 
@@ -53,15 +54,15 @@ chrome-extension, chrome, https, chrome-untrusted.
 
 小游戏真的很有意思 [https://aidn.jp/mikutap/](https://aidn.jp/mikutap/)  
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

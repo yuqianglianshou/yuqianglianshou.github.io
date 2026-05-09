@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: Android 实现一个类似Excel表格似的效果  
-date: 2018-08-21  
-tags:  技术
+layout: post
+title: Android 实现一个类似Excel表格似的效果
+date: 2018-08-21
+tags: 技术
 ---
+
 ### 滑啊滑 
 
 新版请移至 [ Android 实现一个类似Excel表格似的效果 2 ](http://yuqianglianshou.com/2020/12/android_excellist/) 
@@ -19,7 +20,7 @@ tags:  技术
 > 下面简要说下实现原理： 整体分为两部分，第一行是一个布局，下面是一个listview，listview的item就是第一行的布局（怎么我的表达能力如此之差，应该能看懂），这个item布局如下：  
 > <br/>
 
-<br/>  
+<br/>
 
 ```java  
 
@@ -133,4 +134,3 @@ tags:  技术
 <br/>
 
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  Android 实现一个类似Excel表格似的效果  ](http://yuqianglianshou.com/2018/08/android-excel-list/)  

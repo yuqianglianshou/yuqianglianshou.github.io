@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: Android EditText修改hint文字大小
-date: 2021-11-21  
+date: 2021-11-21
 permalink: "/2021/11/android-EditText%E4%BF%AE%E6%94%B9hint%E6%96%87%E5%AD%97%E5%A4%A7%E5%B0%8F/"
-tags:  技术
+tags: 技术
 ---
+
 ### 可是孟婆她断了我的桥。
 
 
@@ -87,11 +88,10 @@ class MainActivity : AppCompatActivity() {
 ```
 
 <br/>
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android EditText修改hint文字大小 ](http://yuqianglianshou.com/2021/11/android-EditText修改hint文字大小/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

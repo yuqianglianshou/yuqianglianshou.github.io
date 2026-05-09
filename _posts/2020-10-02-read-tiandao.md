@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: 读 《遥远的救世主》
-date: 2020-10-02  
+date: 2020-10-02
 permalink: "/2020/10/read_tiandao/"
-tags:  人生
+tags: 人生
 ---
+
 ### 他是一个现实到不能再现实却又与现实格格不入的矛盾体。
 
 听《Daughter of heaven》(天国的女儿)听了好久好久，那种忧伤沁入我心，空荡荡的房子里，回荡着我的伤感，此时的我似乎在等待着什么，似乎有什么期冀。
@@ -21,7 +22,7 @@ tags:  人生
 
 电视剧《天道》对原著修改很少，只是结尾对于女主的死因做了一些和谐处理，看电视剧视觉效果更好一些。
 
-<br/> 
+<br/>
 
 自嘲
 
@@ -33,14 +34,13 @@ tags:  人生
 
 论到囊中羞涩时,怒指乾坤错。
 
-<br/> 
+<br/>
 
 天黑了，我很忧愁。
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 读 《遥远的救世主》 ](http://yuqianglianshou.com/2020/10/read_tiandao/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

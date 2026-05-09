@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: AI语音mac踩坑记
-date: 2023-05-16  
+date: 2023-05-16
 permalink: "/2023/05/AI%E8%AF%AD%E9%9F%B3mac%E8%B8%A9%E5%9D%91%E8%AE%B0/"
-tags:  技术_AI语音
+tags: 技术_AI语音
 ---
+
 ### 原来你需要的不是答案，而是时间。
 
 so-vits-svc是基于VITS的开源项目，VITS（Variational Inference with adversarial learning for end-to-end Text-to-Speech）是一种结合变分推理（variational inference）、标准化流（normalizing flows）和对抗训练的高表现力语音合成模型。  
@@ -62,7 +63,7 @@ wget -P pretrain/ http://obs.cstcloud.cn/share/obs/sankagenkeshi/checkpoint_best
 由于mac坑太多，且存在诸多不便，台式机安排上。  
 
 ![](/images/posts/20230516/1.webp){:width="45%"}  
-<br/> 
+<br/>
 
 ![](/images/posts/20230516/2.webp){:width="45%"}  
-<br/> 
+<br/>

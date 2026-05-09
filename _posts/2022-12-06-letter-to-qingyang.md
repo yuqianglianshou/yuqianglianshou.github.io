@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: 刘写给清扬的信
-date: 2022-12-06  
+date: 2022-12-06
 permalink: "/2022/12/%E5%88%98%E5%86%99%E7%BB%99%E6%B8%85%E6%89%AC%E7%9A%84%E4%BF%A1/"
-tags:  人生
+tags: 人生
 ---
+
 ### 我搜寻程序的灵魂，却找到一颗世上最滚烫的心。
 
 <br/>

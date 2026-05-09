@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: Android 图片放错位置无所谓？
-date: 2020-05-03  
+date: 2020-05-03
 permalink: "/2020/05/android_drawable/"
-tags:  技术
+tags: 技术
 ---
+
 ### 孤独是生命的本质，不，是你的本质。  
 
 
@@ -64,10 +65,9 @@ drawable-xxxhdpi   |	59.1  |  18
 另外发现了一个问题，相同的程序每次运行，Profiler 中显示的内存使用情况是不同的，有时差别甚至很大，所以，以上数据仅供参考。  
 
 最终结果：这张不是很大的图片如果放错目录，多则影响到了近20M的内存，所以如果图片很大或者很多，内存影响还是不容小觑的，正确的开发习惯很重要。
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 图片放错位置无所谓？ ](http://yuqianglianshou.com/2020/05/android_drawable/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: JDK 知识点 
-date: 2019-08-03  
-tags:  技术
+layout: post
+title: JDK 知识点
+date: 2019-08-03
+tags: 技术
 ---
+
 ### 劝君立足眼前事，荆棘丛中也开花。  
 
 ## **✅ Java JDK 主版本列表与差异简述**
@@ -89,7 +90,7 @@ Java 的 Applet 能在 Mozilla 浏览器中运行，被看作是未来的互联�
 引入RMI（Remote Method Invocation）；  
 引入反射（仅用于内省）。  
 Java 语言的基本形态基本确定了，比如反射 (reflection), JavaBean, 接口和类的关系等等，一直到今天都保持一致。然而，Java 最初的一些目标，如在浏览器中执行 Applet，以及跨平台的图形界面 Awt 很快遭遇到负面的评价。  
-<br/> 
+<br/>
 **JDK 1.2**  
 开发代号为 Playground（操场），于1998年12月8日发行。新特性有：  
 引入集合（Collection）框架；  
@@ -210,10 +211,9 @@ JDK12放弃了对JDK6及其以前版本的支持。
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
 > <br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ JDK 知识点  ](http://yuqianglianshou.com/2019/08/java-knowledge/)  
 > <br/>

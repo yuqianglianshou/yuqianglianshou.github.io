@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: Kotlin 爬个数据 
-date: 2019-06-11  
+layout: post
+title: Kotlin 爬个数据
+date: 2019-06-11
 permalink: "/2019/06/kotlin_parser/"
-tags:  技术
+tags: 技术
 ---
+
 ### 可能知道的多了，快乐就少了。  
  
 1.    
@@ -21,10 +22,9 @@ IP地址代理服务：[旗云代理](http://www.qydaili.com/free/)
 ![](/images/posts/kotlin_parser/2.webp){:height="70%" width="70%"}   
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Kotlin 爬个数据 ](http://yuqianglianshou.com/2019/06/kotlin_parser/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

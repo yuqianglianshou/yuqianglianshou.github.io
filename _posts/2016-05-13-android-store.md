@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: Android下的存储目录   
-date: 2016-05-13  
-tags:  技术
+layout: post
+title: Android下的存储目录
+date: 2016-05-13
+tags: 技术
 ---
+
 ### 某篇博客上摘抄的，记录下 
 
 #### Android 平台的存储目录
@@ -42,4 +43,3 @@ data文件夹就是我们常说的内部存储，对于没有root的手机来说
 <br/>
 
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  Android下的存储目录   ](http://yuqianglianshou.com/2016/05/android-store/)  

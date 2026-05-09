@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: 不蒜子失效   
-date: 2018-11-04  
-tags:  技术
+layout: post
+title: 不蒜子失效
+date: 2018-11-04
+tags: 技术
 ---
+
 ### 清扬 婉兮  
 
 <br/>
@@ -20,7 +21,6 @@ tags:  技术
 就好了。  
 [不蒜子链接](http://busuanzi.ibruce.info/)
 
-<br/>  
+<br/>
 
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 不蒜子失效 ](http://yuqianglianshou.com/2018/11/blog-busuanzi/)  

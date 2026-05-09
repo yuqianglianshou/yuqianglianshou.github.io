@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: Linux 基本命令
-date: 2020-03-23  
+date: 2020-03-23
 permalink: "/2020/03/node_linux/"
-tags:  笔记
+tags: 笔记
 ---
+
 ### 一箪食，一瓢饮，居陋巷，人不堪其忧，回也不改其乐也。
 
 
@@ -176,11 +177,10 @@ vi 文件名
 ```
 
 <br/>
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Linux 基本命令 ](http://yuqianglianshou.com/2020/03/node_linux/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

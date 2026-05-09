@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: Glide加载的图片有浅绿色背景？  
-date: 2016-04-02  
+layout: post
+title: Glide加载的图片有浅绿色背景？
+date: 2016-04-02
 permalink: "/2016/04/glide_bg_green/"
-tags:  技术
+tags: 技术
 ---
+
 ### 原因：
 
 简单来说Glide使用bitmap的编码是RGB565，所以有的时候由于过度压缩导致了图片变绿。  
@@ -53,4 +54,3 @@ tags:  技术
 <br/>
 
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [  Glide加载的图片有浅绿色背景？   ](http://yuqianglianshou.com/2016/04/glide_bg_green/)  

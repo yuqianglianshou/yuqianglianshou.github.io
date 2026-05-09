@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: windows 激活
-date: 2024-08-04  
+date: 2024-08-04
 permalink: "/2024/08/windows-%E6%BF%80%E6%B4%BB/"
-tags:  技术
+tags: 技术
 ---
+
 ### 吾尝终日而思矣，不如须臾之所学。
 
 视频教程：[【果核剥壳】4句代码激活Windows和Office](https://www.bilibili.com/video/BV1Ae411W7Sz/?t=222.72536&spm_id_from=333.1350.jump_directly&vd_source=98a6ce1d2586467c3641a8b5aac049ed)
@@ -39,15 +40,15 @@ slmgr /ato
 输入后回车，稍等一会，会提示激活成功。
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

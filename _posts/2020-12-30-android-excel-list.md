@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: Android 实现一个类似Excel表格似的效果 2  
-date: 2020-12-30  
+layout: post
+title: Android 实现一个类似Excel表格似的效果 2
+date: 2020-12-30
 permalink: "/2020/12/android_excellist/"
-tags:  技术
+tags: 技术
 ---
+
 ### 忽有故人心上过，回首山河便是秋。
 
 [本demo地址 https://github.com/yuqianglianshou/ExcelList](https://github.com/yuqianglianshou/ExcelList)  
@@ -628,14 +629,13 @@ data class DataBean(
 
 
 <br/>
-<br/> 
+<br/>
 
-<br/> 
-<br/> 
+<br/>
+<br/>
 
 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 实现一个类似Excel表格似的效果 2 ](http://yuqianglianshou.com/2020/12/android_excellist/)  
+<br/>
+<br/>
+<br/>
 <br/>

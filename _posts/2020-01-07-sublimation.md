@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: 升华
-date: 2020-01-07  
+date: 2020-01-07
 permalink: "/2020/01/%E5%8D%87%E5%8D%8E/"
-tags:  人生
+tags: 人生
 ---
+
 ### 我差一点就碰到月亮了，可惜天亮了。
-<br/> 
+<br/>
 
 其实不知道从什么时候开始，我们已经和某些人见过这辈子的最后一面了。有时候以为以后还会再见，没想到分别后竟从此天各一方。
 
@@ -52,11 +53,10 @@ tags:  人生
 
 
 
-<br/> 
+<br/>
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 升华 ](http://yuqianglianshou.com/2020/01/升华/)  
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

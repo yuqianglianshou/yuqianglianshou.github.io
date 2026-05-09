@@ -1,10 +1,11 @@
 ---
-layout: post  
-title: Android 一个无法理解的 non-zero exit value 1  
-date: 2018-12-06  
+layout: post
+title: Android 一个无法理解的 non-zero exit value 1
+date: 2018-12-06
 permalink: "/2018/12/android-non-zero-exit-value-1/"
-tags:  技术
+tags: 技术
 ---
+
 ### 醒来明月，醉时清风。  -- 元好问  
 
 > <br/>
@@ -94,6 +95,5 @@ tags:  技术
 
 <br/>
 > 如果你按这样的方式解决了的话，呵呵，你是幸运的。  
-<br/> 
+<br/>
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 一个无法理解的 non-zero exit value 1 ](http://yuqianglianshou.com/2018/12/android-non-zero-exit-value-1/)  

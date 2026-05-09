@@ -1,9 +1,10 @@
 ---
-layout: post  
-title: Android 新建txt被WPS提示打开？   
-date: 2019-03-27  
-tags:  技术
+layout: post
+title: Android 新建txt被WPS提示打开？
+date: 2019-03-27
+tags: 技术
 ---
+
 ### 我，必然有我的本性。  
 
 > <br/>
@@ -14,7 +15,7 @@ tags:  技术
 > <br/>
 ![](/images/posts/android_wps_open_txt/2.webp){:height="40%" width="40%"}
 <br/>
-<br/> 
+<br/>
 咋办呢，问问金山客服，走一波电话：400-677-5005，态度不错，不过没解决问题，给了个qq群，138747884，遂加，问曰： 
 
 <br/>
@@ -26,6 +27,5 @@ tags:  技术
 <br/>
 > WPS雷达功能对一些公共文件夹有监听，自己建个文件夹，将txt保存到自己建的文件夹就行了，机智如我。  
 
-<br/> 
+<br/>
 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ Android 新建txt被WPS提示打开？ ](http://yuqianglianshou.com/2019/03/android-wps-open-txt/)  

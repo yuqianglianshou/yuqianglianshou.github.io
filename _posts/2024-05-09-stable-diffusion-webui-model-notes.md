@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: stable_diffusion_webui 模型相关笔记
-date: 2024-05-09  
+date: 2024-05-09
 permalink: "/2024/05/stable_diffusion_webui-%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/"
-tags:  技术_AI绘画
+tags: 技术_AI绘画
 ---
+
 ### 人这一生，真的最怕原先晦涩难懂的歌词，忽然有一天变得通俗。。
 
 
@@ -35,15 +36,15 @@ tags:  技术_AI绘画
 
 ```
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

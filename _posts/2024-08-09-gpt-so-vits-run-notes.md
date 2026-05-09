@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: GPT-SoVITS 执行笔记
-date: 2024-08-09  
+date: 2024-08-09
 permalink: "/2024/08/GPT-so-vits-%E6%89%A7%E8%A1%8C%E7%AC%94%E8%AE%B0/"
-tags:  技术_AI语音
+tags: 技术_AI语音
 ---
+
 ### 我追不上以前那个，闪闪发光的自己了。
 
 ## 效果展示 
@@ -50,15 +51,15 @@ pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https
 
 
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>

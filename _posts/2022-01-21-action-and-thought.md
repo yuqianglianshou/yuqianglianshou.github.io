@@ -1,12 +1,13 @@
 ---
-layout: post  
+layout: post
 title: 行动与思想，曾经与现在
-date: 2022-01-21  
+date: 2022-01-21
 permalink: "/2022/01/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E6%80%9D%E6%83%B3-%E6%9B%BE%E7%BB%8F%E4%B8%8E%E7%8E%B0%E5%9C%A8/"
-tags:  人生
+tags: 人生
 ---
+
 ### 所站之处，既是太阳落下的地方。
-<br/> 
+<br/>
 
 我曾经有一个朋友，我称他为巨人。  
 
@@ -36,11 +37,10 @@ tags:  人生
 
 
 
-<br/> 
+<br/>
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 行动与思想，曾经与现在 ](http://yuqianglianshou.com/2022/01/行动与思想，曾经与现在/)  
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>

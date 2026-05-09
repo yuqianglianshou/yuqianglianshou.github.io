@@ -1,10 +1,11 @@
 ---
-layout: post  
+layout: post
 title: 局域网内组网通讯的实现
-date: 2020-11-06  
+date: 2020-11-06
 permalink: "/2020/11/android_websocket/"
-tags:  技术
+tags: 技术
 ---
+
 ### 他是一个现实到不能再现实却又与现实格格不入的矛盾体。  
 
 # WebSocket  局域网内组网通讯实现
@@ -87,10 +88,9 @@ tags:  技术
 <br/>
 以上亲测可用。
 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-<br/> 
-转载请注明：[劉清揚的博客](http://yuqianglianshou.com) » [ 局域网内组网通讯的实现 ](http://yuqianglianshou.com/2020/11/android_websocket/)  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>
