@@ -1,299 +1,377 @@
-/* ================ 全局样式重置 ================ */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* 全局变量定义 */
 :root {
-    --primary-color: #3498db;
-    --accent-color: #ce8460;
-    --bg-light: #f1f1f1;
-    --bg-lighter: #fafafa;
-    --text-color: #333;
-    --transition-fast: 0.2s linear;
-    --transition-normal: 0.4s ease;
-    --shadow-normal: 0 5px 15px -5px rgba(0, 0, 0, 0.4);
+    --page-bg: #fff7f0;
+    --surface: #ffffff;
+    --surface-soft: #fff8ed;
+    --text: #2d3436;
+    --muted: #6f7582;
+    --line: #eadfd6;
+    --accent: #ff7a59;
+    --accent-dark: #d94f31;
+    --blue: #3b82f6;
+    --green: #20a67a;
+    --violet: #8b5cf6;
+    --amber: #f59e0b;
+    --rose: #ef5da8;
+    --shadow: 0 18px 45px rgba(70, 54, 120, 0.12);
+    --shadow-soft: 0 10px 28px rgba(70, 54, 120, 0.1);
 }
 
-/* 基础样式设置 */
+html {
+    min-height: 100%;
+}
+
 body {
+    min-height: 100%;
+    background:
+        radial-gradient(circle at 10% 8%, rgba(255, 122, 89, 0.22), transparent 28vw),
+        radial-gradient(circle at 88% 12%, rgba(59, 130, 246, 0.18), transparent 30vw),
+        radial-gradient(circle at 74% 82%, rgba(32, 166, 122, 0.16), transparent 34vw),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 247, 240, 0.98)),
+        var(--page-bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
     font-size: 16px;
-    letter-spacing: 2px;
-    color: var(--text-color);
+    line-height: 1.7;
 }
 
-/* ================ Logo区域样式 ================ */
+a {
+    color: inherit;
+}
+
+.page-shell {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 48px 0 72px;
+}
+
 .logo {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #cccccc;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 30px;
+    align-items: center;
+    padding: 34px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
 }
 
 .logo img {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
+    border: 6px solid #fff;
     border-radius: 50%;
     object-fit: cover;
-    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(45, 52, 54, 0.14);
 }
 
-.logo img:hover {
-    transform: scale(1.05);
+.logo-text {
+    min-width: 0;
 }
 
-/* Logo标题样式 */
-.logo h4 {
-    font-size: 32px;
-    letter-spacing: 2px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: var(--transition-fast);
+.eyebrow {
+    margin-bottom: 8px;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
-.logo h4:hover {
-    color: var(--accent-color);
+.logo h1 {
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #ff7a59, #8b5cf6 48%, #20a67a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(40px, 6vw, 70px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0;
 }
 
-/* Logo副标题样式 */
-.logo p {
-    margin-top: 10px;
-    cursor: pointer;
-    transition: var(--transition-fast);
+.logo p:last-child {
+    color: var(--muted);
+    font-size: 18px;
 }
 
-.logo p:hover {
-    color: var(--accent-color);
-}
-
-/* ================ 游戏按钮区域 ================ */
 .game-box {
-    width: 80%;
-    margin: 60px auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: 28px 0 52px;
 }
 
-/* 游戏按钮基础样式 */
 .game-btn {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    background: var(--bg-light);
-    margin: 10px;
-    border-radius: 30%;
-    box-shadow: var(--shadow-normal);
-    color: var(--primary-color);
+    display: flex;
+    min-height: 104px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 22px;
     overflow: hidden;
     position: relative;
-    text-align: center;
+    background: linear-gradient(135deg, var(--card-soft, #fff1eb), #fff);
+    border: 1px solid var(--card-line, var(--line));
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
     text-decoration: none;
+    transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
 }
 
-/* 按钮文字样式 */
-.game-btn p {
-    line-height: 100px;
-    font-size: 22px;
-    transition: var(--transition-fast);
+.game-btn:nth-child(1) {
+    --card-color: var(--accent);
+    --card-soft: #fff1eb;
+    --card-line: #ffd4c7;
+    --card-shadow: rgba(255, 122, 89, 0.22);
 }
 
-/* 按钮悬停效果 */
-.game-btn:hover p {
-    transform: scale(1.2);
-    color: var(--bg-light);
+.game-btn:nth-child(2) {
+    --card-color: var(--blue);
+    --card-soft: #edf5ff;
+    --card-line: #cfe0ff;
+    --card-shadow: rgba(59, 130, 246, 0.2);
 }
 
-/* 按钮动画背景 */
+.game-btn:nth-child(3) {
+    --card-color: var(--green);
+    --card-soft: #eaf9f3;
+    --card-line: #c8ecdf;
+    --card-shadow: rgba(32, 166, 122, 0.2);
+}
+
+.game-btn:nth-child(4) {
+    --card-color: var(--rose);
+    --card-soft: #fff0f7;
+    --card-line: #ffd0e7;
+    --card-shadow: rgba(239, 93, 168, 0.2);
+}
+
 .game-btn::before {
-    content: '';
+    content: "";
     position: absolute;
-    width: 120%;
-    height: 120%;
-    background: var(--primary-color);
+    width: 130%;
+    height: 130%;
+    background: var(--card-color, var(--accent));
     transform: rotate(45deg);
-    left: -110%;
-    top: 90%;
-    transition: var(--transition-fast);
+    left: -118%;
+    top: 88%;
+    opacity: 0.92;
+    transition: left 0.42s ease, top 0.42s ease;
+}
+
+.game-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.72) 42%, transparent 68%);
+    transform: translateX(-140%);
+    transition: transform 0.55s ease;
+}
+
+.game-btn span {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 4px;
+    color: var(--card-color, var(--accent));
+    font-size: 24px;
+    font-weight: 700;
+    transition: color 0.24s ease, transform 0.24s ease;
+}
+
+.game-btn small {
+    position: relative;
+    z-index: 1;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    transition: color 0.24s ease, transform 0.24s ease;
+}
+
+.game-btn:hover {
+    border-color: var(--card-line, var(--line));
+    box-shadow: 0 18px 36px var(--card-shadow, rgba(70, 54, 120, 0.18));
+    transform: translateY(-5px) rotate(-0.5deg);
 }
 
 .game-btn:hover::before {
-    animation: flash 0.7s 1;
-    top: -10%;
-    left: -10%;
+    animation: button-wave 0.72s ease forwards;
 }
 
-/* 按钮动画关键帧 */
-@keyframes flash {
+.game-btn:hover::after {
+    transform: translateX(140%);
+}
+
+.game-btn:hover span,
+.game-btn:hover small {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+@keyframes button-wave {
     0% {
-        left: -100%;
-        top: 90%;
+        left: -118%;
+        top: 88%;
     }
 
-    50% {
-        left: 10%;
-        top: -30%;
+    52% {
+        left: 8%;
+        top: -34%;
     }
 
     100% {
-        left: -10%;
-        top: -10%;
+        left: -12%;
+        top: -12%;
     }
 }
 
-/* ================ 图片画廊区域 ================ */
-.gallery {
-    width: 76%;
-    margin: 0 auto;
+.section-heading {
     display: flex;
-    flex-wrap: wrap-reverse;
-    justify-content: center;
-    background: var(--bg-lighter);
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 0 0 18px;
+    padding-top: 4px;
 }
 
-/* 图片容器样式 */
+.section-heading p {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    color: var(--violet);
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 52px;
+}
+
 .gallery .image {
-    flex: 25%;
+    display: block;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    cursor: pointer;
+    background: #ddd5ca;
+    border-radius: 6px;
+    box-shadow: var(--shadow-soft);
+    transform: translateZ(0);
 }
 
-/* 图片样式及动画 */
 .gallery .image img {
     width: 100%;
     height: 100%;
-    transition: var(--transition-normal);
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(.2, .8, .2, 1), filter 0.35s ease;
 }
 
 .gallery .image:hover img {
-    transform: scale(1.4) rotate(15deg);
+    filter: saturate(1.18) contrast(1.08);
+    transform: scale(1.32) rotate(8deg);
 }
 
-/* ================ 响应式布局 ================ */
-@media screen and (max-width: 960px) {
-    .gallery-section .image {
-        flex: 33.33%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .gallery-section .image {
-        flex: 50%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .gallery-section .image {
-        flex: 100%;
-    }
-}
-
-/* ================ 视频区域样式 ================ */
-.video-box {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-/* 视频卡片样式 */
-.video-box-child {
-    float: left;
-    width: auto;
-    padding: 24px;
-}
-
-/* 视频标题样式 */
-.video-box h3 {
-    color: var(--accent-color);
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
-
-/* 标题装饰条 */
-.video-box h3::before {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 25px;
-    margin-right: 10px;
-    background-color: var(--accent-color);
-}
-
-/* 视频区域 */
 .video-box {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-    padding: 40px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
 }
 
 .video-box-child {
-    background: white;
-    border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.video-box-child:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
 }
 
 .video-box-child h3 {
-    margin: 0;
-    padding: 20px;
-    font-size: 18px;
-    color: var(--text-color);
-    text-align: center;
-    background: #f8f9fa;
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, var(--surface-soft), #f3efff);
+    border-bottom: 1px solid var(--line);
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.45;
 }
 
 .video {
-    padding: 20px;
+    padding: 16px;
 }
 
 .video video {
     width: 100%;
-    border-radius: 8px;
+    display: block;
+    border-radius: 6px;
+    background: #111;
 }
 
-/* 响应式适配 */
-@media (max-width: 768px) {
-    .game-box {
-        flex-direction: column;
-        align-items: center;
+.mfp-bg {
+    background: rgba(20, 20, 20, 0.9);
+}
+
+.mfp-close {
+    color: #fff !important;
+}
+
+@media (max-width: 900px) {
+    .logo {
+        grid-template-columns: 140px minmax(0, 1fr);
+        padding: 26px;
     }
 
-    .game-btn {
-        width: 100%;
-        max-width: none;
+    .logo img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .game-box,
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .video-box {
         grid-template-columns: 1fr;
     }
+}
 
-    .video-box-child {
-        margin: 0 auto;
-        max-width: 100%;
+@media (max-width: 560px) {
+    .page-shell {
+        width: min(100% - 28px, 1120px);
+        padding: 28px 0 48px;
     }
-}
 
-/* Magnific Popup 样式优化 */
-.mfp-bg {
-    background: rgba(0, 0, 0, 0.9);
-}
+    .logo {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
 
-.mfp-figure {
-    box-shadow: var(--shadow);
-}
+    .game-box,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
 
-.mfp-close {
-    color: white !important;
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading p {
+        margin-bottom: 4px;
+    }
 }

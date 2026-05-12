@@ -209,4 +209,40 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  (function offsetSitePageViews() {
+    var sitePv = document.getElementById('busuanzi_value_site_pv');
+    var sitePvOffset = 60000;
+
+    if (!sitePv) return;
+
+    function parseCount(text) {
+      var count = parseInt(String(text).replace(/[^\d]/g, ''), 10);
+      return Number.isNaN(count) ? null : count;
+    }
+
+    function renderOffsetCount() {
+      var currentCount = parseCount(sitePv.textContent);
+      var rawCount = parseCount(sitePv.getAttribute('data-raw-count'));
+
+      if (currentCount === null) return;
+      if (rawCount !== null && currentCount === rawCount + sitePvOffset) return;
+
+      sitePv.setAttribute('data-raw-count', String(currentCount));
+      sitePv.textContent = String(currentCount + sitePvOffset);
+    }
+
+    renderOffsetCount();
+
+    if (window.MutationObserver) {
+      var sitePvObserver = new MutationObserver(renderOffsetCount);
+      sitePvObserver.observe(sitePv, {
+        childList: true,
+        characterData: true,
+        subtree: true
+      });
+    } else {
+      window.setTimeout(renderOffsetCount, 1000);
+    }
+  })();
 });

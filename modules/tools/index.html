@@ -1,150 +1,332 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- 网站图标 -->
-    <link rel="icon" type="image/png" href="/images/icon/icon_tools.png" />
+    <link rel="icon" type="image/png" href="/images/icon/icon_tools.png">
     <title>小工具</title>
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background: linear-gradient(to right, #f7f8fc, #eef1f5);
-            color: #333;
+            padding: 0;
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px 20px;
+        :root {
+            --page-bg: #f7f5ff;
+            --surface: #ffffff;
+            --surface-soft: #fff8ed;
+            --text: #263236;
+            --muted: #6f7582;
+            --line: #e4dfef;
+            --accent: #ff7a59;
+            --accent-dark: #d94f31;
+            --green: #20a67a;
+            --blue: #3b82f6;
+            --violet: #8b5cf6;
+            --amber: #f59e0b;
+            --rose: #ef5da8;
+            --shadow: 0 16px 40px rgba(70, 54, 120, 0.12);
+            --shadow-soft: 0 10px 28px rgba(70, 54, 120, 0.1);
         }
 
-        header h1 {
-            font-size: 2.8em;
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(255, 122, 89, 0.22), transparent 28vw),
+                radial-gradient(circle at 88% 10%, rgba(59, 130, 246, 0.18), transparent 30vw),
+                radial-gradient(circle at 70% 82%, rgba(32, 166, 122, 0.14), transparent 34vw),
+                linear-gradient(180deg, #ffffff 0%, var(--page-bg) 100%);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            width: min(1040px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 56px 0 64px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 28px;
+            align-items: end;
+            padding: 34px;
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .eyebrow {
+            margin-bottom: 8px;
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
             margin-bottom: 10px;
-            color: #222;
+            background: linear-gradient(90deg, #ff7a59, #8b5cf6 48%, #20a67a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+
+        .hero p:last-child {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .hero-mark {
+            width: 96px;
+            height: 96px;
+            display: grid;
+            place-items: center;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            color: var(--violet);
+            font-size: 44px;
+            font-weight: 700;
+        }
+
+        .tool-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .section-title h2 {
+            color: var(--violet);
+            font-size: 24px;
+            line-height: 1.3;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 14px;
         }
 
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
         }
 
         .tool-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            padding: 30px 20px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.3s;
+            min-height: 190px;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--card-color, var(--accent));
+            border-radius: 8px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tool-card:nth-child(1) {
+            --card-color: var(--accent);
+            --card-soft: #fff1eb;
+            --card-line: #ffd4c7;
+            --card-shadow: rgba(255, 122, 89, 0.2);
+        }
+
+        .tool-card:nth-child(2) {
+            --card-color: var(--blue);
+            --card-soft: #edf5ff;
+            --card-line: #cfe0ff;
+            --card-shadow: rgba(59, 130, 246, 0.18);
+        }
+
+        .tool-card:nth-child(3) {
+            --card-color: var(--green);
+            --card-soft: #eaf9f3;
+            --card-line: #c8ecdf;
+            --card-shadow: rgba(32, 166, 122, 0.18);
         }
 
         .tool-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            border-color: var(--card-line, var(--line));
+            box-shadow: 0 16px 34px var(--card-shadow, rgba(70, 54, 120, 0.12));
+            transform: translateY(-3px);
         }
 
-        .tool-card h2 {
-            font-size: 1.3em;
-            margin-bottom: 12px;
-            color: #007acc;
+        .tool-card h3 {
+            margin-bottom: 8px;
+            color: var(--card-color, var(--accent));
+            font-size: 22px;
+            line-height: 1.35;
         }
 
         .tool-card p {
-            font-size: 0.95em;
-            color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            color: var(--muted);
+            font-size: 15px;
         }
 
         .tool-card a {
-            display: inline-block;
+            width: max-content;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            padding: 9px 14px;
+            background: var(--card-soft, #fff1eb);
+            border: 1px solid var(--card-line, #ffd4c7);
+            border-radius: 4px;
+            color: var(--card-color, var(--accent-dark));
+            font-size: 14px;
+            font-weight: 600;
             text-decoration: none;
-            background-color: #007acc;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
+            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
 
         .tool-card a:hover {
-            background-color: #005fa3;
+            background: var(--card-color, var(--accent));
+            border-color: var(--card-color, var(--accent));
+            color: #fff;
         }
 
         footer {
+            margin-top: 48px;
+            padding-top: 22px;
+            border-top: 1px solid var(--line);
+            color: #97a5a8;
+            font-size: 13px;
             text-align: center;
-            padding: 40px 20px 60px;
-            color: #aaa;
-            font-size: 0.9em;
+        }
+
+        @media (max-width: 860px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-mark {
+                width: 72px;
+                height: 72px;
+                font-size: 34px;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .page-shell {
+                width: min(100% - 28px, 1040px);
+                padding: 32px 0 44px;
+            }
+
+            .hero {
+                padding: 26px;
+            }
+
+            .section-title {
+                display: block;
+            }
+
+            .section-title p {
+                margin-top: 4px;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
+    <main class="page-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Tools</p>
+                <h1>小工具</h1>
+                <p>常用入口收在一起。需要的时候直接打开，不需要的时候安静放着。</p>
+            </div>
+            <div class="hero-mark" aria-hidden="true">⌘</div>
+        </header>
 
-    <header>
-        <h1>实用小工具导航</h1>
-        <p>快速访问你常用的在线工具</p>
-    </header>
+        <section class="tool-section">
+            <div class="section-title">
+                <h2>玩一下</h2>
+                <p>轻量娱乐入口</p>
+            </div>
+            <div class="tools-grid">
+                <article class="tool-card">
+                    <h3>奏乐</h3>
+                    <p>敲击键盘，生成一段即时音乐。</p>
+                    <a href="/modules/xiaowanle/games/mikutap/" target="_blank" rel="noopener noreferrer">打开工具</a>
+                </article>
 
-    <div class="tools-grid">
-        <!-- 奏乐游戏入口 -->
-        <div class="tool-card">
-            <h2>奏乐</h2>
-            <p>敲击键盘，感受自创音乐的乐趣。</p>
-            <a href="/modules/xiaowanle/games/mikutap/" target="_blank" rel="noopener noreferrer">立即使用</a>
-        </div>
+                <article class="tool-card">
+                    <h3>冥想</h3>
+                    <p>滑动星空，留一个安静的屏幕。</p>
+                    <a href="/modules/xiaowanle/games/night-sky/" target="_blank" rel="noopener noreferrer">打开工具</a>
+                </article>
 
-        <!-- 冥想游戏入口 -->
-        <div class="tool-card">
-            <h2>冥想</h2>
-            <p>滑动星空。</p>
-            <a href="/modules/xiaowanle/games/night-sky/" target="_blank" rel="noopener noreferrer">立即使用</a>
-        </div>
+                <article class="tool-card">
+                    <h3>听歌</h3>
+                    <p>打开个人音乐播放器，播放整理好的歌。</p>
+                    <a href="https://yuqianglianshou.com/music_ice/" target="_blank" rel="noopener noreferrer">打开工具</a>
+                </article>
+            </div>
+        </section>
 
-        <!-- 音乐播放器入口 -->
-        <div class="tool-card">
-            <h2>听歌</h2>
-            <p>来首音乐吧。</p>
-            <a href="https://yuqianglianshou.com/music_ice/" target="_blank" rel="noopener noreferrer">立即使用</a>
-        </div>
+        <section class="tool-section">
+            <div class="section-title">
+                <h2>做点事</h2>
+                <p>处理图片、学习和内容入口</p>
+            </div>
+            <div class="tools-grid">
+                <article class="tool-card">
+                    <h3>图片压缩</h3>
+                    <p>快速压缩图片体积，尽量保留清晰度。</p>
+                    <a href="https://iceelegend.github.io/mazanoke_ice/" target="_blank" rel="noopener noreferrer">打开工具</a>
+                </article>
 
-    </div>
+                <article class="tool-card">
+                    <h3>英文打字学习</h3>
+                    <p>练习英文输入，一次敲击，一点进步。</p>
+                    <a href="https://2study.top/" target="_blank" rel="noopener noreferrer">打开工具</a>
+                </article>
 
+                <article class="tool-card">
+                    <h3>全球儿歌</h3>
+                    <p>浏览世界各地的经典与原创儿歌。</p>
+                    <a href="https://beddysongs.com/zh" target="_blank" rel="noopener noreferrer">打开工具</a>
+                </article>
+            </div>
+        </section>
 
-        <div class="tools-grid">
-        <!-- 图片压缩 -->
-        <div class="tool-card">
-            <h2>图片压缩</h2>
-            <p>快速压缩图片大小，保持清晰度。</p>
-            <a href="https://iceelegend.github.io/mazanoke_ice/" target="_blank" rel="noopener noreferrer">立即使用</a>
-        </div>
-
-        <!-- 英文打字学习 Type Words -->
-        <div class="tool-card">
-            <h2>英文打字学习</h2>
-            <p>学习英语，一次敲击，一点进步。</p>
-            <a href="https://2study.top/" target="_blank" rel="noopener noreferrer">立即使用</a>
-        </div>
-
-        <!-- 全球儿歌 -->
-        <div class="tool-card">
-            <h2>全球儿歌</h2>
-            <p>汇聚世界各地的经典与原创儿歌。</p>
-            <a href="https://beddysongs.com/zh" target="_blank" rel="noopener noreferrer">立即使用</a>
-        </div>
-
-    </div>
-
-    <footer>
-        &copy; 2025 小工具集 | 构建自 GitHub Pages
-    </footer>
-
+        <footer>
+            &copy; 2026 小工具集
+        </footer>
+    </main>
 </body>
 
 </html>
