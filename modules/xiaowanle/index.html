@@ -21,37 +21,49 @@
 </head>
 
 <body>
+    <main class="page-shell">
     <!-- ================ 头部Logo区域 ================ -->
     <header class="logo">
         <img src="/images/icon.jpeg" alt="小玩乐图标" width="200" height="200">
-        <h4>小玩乐</h4>
-        <p>绝版的昨天</p>
+        <div class="logo-text">
+            <p class="eyebrow">Yuqianglianshou Lab</p>
+            <h1>小玩乐</h1>
+            <p>绝版的昨天，临时的快乐。</p>
+        </div>
     </header>
 
     <!-- ================ 游戏按钮区域 ================ -->
     <nav class="game-box">
         <!-- 奏乐游戏入口 -->
         <a class="game-btn" href="/modules/xiaowanle/games/mikutap/" target="_blank" rel="noopener noreferrer">
-            <p>奏乐</p>
+            <span>奏乐</span>
+            <small>Mikutap</small>
         </a>
 
         <!-- 冥想游戏入口 -->
         <a class="game-btn" href="/modules/xiaowanle/games/night-sky/" target="_blank" rel="noopener noreferrer">
-            <p>冥想</p>
+            <span>冥想</span>
+            <small>Night Sky</small>
         </a>
 
         <!-- 音乐播放器入口 -->
         <a class="game-btn" href="https://yuqianglianshou.com/music_ice/" target="_blank" rel="noopener noreferrer">
-            <p>听歌</p>
+            <span>听歌</span>
+            <small>Music Ice</small>
         </a>
 
         <!-- 全球儿歌入口 -->
         <a class="game-btn" href="https://beddysongs.com/zh/" target="_blank" rel="noopener noreferrer">
-            <p>儿歌</p>
+            <span>儿歌</span>
+            <small>Beddy Songs</small>
         </a>
     </nav>
 
     <!-- ================ 图片画廊区域 ================ -->
+    <section class="section-heading">
+        <p>Gallery</p>
+        <h2>碎片相册</h2>
+    </section>
     <section class="gallery">
         <!-- 图片1-4 -->
         <a href="./imgs/1.webp" class="image">
@@ -83,6 +95,10 @@
     </section>
 
     <!-- ================ 视频展示区域 ================ -->
+    <section class="section-heading">
+        <p>Video</p>
+        <h2>短片收藏</h2>
+    </section>
     <section class="video-box">
         <!-- 视频1 -->
         <article class="video-box-child">
@@ -117,6 +133,7 @@
             </div>
         </article>
     </section>
+    </main>
 
     <!-- ================ 图片画廊初始化脚本 ================ -->
     <script>

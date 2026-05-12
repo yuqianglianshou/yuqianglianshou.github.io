@@ -119,16 +119,15 @@ h2 {
 
 h3 {
   font-size: 1.2em;
-  text-indent: 4px;
   border-radius: 4px;
   padding: 6px 15px;
-  margin-bottom: 20px;
-  margin-top: 5px;
-  background:#B9D3EE;
-  /*0px right, 5px botton, 5px fuzzy*/
-  box-shadow: 0px 5px 5px #9FB6CD;
-  border-left: 6px solid #1874CD;
-  position:relative;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  background: #c3d5fb;
+  box-shadow: 0 2px 6px rgba(70, 110, 150, .12);
+  border-left: 4px solid #9dc9d3;
+  border-bottom: none;
+  position: relative;
 }
 
 h4 {
@@ -226,12 +225,16 @@ th {
   font-weight: bold;
   border: 1px solid #363636;
 }
+th,
+td {
+  padding-left: 20px;
+}
 table thead tr th {
   text-align: center;
 }
 
 th:first-child, td:first-child {
-  padding: 0 15px 0 20px;
+  padding-right: 15px;
 }
 
 tbody td {
@@ -242,4 +245,3 @@ td:last-child {
   padding-right: 10px;
   border: 1px solid #363636;
 }
-
