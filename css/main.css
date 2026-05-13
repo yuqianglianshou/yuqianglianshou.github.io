@@ -290,7 +290,7 @@ td:last-child {
 .layout-post .content-wrapper {
   width: 78%;
   margin-left: 22%;
-  background: radial-gradient(circle at 8% 0, rgba(255, 122, 89, 0.14), transparent 28vw), radial-gradient(circle at 94% 12%, rgba(59, 130, 246, 0.12), transparent 30vw), linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 247, 240, 0.9));
+  background: linear-gradient(180deg, #fffdfa 0%, #fff8f1 46%, #f8fbff 100%);
   min-height: 100vh;
 }
 
@@ -725,8 +725,6 @@ td:last-child {
   background-color: rgba(68, 68, 68, 0.5);
   background-image: -webkit-linear-gradient(-410deg, rgba(68, 68, 68, 0.5) 20%, rgba(0, 0, 0, 0.85));
   background-image: linear-gradient(140deg, rgba(68, 68, 68, 0.5) 20%, rgba(0, 0, 0, 0.85));
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
 }
 
 .panel-cover__logo {
@@ -1885,12 +1883,6 @@ nav a {
     transform: translateY(-5px) translateX(-50%);
   }
 }
-/* 毛玻璃效果增强 */
-.panel-main__content {
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-}
-
 /* 改进文字层次 - 已在上面定义，此处为补充 */
 .panel-subtitle {
   font-size: 0.85em;

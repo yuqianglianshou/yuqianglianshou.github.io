@@ -612,12 +612,6 @@ nav a {
   }
 }
 
-/* 毛玻璃效果增强 */
-.panel-main__content {
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-}
-
 /* 改进文字层次 - 已在上面定义，此处为补充 */
 
 .panel-subtitle {
