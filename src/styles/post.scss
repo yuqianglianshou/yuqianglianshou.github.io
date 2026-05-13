@@ -5,10 +5,7 @@
   .layout-post .content-wrapper {
     width: 78%;
     margin-left: 22%;
-    background:
-      radial-gradient(circle at 8% 0, rgba(255, 122, 89, .14), transparent 28vw),
-      radial-gradient(circle at 94% 12%, rgba(59, 130, 246, .12), transparent 30vw),
-      linear-gradient(180deg, rgba(255, 255, 255, .94), rgba(255, 247, 240, .9));
+    background: linear-gradient(180deg, #fffdfa 0%, #fff8f1 46%, #f8fbff 100%);
     min-height: 100vh;
   }
 
