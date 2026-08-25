@@ -51,17 +51,17 @@
         <!-- 博客主页，所有文章，标签，关于他，小玩乐  调用 _config.yml 中的 nav -->
         <div class="navigation-wrapper">
           <div>
-            <nav class="cover-navigation cover-navigation--primary">
+            <nav class="cover-navigation cover-navigation--primary" aria-label="主要导航">
               <ul class="navigation">
                 <li class="navigation__item">
-                  <a href="/#blog" title="{% if site.blog_button.description %}{{ site.blog_button.description }}{% else %}{{ site.blog_button.title }}{% endif %}" class="blog-button">
+                  <a href="/#blog" title="{% if site.blog_button.description %}{{ site.blog_button.description }}{% else %}{{ site.blog_button.title }}{% endif %}" class="blog-button"{% if page.url == '/' or page.layout == 'post' %} aria-current="page"{% endif %}>
                     {{ site.blog_button.title }}
                   </a>
                 </li>
 
                 {% for item in site.nav %}
                 <li class="navigation__item">
-                  <a href="{{ item.url }}" {% if item.new_window %}target="_blank" rel="noopener noreferrer" {% endif %}title="{{ item.description }}">
+                  <a href="{{ item.url }}" {% if item.new_window %}target="_blank" rel="noopener noreferrer" {% endif %}title="{{ item.description }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>
                     {{ item.title }}
                   </a>
                 </li>
@@ -77,9 +77,10 @@
     </div>
     <!-- 滚动提示 -->
     {% unless page.layout == 'post' or page.layout == 'page' %}
-    <div class="scroll-indicator">
+    <!-- 使用原生链接保留原有视觉，同时支持键盘和脚本不可用时的锚点跳转。 -->
+    <a class="scroll-indicator" href="#blog">
       <span>查看博客</span>
-    </div>
+    </a>
     {% endunless %}
   </div>
 
