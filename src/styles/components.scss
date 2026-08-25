@@ -131,8 +131,30 @@ img::-moz-selection {
     text-align: center;
     color: #FFF; }
 
+/* 键盘操作保留清晰焦点；鼠标点击继续沿用原主题的简洁外观。 */
 *:focus {
+  outline: 2px solid #2f7f6a;
+  outline-offset: 2px; }
+
+*:focus:not(:focus-visible) {
   outline: none; }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  padding: 8px 12px;
+  color: #fff;
+  background: #2f7f6a;
+  border-radius: 3px;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  color: #fff;
+  transform: translateY(0);
+}
 
 input[type="text"],
 input[type="password"],
@@ -506,6 +528,59 @@ nav a {
   -moz-transform: translateY(-3px);
   transform: translateY(-3px);
 }
+
+/* 当前栏目只使用细线和文字提亮，不增加大面积选中背景。 */
+.navigation__item a[aria-current="page"],
+.nav-menu-item a[aria-current="page"] {
+  color: #fff;
+}
+
+.navigation__item a[aria-current="page"]::after {
+  width: 80%;
+}
+
+.nav-menu-item a[aria-current="page"]::before,
+.nav-menu-item a[aria-current="page"]::after {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+@media all and (max-width: 1100px) {
+  /* 保留全部原始入口，空间不足时横向滚动，避免换行或裁切。 */
+  .btn-mobile-menu {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .btn-mobile-menu .nav_container {
+    min-width: max-content;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .btn-mobile-menu nav.nav-menu-item {
+    display: flex;
+    float: none;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    min-width: 100%;
+    height: 40px;
+  }
+
+  .btn-mobile-menu .nav-menu-item {
+    flex: 0 0 auto;
+    float: none;
+  }
+
+  .btn-mobile-menu .nav-menu-item a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    margin: 0 10px;
+  }
+}
 /*导航按钮-end*/
 
 .footer-stats {
@@ -579,6 +654,7 @@ nav a {
   user-select: none;
   -webkit-user-select: none;
   pointer-events: auto;
+  text-decoration: none;
 }
 
 .scroll-indicator:hover {

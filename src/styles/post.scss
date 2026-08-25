@@ -291,6 +291,8 @@
     font-size: 1em;
     line-height: 1.9em;
     text-indent: 0;
+    /* 文章摘要可能包含完整网址，窄屏时允许安全换行。 */
+    overflow-wrap: anywhere;
   }
 
 .post-list__meta {
@@ -301,7 +303,7 @@
   width: 100%;
   margin: 0;
   font-size: .9em;
-  color: #9aa8b2;
+  color: #66737c;
 }
 
 .tag-img-icon img{
@@ -314,7 +316,7 @@
   align-items: center;
   gap: 6px;
   margin: 0;
-  color: #9aa8b2;
+  color: #66737c;
 }
 
 .post-list__meta--tags {
@@ -328,11 +330,11 @@
   padding-left: 5px;
   padding-right: 0px;
   float: left;
-  color: #8A97A1;
+  color: #66737c;
 
 }
 .post-list__meta--tags-right {
-  color: #8A97A1;
+  color: #66737c;
   font-size: .9em;
   line-height: 20px;
 }

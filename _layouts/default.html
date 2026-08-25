@@ -5,17 +5,19 @@
 
   <body class="layout-{{ page.layout | default: 'default' }}">
 
+    <a class="skip-link blog-button" href="#main-content">跳至正文</a>
+
     <div class="mobile btn-mobile-menu">
       <div class="nav_container">
-         <nav class="nav-menu-item">
+         <nav class="nav-menu-item" aria-label="移动端主要导航">
             <span class="nav-menu-item">
-              <a href="/#blog" title="{% if site.blog_button.description %}{{ site.blog_button.description }}{% else %}{{ site.blog_button.title }}{% endif %}" class="blog-button">
+              <a href="/#blog" title="{% if site.blog_button.description %}{{ site.blog_button.description }}{% else %}{{ site.blog_button.title }}{% endif %}" class="blog-button"{% if page.url == '/' or page.layout == 'post' %} aria-current="page"{% endif %}>
                 {{ site.blog_button.title }}
               </a>
             </span>
             {% for item in site.nav %}
                 <span class="nav-menu-item">
-                  <a href="{{ item.url }}" title="{{ item.description }}" class="btn-mobile-menu__icon"{% if item.new_window %} target="_blank" rel="noopener noreferrer"{% endif %}>
+                  <a href="{{ item.url }}" title="{{ item.description }}" class="btn-mobile-menu__icon"{% if item.new_window %} target="_blank" rel="noopener noreferrer"{% endif %}{% if page.url contains item.url %} aria-current="page"{% endif %}>
                       {{ item.title }}
                   </a>
                 </span>
@@ -26,12 +28,12 @@
     
     {% include side-panel.html %}
 
-    <div class="content-wrapper">
+    <main id="main-content" class="content-wrapper" tabindex="-1">
         <div class="content-wrapper__inner">
             {{ content }}
             {% include footer.html %}
         </div>
-    </div>
+    </main>
     
     {% include external.html %}
     
