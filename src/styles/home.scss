@@ -1,3 +1,5 @@
+@use "settings/tokens" as t;
+
   .panel {
     display: table;
     width: 100%;
@@ -12,11 +14,11 @@
     margin-top: 20px;
     font-size: 2.0em;
     letter-spacing: 4px;
-    color: #FFF;
+    color: t.$color-surface;
     animation: fadeInUp 0.8s ease-out 0.2s both; }
 
   .panel-subtitle {
-    font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-family: t.$font-body;
     font-size: 0.6em;
     font-weight: lighter;
     letter-spacing: 3px;
@@ -33,9 +35,9 @@
     background: url(/images/background-cover.webp) top left no-repeat #666666;
     background-size: cover; }
 
-  .panel-cover--collapsed {
-    width: 22%;
-    max-width: 320px; }
+  .panel-cover[data-panel-state="collapsed"] {
+    width: t.$panel-collapsed-width;
+    max-width: t.$panel-collapsed-max-width; }
 
   .panel-cover--overlay {
     display: block;
@@ -101,10 +103,10 @@
   .panel-inverted {
     font-weight: 100;
     text-align: center;
-    color: #FFF;
+    color: t.$color-surface;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
   .panel-inverted a {
-    color: #FFF; }
+    color: t.$color-surface; }
 
   .cover-navigation {
     margin-top: 0px;
@@ -170,7 +172,7 @@
     font-size: 1.0em;
     height: 30px;
     margin-left: 20px;
-    color: #458B74;
+    color: t.$color-accent;
   }
 
   .btn-secondary {
@@ -309,9 +311,11 @@
   .navigation--social a .label {
     display: none;
   }
-  .navigation--social a .icon {
+  .navigation--social a .social-icon {
     display: block;
-    font-size: 1.7em;
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
   }
   .pagination {
     display: block;
@@ -331,21 +335,3 @@
   .pagination__older {
     margin-left: 1em;
   }
-
-  i {
-    font-family: 'entypo';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 18px;
-  }
-
-  .social {
-    font-size: 22px;
-  }
-
-  .icon-social {
-    font-family: 'entypo-social';
-    font-size: 22px;
-    display: block;
-    position: relative;
-   }

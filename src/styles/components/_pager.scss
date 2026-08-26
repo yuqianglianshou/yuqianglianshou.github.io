@@ -1,0 +1,77 @@
+@use "../settings/tokens" as t;
+
+/*pager start----------------*/
+.post-container
+.pager li{
+  margin-top: 20px;
+  width:48%
+}
+.next{
+  margin-top: 20px;
+  float:right
+}
+.previous{
+  margin-top: 20px;
+  float:left
+}
+.pager li>a{
+  width:100%;
+  padding: 10px 10px;
+}
+
+.pager li>a>span{
+  padding-right: 10px;
+  color:gray;
+  padding: 10px 10px;
+}
+
+.pager li>span {
+  margin-top: 40px;
+  line-height:1.7;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:800;
+  padding:10px;
+  background-color:t.$color-surface;
+  border-radius:0;
+}
+.pager li>a {
+  color:#404040
+}
+.pager li>a:hover,
+.pager li>a:focus {
+  color:t.$color-surface;
+  background-color:#B9D3EE;
+}
+.pager li>a:hover>span,
+.pager li>a:focus>span{
+  color:t.$color-surface;
+}
+::-moz-selection {
+  color:t.$color-surface;
+  text-shadow:none;
+  background:#a0b3d6;
+  }
+::selection {
+    color:t.$color-surface;
+    text-shadow:none;
+    background:#666666;
+  }
+img::selection {
+  color:t.$color-surface;
+  background:0 0
+}
+img::-moz-selection {
+  color:t.$color-surface;
+  background:0 0
+}
+
+@media all and (max-width: t.$breakpoint-mobile) {
+  .next{
+    float:left;
+  }
+  .previous{
+    float:left;
+  }
+}
+/*pager end----------------*/

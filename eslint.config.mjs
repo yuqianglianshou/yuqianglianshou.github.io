@@ -7,22 +7,16 @@ export default [
       'krpano/**',
       'modules/xiaowanle/games/mikutap/js/*.min.js',
       'modules/xiaowanle/games/mikutap/js/*.map',
-      'js/highlight.pack.js',
     ],
   },
   {
     files: ['js/**/*.js'],
     languageOptions: {
       ecmaVersion: 2020,
-      sourceType: 'script',
+      sourceType: 'module',
       globals: {
         document: 'readonly',
-        location: 'readonly',
         MutationObserver: 'readonly',
-        setInterval: 'readonly',
-        setTimeout: 'readonly',
-        clearInterval: 'readonly',
-        clearTimeout: 'readonly',
         window: 'readonly',
       },
     },

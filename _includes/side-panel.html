@@ -1,4 +1,5 @@
-<header class="panel-cover {% if page.layout == 'post' or page.layout == 'page' %}panel-cover--collapsed{% endif %}">
+<!-- 面板状态只保存在 data 属性中，模板和脚本共用同一状态来源。 -->
+<header class="panel-cover" data-panel-state="{% if page.layout == 'post' or page.layout == 'page' %}collapsed{% else %}expanded{% endif %}">
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">

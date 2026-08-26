@@ -7,8 +7,11 @@
           {% if site.social.github %}
           <!-- Github -->
           <li class="navigation__item_social">
-            <a href="https://github.com/{{ site.social.github }}" title="{{ site.social.github }} 的 Github" target="_blank" rel="noopener noreferrer">
-              <i class="social fa fa-github fa-2x"></i>
+            <a href="https://github.com/{{ site.social.github }}" title="{{ site.social.github }} 的 Github" aria-label="访问 {{ site.social.github }} 的 GitHub" target="_blank" rel="noopener noreferrer">
+              <!-- 内联图标使用 currentColor，保留原交互色且不再依赖 Font Awesome。 -->
+              <svg class="social-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.64 5.47 7.71.4.08.55-.17.55-.39 0-.19-.01-.83-.01-1.51-2.01.38-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.53-.01-.54.63-.01 1.08.59 1.23.83.72 1.22 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.2-3.64-.9-3.64-4.02 0-.89.31-1.62.82-2.19-.08-.2-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.4 7.4 0 0 1 8 3.69a7.4 7.4 0 0 1 2-.27c1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.96.08 2.16.51.57.82 1.3.82 2.19 0 3.13-1.87 3.82-3.65 4.02.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .22.15.47.55.39A8.16 8.16 0 0 0 16 8.13C16 3.64 12.42 0 8 0Z"/>
+              </svg>
               <span class="label">Github</span>
             </a>
           </li>
@@ -16,8 +19,10 @@
 
           <!-- RSS -->
           <li class="navigation__item_social">
-            <a href="/feed.xml" title="RSS" target="_blank" rel="author noopener noreferrer">
-              <i class="social fa fa-rss fa-2x"></i>
+            <a href="/feed.xml" title="RSS" aria-label="订阅 RSS" target="_blank" rel="author noopener noreferrer">
+              <svg class="social-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M2.5 12.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM1 8.5A6.5 6.5 0 0 1 7.5 15H10A9 9 0 0 0 1 6v2.5ZM1 3.5C7.35 3.5 12.5 8.65 12.5 15H15C15 7.27 8.73 1 1 1v2.5Z"/>
+              </svg>
               <span class="label">RSS</span>
             </a>
           </li>
@@ -25,23 +30,23 @@
           {% if site.social.mail %}
           <!-- Email -->
           <li class="navigation__item_social">
-            <a href="mailto:{{ site.social.mail }}" title="Contact me">
-              <i class="social fa fa-envelope fa-2x"></i>
+            <a href="mailto:{{ site.social.mail }}" title="Contact me" aria-label="发送邮件">
+              <svg class="social-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-.5a.5.5 0 0 0-.5.5v.22l6.5 3.9 6.5-3.9V4a.5.5 0 0 0-.5-.5H2Zm12.5 2.47-4.86 2.92 4.86 3.02V5.97Zm-.92 6.53L8 9.03 2.42 12.5h11.16ZM1.5 11.91l4.86-3.02L1.5 5.97v5.94Z"/>
+              </svg>
               <span class="label">Email</span>
             </a>
           </li>
 
           {% endif %}
 
-          <!-- https://www.thinkcmf.com/font/font_awesome/icons.html -->
-          <!-- 视频播放图标 -->
-
-
           <!-- 冥想空间 在_config.yml 文件中屏蔽-->
           {% if site.social.sky %}
           <li class="navigation__item_social">
-            <a href="/game/night_sky/" target="_blank" rel="noopener noreferrer" title="{{ site.social.sky }}">
-              <i class="fa fa-play-circle fa-2x"></i>
+            <a href="/game/night_sky/" target="_blank" rel="noopener noreferrer" title="{{ site.social.sky }}" aria-label="打开{{ site.social.sky }}">
+              <svg class="social-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM7 5.1v5.8L11.5 8 7 5.1Z"/>
+              </svg>
               <span class="label">Sky</span>
             </a>
           </li>
@@ -59,15 +64,6 @@
         <a href="https://yuqianglianshou.com/">yuqianglianshou</a>
 
       </p>
-      <div class="footer-stats">
-
-        <!-- 访问统计 -->
-        <span id="busuanzi_container_site_pv">
-          本站总访问量
-          <span id="busuanzi_value_site_pv"></span>次
-        </span>
-
-      </div>
     </div>
   </footer>
 </section>

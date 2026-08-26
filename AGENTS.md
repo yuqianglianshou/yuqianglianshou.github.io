@@ -7,8 +7,9 @@
 - 本项目是使用 Jekyll 构建的个人博客。
 - 页面模板位于 `_layouts/` 和 `_includes/`。
 - 博客文章位于 `_posts/`。
-- Sass 源文件位于 `src/styles/`，编译产物为 `css/main.css`。
-- 主要前端交互脚本为 `js/main.js`。
+- Sass 源文件位于 `src/styles/`，统一设计 Token 位于 `src/styles/settings/_tokens.scss`，编译产物为 `css/main.css`。
+- 前端交互入口为 `js/main.js`，按职责拆分的模块位于 `js/modules/`。
+- 代码高亮由 Jekyll 的 Rouge 在构建阶段生成，不再加载浏览器端高亮库。
 
 ## 通用原则
 
@@ -19,6 +20,7 @@
 - 不删除已有错误处理，不通过隐藏问题让实现看起来更简单。
 - 不暴露密钥、令牌、密码或私有环境变量。
 - 不随意增加生产依赖；确有必要时，先说明现有技术栈为什么不足。
+- 第三方脚本只允许在确有功能需要的页面加载，不为装饰性功能增加全局网络依赖。
 
 ## 代码与注释
 
@@ -27,7 +29,8 @@
 - 不为一眼可见的赋值、循环或简单样式添加重复代码含义的注释。
 - 修改实现后应同步维护相关注释，禁止保留与实际行为不一致的过期说明。
 - JavaScript 保持当前项目的浏览器兼容风格，避免无必要的全局状态和重复 DOM 查询。
-- 样式修改应优先编辑 `src/styles/` 中的 Sass 源文件，再通过构建命令生成 `css/main.css`，不要只修改生成文件。
+- `src/styles/` 是样式的唯一源码；`css/main.css` 只作为部署产物保留，禁止手工修改，提交前必须通过 `npm run styles:check` 校验。
+- 新增跨页面复用的颜色、字体、断点、圆角或动效参数时，应优先补充语义化 Token，避免在组件中复制裸值。
 - Jekyll 模板应保持 Liquid 结构清晰，并保留必要的语义化 HTML 和无障碍属性。
 
 ## 修改记录
@@ -52,13 +55,15 @@
 
 ```bash
 npm run styles:build
+npm run styles:check
 npm run lint
 npm run test
 npm run build
+npm run check
 ```
 
 - 仅修改文档时，可以不执行完整构建，但至少检查 Markdown 内容和 Git diff。
-- 修改样式时，至少执行 `npm run styles:build` 和 `npm run build`。
+- 修改样式时，至少执行 `npm run styles:build`、`npm run styles:check` 和 `npm run build`。
 - 修改 JavaScript 时，至少执行 `npm run lint` 和 `npm run build`。
 - 修改模板、配置或内容时，至少执行 `npm run build`。
 - 如有检查失败，必须如实说明原因；项目无法成功构建时不得声称任务已经完成。

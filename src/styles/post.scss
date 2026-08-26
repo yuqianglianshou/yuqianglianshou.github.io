@@ -1,18 +1,90 @@
+@use "settings/tokens" as t;
+
+/* Rouge 已在构建阶段生成语义类名，这组轻量配色无需浏览器再次执行高亮脚本。 */
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: t.$color-code-comment;
+  font-style: italic;
+}
+
+.highlight .err,
+.highlight .gd,
+.highlight .na,
+.highlight .no,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+  color: t.$color-code-variable;
+}
+
+.highlight .m,
+.highlight .mb,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo {
+  color: t.$color-code-number;
+}
+
+.highlight .s,
+.highlight .sa,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s1,
+.highlight .s2,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sr,
+.highlight .ss,
+.highlight .sx {
+  color: t.$color-code-string;
+}
+
+.highlight .nc,
+.highlight .nd,
+.highlight .nn,
+.highlight .nt {
+  color: t.$color-code-title;
+}
+
+.highlight .nf,
+.highlight .fm {
+  color: t.$color-code-function;
+}
+
+.highlight .k,
+.highlight .kc,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt,
+.highlight .o,
+.highlight .ow {
+  color: t.$color-code-keyword;
+  font-weight: 600;
+}
+
 	  .post-comments {
-	    border-top: 1px solid #DDDDDD;
+	    border-top: 1px solid t.$color-border;
 	    padding: 60px 0; }
 
   .layout-post .content-wrapper {
     width: 78%;
-    margin-left: 22%;
+    margin-left: t.$panel-collapsed-width;
     background: linear-gradient(180deg, #fffdfa 0%, #fff8f1 46%, #f8fbff 100%);
     min-height: 100vh;
   }
 
   @media all and (min-width: 1455px) {
     .layout-post .content-wrapper {
-      width: calc(100% - 320px);
-      margin-left: 320px;
+      width: calc(100% - t.$panel-collapsed-max-width);
+      margin-left: t.$panel-collapsed-max-width;
     }
   }
 
@@ -186,7 +258,7 @@
 	  .post img {
 	    max-width: 100%;
 	    margin: 0 auto;
-	    border-radius: 3px;
+	    border-radius: t.$radius-small;
 	    text-align: center;
 	    display: block; }
 
@@ -204,14 +276,14 @@
     line-height: 1.8;
   }
 
-  @media all and (max-width: 1100px) {
+  @media all and (max-width: t.$breakpoint-shell) {
     .layout-post .content-wrapper {
       width: 100%;
       margin-left: 0;
     }
   }
 
-  @media all and (max-width: 600px) {
+  @media all and (max-width: t.$breakpoint-mobile) {
     .layout-post .content-wrapper__inner {
       padding: 18px 0;
     }
@@ -236,7 +308,7 @@
     display: block;
     width: 30%;
     margin: 2em 0;
-    border-top: 1px solid #DDDDDD; }
+    border-top: 1px solid t.$color-border; }
 
   .post-list {
     width: 100%;
@@ -251,16 +323,16 @@
     width: 100%;
     margin: 0 0 26px 0;
     padding: 24px 28px 22px;
-    background: #fff;
+    background: t.$color-surface;
     border: 1px solid #e9eef2;
     border-left: 4px solid #3f8f7a;
     border-radius: 4px;
     box-shadow: 0 8px 22px rgba(20, 40, 60, .08);
-    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    transition: border-color t.$duration-fast t.$ease-standard, box-shadow t.$duration-fast t.$ease-standard, transform t.$duration-fast t.$ease-standard;
   }
   .post-list li:hover {
     border-color: #c9e1f6;
-    border-left-color: #2f7f6a;
+    border-left-color: t.$color-focus;
     box-shadow: 0 12px 28px rgba(47, 127, 106, .14);
     transform: translateY(-2px);
   }
@@ -279,7 +351,7 @@
     padding: 0;
   }
   .post-list__post-title a:hover {
-    color: #2f7f6a;
+    color: t.$color-focus;
     background-color: transparent;
   }
 
@@ -287,7 +359,7 @@
     margin: 0 0 18px;
     padding: 0 0 0 16px;
     border-left: 2px solid #6fa391;
-    color: #666;
+    color: t.$color-text-secondary;
     font-size: 1em;
     line-height: 1.9em;
     text-indent: 0;
@@ -361,23 +433,23 @@
   height: 30px;
   margin-left: 0;
   padding: 0 12px;
-  color: #2f7f6a;
+  color: t.$color-focus;
   border: 1px solid #cfe4dc;
-  border-radius: 3px;
+  border-radius: t.$radius-small;
   line-height: 1;
 }
 
 .post-list .btn-border-small:hover {
-  color: #fff;
-  background: #2f7f6a;
-  border-color: #2f7f6a;
+  color: t.$color-surface;
+  background: t.$color-focus;
+  border-color: t.$color-focus;
 }
 
 .post-list__divider {
   display: none;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: t.$breakpoint-mobile) {
   .post-list li {
     padding: 20px 18px;
   }

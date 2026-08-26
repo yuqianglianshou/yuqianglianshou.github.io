@@ -1,8 +1,5 @@
 @use "sass:meta";
 
-@import url(animate.css);
-@import url(tomorrow.css);
-
 @include meta.load-css("base");
 @include meta.load-css("post");
 @include meta.load-css("home");

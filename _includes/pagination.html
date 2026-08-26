@@ -2,19 +2,6 @@
 
 <nav class="pagination" role="navigation">
 
-    <!-- 百度搜索 -->
-    <div id="bdcs"></div>
-    <script>
-      (function () {
-        var bdcs = document.createElement('script');
-        bdcs.async = true;
-        bdcs.src = 'https://znsv.baidu.com/customer_search/api/js?sid=12441349038163667913'
-          + '&plate_url=' + encodeURIComponent(window.location.href)
-          + '&t=' + Math.ceil(new Date() / 3600000);
-        document.head.appendChild(bdcs);
-      })();
-    </script>
-
     {% if paginator.previous_page %}
     <a class="newer-posts pagination__newer btn btn-small btn-tertiary"
         href="{{ paginator.previous_page_path }}#blog">&larr; 最近</a>
