@@ -1,0 +1,118 @@
+@use "../settings/tokens" as t;
+
+/*导航按钮-start*/
+nav a {
+  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.nav_container .nav-menu-item {
+  float: right;
+}
+
+.nav-menu-item a {
+  padding: 0px;
+  color: #999;
+  font-weight: 700;
+  font-size: .8em;
+  text-shadow: none;
+  -webkit-transition: color t.$duration-standard;
+  -moz-transition: color t.$duration-standard;
+  transition: color t.$duration-standard;
+}
+
+.nav-menu-item a::before,
+.nav-menu-item a::after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity t.$duration-standard, -webkit-transform t.$duration-standard;
+  -moz-transition: opacity t.$duration-standard, -moz-transform t.$duration-standard;
+  transition: opacity t.$duration-standard, transform t.$duration-standard;
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+
+.nav-menu-item a::before {
+  top: 0px;
+}
+
+.nav-menu-item a::after {
+  bottom: -6px;
+  -webkit-transform: translateY(5px);
+  -moz-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+.nav-menu-item a:hover{
+  color: t.$color-surface;
+}
+
+.nav-menu-item a:hover::before,
+.nav-menu-item a:hover::after {
+  opacity: 1;
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  transform: translateY(-3px);
+}
+
+/* 当前栏目只使用细线和文字提亮，不增加大面积选中背景。 */
+.navigation__item a[aria-current="page"],
+.nav-menu-item a[aria-current="page"] {
+  color: t.$color-surface;
+}
+
+.navigation__item a[aria-current="page"]::after {
+  width: 80%;
+}
+
+.nav-menu-item a[aria-current="page"]::before,
+.nav-menu-item a[aria-current="page"]::after {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+@media all and (max-width: t.$breakpoint-shell) {
+  /* 保留全部原始入口，空间不足时横向滚动，避免换行或裁切。 */
+  .btn-mobile-menu {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .btn-mobile-menu .nav_container {
+    min-width: max-content;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .btn-mobile-menu nav.nav-menu-item {
+    display: flex;
+    float: none;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    min-width: 100%;
+    height: 40px;
+  }
+
+  .btn-mobile-menu .nav-menu-item {
+    flex: 0 0 auto;
+    float: none;
+  }
+
+  .btn-mobile-menu .nav-menu-item a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    margin: 0 10px;
+  }
+}
+/*导航按钮-end*/

@@ -1,0 +1,213 @@
+@use "../settings/tokens" as t;
+
+/* ========== UI 优化样式 ========== */
+
+/* 页面加载动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 面板内容淡入动画 */
+.panel-main__content {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* 页面加载淡入 - 通过JavaScript控制更精确 */
+
+.panel-cover__description {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+/* 导航链接区域动画 */
+.navigation-wrapper {
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+/* 滚动提示动画 */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.7em;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  z-index: 850;
+  transition: opacity t.$duration-standard t.$ease-standard;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.scroll-indicator[hidden] {
+  display: none;
+}
+
+.scroll-indicator:hover {
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(-50%) translateY(-3px);
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator span {
+  font-size: 0.85em;
+  letter-spacing: 0.08em;
+  /* 不需要转大写，保持中文可读性 */
+}
+
+.scroll-indicator::after {
+  content: '↓';
+  margin-top: 8px;
+  font-size: 1.8em;
+  line-height: 1;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-5px) translateX(-50%);
+  }
+}
+
+/* 改进文字层次 - 已在上面定义，此处为补充 */
+
+.panel-subtitle {
+  font-size: 0.85em;
+  letter-spacing: 0.15em;
+  opacity: 0.9;
+}
+
+/* 导航链接间距优化 */
+.cover-navigation--primary .navigation__item {
+  margin: 4px 4px;
+}
+
+.cover-navigation--primary .navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 兼容性处理：如果浏览器不支持flex，使用传统方式 */
+@supports not (display: flex) {
+  .cover-navigation--primary .navigation {
+    display: inline-block;
+  }
+
+  .cover-navigation--primary .navigation__item {
+    margin: 4px 4px;
+  }
+}
+
+/* 响应式优化 */
+@media all and (max-width: t.$breakpoint-avatar) {
+  .panel-title {
+    font-size: 1.6em;
+  }
+
+  .panel-subtitle {
+    font-size: 0.7em;
+  }
+
+  .panel-cover__description {
+    font-size: 0.85em;
+    line-height: 1.6;
+  }
+
+  .navigation__item {
+    margin: 3px 3px;
+  }
+
+  .navigation__item a {
+    padding: 6px 10px;
+    margin: 0;
+    font-size: 0.85em;
+  }
+
+  .cover-navigation--primary .navigation {
+    gap: 6px;
+  }
+
+  .cover-navigation--primary .navigation__item {
+    margin: 3px 3px;
+  }
+}
+
+/* 焦点状态优化 */
+.navigation__item a:focus,
+.blog-button:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* 平滑过渡 */
+.panel-cover {
+  transition: width t.$duration-panel t.$ease-standard, max-width t.$duration-panel t.$ease-standard;
+}
+
+.panel-main__content {
+  transition: opacity t.$duration-standard t.$ease-standard;
+}
+
+/* 提升文字可读性 */
+.panel-inverted {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

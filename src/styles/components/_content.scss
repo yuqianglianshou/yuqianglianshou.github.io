@@ -1,0 +1,191 @@
+@use "../settings/tokens" as t;
+
+.date,
+  .time,
+  .author{ color: #c7c7c7; }
+  .date a,
+  .time a,
+  .author a,
+  .tags {
+    color: t.$color-surface;
+  }
+  .tags a {
+  color: #666666; }
+
+  .date a:hover,
+  .time a:hover,
+  .author a:hover,
+  .tags a:hover {
+    color: #7b0f19;
+  }
+
+  .excerpt {
+    border-left: 3px solid t.$color-accent;
+    margin: 0;
+    margin-right: 10px;
+    font-size: .9em;
+    background-color: t.$color-surface;
+    text-indent: 10px;
+    color: #4F4F4F;
+  }
+
+  .intro {
+    font-family: t.$font-body;
+    font-size: 1.2em;
+    font-weight: lighter;
+    color: #999999; }
+
+  .block-heading {
+    display: inline;
+    float: left;
+    width: 940px;
+    margin: 0 10px;
+    position: relative;
+    bottom: -15px;
+    font-size: .8em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
+
+  .label {
+    position: relative;
+    display: inline-block;
+    padding: 8px 18px 9px 18px;
+    background: #BF1827;
+    border-radius: t.$radius-small;
+    text-align: center;
+    color: t.$color-surface; }
+
+/* 键盘操作保留清晰焦点；鼠标点击继续沿用原主题的简洁外观。 */
+*:focus {
+  outline: 2px solid #2f7f6a;
+  outline-offset: 2px; }
+
+*:focus:not(:focus-visible) {
+  outline: none; }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  padding: 8px 12px;
+  color: t.$color-surface;
+  background: #2f7f6a;
+  border-radius: t.$radius-small;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  color: t.$color-surface;
+  transform: translateY(0);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"] {
+  width: 240px;
+  padding: 1em 1em;
+  background: t.$color-surface;
+  border: 1px solid t.$color-border;
+  border-radius: t.$radius-small;
+  font-size: .9em;
+  color: #666666; }
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus {
+  border-color: #5BA4E5; }
+input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder,
+input[type="datetime"]::-webkit-input-placeholder,
+input[type="datetime-local"]::-webkit-input-placeholder,
+input[type="date"]::-webkit-input-placeholder,
+input[type="month"]::-webkit-input-placeholder,
+input[type="time"]::-webkit-input-placeholder,
+input[type="week"]::-webkit-input-placeholder,
+input[type="number"]::-webkit-input-placeholder,
+input[type="email"]::-webkit-input-placeholder,
+input[type="url"]::-webkit-input-placeholder,
+input[type="search"]::-webkit-input-placeholder,
+input[type="tel"]::-webkit-input-placeholder {
+  color: #CCCCCC; }
+input[type="text"]::-moz-placeholder,
+input[type="password"]::-moz-placeholder,
+input[type="datetime"]::-moz-placeholder,
+input[type="datetime-local"]::-moz-placeholder,
+input[type="date"]::-moz-placeholder,
+input[type="month"]::-moz-placeholder,
+input[type="time"]::-moz-placeholder,
+input[type="week"]::-moz-placeholder,
+input[type="number"]::-moz-placeholder,
+input[type="email"]::-moz-placeholder,
+input[type="url"]::-moz-placeholder,
+input[type="search"]::-moz-placeholder,
+input[type="tel"]::-moz-placeholder {
+  color: #CCCCCC; }
+input[type="text"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder,
+input[type="datetime"]:-moz-placeholder,
+input[type="datetime-local"]:-moz-placeholder,
+input[type="date"]:-moz-placeholder,
+input[type="month"]:-moz-placeholder,
+input[type="time"]:-moz-placeholder,
+input[type="week"]:-moz-placeholder,
+input[type="number"]:-moz-placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="url"]:-moz-placeholder,
+input[type="search"]:-moz-placeholder,
+input[type="tel"]:-moz-placeholder {
+  color: #CCCCCC; }
+input[type="text"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+input[type="datetime"]:-ms-input-placeholder,
+input[type="datetime-local"]:-ms-input-placeholder,
+input[type="date"]:-ms-input-placeholder,
+input[type="month"]:-ms-input-placeholder,
+input[type="time"]:-ms-input-placeholder,
+input[type="week"]:-ms-input-placeholder,
+input[type="number"]:-ms-input-placeholder,
+input[type="email"]:-ms-input-placeholder,
+input[type="url"]:-ms-input-placeholder,
+input[type="search"]:-ms-input-placeholder,
+input[type="tel"]:-ms-input-placeholder {
+  color: #CCCCCC; }
+
+.read-more {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 1.2em;
+  padding-bottom: 1em;
+  border-top: 1px solid t.$color-border; }
+
+.read-more-item {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%; }
+
+.read-more-item-dim {
+  color: #7b0f19;
+  font-size: .8em;
+}

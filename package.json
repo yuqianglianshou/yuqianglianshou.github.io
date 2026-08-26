@@ -6,11 +6,13 @@
   "scripts": {
     "build": "npm run styles:build && bundle exec jekyll build",
     "serve": "npm run styles:build && bundle exec jekyll serve --livereload",
-    "lint": "eslint js/main.js",
+    "lint": "eslint \"js/**/*.js\"",
     "format": "prettier --write \"**/*.{html,md,css,scss,js,json,yml}\" --ignore-path .gitignore",
     "styles:build": "sass src/styles/main.scss css/main.css --style=expanded --no-source-map",
+    "styles:check": "node scripts/check-generated-css.mjs",
     "styles:watch": "sass --watch src/styles/main.scss:css/main.css --style=expanded --no-source-map",
-    "test": "echo \"No automated tests configured\""
+    "test": "echo \"No automated tests configured\"",
+    "check": "npm run lint && npm run test && npm run styles:check && bundle exec jekyll build"
   },
   "engines": {
     "node": ">=18.18.0"
