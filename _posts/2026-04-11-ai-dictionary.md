@@ -132,13 +132,12 @@ AI 编程中的术语，大多围绕四件事：
 
 术语弄清楚后，很多问题会变得更具体：
 
-不是“AI 又变笨了”，而是上下文变大导致注意力退化。  
-不是“它记住了项目规则”，而是 AGENTS.md 或记忆系统重新加载了规则。  
-不是“它真的运行了测试”，而是需要检查有没有实际 tool call 和 tool result。  
+不是“AI 又变笨了”，而是上下文变大导致注意力退化。
+不是“它记住了项目规则”，而是 AGENTS.md 或记忆系统重新加载了规则。
+不是“它真的运行了测试”，而是需要检查有没有实际 tool call 和 tool result。
 不是“代码看起来能用就可以”，而是需要 automated check 和 human review。
 
-参考来源 [dictionary-of-ai-coding
-](https://github.com/mattpocock/dictionary-of-ai-coding#grilling)
+参考来源 [dictionary-of-ai-coding](https://github.com/mattpocock/dictionary-of-ai-coding#grilling)
 
 <br/>
 <br/>

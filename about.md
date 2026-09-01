@@ -8,7 +8,7 @@ permalink: /about/
   <section class="about-hero">
     <p class="about-kicker">ABOUT</p>
     <h2>一个一无所有的人。</h2>
-    <p>写代码，写文字，做一些能留下痕迹的小东西。偏爱简单、直接、能长期使用的东西。</p>
+    <p>观代码，写文字，做一些能留下痕迹的小东西。偏爱简单、直接、能长期使用的东西。</p>
   </section>
 
   <div class="about-grid">
