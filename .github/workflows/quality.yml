@@ -6,6 +6,10 @@ on:
     branches:
       - master
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   verify:
@@ -31,3 +35,31 @@ jobs:
 
       - name: 校验源码、生成样式和站点构建
         run: npm run check
+        env:
+          JEKYLL_ENV: production
+
+      # 线上发布的就是这里校验过的 _site，避免 Pages 分支构建改用 github-pages gem（Jekyll 3.x）导致与本地环境不一致。
+      - name: 上传 Pages 构建产物
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    # 仓库 Settings → Pages → Source 需设为 “GitHub Actions”，否则此任务会失败。
+    if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

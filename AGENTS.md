@@ -10,6 +10,7 @@
 - Sass 源文件位于 `src/styles/`，统一设计 Token 位于 `src/styles/settings/_tokens.scss`，编译产物为 `css/main.css`。
 - 前端交互入口为 `js/main.js`，按职责拆分的模块位于 `js/modules/`。
 - 代码高亮由 Jekyll 的 Rouge 在构建阶段生成，不再加载浏览器端高亮库。
+- 本项目不使用 React、TypeScript、Tailwind CSS 或 shadcn/ui；除非任务明确要求迁移技术栈，否则不引入或套用相关规范和 Skill。
 
 ## 通用原则
 
@@ -24,7 +25,7 @@
 
 ## 代码与注释
 
-- 修改或新增代码时，必须添加必要的中文注释。
+- 仅对非直观的业务规则、兼容性处理、边界条件和重要设计取舍添加必要的中文注释。
 - 中文注释应重点解释业务规则、非直观逻辑、兼容性处理、边界条件和重要设计取舍。
 - 不为一眼可见的赋值、循环或简单样式添加重复代码含义的注释。
 - 修改实现后应同步维护相关注释，禁止保留与实际行为不一致的过期说明。
@@ -35,11 +36,12 @@
 
 ## 修改记录
 
-- 每次修改代码、样式、模板、配置、内容或项目文档时，都必须同步更新根目录的 `CHANGELOG.md`。
+- 对用户可感知的功能、样式、模板、配置、内容或项目约定变更，应同步更新根目录的 `CHANGELOG.md`。
 - 新记录添加在 `未发布` 部分的顶部，使用 `YYYY-MM-DD` 日期，并归入“新增”“变更”“修复”或“移除”等类别。
 - 每条记录应说明修改对象和用户可感知的结果；必要时补充验证命令。
 - 不覆盖或改写既有历史记录，除非是在纠正记录本身的事实错误。
 - 纯构建产物不单独记录，但引起构建产物变化的源文件修改必须记录。
+- 纯格式调整、注释修正、内部开发文档和 `CHANGELOG.md` 自身的维护，无需为了形式完整而单独记录。
 
 ## UI 与样式
 
@@ -51,19 +53,12 @@
 
 ## 验证要求
 
-根据修改范围执行相关检查：
+根据修改范围选择下列检查，不为了形式完整而重复执行已由组合命令覆盖的子命令：
 
-```bash
-npm run styles:build
-npm run styles:check
-npm run lint
-npm run test
-npm run build
-npm run check
-```
-
-- 仅修改文档时，可以不执行完整构建，但至少检查 Markdown 内容和 Git diff。
-- 修改样式时，至少执行 `npm run styles:build`、`npm run styles:check` 和 `npm run build`。
-- 修改 JavaScript 时，至少执行 `npm run lint` 和 `npm run build`。
-- 修改模板、配置或内容时，至少执行 `npm run build`。
+- 仅修改文档时：检查 Markdown 内容和 Git diff，无需执行完整构建。
+- 修改 Sass 样式时：先执行 `npm run styles:build`，再执行 `npm run check`。
+- 修改 JavaScript 时：执行 `npm run check`。
+- 修改 Jekyll 模板、配置或站点内容时：执行 `npm run build`。
+- 同时修改多个领域或进行发布前验证时：执行 `npm run check`。
+- 如果最后一次修改后已经执行过覆盖当前改动的完整检查，可直接复用该结果，无需为声明完成而重复运行相同命令。
 - 如有检查失败，必须如实说明原因；项目无法成功构建时不得声称任务已经完成。
