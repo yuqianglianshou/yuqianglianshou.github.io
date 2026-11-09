@@ -529,6 +529,8 @@ td:last-child {
  }*/
 .post img {
   max-width: 100%;
+  /* 构建时会补 width/height 属性用于预留空间，高度需随宽度等比缩放。 */
+  height: auto;
   margin: 0 auto;
   border-radius: 3px;
   text-align: center;

@@ -6,6 +6,7 @@
 
 ### 新增
 
+- 2026-11-09：新增构建期插件 `_plugins/image-attributes.rb`，为文章和页面图片自动补充 `loading="lazy"`、`decoding="async"` 和真实宽高，减少首屏下载量并避免图片加载时页面跳动。
 - 2026-11-09：新增 `scripts/check-links.mjs` 站内死链检查，`npm test` 与 `npm run check` 会在构建后校验所有站内链接和资源是否存在。
 - 2026-11-09：文章页标题下显示标签；首页与文章页的每个标签分别链接到标签页对应位置。
 - 2026-11-09：补充 `og:url`、`og:image`、`og:site_name`、`twitter:image` 和文章发布时间 / 标签元信息，文章可用 front matter 的 `description`、`image` 覆盖默认摘要与分享图。
@@ -21,6 +22,8 @@
 
 ### 变更
 
+- 2026-11-09：侧栏头像取消懒加载并提高加载优先级；网站图标改用 32×32 的 `favicon-32.png` 并新增 `apple-touch-icon.png`，日历图标改为 SVG，标签图标去掉无用的外链字体声明；`wenzikong` 两张动图重新压缩，体积减少约 35%。
+- 2026-11-09：小玩乐相册改用原生 `<dialog>` 灯箱，支持左右键翻页、Esc 和点击遮罩关闭，不再从 `cdn.bootcss.com` 加载 jQuery 与 Magnific Popup。
 - 2026-11-09：非文章页面的 `og:type` 改为 `website`；404 页改为中文文案并提供返回入口，样式移入 Sass，不再污染全局 `h1`。
 - 2026-11-09：桌面侧栏与移动端菜单改用同一个 `_includes/nav-links.html` 输出导航条目，导航入口、顺序和当前页提示保持不变。
 - 2026-11-09：将重复出现的裸色值收敛为语义化 Sass Token（正文、说明文字、标题、表格线、代码块、信息色等），编译后颜色值不变。验证：`npm run styles:build`、`npm run check`。
@@ -43,6 +46,7 @@
 
 ### 移除
 
+- 2026-11-09：移除 `images/calendar.png`，由 `images/calendar.svg` 替代。
 - 2026-11-09：移除已停服的友言、未配置的 Disqus 评论模板与 Google Universal Analytics 代码，文章底部不再输出空评论区（原有分隔线与留白随之去掉）。
 - 2026-11-09：移除未被引用的 `read-more.html`、Bootstrap 遗留的 tooltip 属性、失效的“冥想空间”页脚入口、不存在的 `/tag/` 路径判断，以及未加载的 Typekit 字体名。
 - 2026-08-26：移除未使用的 Animate.css、Highlight.js 与旧主题 CSS，以及对应的全局加载入口。
