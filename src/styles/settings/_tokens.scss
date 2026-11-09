@@ -1,5 +1,6 @@
 // 语义化设计 Token：集中管理跨页面复用的视觉规则，组件不再复制裸值。
 $font-body: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
 $color-surface: #fff;
 $color-text-primary: #333;
@@ -23,6 +24,13 @@ $color-info-strong: #217fd2;
 $color-brand-red: #bf1827;
 $color-callout-accent: #f0a06f;
 
+// 暖色卡片：关于页简介、结尾签名等需要“温度感”的区块共用。
+$color-warm-surface: #fff7ef;
+$color-warm-border: #f1dfcf;
+$color-warm-text: #8a6a56;
+$color-card-border: #edf0ee;
+$color-text-body: #5d666d;
+
 // Rouge 服务端语法高亮配色，替代旧 Highlight.js 主题文件。
 $color-code-comment: #8e908c;
 $color-code-variable: #c82829;
@@ -34,6 +42,10 @@ $color-code-keyword: #8959a8;
 
 $radius-small: 3px;
 $radius-circle: 50%;
+$radius-card: 8px;
+$radius-pill: 999px;
+
+$shadow-card-warm: 0 12px 28px rgba(100, 74, 45, .07);
 
 $breakpoint-narrow: 420px;
 $breakpoint-mobile: 600px;

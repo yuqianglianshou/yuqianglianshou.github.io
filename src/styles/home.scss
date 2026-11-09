@@ -17,7 +17,9 @@
     color: t.$color-surface;
     animation: fadeInUp 0.8s ease-out 0.2s both; }
 
+  // 副标题原为行内 span，transform 动画对行内元素无效，且窄屏下会贴住上方标题。
   .panel-subtitle {
+    display: block;
     font-family: t.$font-body;
     font-size: 0.6em;
     font-weight: lighter;

@@ -11,7 +11,14 @@ layout: default
       <h2 class="post-list__post-title post-title">
         <a href="{{ post.url }}" title="访问 {{ post.title }}">{{ post.title }}</a>
       </h2>
-      <p class="excerpt">{{ post.content | strip_html | strip_newlines | truncate: 250 }}&hellip;</p>
+      {% comment %}
+        摘要优先级：front matter 的 description > 文章首段 excerpt > 正文。
+        首段过短（如只有一张图片或一行公式）时回退到正文，避免卡片摘要为空。
+      {% endcomment %}
+      {% assign summary = post.excerpt | strip_html | normalize_whitespace | strip %}
+      {% if summary.size < 20 %}{% assign summary = post.content | strip_html | normalize_whitespace | strip %}{% endif %}
+      {% if post.description %}{% assign summary = post.description | strip_html | normalize_whitespace | strip %}{% endif %}
+      <p class="excerpt">{{ summary | truncate: 120, "…" }}</p>
       <div class="post-list__meta">
         <time datetime="{{ post.date | date: date_to_xmlschema }}" class="post-list__meta--date date">
           <img src="/images/calendar.svg" width="20" height="20" alt="" aria-hidden="true">

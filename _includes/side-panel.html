@@ -1,5 +1,7 @@
-<!-- 面板状态只保存在 data 属性中，模板和脚本共用同一状态来源。 -->
-<header class="panel-cover" data-panel-state="{% if page.layout == 'post' or page.layout == 'page' %}collapsed{% else %}expanded{% endif %}">
+<!-- 面板状态只保存在 data 属性中，模板和脚本共用同一状态来源。
+     文章、普通页面默认折叠；其他布局（如 404）可在 front matter 写 panel: collapsed 强制折叠，避免内容被全屏封面挡住。 -->
+{% if page.layout == 'post' or page.layout == 'page' or page.panel == 'collapsed' %}{% assign panel_collapsed = true %}{% else %}{% assign panel_collapsed = false %}{% endif %}
+<header class="panel-cover" data-panel-state="{% if panel_collapsed %}collapsed{% else %}expanded{% endif %}">
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
@@ -63,7 +65,7 @@
       </div>
     </div>
     <!-- 滚动提示 -->
-    {% unless page.layout == 'post' or page.layout == 'page' %}
+    {% unless panel_collapsed %}
     <!-- 使用原生链接保留原有视觉，同时支持键盘和脚本不可用时的锚点跳转。 -->
     <a class="scroll-indicator" href="#blog">
       <span>查看博客</span>

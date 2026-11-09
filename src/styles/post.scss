@@ -132,7 +132,7 @@
   }
 
   .post-meta__date {
-    color: #8b9aa3;
+    color: t.$color-text-caption;
     font-size: .92em;
   }
 
@@ -142,57 +142,62 @@
   }
 
   .about-page {
-    margin-top: 8px;
-    color: #3f454a;
+    color: t.$color-text-body;
+  }
+
+  // 全局 p 带 20px 左内边距（文章正文缩进用），关于页卡片内需与标题左对齐。
+  .about-page p {
+    padding-left: 0;
+    text-indent: 0;
+  }
+
+  .about-page ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .about-hero {
     padding: 28px 30px;
     background:
       radial-gradient(circle at 92% 12%, rgba(14, 213, 171, .14), transparent 34%),
-      linear-gradient(135deg, #fff7ef 0%, #f9fbff 100%);
-    border: 1px solid #f1dfcf;
+      linear-gradient(135deg, t.$color-warm-surface 0%, #f9fbff 100%);
+    border: 1px solid t.$color-warm-border;
     border-left: 4px solid t.$color-callout-accent;
-    border-radius: 8px;
-    box-shadow: 0 12px 28px rgba(100, 74, 45, .07);
+    border-radius: t.$radius-card;
+    box-shadow: t.$shadow-card-warm;
   }
 
-  .about-kicker {
+  .about-hero p {
+    margin: 0;
+    color: t.$color-text-caption;
+    line-height: 1.9;
+  }
+
+  .about-hero .about-hero__lead {
     margin: 0 0 12px;
-    color: #db7b46;
-    font-size: .78em;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-indent: 0;
-  }
-
-  .about-hero h2 {
-    margin: 0 0 14px;
-    color: #2d3135;
+    color: t.$color-heading;
     font-size: 1.65em;
     font-weight: 500;
     line-height: 1.45;
-  }
-
-  .about-hero p:last-child {
-    margin: 0;
-    color: #667178;
-    line-height: 1.9;
-    text-indent: 0;
   }
 
   .about-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 18px;
-    margin-top: 20px;
+    margin-top: 18px;
   }
 
   .about-block {
     padding: 22px 24px;
     background: rgba(255, 255, 255, .82);
-    border: 1px solid #edf0ee;
-    border-radius: 8px;
+    border: 1px solid t.$color-card-border;
+    border-radius: t.$radius-card;
+  }
+
+  .about-block--wide {
+    margin-top: 18px;
   }
 
   .about-block h3 {
@@ -201,7 +206,7 @@
     color: t.$color-focus;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid #e5efeb;
+    border-bottom: 1px solid t.$color-divider-soft;
     border-radius: 0;
     box-shadow: none;
     font-size: 1.08em;
@@ -209,24 +214,93 @@
   }
 
   .about-block p {
-    margin: 0 0 9px;
-    color: #5d666d;
+    margin: 14px 0 0;
     line-height: 1.8;
-    text-indent: 0;
   }
 
-  .about-block p:last-child {
-    margin-bottom: 0;
+  // 四句短句以诗行方式两两成列，窄屏回落为单列。
+  .about-verse {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 24px;
   }
 
-  .about-note {
-    margin: 22px 0 0;
-    padding: 14px 18px;
-    color: #8a6a56;
-    background: #fff6ec;
-    border: 1px solid #f0dfcf;
-    border-radius: 6px;
-    text-indent: 0;
+  .about-verse li {
+    margin: 0;
+    padding-left: 14px;
+    border-left: 2px solid t.$color-warm-border;
+    line-height: 1.9;
+  }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .about-tags li {
+    margin: 0;
+    padding: 3px 12px;
+    color: t.$color-focus;
+    background: t.$color-divider-soft;
+    border-radius: t.$radius-pill;
+    font-size: .92em;
+    line-height: 1.7;
+  }
+
+  .about-links li {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .about-links li + li {
+    border-top: 1px dashed t.$color-divider-soft;
+  }
+
+  .about-links a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 9px 4px;
+    color: t.$color-heading;
+    border-radius: t.$radius-small;
+    transition: color t.$duration-fast t.$ease-standard, background-color t.$duration-fast t.$ease-standard;
+  }
+
+  .about-links a:hover,
+  .about-links a:focus-visible {
+    color: t.$color-focus;
+    background: t.$color-divider-soft;
+    text-decoration: underline;
+  }
+
+  .about-links__meta {
+    min-width: 0;
+    overflow: hidden;
+    color: t.$color-text-muted;
+    font-size: .88em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // 结尾一句做成落款：居中、斜体，两侧细线，而不是提示框。
+  .about-page .about-note {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 36px 0 8px;
+    color: t.$color-warm-text;
+    font-style: italic;
+    letter-spacing: .12em;
+    white-space: nowrap;
+  }
+
+  .about-note::before,
+  .about-note::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid t.$color-warm-border;
   }
 
 /*  .post-meta__tags {
@@ -294,7 +368,8 @@
       padding: 22px 20px;
     }
 
-    .about-grid {
+    .about-grid,
+    .about-verse {
       grid-template-columns: 1fr;
     }
   }
@@ -363,6 +438,12 @@
     text-indent: 0;
     /* 文章摘要可能包含完整网址，窄屏时允许安全换行。 */
     overflow-wrap: anywhere;
+    /* 模板已截断到 120 字，这里再限制最多 3 行，保证卡片高度一致。 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
   }
 
 .post-list__meta {

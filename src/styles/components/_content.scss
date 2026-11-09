@@ -2,7 +2,7 @@
 
 .date,
   .time,
-  .author{ color: #c7c7c7; }
+  .author{ color: t.$color-text-caption; }
   .date a,
   .time a,
   .author a,
@@ -184,4 +184,107 @@ input[type="tel"]:-ms-input-placeholder {
   font-size: 4em;
   line-height: 1;
   letter-spacing: -1px;
+}
+
+/* 所有文章 / 标签页共用的分组列表：与关于页卡片标题同一套绿色细线风格，替代全局 h3 的蓝色色条。 */
+.tag-index ul,
+.list-group__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-index {
+  margin: 0 0 32px;
+}
+
+.tag-index ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-index li {
+  margin: 0;
+}
+
+/* 全局 nav a 带有站点导航用的外边距，标签索引需清除。 */
+.tag-index a {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px 3px 12px;
+  color: t.$color-focus;
+  background: t.$color-divider-soft;
+  border: 1px solid transparent;
+  border-radius: t.$radius-pill;
+  line-height: 1.7;
+  transition: border-color t.$duration-fast t.$ease-standard, background-color t.$duration-fast t.$ease-standard;
+}
+
+.tag-index a:hover,
+.tag-index a:focus-visible {
+  color: t.$color-focus;
+  background: t.$color-surface;
+  border-color: t.$color-focus;
+}
+
+.tag-index__count {
+  min-width: 1.6em;
+  padding: 0 6px;
+  color: t.$color-surface;
+  background: t.$color-focus;
+  border-radius: t.$radius-pill;
+  font-size: .8em;
+  text-align: center;
+}
+
+.list-group + .list-group {
+  margin-top: 28px;
+}
+
+.list-group .list-group__title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 10px;
+  padding: 0 0 8px;
+  color: t.$color-focus;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid t.$color-divider-soft;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1.15em;
+  font-weight: 500;
+  /* 锚点跳转时给顶部固定导航留出空间。 */
+  scroll-margin-top: 60px;
+}
+
+.list-group__count {
+  color: t.$color-text-muted;
+  font-size: .75em;
+  font-weight: normal;
+}
+
+.list-group__items li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 0;
+  padding: 6px 0;
+  line-height: 1.6;
+}
+
+.list-group__items time {
+  flex: none;
+  color: t.$color-text-caption;
+  font-family: t.$font-mono;
+  font-size: .9em;
+}
+
+.list-group__items a:hover,
+.list-group__items a:focus-visible {
+  text-decoration: underline;
 }
