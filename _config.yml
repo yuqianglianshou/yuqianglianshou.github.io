@@ -93,6 +93,10 @@ exclude:
     - scripts/
     - src/
     - vendor/
+    # 搬运游戏自带的源码映射、容器和说明文件只在仓库中保留，不随站点部署。
+    - modules/xiaowanle/games/mikutap/js/*.map
+    - modules/xiaowanle/games/mikutap/Dockerfile
+    - modules/xiaowanle/games/mikutap/README.md
     # 第三方小游戏源码自带的开发文件，不属于站点内容。
     - modules/xiaowanle/games/mikutap/Dockerfile
     - modules/xiaowanle/games/mikutap/README.md

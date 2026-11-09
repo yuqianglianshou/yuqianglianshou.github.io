@@ -442,9 +442,6 @@
 
             var ctx,
                 hue,
-                logo,
-                form,
-                buffer,
                 target = {},
                 tendrils = [],
                 settings = {};
@@ -620,11 +617,6 @@
                 ctx.strokeStyle = 'hsla(' + Math.round(hue.update()) + ',90%,50%,0.25)';
                 ctx.lineWidth = 1;
 
-                if (ctx.frame % 60 == 0) {
-                    console.log(hue.update(), Math.round(hue.update()), hue.phase, hue.offset, hue.frequency, hue
-                        .amplitude);
-                }
-
                 for (var i = 0, tendril; i < settings.trails; i++) {
                     tendril = tendrils[i];
                     tendril.update();
@@ -632,7 +624,8 @@
                 }
 
                 ctx.frame++;
-                ctx.stats.update();
+                // FPS 面板只在 DEBUG 模式挂到页面上，平时跳过统计，避免每帧做无用的 DOM 更新。
+                if (window.DEBUG) ctx.stats.update();
                 requestAnimFrame(loop);
             }
 
@@ -670,17 +663,6 @@
                 }
             }
 
-            function keyup(event) {
-
-                switch (event.keyCode) {
-                    case 32:
-                        save();
-                        break;
-                    default:
-                    // console.log(event.keyCode); 
-                }
-            }
-
             function letters(id) {
 
                 var el = document.getElementById(id),
@@ -698,46 +680,6 @@
                 }, (Math.random() * 500) + 500);
             }
 
-            function save() {
-
-                if (!buffer) {
-
-                    buffer = document.createElement('canvas');
-                    buffer.width = screen.availWidth;
-                    buffer.height = screen.availHeight;
-                    buffer.ctx = buffer.getContext('2d');
-
-                    form = document.createElement('form');
-                    form.method = 'post';
-                    form.input = document.createElement('input');
-                    form.input.type = 'hidden';
-                    form.input.name = 'data';
-                    form.appendChild(form.input);
-
-                    document.body.appendChild(form);
-                }
-
-                buffer.ctx.fillStyle = 'rgba(8,5,16)';
-                buffer.ctx.fillRect(0, 0, buffer.width, buffer.height);
-
-                buffer.ctx.drawImage(canvas,
-                    Math.round(buffer.width / 2 - canvas.width / 2),
-                    Math.round(buffer.height / 2 - canvas.height / 2)
-                );
-
-                buffer.ctx.drawImage(logo,
-                    Math.round(buffer.width / 2 - logo.width / 4),
-                    Math.round(buffer.height / 2 - logo.height / 4),
-                    logo.width / 2,
-                    logo.height / 2
-                );
-
-                window.open(buffer.toDataURL(), 'wallpaper', 'top=0,left=0,width=' + buffer.width + ',height=' +
-                    buffer.height);
-
-
-            }
-
             window.requestAnimFrame = (function () {
                 return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window
                     .mozRequestAnimationFrame || function (fn) {
@@ -751,9 +693,6 @@
                 ctx.stats = new Stats();
                 ctx.running = true;
                 ctx.frame = 1;
-
-                logo = new Image();
-                logo.src = '/images/avatar.jpg';
 
                 hue = new Oscillator({
                     phase: Math.random() * Math.TWO_PI,
@@ -769,7 +708,6 @@
                 document.addEventListener('touchstart', init);
                 document.body.addEventListener('orientationchange', resize);
                 window.addEventListener('resize', resize);
-                window.addEventListener('keyup', keyup);
                 window.addEventListener('focus', start);
                 window.addEventListener('blur', stop);
 
