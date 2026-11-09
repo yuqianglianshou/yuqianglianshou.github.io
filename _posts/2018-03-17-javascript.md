@@ -58,7 +58,7 @@ script只要定义了src属性，不管后面是否跟着路径，内部式就�
 
 一：
 1，创建 01.html 文件，内容为  
-<script src="01.js"></script>
+`<script src="01.js"></script>`
 2,同目录下创建 01.js 文件，内容为 
 console.log('Hello World');
 3,将01.html 拖拽到浏览器中，在浏览器的控制台即可看到输出日志 Hello World

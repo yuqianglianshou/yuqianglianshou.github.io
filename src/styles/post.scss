@@ -407,6 +407,18 @@
   line-height: 20px;
 }
 
+/* 标签逐个链接到标签页对应锚点；沿用所在位置的文字颜色，悬停与键盘焦点同时用颜色和下划线提示。 */
+.tag-links a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.tag-links a:hover,
+.tag-links a:focus-visible {
+  color: t.$color-link-hover;
+  text-decoration: underline;
+}
+
 .post-list-icon-mate {
   display: inline-flex;
   align-items: center;
