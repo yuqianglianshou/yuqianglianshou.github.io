@@ -69,7 +69,7 @@ html {
 }
 
 body {
-  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 14px;
   color: #333;
   -webkit-font-smoothing: antialiased;
@@ -77,7 +77,7 @@ body {
 
 ::selection {
   background: #27408B;
-  color: #ffffff;
+  color: #fff;
 }
 
 ::-moz-selection {
@@ -111,7 +111,7 @@ h5,
 h5 {
   margin-top: 1em;
   margin-bottom: 0.5em;
-  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: lighter;
   color: #333;
   -webkit-font-smoothing: antialiased;
@@ -172,10 +172,10 @@ blockquote {
   padding-bottom: 1px;
   padding-left: 10px;
   margin-left: 20px;
-  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: lighter;
   font-size: 1em;
-  border-left: 3px solid #4F4F4F;
+  border-left: 3px solid #4f4f4f;
 }
 
 blockquote p:last-child {
@@ -236,7 +236,7 @@ pre code {
 }
 
 table {
-  color: #333333;
+  color: #333;
   font-size: 0.9em;
   text-align: center;
   line-height: 40px;
@@ -348,11 +348,6 @@ td:last-child {
 .highlight .ow {
   color: #8959a8;
   font-weight: 600;
-}
-
-.post-comments {
-  border-top: 1px solid #ddd;
-  padding: 60px 0;
 }
 
 .layout-post .content-wrapper {
@@ -702,7 +697,7 @@ td:last-child {
   align-items: center;
   min-height: 30px;
   margin: 0 0 0 auto;
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
 .post-list .btn-border-small {
@@ -760,11 +755,11 @@ td:last-child {
 }
 
 .panel-subtitle {
-  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 0.6em;
   font-weight: lighter;
   letter-spacing: 3px;
-  color: #CCCCCC;
+  color: #ccc;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -775,7 +770,7 @@ td:last-child {
   width: 100%;
   max-width: none;
   height: 100%;
-  background: url(/images/background-cover.webp) top left no-repeat #666666;
+  background: url(/images/background-cover.webp) top left no-repeat #666;
   background-size: cover;
 }
 
@@ -940,8 +935,8 @@ td:last-child {
 }
 
 .btn-secondary {
-  border-color: #5BA4E5;
-  color: #5BA4E5;
+  border-color: #5ba4e5;
+  color: #5ba4e5;
 }
 
 .btn-secondary:hover {
@@ -950,8 +945,8 @@ td:last-child {
 }
 
 .btn-tertiary {
-  border-color: #999999;
-  color: #999999;
+  border-color: #999;
+  color: #999;
 }
 
 .btn-tertiary:hover {
@@ -984,7 +979,7 @@ td:last-child {
   top: 12px;
   margin-right: 20px;
   float: right;
-  color: #FFF;
+  color: #fff;
 }
 
 .btn-mobile-menu_item a {
@@ -993,7 +988,7 @@ td:last-child {
 
 .btn-mobile-menu_item a :hover,
 .btn-mobile-menu_item :hover {
-  color: #FFF;
+  color: #fff;
 }
 
 nav {
@@ -1015,7 +1010,7 @@ nav {
   padding: 5px 5px 5px 5px;
   font-size: 0.6em;
   text-shadow: none;
-  color: #BF1827;
+  color: #bf1827;
 }
 
 .navigation__item {
@@ -1099,7 +1094,7 @@ nav {
 .pagination__page-number {
   margin: 0;
   font-size: 0.8em;
-  color: #999999;
+  color: #999;
 }
 
 .pagination__newer {
@@ -1381,7 +1376,7 @@ hr {
 ::selection {
   color: #fff;
   text-shadow: none;
-  background: #666666;
+  background: #666;
 }
 
 img::selection {
@@ -1417,7 +1412,7 @@ img::-moz-selection {
 }
 
 .tags a {
-  color: #666666;
+  color: #666;
 }
 
 .date a:hover,
@@ -1434,14 +1429,14 @@ img::-moz-selection {
   font-size: 0.9em;
   background-color: #fff;
   text-indent: 10px;
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
 .intro {
-  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 1.2em;
   font-weight: lighter;
-  color: #999999;
+  color: #999;
 }
 
 .block-heading {
@@ -1462,7 +1457,7 @@ img::-moz-selection {
   position: relative;
   display: inline-block;
   padding: 8px 18px 9px 18px;
-  background: #BF1827;
+  background: #bf1827;
   border-radius: 3px;
   text-align: center;
   color: #fff;
@@ -1514,7 +1509,7 @@ input[type=tel] {
   border: 1px solid #ddd;
   border-radius: 3px;
   font-size: 0.9em;
-  color: #666666;
+  color: #666;
 }
 
 input[type=text]:focus,
@@ -1530,7 +1525,7 @@ input[type=email]:focus,
 input[type=url]:focus,
 input[type=search]:focus,
 input[type=tel]:focus {
-  border-color: #5BA4E5;
+  border-color: #5ba4e5;
 }
 
 input[type=text]::-webkit-input-placeholder,
@@ -1546,7 +1541,7 @@ input[type=email]::-webkit-input-placeholder,
 input[type=url]::-webkit-input-placeholder,
 input[type=search]::-webkit-input-placeholder,
 input[type=tel]::-webkit-input-placeholder {
-  color: #CCCCCC;
+  color: #ccc;
 }
 
 input[type=text]::-moz-placeholder,
@@ -1562,7 +1557,7 @@ input[type=email]::-moz-placeholder,
 input[type=url]::-moz-placeholder,
 input[type=search]::-moz-placeholder,
 input[type=tel]::-moz-placeholder {
-  color: #CCCCCC;
+  color: #ccc;
 }
 
 input[type=text]:-moz-placeholder,
@@ -1578,7 +1573,7 @@ input[type=email]:-moz-placeholder,
 input[type=url]:-moz-placeholder,
 input[type=search]:-moz-placeholder,
 input[type=tel]:-moz-placeholder {
-  color: #CCCCCC;
+  color: #ccc;
 }
 
 input[type=text]:-ms-input-placeholder,
@@ -1594,26 +1589,7 @@ input[type=email]:-ms-input-placeholder,
 input[type=url]:-ms-input-placeholder,
 input[type=search]:-ms-input-placeholder,
 input[type=tel]:-ms-input-placeholder {
-  color: #CCCCCC;
-}
-
-.read-more {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding-top: 1.2em;
-  padding-bottom: 1em;
-  border-top: 1px solid #ddd;
-}
-
-.read-more-item {
-  display: inline-block;
-  vertical-align: top;
-  width: 48%;
-}
-
-.read-more-item-dim {
-  color: #7b0f19;
-  font-size: 0.8em;
+  color: #ccc;
 }
 
 /*头像效果-start*/

@@ -22,7 +22,7 @@
     font-size: 0.6em;
     font-weight: lighter;
     letter-spacing: 3px;
-    color: #CCCCCC;
+    color: t.$color-text-faint;
     -webkit-font-smoothing: antialiased; }
 
   .panel-cover {
@@ -32,7 +32,7 @@
     width: 100%;
     max-width: none;
     height: 100%;
-    background: url(/images/background-cover.webp) top left no-repeat #666666;
+    background: url(/images/background-cover.webp) top left no-repeat t.$color-fill-neutral;
     background-size: cover; }
 
   .panel-cover[data-panel-state="collapsed"] {
@@ -147,7 +147,7 @@
   }
 
   .navigation__flink {
-    color: #999;
+    color: t.$color-text-muted;
     margin-top: 40px;
     text-align: left;
     font-size: .6em;
@@ -159,13 +159,13 @@
     margin-left: 10px;
     margin-right: 10px;
     font-size: .4em;
-    color: #666;
-    border-bottom: 0.1px solid #666;
+    color: t.$color-text-secondary;
+    border-bottom: 0.1px solid t.$color-text-secondary;
     text-shadow: none;
   }
   .btn:hover, .navigation__flink_item a:hover {
-    color: #fff;
-    border-color: #fff;
+    color: t.$color-surface;
+    border-color: t.$color-surface;
   }
 
   .btn-border-small {
@@ -176,17 +176,17 @@
   }
 
   .btn-secondary {
-    border-color: #5BA4E5;
-    color: #5BA4E5;
+    border-color: t.$color-info;
+    color: t.$color-info;
   }
   .btn-secondary:hover {
-    color: #217fd2;
-    border-color: #217fd2;
+    color: t.$color-info-strong;
+    border-color: t.$color-info-strong;
   }
 
   .btn-tertiary {
-    border-color: #999999;
-    color: #999999;
+    border-color: t.$color-text-muted;
+    color: t.$color-text-muted;
   }
   .btn-tertiary:hover {
     color: #737373;
@@ -217,15 +217,15 @@
     top: 12px;
     margin-right: 20px;
     float: right;;
-    color: #FFF;
+    color: t.$color-surface;
   }
   .btn-mobile-menu_item a {
-    color: #666;
+    color: t.$color-text-secondary;
   }
 
   .btn-mobile-menu_item a :hover,
   .btn-mobile-menu_item :hover {
-    color: #FFF;
+    color: t.$color-surface;
   }
 
   nav {
@@ -246,7 +246,7 @@
     padding: 5px 5px 5px 5px;
     font-size: .6em;
     text-shadow: none;
-    color: #BF1827;
+    color: t.$color-brand-red;
   }
   .navigation__item {
     display: inline-block;
@@ -258,8 +258,8 @@
   .navigation__item a {
     display: inline-block;
     position: relative;
-    border-color: #666;
-    color: #666;
+    border-color: t.$color-text-secondary;
+    color: t.$color-text-secondary;
     padding: 8px 12px;
     margin: 0;
     border-radius: 4px;
@@ -281,7 +281,7 @@
   }
 
   .navigation__item a:hover {
-    color: #fff;
+    color: t.$color-surface;
     transform: translateY(-2px);
     background-color: rgba(255, 255, 255, 0.1);
   }
@@ -297,7 +297,7 @@
   }
   .navigation__item_social a {
     position: relative;
-    color: #999;
+    color: t.$color-text-muted;
   }
 
   .navigation__item_social a:hover {
@@ -325,7 +325,7 @@
   .pagination__page-number {
     margin: 0;
     font-size: .8em;
-    color: #999999;
+    color: t.$color-text-muted;
   }
 
   .pagination__newer {

@@ -10,13 +10,13 @@
     color: t.$color-surface;
   }
   .tags a {
-  color: #666666; }
+  color: t.$color-text-secondary; }
 
   .date a:hover,
   .time a:hover,
   .author a:hover,
   .tags a:hover {
-    color: #7b0f19;
+    color: t.$color-link-hover;
   }
 
   .excerpt {
@@ -26,14 +26,14 @@
     font-size: .9em;
     background-color: t.$color-surface;
     text-indent: 10px;
-    color: #4F4F4F;
+    color: t.$color-text-strong;
   }
 
   .intro {
     font-family: t.$font-body;
     font-size: 1.2em;
     font-weight: lighter;
-    color: #999999; }
+    color: t.$color-text-muted; }
 
   .block-heading {
     display: inline;
@@ -52,14 +52,14 @@
     position: relative;
     display: inline-block;
     padding: 8px 18px 9px 18px;
-    background: #BF1827;
+    background: t.$color-brand-red;
     border-radius: t.$radius-small;
     text-align: center;
     color: t.$color-surface; }
 
 /* 键盘操作保留清晰焦点；鼠标点击继续沿用原主题的简洁外观。 */
 *:focus {
-  outline: 2px solid #2f7f6a;
+  outline: 2px solid t.$color-focus;
   outline-offset: 2px; }
 
 *:focus:not(:focus-visible) {
@@ -72,7 +72,7 @@
   z-index: 10000;
   padding: 8px 12px;
   color: t.$color-surface;
-  background: #2f7f6a;
+  background: t.$color-focus;
   border-radius: t.$radius-small;
   transform: translateY(-180%);
 }
@@ -101,7 +101,7 @@ input[type="tel"] {
   border: 1px solid t.$color-border;
   border-radius: t.$radius-small;
   font-size: .9em;
-  color: #666666; }
+  color: t.$color-text-secondary; }
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime"]:focus,
@@ -115,7 +115,7 @@ input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus {
-  border-color: #5BA4E5; }
+  border-color: t.$color-info; }
 input[type="text"]::-webkit-input-placeholder,
 input[type="password"]::-webkit-input-placeholder,
 input[type="datetime"]::-webkit-input-placeholder,
@@ -129,7 +129,7 @@ input[type="email"]::-webkit-input-placeholder,
 input[type="url"]::-webkit-input-placeholder,
 input[type="search"]::-webkit-input-placeholder,
 input[type="tel"]::-webkit-input-placeholder {
-  color: #CCCCCC; }
+  color: t.$color-text-faint; }
 input[type="text"]::-moz-placeholder,
 input[type="password"]::-moz-placeholder,
 input[type="datetime"]::-moz-placeholder,
@@ -143,7 +143,7 @@ input[type="email"]::-moz-placeholder,
 input[type="url"]::-moz-placeholder,
 input[type="search"]::-moz-placeholder,
 input[type="tel"]::-moz-placeholder {
-  color: #CCCCCC; }
+  color: t.$color-text-faint; }
 input[type="text"]:-moz-placeholder,
 input[type="password"]:-moz-placeholder,
 input[type="datetime"]:-moz-placeholder,
@@ -157,7 +157,7 @@ input[type="email"]:-moz-placeholder,
 input[type="url"]:-moz-placeholder,
 input[type="search"]:-moz-placeholder,
 input[type="tel"]:-moz-placeholder {
-  color: #CCCCCC; }
+  color: t.$color-text-faint; }
 input[type="text"]:-ms-input-placeholder,
 input[type="password"]:-ms-input-placeholder,
 input[type="datetime"]:-ms-input-placeholder,
@@ -171,21 +171,4 @@ input[type="email"]:-ms-input-placeholder,
 input[type="url"]:-ms-input-placeholder,
 input[type="search"]:-ms-input-placeholder,
 input[type="tel"]:-ms-input-placeholder {
-  color: #CCCCCC; }
-
-.read-more {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding-top: 1.2em;
-  padding-bottom: 1em;
-  border-top: 1px solid t.$color-border; }
-
-.read-more-item {
-  display: inline-block;
-  vertical-align: top;
-  width: 48%; }
-
-.read-more-item-dim {
-  color: #7b0f19;
-  font-size: .8em;
-}
+  color: t.$color-text-faint; }

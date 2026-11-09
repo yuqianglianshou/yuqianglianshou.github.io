@@ -10,18 +10,7 @@
     <div class="mobile btn-mobile-menu">
       <div class="nav_container">
          <nav class="nav-menu-item" aria-label="移动端主要导航">
-            <span class="nav-menu-item">
-              <a href="/#blog" title="{% if site.blog_button.description %}{{ site.blog_button.description }}{% else %}{{ site.blog_button.title }}{% endif %}" class="blog-button"{% if page.url == '/' or page.layout == 'post' %} aria-current="page"{% endif %}>
-                {{ site.blog_button.title }}
-              </a>
-            </span>
-            {% for item in site.nav %}
-                <span class="nav-menu-item">
-                  <a href="{{ item.url }}" title="{{ item.description }}" class="btn-mobile-menu__icon"{% if item.new_window %} target="_blank" rel="noopener noreferrer"{% endif %}{% if page.url contains item.url %} aria-current="page"{% endif %}>
-                      {{ item.title }}
-                  </a>
-                </span>
-            {% endfor %}
+            {% include nav-links.html item_tag="span" item_class="nav-menu-item" link_class="btn-mobile-menu__icon" %}
           </nav>
       </div>
     </div>

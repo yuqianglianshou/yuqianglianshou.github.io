@@ -13,7 +13,7 @@ function initializeBlog() {
     button.addEventListener('click', () => panelController.collapse());
   });
 
-  if (window.location.hash === '#blog' || window.location.pathname.startsWith('/tag/')) {
+  if (window.location.hash === '#blog') {
     panelController.collapse();
   }
 

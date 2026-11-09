@@ -1,0 +1,17 @@
+{% comment %}
+  桌面侧栏与移动端菜单共用的导航条目，数据来自 _config.yml 的 blog_button 和 nav。
+  参数：item_tag 包裹元素标签，item_class 包裹元素类名，link_class 站点导航链接的额外类名。
+{% endcomment %}
+{% assign nav_item_tag = include.item_tag | default: 'li' %}
+<{{ nav_item_tag }} class="{{ include.item_class }}">
+  <a href="/#blog" title="{% if site.blog_button.description %}{{ site.blog_button.description }}{% else %}{{ site.blog_button.title }}{% endif %}" class="blog-button"{% if page.url == '/' or page.layout == 'post' %} aria-current="page"{% endif %}>
+    {{ site.blog_button.title }}
+  </a>
+</{{ nav_item_tag }}>
+{% for item in site.nav %}
+<{{ nav_item_tag }} class="{{ include.item_class }}">
+  <a href="{{ item.url }}" title="{{ item.description }}"{% if include.link_class %} class="{{ include.link_class }}"{% endif %}{% if item.new_window %} target="_blank" rel="noopener noreferrer"{% endif %}{% if page.url contains item.url %} aria-current="page"{% endif %}>
+    {{ item.title }}
+  </a>
+</{{ nav_item_tag }}>
+{% endfor %}

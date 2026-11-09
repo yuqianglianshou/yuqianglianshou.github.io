@@ -55,7 +55,7 @@
 ::selection {
     color:t.$color-surface;
     text-shadow:none;
-    background:#666666;
+    background:t.$color-fill-neutral;
   }
 img::selection {
   color:t.$color-surface;
