@@ -1,1 +1,2 @@
-<script type="module" src="/js/main.js"></script>
+{%- comment -%} 版本参数需与 head.html 中 modulepreload 的地址一致，否则预加载的文件不会被复用。 {%- endcomment -%}
+<script type="module" src="/js/main.js?v={{ site.time | date: '%s' }}"></script>

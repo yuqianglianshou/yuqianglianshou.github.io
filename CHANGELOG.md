@@ -23,6 +23,8 @@
 
 ### 变更
 
+- 2026-11-10：样式表和脚本地址附带构建时间版本参数（`?v=`），子模块通过 import map 映射到同一版本，发布后访客不会再短暂看到旧样式或旧脚本搭配新页面。验证：`npm run check`。
+- 2026-11-10：`css/main.css` 不再纳入版本库，改由本地和 CI 构建时从 Sass 编译生成；移除 `scripts/check-generated-css.mjs` 与 `npm run styles:check`，`npm run check` 改为直接编译样式。拉取代码后需通过 `npm run build` 或 `npm run serve` 构建，`scripts/windows-serve.bat` 同步改为调用 `npm run serve`。
 - 2026-11-09：优化博客主体加载性能：93 张宽度超过 1600px 的文章图片统一缩到 1600px（合计约 13MB → 8MB）；3 张动图 WebP 改为带封面的 MP4（约 3.3MB → 0.8MB），由新增的 `js/modules/lazy-video.js` 在滚动到可视区域时才加载并静音循环播放，减少动态效果偏好或脚本不可用时保留播放控件；`autosize-flowlayout` 文章的 6 张图片从 raw.githubusercontent.com 改为站内 WebP；首页封面入场动画缩短为约 0.5s，不再把首屏最大内容推迟到 1.3s 后；展开封面的页面预加载背景图，手机文章页改用 800px 小封面（168KB → 45KB）；预声明 JS 子模块避免串行下载；`css/main.css` 改为 Sass 压缩输出；`apple-touch-icon.png` 由 50KB 压缩到 10KB。验证：`npm run check`。
 - 2026-11-09：优化小玩乐模块加载性能：碎片相册改用 640px 缩略图（列表图片由约 820KB 降到约 210KB，灯箱仍查看原图），页头 Logo 改用 400px WebP（76KB → 14KB），三个短片补充 WebP 封面；冥想页 favicon 由 611KB 压缩到 17KB，去掉每帧的调试日志和隐藏 FPS 统计，并移除按空格“保存壁纸”的隐藏功能（主流浏览器会拦截其弹窗，从未生效），页面不再加载头像；奏乐页脚本改为 `defer` 不再阻塞首屏，删除无引用的 `jquery.min.map`，并不再部署 pixi 源码映射、Dockerfile 和 README。
 - 2026-11-09：首页文章摘要改为优先使用 front matter 的 `description`，其次取文章首段，截断到 120 字并最多显示 3 行，不再把公式、整段网址等正文原文塞进卡片。
@@ -43,6 +45,9 @@
 
 ### 修复
 
+- 2026-11-10：修复首页、文章页和普通页面 `<time datetime>` 输出为 `2026-08-07 00:00:00 +0800` 这类非法格式的问题，现在统一输出 ISO 8601 时间，搜索引擎和读屏软件可正确识别发布日期。验证：`npm run check`。
+- 2026-11-10：文章中指向本站的 `http://yuqianglianshou.com/...` 链接改为站内相对路径（示例文章中的外链演示改为 `https://`），不再经过一次 HTTP 跳转，并纳入站内死链检查。
+- 2026-11-10：CI 的 Node.js 由已停止维护的 20 升级到 24，`package.json` 的 `engines` 与 README 的最低版本同步提高到 22。
 - 2026-11-09：404 页侧栏改为折叠状态，打开失效链接时直接看到“页面不存在”提示，不再被全屏封面挡住；侧栏模板支持在 front matter 写 `panel: collapsed` 强制折叠。
 - 2026-11-09：首页与文章页日期颜色由 `#c7c7c7` / `#8b9aa3` 改为 `$color-text-caption`，在白底上的对比度达到 WCAG AA。
 - 2026-11-09：修复关于页段落受全局 `p` 左内边距影响、与卡片标题左侧不对齐的问题；侧栏副标题改为块级元素，入场动画在其上真正生效，窄屏下与站名拉开间距、不再重叠。

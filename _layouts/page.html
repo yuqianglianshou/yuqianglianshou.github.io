@@ -6,7 +6,7 @@ layout: default
   <header class="post-header">
     {% if page.date %}
     <div class="post-meta">
-      <time datetime="{{ page.date | date: date_to_xmlschema }}" itemprop="datePublished" class="post-meta__date date">{{ page.date | date: "%F" }}</time>
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished" class="post-meta__date date">{{ page.date | date: "%F" }}</time>
     </div>
     {% endif %}
     <h1 class="post-title">{{ page.title }}</h1>

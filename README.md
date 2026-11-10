@@ -12,7 +12,7 @@
 
 - Ruby 4.0.4
 - Bundler 4.x
-- Node.js 18.18.0 或更高版本
+- Node.js 22 或更高版本（CI 使用 24）
 
 ### macOS
 
@@ -74,7 +74,7 @@
 
 2. 安装 Node.js。
 
-   下载 Node.js LTS，版本需要 18.18.0 或更高：
+   下载 Node.js LTS，版本需要 22 或更高：
 
    ```text
    https://nodejs.org/
@@ -134,11 +134,14 @@ http://127.0.0.1:4000/
 ### 常用命令
 
 ```bash
-npm run styles:build   # 编译 src/styles 到 css/main.css
+npm run styles:build   # 编译 src/styles 到 css/main.css（生成文件，不入库）
 npm run lint           # 检查 js/main.js
 npm run build          # 编译样式并构建 Jekyll 静态页面
 npm run serve          # 启动本地预览服务
+npm run check          # 代码检查、编译样式、构建站点并校验站内链接
 ```
+
+`css/main.css` 不在版本库中。请始终通过 `npm run build` 或 `npm run serve` 构建，直接运行 `jekyll build` / `jekyll serve` 会得到没有样式的页面。
 
 ### 排障
 

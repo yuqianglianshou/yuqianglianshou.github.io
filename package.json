@@ -9,13 +9,12 @@
     "lint": "eslint \"js/**/*.js\"",
     "format": "prettier --write \"**/*.{html,md,css,scss,js,json,yml}\" --ignore-path .gitignore",
     "styles:build": "sass src/styles/main.scss css/main.css --style=compressed --no-source-map",
-    "styles:check": "node scripts/check-generated-css.mjs",
     "styles:watch": "sass --watch src/styles/main.scss:css/main.css --style=compressed --no-source-map",
     "test": "node scripts/check-links.mjs",
-    "check": "npm run lint && npm run styles:check && bundle exec jekyll build && npm run test"
+    "check": "npm run lint && npm run styles:build && bundle exec jekyll build && npm run test"
   },
   "engines": {
-    "node": ">=18.18.0"
+    "node": ">=22.0.0"
   },
   "repository": {
     "type": "git",

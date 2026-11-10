@@ -7,8 +7,8 @@ echo 正在启动 Jekyll 服务，请稍候...
 REM 检查是否已经存在 jekyll 服务
 netstat -ano | findstr :4000 > nul
 IF %ERRORLEVEL% NEQ 0 (
-    REM 如果不存在，启动服务
-    jekyll serve
+    REM 如果不存在，启动服务；css/main.css 不入库，必须经 npm 脚本先编译样式
+    call npm run serve
 ) ELSE (
     echo Jekyll 服务已经在运行中.
 )

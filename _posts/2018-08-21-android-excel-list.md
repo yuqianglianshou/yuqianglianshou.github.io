@@ -7,7 +7,7 @@ tags: 技术
 
 ### 滑啊滑 
 
-新版请移至 [ Android 实现一个类似Excel表格似的效果 2 ](http://yuqianglianshou.com/2020/12/android_excellist/) 
+新版请移至 [ Android 实现一个类似Excel表格似的效果 2 ](/2020/12/android_excellist/) 
 > 先看下效果，可否是你想的。
 > <br/>
 > <br/>

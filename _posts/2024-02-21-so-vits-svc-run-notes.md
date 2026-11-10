@@ -246,7 +246,7 @@ python -m tensorboard.main --logdir=logs\44k
 
 ## 目标音频处理 uvr5工具
 
-[UVR5提取干声](http://yuqianglianshou.com/2024/02/so-vits-svc-UVR5提取干声/)
+[UVR5提取干声](/2024/02/so-vits-svc-UVR5提取干声/)
 
 ## 推理
 

@@ -9,6 +9,10 @@ _site/
 .jekyll-metadata
 .sass-cache/
 
+# ===== 生成的样式 =====
+# 由 npm run styles:build 从 src/styles 编译，本地与 CI 构建时生成，不入库。
+css/main.css
+
 # ===== Node =====
 node_modules/
 npm-debug.log*

@@ -42,16 +42,33 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  {%- comment -%} 样式和脚本的地址固定，发布后浏览器可能用缓存的旧文件搭配新页面；附上构建时间作为版本参数，每次发布后强制取新文件。 {%- endcomment -%}
+  {%- assign asset_version = site.time | date: '%s' %}
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?v={{ asset_version }}">
   {%- comment -%} 首页等展开封面的页面中，背景图是首屏主体却写在 CSS 里，预加载让它与样式表并行下载；判断条件需与 side-panel.html 的折叠规则保持一致。 {%- endcomment -%}
   {%- unless page.layout == 'post' or page.layout == 'page' or page.panel == 'collapsed' %}
   <link rel="preload" as="image" href="/images/background-cover.webp" type="image/webp" fetchpriority="high">
   {%- endunless %}
-  {%- comment -%} 主脚本是 ES Module，提前声明子模块，避免下载完 main.js 才发现依赖造成的串行等待。 {%- endcomment %}
-  <link rel="modulepreload" href="/js/main.js">
-  <link rel="modulepreload" href="/js/modules/panel-controller.js">
-  <link rel="modulepreload" href="/js/modules/scroll-indicator.js">
-  <link rel="modulepreload" href="/js/modules/lazy-video.js">
+  {%- comment -%}
+    主脚本是 ES Module。main.js 用相对路径导入子模块，源码里无法携带版本参数，
+    因此用 import map 把子模块地址映射到带版本的地址；它必须出现在任何模块脚本和 modulepreload 之前。
+    不支持 import map 的旧浏览器会忽略它并按原地址加载，功能不受影响。
+    同时预加载子模块，避免下载完 main.js 才发现依赖造成的串行等待。新增子模块时需补充到下面的列表。
+  {%- endcomment -%}
+  {%- assign js_modules = "panel-controller,scroll-indicator,lazy-video" | split: "," %}
+  <script type="importmap">
+    {
+      "imports": {
+        {%- for module in js_modules %}
+        "/js/modules/{{ module }}.js": "/js/modules/{{ module }}.js?v={{ asset_version }}"{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      }
+    }
+  </script>
+  <link rel="modulepreload" href="/js/main.js?v={{ asset_version }}">
+  {%- for module in js_modules %}
+  <link rel="modulepreload" href="/js/modules/{{ module }}.js?v={{ asset_version }}">
+  {%- endfor %}
 
   <link rel="canonical" href="{{ meta_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend:
