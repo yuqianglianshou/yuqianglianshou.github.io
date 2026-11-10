@@ -32,21 +32,21 @@ tags: 技术
 ## 效果预览：
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/1.jpg" alt="示例1" width="24%"/>
-  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/2.jpg" alt="示例2" width="24%"/>
-  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/3.jpg" alt="示例3" width="24%"/>
-  <img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/4.jpg" alt="示例4" width="24%"/>
+  <img src="/images/posts/autosize-flowlayout/1.webp" alt="示例1" width="24%"/>
+  <img src="/images/posts/autosize-flowlayout/2.webp" alt="示例2" width="24%"/>
+  <img src="/images/posts/autosize-flowlayout/3.webp" alt="示例3" width="24%"/>
+  <img src="/images/posts/autosize-flowlayout/4.webp" alt="示例4" width="24%"/>
 </div>
 
 ---
 
 ## 核心代码：
 
-<img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/5.png" width="80%"/>
+<img src="/images/posts/autosize-flowlayout/5.webp" alt="核心代码截图 1" width="80%"/>
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/yuqianglianshou/autosize-flowlayout/main/images/6.png" width="80%"/>
+<img src="/images/posts/autosize-flowlayout/6.webp" alt="核心代码截图 2" width="80%"/>
 
 ---
 

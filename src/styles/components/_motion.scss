@@ -36,18 +36,18 @@
 
 /* 面板内容淡入动画 */
 .panel-main__content {
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeIn t.$duration-entrance t.$ease-out;
 }
 
 /* 页面加载淡入 - 通过JavaScript控制更精确 */
 
 .panel-cover__description {
-  animation: fadeInUp 0.8s ease-out 0.6s both;
+  animation: fadeInUp t.$duration-entrance t.$ease-out t.$stagger-entrance * 2 both;
 }
 
 /* 导航链接区域动画 */
 .navigation-wrapper {
-  animation: fadeInUp 0.8s ease-out 0.8s both;
+  animation: fadeInUp t.$duration-entrance t.$ease-out t.$stagger-entrance * 3 both;
 }
 
 /* 滚动提示动画 */

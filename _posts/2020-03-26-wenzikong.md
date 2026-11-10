@@ -17,9 +17,9 @@ demo地址 ：
  * 效果：运行程序文字依次随机位置以水波纹动画显示，触摸或滑动屏幕，有水波纹动画，程序退到后台，动画暂停，返回到前台继续执行，效果如下：
 
  <br/> 
-![](/images/posts/wenzikong/wenzikong.webp)
+<video class="post-video" src="/images/posts/wenzikong/wenzikong.mp4" poster="/images/posts/wenzikong/wenzikong-poster.webp" width="324" height="576" muted loop playsinline controls preload="none" data-autoplay aria-label="文字点阵水波纹动画演示"></video>
  <br/> 
-![](/images/posts/wenzikong/wenzikong2.webp)
+<video class="post-video" src="/images/posts/wenzikong/wenzikong2.mp4" poster="/images/posts/wenzikong/wenzikong2-poster.webp" width="324" height="576" muted loop playsinline controls preload="none" data-autoplay aria-label="触摸屏幕产生水波纹的演示"></video>
  <br/> 
 
 

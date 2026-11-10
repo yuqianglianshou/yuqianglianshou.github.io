@@ -17,7 +17,7 @@ try {
   // 在临时目录重新编译，校验仓库中的 CSS 只来源于 Sass，而不覆盖现有产物。
   const buildResult = spawnSync(
     sassExecutable,
-    ['src/styles/main.scss', generatedCandidate, '--style=expanded', '--no-source-map'],
+    ['src/styles/main.scss', generatedCandidate, '--style=compressed', '--no-source-map'],
     { cwd: projectRoot, encoding: 'utf8' },
   );
 

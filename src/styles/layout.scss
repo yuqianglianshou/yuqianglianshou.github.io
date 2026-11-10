@@ -66,12 +66,12 @@
 
   .panel-title {
     font-size: 1.2em;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+    animation: fadeInUp t.$duration-entrance t.$ease-out both;
   }
 
   .panel-subtitle {
     font-size: 0.75em;
-    animation: fadeInUp 0.8s ease-out 0.4s both;
+    animation: fadeInUp t.$duration-entrance t.$ease-out t.$stagger-entrance both;
   }
 
   .panel-cover__description {
@@ -156,6 +156,13 @@
   .content-wrapper__inner {
     margin-right: 0;
     margin-left: 0;
+  }
+}
+
+// 手机上文章页的封面只是顶部一条，换用 800px 的小图，省去下载完整封面（约 168KB）。
+@media all and (max-width: t.$breakpoint-mobile) {
+  .panel-cover[data-panel-state="collapsed"] {
+    background-image: url(/images/background-cover-small.webp);
   }
 }
 

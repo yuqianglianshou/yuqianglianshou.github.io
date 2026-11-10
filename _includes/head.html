@@ -43,6 +43,15 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  {%- comment -%} 首页等展开封面的页面中，背景图是首屏主体却写在 CSS 里，预加载让它与样式表并行下载；判断条件需与 side-panel.html 的折叠规则保持一致。 {%- endcomment -%}
+  {%- unless page.layout == 'post' or page.layout == 'page' or page.panel == 'collapsed' %}
+  <link rel="preload" as="image" href="/images/background-cover.webp" type="image/webp" fetchpriority="high">
+  {%- endunless %}
+  {%- comment -%} 主脚本是 ES Module，提前声明子模块，避免下载完 main.js 才发现依赖造成的串行等待。 {%- endcomment %}
+  <link rel="modulepreload" href="/js/main.js">
+  <link rel="modulepreload" href="/js/modules/panel-controller.js">
+  <link rel="modulepreload" href="/js/modules/scroll-indicator.js">
+  <link rel="modulepreload" href="/js/modules/lazy-video.js">
 
   <link rel="canonical" href="{{ meta_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend:

@@ -1,5 +1,6 @@
 import { createPanelController } from './modules/panel-controller.js';
 import { setupScrollIndicator } from './modules/scroll-indicator.js';
+import { setupLazyVideos } from './modules/lazy-video.js';
 
 function initializeBlog() {
   const panelController = createPanelController(document.querySelector('.panel-cover'));
@@ -21,6 +22,8 @@ function initializeBlog() {
     element: document.querySelector('.scroll-indicator'),
     panelController,
   });
+
+  setupLazyVideos(Array.from(document.querySelectorAll('video[data-autoplay]')));
 }
 
 initializeBlog();
