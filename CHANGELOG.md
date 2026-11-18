@@ -23,6 +23,8 @@
 
 ### 变更
 
+- 2026-11-18：参考 [autosize-flowlayout](https://github.com/yuqianglianshou/autosize-flowlayout) 最新版重写《自适应宽度的流式标签布局》：按 Jetpack Compose 参考实现讲解用法与四步测量原理（含余数像素分配、最后一行不拉伸、单选 / 多选无障碍语义），新增与官方实验性 `FlexBox` 的对比和使用注意；两张核心代码截图改为可复制的代码块并移除原图。验证：`npm run build`。
+- 2026-11-18：参考 [GlyphRipple](https://github.com/yuqianglianshou/GlyphRipple) 重写《Android 文字点阵图的水波纹动画》，标题改为《点字成涟：把文字变成一片涟漪》（链接不变），按 Kotlin + Jetpack Compose 新版讲解点阵生成、排版、涟漪推进与绘制，演示视频换成新版的逐字随机与整句排版两段（MP4 + WebP 封面），移除旧版演示视频。验证：`npm run build`。
 - 2026-11-10：样式表和脚本地址附带构建时间版本参数（`?v=`），子模块通过 import map 映射到同一版本，发布后访客不会再短暂看到旧样式或旧脚本搭配新页面。验证：`npm run check`。
 - 2026-11-10：`css/main.css` 不再纳入版本库，改由本地和 CI 构建时从 Sass 编译生成；移除 `scripts/check-generated-css.mjs` 与 `npm run styles:check`，`npm run check` 改为直接编译样式。拉取代码后需通过 `npm run build` 或 `npm run serve` 构建，`scripts/windows-serve.bat` 同步改为调用 `npm run serve`。
 - 2026-11-09：优化博客主体加载性能：93 张宽度超过 1600px 的文章图片统一缩到 1600px（合计约 13MB → 8MB）；3 张动图 WebP 改为带封面的 MP4（约 3.3MB → 0.8MB），由新增的 `js/modules/lazy-video.js` 在滚动到可视区域时才加载并静音循环播放，减少动态效果偏好或脚本不可用时保留播放控件；`autosize-flowlayout` 文章的 6 张图片从 raw.githubusercontent.com 改为站内 WebP；首页封面入场动画缩短为约 0.5s，不再把首屏最大内容推迟到 1.3s 后；展开封面的页面预加载背景图，手机文章页改用 800px 小封面（168KB → 45KB）；预声明 JS 子模块避免串行下载；`css/main.css` 改为 Sass 压缩输出；`apple-touch-icon.png` 由 50KB 压缩到 10KB。验证：`npm run check`。

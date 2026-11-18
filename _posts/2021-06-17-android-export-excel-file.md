@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 实现 android 程序导出数据到 Excel 表格
+title: 实现 Android 程序导出数据到 Excel 表格
 date: 2021-06-17
 permalink: "/2021/06/android-export-excel-file/"
 tags: 技术
@@ -8,511 +8,391 @@ tags: 技术
 
 ### 我学会了很多东西，勤俭 隐忍 坚持 淡然 息事宁人，却没学会享受生活。
 <br/>
-
-## 数据如何输出到 Excel 表格中？如下。
-
-## 先看下生成的Excel效果：  
-<br/>
-![](/images/posts/export_excel_file/4.webp){:width="40%" height="40%"}  
 <br/>
 
-本demo地址 [https://github.com/yuqianglianshou/ExportExcelFile](https://github.com/yuqianglianshou/ExportExcelFile)  
-以VSCode方式打开代码 [https://github1s.com/yuqianglianshou/ExportExcelFile](https://github1s.com/yuqianglianshou/ExportExcelFile)
+> 2026 年 11 月更新：项目升级到 1.1。去掉了 jxl，改成自己写 `.xlsx` 文件，也不再需要存储权限。本文按新版本重新整理。
+
+## 需求
+
+App 里有一份列表数据，需要导出成 Excel 表格，让用户发给同事或在电脑上继续处理。
+
+项目地址：[https://github.com/yuqianglianshou/ExportExcelFile](https://github.com/yuqianglianshou/ExportExcelFile)
+
+先看效果。左边是主界面，右边是正在导出 10 万行的状态，下方卡片是上一次导出的结果：
+
+<div style="display:flex;gap:4%;justify-content:center;">
+  <img src="/images/posts/export_excel_file/v2-home.webp" style="width:45%;max-width:300px;height:auto;" alt="主界面" />
+  <img src="/images/posts/export_excel_file/v2-exporting.webp" style="width:45%;max-width:300px;height:auto;" alt="导出中" />
+</div>
+
+导出的文件长这样。第一列是数字，所以靠右对齐；表头加粗、灰底，并冻结在首行：
+
+![导出的 Excel 文件](/images/posts/export_excel_file/v2-excel.webp){:width="80%"}
+
+## 为什么不再用 jxl
+
+旧版本用的是 jxl。2021 年时它还能用，现在回头看问题不少：
+
+- jxl 最后一次发布是 2009 年，早已停止维护。
+- 它只能写 `.xls`（Excel 97-2003 格式），单表最多 65536 行、256 列。新版 Excel 打开时会提示兼容模式。
+- 写出来的单元格全是文本。数字列在 Excel 里会被标成「以文本形式存储的数字」，不能直接求和。
+- 混淆时要额外加 `-keep class jxl.** {*;}`，不然运行时会崩。
+
+另一个常见选择是 Apache POI。它功能很全，但体积有好几 MB，还用到了 `java.awt`、StAX（`javax.xml.stream`）等 Android 上没有的类，在手机上用起来很别扭。
+
+其实「把一张表导出给人看」这个需求很简单。`.xlsx` 本质上就是一个 zip 包，里面放几个 XML 文件。用 JDK 自带的 `ZipOutputStream` 自己写，三百来行代码就够了，零依赖。
+
+## xlsx 文件里有什么
+
+把任意一个 `.xlsx` 改名成 `.zip` 解压，就能看到它的结构。一个能被 Excel 正常打开的最小文件只需要 6 个部分：
 
 ```
-jxl && POI
-jxl是一个韩国人写的java操作excel的工具，是一个开源的Java Excel API项目，通过Jxl，Java可以很方便的操作微软的Excel文档。除了Jxl之外，  
-还有Apache的一个POI项目，也可以操作Excel，两者相比之下：Jxl使用方便，但功能相对POI比较弱,很多时候，一个软件应用程序需要生成  
-Microsoft Excel文件格式的报告。有时，一个应用程序甚至希望将Excel文件作为输入数据。例如，一个公司开发的应用程序将财务部门需要所有输出生成自己的Excel。  
-Apache POI是一种流行的API，它允许程序员使用Java程序创建，修改和显示MS Office文件。这由Apache软件基金会开发使用Java分布式设计或修改  
-Microsoft Office文件的开源库。它包含类和方法对用户输入数据或文件到MS Office文档进行解码。
+[Content_Types].xml          声明包里每个文件的类型
+_rels/.rels                  入口：指向 xl/workbook.xml
+xl/workbook.xml              工作簿：有哪些表单（sheet）
+xl/_rels/workbook.xml.rels   工作簿到表单、样式表的引用关系
+xl/styles.xml                样式表：字体、填充、边框
+xl/worksheets/sheet1.xml     表单的实际数据
 ```
-更多关于jxl的相关方法可以参考文档：  
-[http://jexcelapi.sourceforge.net/resources/javadocs/current/docs/](http://jexcelapi.sourceforge.net/resources/javadocs/current/docs/)  
-poi的相关内容：  
-[https://poi.apache.org/](https://poi.apache.org/)
 
+除了 `sheet1.xml`，其余 5 个文件的内容都是固定的，写成常量即可。真正需要生成的只有 `sheet1.xml`，它大概是这样：
 
-
-整体代码结构：  
-<br/>
-![](/images/posts/export_excel_file/6.webp){:width="60%" height="60%"}  
-<br/>
-
-
-
-首先下载并导入 jxl.jar 包  
-jxl.jar包的下载地址：[http://jexcelapi.sourceforge.net/](http://jexcelapi.sourceforge.net/)
-可以到我的项目工程中直接拷贝。
-
-<br/>
-![](/images/posts/export_excel_file/0.webp){:width="40%" height="40%"}  
-<br/>
-
-布局文件 activity_main.xml：  
-<br/>
-![](/images/posts/export_excel_file/7.webp){:width="50%" height="50%"}  
-<br/>
+```xml
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+  <!-- 冻结首行 -->
+  <sheetViews><sheetView workbookViewId="0">
+    <pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/>
+  </sheetView></sheetViews>
+  <!-- 列宽 -->
+  <cols><col min="1" max="1" width="10" customWidth="1"/></cols>
+  <sheetData>
+    <row r="1">
+      <!-- s="1" 引用 styles.xml 里的表头样式；t="inlineStr" 表示文本 -->
+      <c r="A1" s="1" t="inlineStr"><is><t>序号</t></is></c>
+    </row>
+    <row r="2">
+      <c r="A2"><v>1</v></c>                       <!-- 数值：不写 t -->
+      <c r="B2" t="b"><v>1</v></c>                 <!-- 布尔 -->
+      <c r="C2" t="inlineStr"><is><t>文本</t></is></c>
+    </row>
+  </sheetData>
+</worksheet>
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="导出"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
+文本用的是 `inlineStr`（内联字符串），直接写在单元格里，不用另外维护一张共享字符串表（`sharedStrings.xml`）。这样代码简单很多，也能边遍历边写出，不用先把所有字符串收集起来。
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="20dp"
-        android:text="路径显示区"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn"
-        app:layout_constraintVertical_bias="0.136" />
+## 核心代码：XlsxWriter
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+完整代码见 [XlsxWriter.kt](https://github.com/yuqianglianshou/ExportExcelFile/blob/main/app/src/main/java/com/moon/exportexcelfile/excel/XlsxWriter.kt)。它不依赖任何 Android API，复制到自己项目里就能用，也可以直接在 JVM 上写单元测试。
+
+用法：
+
+```kotlin
+val rows: List<List<Any?>> = listOf(
+    listOf("姓名", "年龄", "在职"),   // 第一行作为表头
+    listOf("张三", 28, true),
+    listOf("李四", 31.5, false),
+)
+XlsxWriter.writeToFile(File(context.filesDir, "exports/员工.xlsx"), rows, sheetName = "员工")
 ```
-MainActivity.kt：  
-<br/>
-![](/images/posts/export_excel_file/8.webp){:width="50%" height="50%"}  
-<br/>
 
-```java
-package com.moon.exportexcelfile
+### 写出 zip 包
 
-import android.os.Bundle
-import android.os.Environment
-import android.util.Log
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import java.io.File
-import java.util.*
+所有部分共用一个 `ZipOutputStream`，每个部分是 zip 里的一个 entry：
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        //显示存储路径
-        val textView = findViewById<TextView>(R.id.textView)
-        //导出按键
-        findViewById<Button>(R.id.btn).setOnClickListener {
-            val file = creatFile()
-            ExcelUtils.writeDataToExcel(file, getData())
-            Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show()
-            Log.i("lq ", " ok")
-            textView.text = "文件目录为  " + file.absolutePath
-        }
-    }
-    /**
-     * 创建一个本地存储路径
-     * /storage/emulated/0/Android/data/com.moon.exportexcelfile/files/Documents/export.xls
-     */
-    private fun creatFile(): File {
-        val file =
-            File(this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)?.absolutePath + File.separator + "export.xls")
+```kotlin
+fun write(out: OutputStream, rows: List<List<Any?>>, sheetName: String = "Sheet1", hasHeader: Boolean = true) {
+    validate(rows)
+    val columnWidths = measureColumns(rows)   // 第一遍：算列宽
 
-        Log.i("lq ", " file == " + file.absolutePath)
-        return file
-    }
-    /**
-     * 生成 20行8列 数据，第一行为表头
-     */
-    private fun getData(): ArrayList<ArrayList<String>> {
-        val list = ArrayList<ArrayList<String>>()
-        for (j in 1..20) {
-            val listRow = ArrayList<String>()
-            for (i in 1..8) {
-                if (j == 1) {
-                    //添加表头
-                    listRow.add("表头 $i ")
-                } else {
-                    listRow.add("$j 行-$i 列")
-                }
-            }
-            list.add(listRow)
-        }
-        Log.i("lq ", " list == $list")
-        return list
+    val zip = ZipOutputStream(out.buffered())
+    val writer = BufferedWriter(OutputStreamWriter(zip, Charsets.UTF_8))
+    fun entry(name: String, block: BufferedWriter.() -> Unit) {
+        zip.putNextEntry(ZipEntry(name))
+        writer.block()
+        writer.flush()          // 切换 entry 前必须 flush，否则内容会写进下一个 entry
+        zip.closeEntry()
     }
 
+    entry("[Content_Types].xml") { write(CONTENT_TYPES) }
+    entry("_rels/.rels") { write(ROOT_RELS) }
+    entry("xl/workbook.xml") { write(workbookXml(safeSheetName(sheetName))) }
+    entry("xl/_rels/workbook.xml.rels") { write(WORKBOOK_RELS) }
+    entry("xl/styles.xml") { write(STYLES) }
+    entry("xl/worksheets/sheet1.xml") { writeSheet(this, rows, columnWidths, hasHeader) }  // 第二遍：写数据
+    zip.finish()
+    zip.flush()
 }
 ```
 
-工具类 ExcelUtils.kt：  
-<br/>
-![](/images/posts/export_excel_file/9.webp){:width="50%" height="50%"}  
-<br/>
+注意最后用的是 `finish()` 而不是 `close()`。这个方法不负责关闭传进来的 `out`，由调用方决定什么时候关。后面通过 SAF 拿到的输出流会用到这一点。
 
-```java
-package com.moon.exportexcelfile
+列宽要在写 `<sheetData>` 之前确定（`<cols>` 必须出现在它前面），所以数据要遍历两遍：第一遍只算每列最长内容的宽度，第二遍才真正写入。中文在 Excel 里大约占两个字符宽，计算时按 2 算：
 
-import android.util.Log
-import jxl.Workbook
-import jxl.write.Label
-import jxl.write.WritableCellFormat
-import jxl.write.WritableFont
-import java.io.File
+```kotlin
+internal fun displayWidth(text: String): Int =
+    text.fold(0) { acc, ch -> acc + if (ch.code > 0xFF) 2 else 1 }
+```
 
-/**
- *
- *@author : lq
- *@date   : 2021/6/17
- *@desc   : 在指定全路径的 Excel表中写入数据
- *
- */
-object ExcelUtils {
-    //表头样式
-    private lateinit var tableFormat: WritableCellFormat
-    init {
-        Log.i("lq ", "ExcelUtils init")
-        format()
-    }
-    /**
-     * excel 样式设置
-     */
-    private fun format() {
-        val tableFont1 = WritableFont(WritableFont.ARIAL, 11, WritableFont.BOLD)//11号字，加粗
-//        tableFont1.colour = jxl.format.Colour.LIGHT_BLUE // 可设置颜色
+### 写单元格
 
-        tableFormat = WritableCellFormat(tableFont1)
-        tableFormat.alignment = jxl.format.Alignment.CENTRE // 表格数据居中显示
-        tableFormat.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN)
-        tableFormat.setBackground(jxl.format.Colour.GRAY_25)//表格添加背景颜色
-    }
+按值的类型决定单元格类型。数值和布尔值按真实类型写入，其余一律当文本：
 
-    /**
-     * 写入数据到Excel中
-     * file  所创建的Excel文件  /storage/emulated/0/Android/data/com.moon.exportexcelfile/files/Documents/export.xls
-     * list  数据集合 j 行 i 列
-     */
-    fun writeDataToExcel(file: File, list: ArrayList<ArrayList<String>>) {
+```kotlin
+private fun writeCell(out: Appendable, ref: String, value: Any, style: Int) {
+    out.append("<c r=\"").append(ref).append('"')
+    if (style != STYLE_DEFAULT) out.append(" s=\"").append(style.toString()).append('"')
 
-        if (list.isEmpty() || list.size == 0) {
-            return
-        }
-        if (file.exists()) {
-            Log.i("lq ", " 文件已经存在，删除重建")
-            file.delete()
-        }
-        file.createNewFile()
-        var workbook = Workbook.createWorkbook(file)
-        try {
-            //一张 execl 表可以创建很多表单（sheet），默认有3个，这里使用第一张表单创建数据
-            val sheet = workbook.createSheet("表单1", 0)
-
-            for (j in list.indices) {
-
-                var listRow = list[j]
-
-                for (i in listRow.indices) {
-                    if (j == 0) {
-                        //为表头添加样式
-                        sheet.addCell(Label(i, j, listRow[i], tableFormat))
-                    } else {
-                        sheet.addCell(Label(i, j, listRow[i]))
-                    }
-
-                    //根据数据长度设置合适列宽
-                    if (listRow[i].length <= 5) {
-                        sheet.setColumnView(i, listRow[i].length + 8)
-                    } else {
-                        sheet.setColumnView(i, listRow[i].length + 5)
-                    }
-                }
-
-                //设置行高
-                sheet.setRowView(j, 350)
-
+    val number = numberText(value)
+    when {
+        number != null -> out.append("><v>").append(number).append("</v></c>")
+        value is Boolean -> out.append(" t=\"b\"><v>").append(if (value) "1" else "0").append("</v></c>")
+        else -> {
+            val text = value.toString()
+            out.append(" t=\"inlineStr\"><is><t")
+            // 首尾空白默认会被 Excel 去掉，需显式保留
+            if (text.isNotEmpty() && (text.first().isWhitespace() || text.last().isWhitespace())) {
+                out.append(" xml:space=\"preserve\"")
             }
-            workbook.write()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        } finally {
-            workbook?.close()
+            out.append('>')
+            appendEscaped(out, text)
+            out.append("</t></is></c>")
         }
     }
+}
 
+/** NaN、无穷大不是合法数值，返回 null 让它按文本写入 */
+private fun numberText(value: Any): String? = when (value) {
+    is Int, is Long, is Short, is Byte, is BigInteger -> value.toString()
+    is BigDecimal -> value.toPlainString()   // 避免写出 1E+20 这样的科学计数法
+    is Double -> value.takeIf { it.isFinite() }?.toString()
+    is Float -> value.takeIf { it.isFinite() }?.toString()
+    is Number -> value.toDouble().takeIf { it.isFinite() }?.toString()
+    else -> null
 }
 ```
 
+单元格引用（`A1`、`AA10`）里的列名是 26 进制，但没有 0，需要单独转换：
 
-注意：需要添加文件写入权限:  
-```
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-```
-
-运行截图：  
-<br/>
-![](/images/posts/export_excel_file/1.webp){:width="40%" height="40%"}  
-<br/>
-点击导出后：  
-<br/>
-![](/images/posts/export_excel_file/2.webp){:width="40%" height="40%"}  
-<br/>
-后台log：  
-<br/>
-![](/images/posts/export_excel_file/3.webp){:width="80%" height="80%"}  
-<br/>
-手机文件管理器找到文件：  
-<br/>
-![](/images/posts/export_excel_file/5.webp){:width="40%" height="40%"}  
-<br/>
-wps 打开 Excel ：  
-<br/>
-![](/images/posts/export_excel_file/4.webp){:width="40%" height="40%"}  
-<br/>
-
-
-## 0618 新增点击导出直接调用程序打开生成的 excel 表格功能，不再需要去文件管理器自己寻找。    
-
-AndroidManifest.xml 中 添加代码  
-
-```
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
+```kotlin
+/** 0 -> A，25 -> Z，26 -> AA */
+internal fun columnName(index: Int): String {
+    val sb = StringBuilder()
+    var n = index + 1
+    while (n > 0) {
+        val rem = (n - 1) % 26
+        sb.append('A' + rem)
+        n = (n - 1) / 26
+    }
+    return sb.reverse().toString()
+}
 ```
 
-资源文件夹（res）下创建 xml 目录，创建 provider_paths.xml 文件，内容如下  
+### 几个容易踩的坑
 
+**XML 转义和非法字符。** 除了 `& < > "` 要转义，XML 1.0 还不允许出现大部分控制字符（`\u0000` 到 `\u001F`，换行和制表符除外）。用户数据里混进一个这样的字符，Excel 打开时就会报「文件已损坏」。所以转义时直接丢掉它们：
+
+```kotlin
+private fun appendEscaped(out: Appendable, text: String) {
+    for (ch in text) {
+        when (ch) {
+            '&' -> out.append("&amp;")
+            '<' -> out.append("&lt;")
+            '>' -> out.append("&gt;")
+            '"' -> out.append("&quot;")
+            '\t', '\n', '\r' -> out.append(ch)
+            else -> if (ch >= ' ' && ch != '￾' && ch != '￿') out.append(ch)
+        }
+    }
+}
 ```
-<?xml version="1.0" encoding="utf-8"?>
+
+**表单名有限制。** 最长 31 个字符，不能包含 `\ / ? * [ ] :`，否则 Excel 同样打不开：
+
+```kotlin
+internal fun safeSheetName(name: String): String {
+    val cleaned = name.replace(Regex("[\\\\/?*\\[\\]:]"), "_").trim('\'').take(31)
+    return cleaned.ifBlank { "Sheet1" }
+}
+```
+
+**写到一半失败。** 旧版本是先删掉旧文件再写新文件，中途出错就会留下一个打不开的半截文件。现在先写到同目录的临时文件，成功后再替换：
+
+```kotlin
+fun writeToFile(file: File, rows: List<List<Any?>>, sheetName: String = "Sheet1", hasHeader: Boolean = true) {
+    validate(rows)
+    val dir = file.absoluteFile.parentFile ?: throw IOException("无法确定父目录: ${file.absolutePath}")
+    if (!dir.exists() && !dir.mkdirs()) throw IOException("目录创建失败: ${dir.absolutePath}")
+
+    val tmp = File(dir, "${file.name}.tmp")
+    try {
+        tmp.outputStream().use { write(it, rows, sheetName, hasHeader) }
+        if (file.exists() && !file.delete()) throw IOException("旧文件删除失败: ${file.absolutePath}")
+        if (!tmp.renameTo(file)) throw IOException("重命名失败: ${tmp.absolutePath} -> ${file.absolutePath}")
+    } finally {
+        if (tmp.exists()) tmp.delete()
+    }
+}
+```
+
+### 导出大量数据
+
+`XlsxWriter` 接收的是 `List<List<Any?>>`，但它只会按下标顺序读取，不要求数据真的都放在内存里。示例项目的演示数据用 `AbstractList` 按需生成每一行：
+
+```kotlin
+fun rows(config: ExportConfig): List<List<Any?>> = object : AbstractList<List<Any?>>() {
+    private val headerOffset = if (config.hasHeader) 1 else 0
+    override val size: Int = config.totalRows
+    override fun get(index: Int): List<Any?> =
+        if (index < headerOffset) header(config.columnCount) else row(index - headerOffset + 1, config.columnCount)
+}
+```
+
+实际项目里也可以用同样的思路包装数据库游标或分页查询。写入是边生成边输出的，所以导出 10 万行时内存占用依然很小。在电脑的 JVM 上，10 万行 × 8 列大约需要 1.5 秒，生成的文件约 3.3 MB。
+
+## 文件存在哪里
+
+旧版本把文件写到 `getExternalFilesDir()`，也就是 `/sdcard/Android/data/包名/files/Documents/`，还申请了 `WRITE_EXTERNAL_STORAGE` 权限。现在这两样都不合适了：
+
+- 从 Android 10 开始实行分区存储（Scoped Storage），`WRITE_EXTERNAL_STORAGE` 基本失效。
+- 从 Android 11 开始，大多数文件管理器已经进不去 `Android/data` 目录，用户根本找不到导出的文件。
+
+新版本给了两种方式，**都不需要任何存储权限**。
+
+### 方式一：导出并打开
+
+文件写到应用内部存储 `filesDir/exports/`，再通过 `FileProvider` 生成 `content://` 链接交给其他应用打开或分享。为了不让内部存储无限增长，只保留最近 5 个文件。
+
+`FileProvider` 只暴露这一个目录，不要像旧版本那样用 `external-path path="."` 把整个外部存储都暴露出去。`res/xml/provider_paths.xml` 的内容如下：
+
+```xml
 <paths>
-    <external-path
-        name="external_files"
-        path="." />
+    <files-path name="exports" path="exports/" />
 </paths>
 ```
 
-新增 FileUtils.kt 工具类，代码如下   
+`AndroidManifest.xml` 中注册 `FileProvider` 的写法和以前一样：
 
+```xml
+<provider
+    android:name="androidx.core.content.FileProvider"
+    android:authorities="${applicationId}.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/provider_paths" />
+</provider>
 ```
-package com.moon.exportexcelfile
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
-import android.util.Log
-import android.widget.Toast
-import androidx.core.content.FileProvider
-import java.io.File
-import java.util.*
+### 方式二：保存到…
 
-/**
- *
- *@author : lq
- *@date   : 5/10/21
- *@desc   : 文件打开工具类
- *
- */
-class FileUtils {
+调用系统的「另存为」界面（SAF，存储访问框架），让用户自己选位置，可以是下载目录、网盘等等。用 Activity Result API 一行就能注册：
 
-    private var mContext: Context
-
-    constructor(mContext: Context) {
-        this.mContext = mContext
+```kotlin
+private val createDocument =
+    registerForActivityResult(ActivityResultContracts.CreateDocument(XlsxWriter.MIME_TYPE)) { uri ->
+        viewModel.onSaveLocationChosen(uri?.toString())
     }
 
-    /**声明各种类型文件的dataType */
-    private val DATA_TYPE_ALL = "*/*" //未指定明确的文件类型，不能使用精确类型的工具打开，需要用户选择
+// 点击按钮时，传入建议的文件名
+createDocument.launch("export_20261118_093000.xlsx")
+```
 
-    private val DATA_TYPE_APK = "application/vnd.android.package-archive"
-    private val DATA_TYPE_VIDEO = "video/*"
-    private val DATA_TYPE_AUDIO = "audio/*"
-    private val DATA_TYPE_HTML = "text/html"
-    private val DATA_TYPE_IMAGE = "image/*"
-    private val DATA_TYPE_PPT = "application/vnd.ms-powerpoint"
-    private val DATA_TYPE_EXCEL = "application/vnd.ms-excel"
-    private val DATA_TYPE_WORD = "application/msword"
-    private val DATA_TYPE_CHM = "application/x-chm"
-    private val DATA_TYPE_TXT = "text/plain"
-    private val DATA_TYPE_PDF = "application/pdf"
+拿到 `uri` 后用 `ContentResolver` 打开输出流写入。这里就用上了前面说的「`write()` 不关闭流」，由 `use` 负责关闭：
 
-    /**
-     * 产生除了视频、音频、网页文件外，打开其他类型文件的Intent
-     * @param filePath 文件路径
-     * @param dataType 文件类型
-     * @return
-     */
-    private fun generateCommonIntent(
-        filePath: String,
-        dataType: String
-    ): Intent? {
-        val intent = Intent()
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.setAction(Intent.ACTION_VIEW)
-        val file = File(filePath)
-        val uri = getUri(intent, file)
-        intent.setDataAndType(uri, dataType)
-        return intent
+```kotlin
+contentResolver.openOutputStream(uri, "wt")?.use { out ->
+    XlsxWriter.write(out, rows, SHEET_NAME, hasHeader)
+}
+```
+
+`"wt"` 表示写入前清空原有内容。用户选择覆盖已有文件时，如果只用 `"w"`，在部分系统上旧内容不会被截断，文件尾部会残留旧数据。
+
+## 打开和分享文件
+
+旧版本的 `FileUtils` 写了一百多行，根据扩展名判断十几种 MIME 类型，还要区分 Android 7.0 前后用 `Uri.fromFile` 还是 `FileProvider`。现在 `minSdk` 是 21，文件也都通过 `content://` 提供，只需要两个方法：
+
+```kotlin
+object FileActions {
+
+    fun open(context: Context, uri: Uri, mimeType: String): Boolean {
+        val intent = Intent(Intent.ACTION_VIEW)
+            .setDataAndType(uri, mimeType)
+            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        return start(context, intent)
     }
 
-
-    /**
-     * 产生打开视频或音频的Intent
-     * @param filePath 文件路径
-     * @param dataType 文件类型
-     * @return
-     */
-    private fun generateVideoAudioIntent(
-        filePath: String,
-        dataType: String
-    ): Intent? {
-        val intent =
-            Intent(Intent.ACTION_VIEW)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        intent.putExtra("oneshot", 0)
-        intent.putExtra("configchange", 0)
-        val file = File(filePath)
-        intent.setDataAndType(getUri(intent, file), dataType)
-        return intent
+    fun share(context: Context, uri: Uri, mimeType: String, title: CharSequence): Boolean {
+        val intent = Intent(Intent.ACTION_SEND)
+            .setType(mimeType)
+            .putExtra(Intent.EXTRA_STREAM, uri)
+            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        // 部分系统只会把 ClipData 中的 Uri 授权给目标应用
+        intent.clipData = ClipData.newRawUri(null, uri)
+        return start(context, Intent.createChooser(intent, title))
     }
 
-    /**
-     * 产生打开网页文件的Intent
-     * @param filePath 文件路径
-     * @return
-     */
-    private fun generateHtmlFileIntent(filePath: String): Intent? {
-        val uri = Uri.parse(filePath)
-            .buildUpon()
-            .encodedAuthority("com.android.htmlfileprovider")
-            .scheme("content")
-            .encodedPath(filePath)
-            .build()
-        val intent =
-            Intent(Intent.ACTION_VIEW)
-        intent.setDataAndType(uri, DATA_TYPE_HTML)
-        return intent
-    }
-
-    /**
-     * 获取对应文件的Uri
-     * @param intent 相应的Intent
-     * @param file 文件对象
-     * @return
-     */
-    private fun getUri(intent: Intent, file: File): Uri? {
-        var uri: Uri? = null
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            //判断版本是否在7.0以上
-            uri = FileProvider.getUriForFile(
-                mContext, mContext.getPackageName().toString() + ".fileprovider",
-                file
-            )
-            //添加这一句表示对目标应用临时授权该Uri所代表的文件
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        } else {
-            uri = Uri.fromFile(file)
-        }
-        return uri
-    }
-
-    /**
-     * 打开文件
-     * @param filePath 文件的全路径，包括到文件名
-     */
-    fun openFile(filePath: String) {
-        Log.i("lq", "打开文件 == $filePath")
-        val file = File(filePath)
-        if (!file.exists()) {
-            //如果文件不存在
-            Toast.makeText(mContext, "文件打开失败，文件已经被移动或者删除", Toast.LENGTH_SHORT).show()
-            return
-        }
-        /* 取得扩展名 */
-        val end =
-            file.name.substring(file.name.lastIndexOf(".") + 1, file.name.length)
-                .toLowerCase(Locale.getDefault())
-        /* 依扩展名的类型决定MimeType */
-        var intent: Intent? = null
-        if (end == "m4a" || end == "mp3" || end == "mid" || end == "xmf" || end == "ogg" || end == "wav") {
-            intent = generateVideoAudioIntent(filePath, DATA_TYPE_AUDIO)
-        } else if (end == "3gp" || end == "mp4") {
-            intent = generateVideoAudioIntent(filePath, DATA_TYPE_VIDEO)
-        } else if (end == "jpg" || end == "gif" || end == "png" || end == "jpeg" || end == "bmp") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_IMAGE)
-        } else if (end == "apk") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_APK)
-        } else if (end == "html" || end == "htm") {
-            intent = generateHtmlFileIntent(filePath)
-        } else if (end == "ppt") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_PPT)
-        } else if (end == "xls" || end == "xlsx") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_EXCEL)
-        } else if (end == "doc" || end == "docx") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_WORD)
-        } else if (end == "pdf") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_PDF)
-        } else if (end == "chm") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_CHM)
-        } else if (end == "txt") {
-            intent = generateCommonIntent(filePath, DATA_TYPE_TXT)
-        } else {
-            intent = generateCommonIntent(filePath, DATA_TYPE_ALL)
-        }
-        try {
-            mContext.startActivity(intent)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(mContext, "未找到可以打开文件的软件", Toast.LENGTH_SHORT).show()
-        }
-
+    private fun start(context: Context, intent: Intent): Boolean = try {
+        context.startActivity(intent)
+        true
+    } catch (e: ActivityNotFoundException) {
+        false
     }
 }
 ```
 
-在导出后调用即可  
+MIME 类型要和格式对应。旧版本给 `.xlsx` 也用了 `application/vnd.ms-excel`，那其实是 `.xls` 的类型。`.xlsx` 的正确类型是：
 
 ```
-     FileUtils(this).openFile(file.absolutePath)
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 ```
 
-新的代码结构图：   
+类型写错时，有些应用会不出现在「打开方式」列表里。
 
-<br/>
-![](/images/posts/export_excel_file/10.webp){:width="80%" height="80%"}  
-<br/>
+## 界面与架构
 
-问题：  
-混淆打包需要在 proguard-rules.pro 混淆文件中添加   
-```
-#表格导出相关
--keep class jxl.** {*;}
--keep class common.** {*;}
+旧版本把生成数据、写文件、打开文件都写在 `MainActivity` 里，并且在主线程写文件。数据一多就会卡住界面，旋转屏幕还会把正在进行的导出打断。新版本按 MVVM 拆成几层：
 
 ```
+excel/XlsxWriter.kt        xlsx 写入器，纯 Kotlin
+data/DemoData.kt           按需生成的演示数据
+data/ExportRepository.kt   文件读写（在 Dispatchers.IO 上执行）、FileProvider、SAF
+ui/MainViewModel.kt        输入校验、界面状态（StateFlow）、一次性事件（Channel）
+ui/MainActivity.kt         只负责渲染状态和转发点击
+ui/FileActions.kt          打开 / 分享文件
+```
 
-<br/>
-<br/>
-<br/>
-<br/>
+几个值得一提的细节：
+
+- **导出任务放在 ViewModel 里**，旋转屏幕不会中断。「打开文件」「弹出提示」这类事件通过 `Channel` 发送，只会被消费一次，旋转后不会重复弹出。
+- **「保存到…」分两步**：先弹出选择器，用户选好位置后再导出。打开选择器期间应用进入后台，可能被系统回收，所以导出参数存在 `SavedStateHandle` 里，回来后能恢复。
+- **导出期间按钮不可点**，ViewModel 里也会忽略重复请求，避免连点生成多个文件。
+- **界面用 Material 3**，以 Excel 绿为主色，适配深色模式和 Android 15 起强制的全面屏（edge-to-edge）。
+
+## 混淆
+
+以前需要加 jxl 的 keep 规则，现在没有第三方库，也不用反射，开启 R8 后什么都不用加。release 包开启了代码和资源压缩，最终约 1.9 MB，大部分体积来自 Material 组件。
+
+## 测试
+
+`XlsxWriter` 不依赖 Android，可以在电脑上直接跑单元测试。测试的做法是：写出文件，用 `ZipFile` 解压，再用 `DocumentBuilder` 逐个解析 XML，检查单元格类型、转义结果、样式、冻结窗格和列宽是否正确。只要每个 XML 都能被解析、结构正确，Excel 就不会报文件损坏。
+
+```bash
+./gradlew testDebugUnitTest
+```
+
+## 局限
+
+`XlsxWriter` 只做「导出一张表给人看」，下面这些都不支持：
+
+- 多个工作表
+- 公式、合并单元格、图片
+- 日期格式（建议先格式化成字符串）
+- 读取 Excel
+
+有这些需求时，可以考虑 [FastExcel](https://github.com/dhatim/fastexcel)（同样是流式写入，体积小）或 [Apache POI](https://poi.apache.org/)（功能最全）。
+
 <br/>
 <br/>
 <br/>
