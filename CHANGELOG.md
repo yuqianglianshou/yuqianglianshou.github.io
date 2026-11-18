@@ -21,6 +21,10 @@
 - 2026-08-25：新增根目录 `AGENTS.md`，统一项目开发、中文注释、修改记录和验证要求。
 - 2026-08-25：新增 `CHANGELOG.md`，用于持续记录后续项目修改。
 
+### 修复
+
+- 2026-11-18：修复 GitHub Actions 自 2026-11-10 起在“配置 Ruby”一步失败、导致推送后线上站点不更新的问题：`ubuntu-latest` 迁移到 Ubuntu 26.04 后不再提供 Ruby 4.0.4 预编译包，工作流改为安装 `4.0` 系列最新补丁版，`Gemfile` 的 Ruby 约束同步放宽为 `~> 4.0.4`，本地仍以 `.ruby-version` 为准。验证：`npm run check`。
+
 ### 变更
 
 - 2026-11-18：参考 [autosize-flowlayout](https://github.com/yuqianglianshou/autosize-flowlayout) 最新版重写《自适应宽度的流式标签布局》：按 Jetpack Compose 参考实现讲解用法与四步测量原理（含余数像素分配、最后一行不拉伸、单选 / 多选无障碍语义），新增与官方实验性 `FlexBox` 的对比和使用注意；两张核心代码截图改为可复制的代码块并移除原图。验证：`npm run build`。

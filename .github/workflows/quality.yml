@@ -27,7 +27,8 @@ jobs:
       - name: 配置 Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          # 新版 runner 只预编译每个系列的最新补丁版，固定补丁号会找不到；本地仍以 .ruby-version 为准。
+          ruby-version: "4.0"
           bundler-cache: true
 
       - name: 安装前端依赖
